@@ -2,7 +2,7 @@
 
 This is the master index of every project symlinked into `_projects/`. Each entry is built from that project's own root `README.md` (or, where the README was empty/absent, from its `CLAUDE.md`, plan docs, research synthesis, and git history). The `_projects/` symlinks point at the real working copies elsewhere on disk; this MetaProject directory exists purely to coordinate work that spans more than one of them.
 
-> **Last generated:** 2026-06-12 · **Projects indexed:** 19 (across 8 corporate/product umbrellas)
+> **Last generated:** 2026-06-12 · **Projects indexed:** 20 (across 8 corporate/product umbrellas)
 > Regenerate after adding/removing a symlink or when a project's README changes materially.
 
 ---
@@ -30,9 +30,11 @@ This is the master index of every project symlinked into `_projects/`. Each entr
 | **aixodev-professional** | AIXO.Dev | **Planned** Rust/Tauri cross-platform **desktop edition** of the AIXO.Dev Platform (sub-project of `aixodev-web`): offline-first via embedded Rust logic + full sync on reconnect; desktop stack to converge with Divia.AI Professional | Rust · Tauri (planned) | Forward-looking placeholder — no code yet; long-horizon (v3/v4 era), gated behind the web platform's eventual Rust-server migration (3 commits) |
 | **divia_ai-professional** | DiviaAI | Local-first desktop outliner-editor for structured thinking & writing; SQLite-backed `.dvai` docs, DiviaCards | Rust · Tauri v2 · SvelteKit · TipTap | **Active dev** — real app; Phase 03 (ensemble collab) (243 commits) |
 | **divia_ai-enterprise** | DiviaAI | Commercial Rust team server — a locked-down, higher-perf version of the DiviaHome server | Rust (planned) | **Intentional empty placeholder** — not started until DiviaHome v1 has 30 days of real use (no git repo) |
+| **diviacontacts-gmail** | DiviaAI | **DiviaContacts** Gmail extension — a CRM-style **reader/viewer** for the Divia.AI PKMS inside Gmail: resolves email people/companies to their entities, views their PKMS pages, surfaces tasks/events, logs emails & calls (Streak is the parallel). Carried over with full history from the former `divia-gmail` task-sidebar repo | Chrome MV3 · InboxSDK | Research **complete**; pre-Phase 00 build (20 commits) |
+| **diviacontacts-android** | DiviaAI | **DiviaContacts** Android app — *planned* mobile reader/viewer for the Divia.AI PKMS | mobile-native (planned) | Empty placeholder — new dir, no code yet |
+| **diviacontacts-iOS** | DiviaAI | **DiviaContacts** iPhone/iPad app — *planned* mobile reader/viewer for the Divia.AI PKMS | mobile-native (planned) | Empty placeholder — new dir, no code yet |
 | **divia_cards** | DiviaCards | Flask + Svelte app rendering text inputs as typed “cards”, compiled to framework-agnostic Web Components | Python · Flask · Svelte 5 · SocketIO | Early prototype — PLAN + PLAN-v2 (4 commits, Nov 2025) |
 | **diviahome-web** | DiviaHome | Open-source, self-hosted personal/household hub: documents (DDF/`.dvai`), tasks, calendar, AI-assisted Activity Log; the Divia.Network anchor app | Python · Flask · SQLite→Postgres | Phase 00 pending — **current ~60-day singular focus** (6 commits) |
-| **divia-gmail** | DiviaHome | Chrome MV3 / InboxSDK extension embedding an Asana-grade task sidebar in Gmail, backed by the DiviaHome / Divia.AI Enterprise server | Browser extension (MV3) → Flask API | Research **complete**; pre-Phase 00 build (19 commits) |
 | **legendarymoney-web** | LegendaryMoney | AI-assisted personal finance manager (PFM) for incomplete/messy data: confidence-aware ledger, balance assertions, NL capture | Python · Flask · SQLite→Postgres | Phase 00 pending (7 commits) |
 | **sattvasichealth** | SattvasicHealth | Personal health-metrics aggregator: labs, CGM, weight/DEXA, Rx/supplements, calories/macros, trends & correlations | Python · Flask · SQLite→Postgres | Phase 00 pending (4 commits) |
 | **tastypantry** | TastyPal | Kitchen pantry-inventory app: foods, food logs, receipts, shopping lists, recipes (compound foods) | Python · Flask · SQLite→Postgres | Phase 00 pending — seed prototype for the Divia.Network siblings (4 commits) |
@@ -60,11 +62,14 @@ The umbrella John's CLAUDE.md describes in depth. **`aixodev-web`** is the centr
 
 - **divia_ai-professional** — the real, in-development cross-platform desktop outliner (Rust/Tauri/SvelteKit). Defines the ecosystem's core vocabulary: the `.dvai` document format and DiviaCards. · `git@github.com:DiviaAI/divia_ai-professional.git`
 - **divia_ai-enterprise** — the commercial team server, deliberately **not yet started** (a Rust hardening of the DiviaHome server). Held as an empty placeholder until DiviaHome reaches a battle-tested v1.
+- **DiviaContacts** — a sub-family of lightweight, **CRM-style reader/viewer** clients for the Divia.AI PKMS. The desktop/server flagships (Divia.AI Professional / Enterprise) remain the *full* PKMS; these are scoped-down, immediate-access viewers — **Streak** is the closest market parallel:
+  - **diviacontacts-gmail** — the Gmail extension (Chrome MV3 · InboxSDK): resolves email senders to People/Companies in the PKMS, views their pages, surfaces tasks/events, and logs emails & calls. Carried over with full git history from the former `divia-gmail` task-sidebar project (renamed/repositioned 2026-06-12); research complete, pre-Phase 00. · `git@github.com:DiviaAI/diviacontacts-gmail.git`
+  - **diviacontacts-android** — *planned* Android client (new empty placeholder).
+  - **diviacontacts-iOS** — *planned* iPhone/iPad client (new empty placeholder).
 
 ### DiviaHome — open-source personal/household edition
 
 - **diviahome-web** — the self-hosted Flask hub and the **experimental prototype that drives the whole Divia.Network ecosystem**; the current primary focus.
-- **divia-gmail** — a Gmail-embedded task sidebar that surfaces the DiviaHome / Divia.AI Enterprise server inside the inbox (research phase complete).
 
 ### DiviaCards
 
@@ -91,9 +96,11 @@ The umbrella John's CLAUDE.md describes in depth. **`aixodev-web`** is the centr
 - *AIXO.Dev:* `aixodev-projects`, `aixodev-codemap`, `aixodev-collabs`, and `aixodev-workgroups` are fast Flask prototypes whose proven pieces fold back into **`aixodev-web`**.
 - *Divia:* **`diviahome-web`** is the fast Python proving ground; its battle-tested ideas later harden into the Rust **`divia_ai-enterprise`** server (and inform **`divia_ai-professional`**). **`kingstratvc-web`** is a client-specific implementation that will converge toward the DiviaHome server, keeping only its firm-specific customization.
 
+**Reader/viewer clients vs. full PKMS.** The **DiviaContacts** family (`diviacontacts-gmail` + the planned `diviacontacts-android` / `diviacontacts-iOS`) are deliberately *not* full apps: they are thin, CRM-style **reader/viewers** that surface and log activity against the Divia.AI PKMS, while the heavy lifting stays in the full PKMS flagships (`divia_ai-professional` desktop + the planned `divia_ai-enterprise` server). `diviahome-web` is the interim dev/test server they target while the commercial servers are built. The closest market analogue is Streak/Copper-style CRM-in-Gmail.
+
 **Shared workflow lineage.** Almost every prototype was bootstrapped from a common `_workflows/` development system that originates in **`aixodev-collabs`**, cloned down the chain: `aixodev-collabs → tastypantry → sattvasichealth → diviahome-web → legendarymoney-web`, with `aixodev-workgroups` and `kingstratvc-web` branching off the same root. They all share the same sprint pipeline (New Phase → Sprint Planning → Human Review → Execution → Code Review → Closeout) and git conventions (`claudecode/@claude/phase{NN}-sprint{NN}` branches, `P{NN}-S{NN}-T{NN}` commits, local-only by default).
 
-**Common tech defaults.** The web prototypes overwhelmingly share one stack: Python 3.12+, `uv`, Flask (app-factory + Blueprints + Jinja2), SQLAlchemy 2.0, **SQLite now → PostgreSQL later**, pytest + Ruff. The desktop/native outliers are `divia_ai-professional` (Rust/Tauri/SvelteKit), the planned `divia_ai-enterprise` (Rust), the planned `aixodev-professional` (Rust/Tauri desktop edition of the AIXO.Dev Platform), and `divia-gmail` (a browser extension).
+**Common tech defaults.** The web prototypes overwhelmingly share one stack: Python 3.12+, `uv`, Flask (app-factory + Blueprints + Jinja2), SQLAlchemy 2.0, **SQLite now → PostgreSQL later**, pytest + Ruff. The desktop/native outliers are `divia_ai-professional` (Rust/Tauri/SvelteKit), the planned `divia_ai-enterprise` (Rust), the planned `aixodev-professional` (Rust/Tauri desktop edition of the AIXO.Dev Platform), and `diviacontacts-gmail` (a browser extension).
 
 **Cross-family shared desktop stack.** Although AIXO.Dev and Divia.AI/DiviaHome are entirely separate corporate/product families, two of their desktop apps are meant to share a **near-identical Rust/Tauri foundation**: **`divia_ai-professional`** (shipping today) and the planned **`aixodev-professional`**. The intent is that hard-won lessons and optimizations from each product's desktop work flow into the other, while their application/domain layers stay distinct (an outliner-editor vs. an AIXO.Dev Platform client).
 
@@ -101,4 +108,4 @@ The umbrella John's CLAUDE.md describes in depth. **`aixodev-web`** is the centr
 
 ## Maintenance
 
-This file is a generated index, not a hand-maintained source of truth — each project's own `README.md` remains authoritative. To refresh: re-read every `_projects/*/README.md`, fall back to `CLAUDE.md`/plan/research/git for the empties (`aixodev-professional`, `divia_ai-enterprise`, `divia_cards`, `divia-gmail`, plus any newcomers), and regenerate the tables above.
+This file is a generated index, not a hand-maintained source of truth — each project's own `README.md` remains authoritative. To refresh: re-read every `_projects/*/README.md`, fall back to `CLAUDE.md`/plan/research/git for placeholders & empties (`divia_ai-enterprise`, `diviacontacts-android`, `diviacontacts-iOS`, `aixodev-professional`, `divia_cards`, plus any newcomers), and regenerate the tables above.
