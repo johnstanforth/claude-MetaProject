@@ -2,7 +2,7 @@
 
 This is the master index of every project symlinked into `_projects/`. Each entry is built from that project's own root `README.md` (or, where the README was empty/absent, from its `CLAUDE.md`, plan docs, research synthesis, and git history). The `_projects/` symlinks point at the real working copies elsewhere on disk; this MetaProject directory exists purely to coordinate work that spans more than one of them.
 
-> **Last generated:** 2026-06-12 · **Projects indexed:** 20 (across 8 corporate/product umbrellas)
+> **Last generated:** 2026-06-12 · **Projects indexed:** 19 (across 8 corporate/product umbrellas)
 > Regenerate after adding/removing a symlink or when a project's README changes materially.
 
 ---
@@ -26,8 +26,7 @@ This is the master index of every project symlinked into `_projects/`. Each entr
 | **aixodev-codemap** | AIXO.Dev | Prototype: source-code analysis (symbols, edges, features, clustering); functionality to migrate into `aixodev-web` | Python · Flask · SQLite | Phase 01 — Flask foundation done; extraction/analysis engines deferred (91 commits) |
 | **aixodev-collabs** | AIXO.Dev | Prototype: revised multi-agent / multi-LLM **collaboration & decision** models; root of the shared workflow system | Python · Flask (planned) | Phase 00 research active; no app code yet (44 commits) |
 | **aixodev-workgroups** | AIXO.Dev | Prototype: runtime **task coordination & assignment** for agent “workgroups”, plus a FastAPI status sidecar | Python · Flask + FastAPI sidecar (planned) | Phase 00 pending; scaffold only (5 commits) |
-| **aixodev-openhands** | AIXO.Dev | Research project: analysis of external codebases + comparative deep research (incl. OpenHands) | Research / docs | Phase 01 open-prompt-prototype (65 commits) |
-| **aixodev-openhands-claude** | AIXO.Dev | Claude-run companion to `aixodev-openhands` (same charter: external-codebase analysis & deep research) | Research / docs | Research branch; local-only (44 commits) |
+| **aixodev-openhands** | AIXO.Dev | Research repo: analysis of external codebases + comparative deep research (incl. OpenHands); the consolidated repo after the former `aixodev-openhands-claude` fork was merged back | Research / docs | Phase 01 open-prompt-prototype (65 commits) |
 | **aixodev-professional** | AIXO.Dev | Earliest-stage scaffold (workflow dirs + a staged “Twilight” Bootstrap theme); README/CLAUDE/specs still empty | TBD | Placeholder — 2 commits, no description or code yet |
 | **divia_ai-professional** | DiviaAI | Local-first desktop outliner-editor for structured thinking & writing; SQLite-backed `.dvai` docs, DiviaCards | Rust · Tauri v2 · SvelteKit · TipTap | **Active dev** — real app; Phase 03 (ensemble collab) (243 commits) |
 | **divia_ai-enterprise** | DiviaAI | Commercial Rust team server — a locked-down, higher-perf version of the DiviaHome server | Rust (planned) | **Intentional empty placeholder** — not started until DiviaHome v1 has 30 days of real use (no git repo) |
@@ -54,7 +53,7 @@ The umbrella John's CLAUDE.md describes in depth. **`aixodev-web`** is the centr
 - **aixodev-codemap** — code-analysis prototype → `aixodev-web`. · `git@github.com:aixodev/aixodev-codemap.git`
 - **aixodev-collabs** — multi-agent collaboration/decision-model prototype; also the source of the shared `_workflows/` system every sibling is bootstrapped from. · `git@github.com:aixodev/aixodev-collabs.git`
 - **aixodev-workgroups** — task-coordination prototype with a FastAPI status sidecar. · `git@github.com:aixodev/aixodev-workgroups.git`
-- **aixodev-openhands** / **aixodev-openhands-claude** — paired research repos for external-codebase analysis & comparative deep research.
+- **aixodev-openhands** — research repo for external-codebase analysis & comparative deep research; now the consolidated repo (the retired `aixodev-openhands-claude` fork's @claude research line was merged back and labeled as branch `openhands/research/@claude/code_analysis-phaseD1`).
 - **aixodev-professional** — empty early scaffold (only a Bootstrap theme staged so far).
 
 ### DiviaAI — the commercial Divia.AI products
