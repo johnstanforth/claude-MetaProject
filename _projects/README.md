@@ -39,7 +39,7 @@ This is the master index of every project symlinked into `_projects/`. Each entr
 | **sattvasichealth** | SattvasicHealth | Personal health-metrics aggregator: labs, CGM, weight/DEXA, Rx/supplements, calories/macros, trends & correlations | Python · Flask · SQLite→Postgres | Phase 00 pending (4 commits) |
 | **tastypantry** | TastyPal | Kitchen pantry-inventory app: foods, food logs, receipts, shopping lists, recipes (compound foods) | Python · Flask · SQLite→Postgres | Phase 00 pending — seed prototype for the Divia.Network siblings (4 commits) |
 | **spicemaster3000** | TastyPal | Spice blends, core spices & flavor pairings (Flavor Bible + 6 vendors); John's passion project | Python · Flask (planned) | Phase 00 research/ideation in progress (30 commits) |
-| **kingstratvc-web** | KingmakerStrategic | Private PKMS / “company intranet” for a PE/VC firm: portfolio & idea-stage startup tracking; a trial-run of a Divia.AI Enterprise client install | Python · Flask · SQLite→Postgres | Phase 00 pending (4 commits) |
+| **kingstratvc-web** | KingmakerStrategic | Private PKMS / “company intranet” for a PE/VC firm: portfolio & idea-stage startup tracking; a trial-run of a Divia.AI Enterprise client install. **Now a git fork of `diviahome-web`** (shares its history; client delta on `kingstrat-main`) | Python · Flask · SQLite→Postgres | Phase 00 pending — git fork of `diviahome-web` (+1 client commit) |
 
 ---
 
@@ -84,7 +84,7 @@ The umbrella John's CLAUDE.md describes in depth. **`aixodev-web`** is the centr
 
 - **legendarymoney-web** (LegendaryMoney) — AI-assisted PFM built around incomplete-information.
 - **sattvasichealth** (SattvasicHealth) — personal health-metrics aggregation & correlation.
-- **kingstratvc-web** (KingmakerStrategic) — private PE/VC intranet; a manual trial-run of a future Divia.AI Enterprise client deployment.
+- **kingstratvc-web** (KingmakerStrategic) — private PE/VC intranet; a trial-run of a future Divia.AI Enterprise client deployment. **Now a git fork of `diviahome-web`** — it shares DiviaHome's history and tracks it via the branch model documented in the repo's `GIT-BRANCHING.md` (`main` = pristine DiviaHome mirror; `kingstrat-main` = client delta; stable updates pulled from `upstream`).
 
 ---
 
@@ -94,11 +94,11 @@ The umbrella John's CLAUDE.md describes in depth. **`aixodev-web`** is the centr
 
 **Prototype → product convergence.** Two parallel “prototype now, merge later” patterns run through the index:
 - *AIXO.Dev:* `aixodev-projects`, `aixodev-codemap`, `aixodev-collabs`, and `aixodev-workgroups` are fast Flask prototypes whose proven pieces fold back into **`aixodev-web`**.
-- *Divia:* **`diviahome-web`** is the fast Python proving ground; its battle-tested ideas later harden into the Rust **`divia_ai-enterprise`** server (and inform **`divia_ai-professional`**). **`kingstratvc-web`** is a client-specific implementation that will converge toward the DiviaHome server, keeping only its firm-specific customization.
+- *Divia:* **`diviahome-web`** is the fast Python proving ground; its battle-tested ideas later harden into the Rust **`divia_ai-enterprise`** server (and inform **`divia_ai-professional`**). **`kingstratvc-web`** is a client-specific implementation — now literally a **git fork of `diviahome-web`** (shared history) — that pulls product updates from `upstream` onto a pristine `main` mirror and keeps its firm-specific customization as a visible delta on `kingstrat-main`; convergence = that delta shrinking as general features graduate up into DiviaHome.
 
 **Reader/viewer clients vs. full PKMS.** The **DiviaContacts** family (`diviacontacts-gmail` + the planned `diviacontacts-android` / `diviacontacts-iOS`) are deliberately *not* full apps: they are thin, CRM-style **reader/viewers** that surface and log activity against the Divia.AI PKMS, while the heavy lifting stays in the full PKMS flagships (`divia_ai-professional` desktop + the planned `divia_ai-enterprise` server). `diviahome-web` is the interim dev/test server they target while the commercial servers are built. The closest market analogue is Streak/Copper-style CRM-in-Gmail.
 
-**Shared workflow lineage.** Almost every prototype was bootstrapped from a common `_workflows/` development system that originates in **`aixodev-collabs`**, cloned down the chain: `aixodev-collabs → tastypantry → sattvasichealth → diviahome-web → legendarymoney-web`, with `aixodev-workgroups` and `kingstratvc-web` branching off the same root. They all share the same sprint pipeline (New Phase → Sprint Planning → Human Review → Execution → Code Review → Closeout) and git conventions (`claudecode/@claude/phase{NN}-sprint{NN}` branches, `P{NN}-S{NN}-T{NN}` commits, local-only by default).
+**Shared workflow lineage.** Almost every prototype was bootstrapped from a common `_workflows/` development system that originates in **`aixodev-collabs`**, cloned down the chain: `aixodev-collabs → tastypantry → sattvasichealth → diviahome-web → legendarymoney-web`, with `aixodev-workgroups` branching off the same root (`kingstratvc-web` has since been re-created as a git fork of `diviahome-web`, inheriting the same workflow system through it). They all share the same sprint pipeline (New Phase → Sprint Planning → Human Review → Execution → Code Review → Closeout) and git conventions (`claudecode/@claude/phase{NN}-sprint{NN}` branches, `P{NN}-S{NN}-T{NN}` commits, local-only by default).
 
 **Common tech defaults.** The web prototypes overwhelmingly share one stack: Python 3.12+, `uv`, Flask (app-factory + Blueprints + Jinja2), SQLAlchemy 2.0, **SQLite now → PostgreSQL later**, pytest + Ruff. The desktop/native outliers are `divia_ai-professional` (Rust/Tauri/SvelteKit), the planned `divia_ai-enterprise` (Rust), the planned `aixodev-professional` (Rust/Tauri desktop edition of the AIXO.Dev Platform), and `diviacontacts-gmail` (a browser extension).
 
