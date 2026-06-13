@@ -1,33 +1,76 @@
 #!/bin/bash
 set -e
 
-# set OpenAI/Codex profile to use
-MY_PROFILE="work"                # john@scalara.com
-# MY_PROFILE="personal"            # johnstanforth@gmail.com
-
-# set Codex model to use
-CODEX_MODEL="gpt-5.5"
-
-# set Codex reasoning-level
-# CODEX_REASONING="xhigh"
-CODEX_REASONING="high"
-
-
-
-# if [ "$1" = "--research" ]; then
-    # export CLAUDE_STREAM_IDLE_TIMEOUT_MS=1200000     # 20 minutes
-    # export CLAUDE_ENABLE_STREAM_WATCHDOG=1
-    # shift  # pop --research so the real claude doesn't see it
-    # echo "[claude-wrapper] --research mode enabled: stream idle timeout = 20 minutes"
-# else
-    # export CLAUDE_STREAM_IDLE_TIMEOUT_MS=420000      # 7 minutes
-    # export CLAUDE_ENABLE_STREAM_WATCHDOG=1
-    # echo "[claude-wrapper] normal mode: stream idle timeout = 7 minutes (pass --research as first arg for 20-minute research mode)"
-# fi
+# Codex (OpenAI) CLI wrapper script
+# Adds custom flags (--account, --model, --reasoning, --xhigh) that are parsed
+# here and translated into the right CODEX_HOME / model / reasoning-effort
+# settings before invoking the real Codex CLI binary. Unknown args pass through.
 
 CLI_BIN="$HOME/.npm-global/bin/codex"
 
-echo "[codex-wrapper] Launching with profile: ${MY_PROFILE} ... [${CODEX_MODEL} : ${CODEX_REASONING}]"
-export CODEX_HOME="${HOME}/.codex-${MY_PROFILE}"
-exec "$CLI_BIN" --model ${CODEX_MODEL} -c model_reasoning_effort=${CODEX_REASONING} "$@"
+# --- Defaults ---
+MY_PROFILE="work"          # work     -> ~/.codex-work      (john@scalara.com)
+                           # personal -> ~/.codex-personal  (johnstanforth@gmail.com)
+CODEX_MODEL="gpt-5.5"
+CODEX_REASONING="high"     # e.g. low | medium | high | xhigh
 
+# --- Parse our custom flags, collect passthrough args ---
+PASSTHROUGH_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --account)
+            shift
+            if [[ $# -eq 0 ]]; then
+                echo "[codex-wrapper] ERROR: --account requires a value (work or personal)." >&2
+                exit 1
+            fi
+            case "$1" in
+                work|personal)
+                    MY_PROFILE="$1"
+                    ;;
+                *)
+                    echo "[codex-wrapper] ERROR: --account must be 'work' or 'personal' (got '$1')." >&2
+                    exit 1
+                    ;;
+            esac
+            shift
+            ;;
+        --model)
+            shift
+            if [[ $# -eq 0 ]]; then
+                echo "[codex-wrapper] ERROR: --model requires a model name argument." >&2
+                exit 1
+            fi
+            CODEX_MODEL="$1"
+            shift
+            ;;
+        --reasoning)
+            shift
+            if [[ $# -eq 0 ]]; then
+                echo "[codex-wrapper] ERROR: --reasoning requires a level argument (e.g. high, xhigh)." >&2
+                exit 1
+            fi
+            CODEX_REASONING="$1"
+            shift
+            ;;
+        --xhigh)
+            # Shortcut for --reasoning xhigh
+            CODEX_REASONING="xhigh"
+            shift
+            ;;
+        *)
+            PASSTHROUGH_ARGS+=("$1")
+            shift
+            ;;
+    esac
+done
+
+# --- Select the OpenAI/Codex profile (work vs personal) ---
+export CODEX_HOME="${HOME}/.codex-${MY_PROFILE}"
+
+# --- Summary ---
+echo "[codex-wrapper] Launching with profile: ${MY_PROFILE} ... [${CODEX_MODEL} : ${CODEX_REASONING}]"
+
+# --- Launch ---
+exec "$CLI_BIN" --model "${CODEX_MODEL}" -c model_reasoning_effort="${CODEX_REASONING}" "${PASSTHROUGH_ARGS[@]}"
