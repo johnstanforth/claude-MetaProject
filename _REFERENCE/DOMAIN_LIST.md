@@ -21,20 +21,20 @@
         - redirect/alias: **<u>divia.pro</u>**   [expires: Aug 16, 2026] => **<u>divia.ai</u>**/diviaprofessionaldesktop/
         - redirect/alias: **<u>diviapro.com</u>**   [expires: Jun 13, 2027] => **<u>divia.ai</u>**/diviaprofessionaldesktop/
         - redirect/alias: **<u>diviaprofessional.com</u>**   [expires: Jun 13, 2027] => **<u>divia.ai</u>**/diviaprofessionaldesktop/
-      - git-repo: `@DiviaAI/divia_ai-professional`
+      - github: `@DiviaAI/divia_ai-professional`
     - Product: `Divia.AI Enterprise` (server)
       - canonical product page: **<u>divia.ai</u>**/diviaenterpriseserver/
         - redirect/alias: **<u>diviaenterprise.com</u>**   [expires: Jun 13, 2027] => **<u>divia.ai</u>**/diviaenterpriseserver/
-      - git-repo: `@DiviaAI/divia_ai-enterprise`
+      - github: `@DiviaAI/divia_ai-enterprise`
     - Product line: `DiviaContacts`
       - Domain: **<u>diviacontacts.com</u>**   [expires: Jun 13, 2027]
       - Product: `DiviaContacts for Gmail`
-        - git-repo: `@DiviaAI/diviacontacts-gmail`
+        - github: `@DiviaAI/diviacontacts-gmail`
       - Product: `DiviaContacts for Android`
-        - git-repo: `@DiviaAI/diviacontacts-android`
+        - github: `@DiviaAI/diviacontacts-android`
       - Product: `DiviaContacts for iPhone/iPad`
-        - git-repo: `@DiviaAI/diviacontacts-iOS`
-    - Project / Open Standard: <u>Divia Semantic Smart Cards</u> (aka: <u>DiviaCards</u>)
+        - github: `@DiviaAI/diviacontacts-iOS`
+    - Project / Open Standard: <u>Divia.AI Semantic Smart Cards</u> (aka: <u>DiviaCards</u>)
       - Domain: **<u>divia.cards</u>**   [expires: May 7, 2027]
         - redirect/alias: **<u>diviacards.com</u>**   [expires: Mar 10, 2027]
         - redirect/alias: **<u>diviasmartcards.com</u>**   [expires: May 7, 2027]
@@ -49,9 +49,9 @@
         - redirect/alias: **<u>divia.wtf</u>**   [expires: Mar 4, 2027]
       - Related tutorials/training microsite pages
         - redirect/alias: **<u>divia.money</u>**   [expires: Aug 16, 2026] => **<u>divia.network</u>**/managingmymoney/ (or similar)
-    - Project / Service: <u>Divia.Link</u>
-      - Domain: **<u>divia.link</u>**   [expires: Sep 7, 2026]
-        - redirect/alias: **<u>divialink.com</u>**   [expires: Sep 7, 2026]
+    - ~~Project / Service: <u>Divia.Link</u>~~ => (plan aborted + scheduled for deprecation/deletion in Sept 2026)
+      - ~~Domain: **<u>divia.link</u>**   [expires: Sep 7, 2026]~~
+        - ~~redirect/alias: **<u>divialink.com</u>**   [expires: Sep 7, 2026]~~
   - Subsidiary: <u>Divia.Life LLC</u>
     - Domain: **<u>divia.life</u>**   [expires: Feb 23, 2027]
       - redirect/alias: **<u>divia.app</u>**   [expires: May 8, 2027]
@@ -119,6 +119,7 @@
         - redirect/alias: **<u>aixo.codes</u>**   [expires: Mar 19, 2027] => **<u>aixo.dev</u>**/aixocode/
       - **<u>BUY-DOMAIN: aixocode.dev</u>**
     - Software Product: `AIXO.Dev Professional` (cross-platform desktop application)
+      - **<u>BUY-DOMAIN: aixodev.pro</u>**
       - **<u>BUY-DOMAIN: aixo.pro</u>**
 
 ## Related Books by <u>John Stanforth</u>
@@ -183,8 +184,9 @@
 - Company: <u>Kingmaker Strategic</u>
   - Domain: **<u>kingmakerstrategic.com</u>**   [expires: Jan 11, 2027]
     - redirect/alias: **<u>kingmakerstrategy.com</u>**   [expires: Jan 11, 2027]
-    - redirect/alias: **<u>kingstratvc.com</u>**   [expires: Aug 16, 2026]
-
+  - Service/Product: <u>Kingmaker Strategic Knowledgebase</u>
+    - Domain: **<u>kingstratvc.com</u>**   [expires: Aug 16, 2026]
+  
 - Company: <u>LegendaryMoney LLC</u>
   - Domain: **<u>legendarymoney.com</u>**   [expires: Jul 26, 2027]
     - redirect/alias: **<u>legendary.money</u>**   [expires: May 23, 2027]
@@ -303,6 +305,6 @@
 - **<u>rosettamq.com</u>**   [expires: Mar 3, 2027]
 - **<u>scalara.com</u>**   [expires: Nov 4, 2026]
 - **<u>surreality.com</u>**   [expires: Apr 1, 2027]
-- **<u>transformulator.com</u>**   [expires: Nov 4, 2026]
 - **<u>transformulator.dev</u>**   [expires: Nov 4, 2026]
-- **<u>trfl.dev</u>**   [expires: Nov 4, 2026]
+  - redirect/alias: **<u>transformulator.com</u>**   [expires: Nov 4, 2026]
+  - redirect/alias: **<u>trfl.dev</u>**   [expires: Nov 4, 2026]
