@@ -18,13 +18,14 @@
   - Product line: <u>Divia.AI family of products</u>
     - Product: `Divia.AI Professional` (cross-platform desktop app)
       - Domain: **<u>divia.pro</u>**   [expires: Aug 16, 2026]
+        - redirect/alias: **<u>diviapro.com</u>**   [expires: Jun 13, 2027]
+        - redirect/alias: **<u>diviaprofessional.com</u>**   [expires: Jun 13, 2027]
       - git-repo: `@DiviaAI/divia_ai-professional`
-      - **<u>BUY-DOMAIN: diviapro.com</u>**
     - Product: `Divia.AI Enterprise` (server)
+      - Domain: **<u>diviaenterprise.com</u>**   [expires: Jun 13, 2027]
       - git-repo: `@DiviaAI/divia_ai-enterprise`
-      - **<u>BUY-DOMAIN: diviaenterprise.com</u>**
     - Product line: `DiviaContacts`
-      - **<u>BUY-DOMAIN: diviacontacts.com</u>**
+      - Domain: **<u>diviacontacts.com</u>**   [expires: Jun 13, 2027]
       - Product: `DiviaContacts for Gmail`
         - git-repo: `@DiviaAI/diviacontacts-gmail`
       - Product: `DiviaContacts for Android`
@@ -77,9 +78,10 @@
   - Project / Subsidiary / Public Benefit Corporation: <u>Sattvasic Health, LLC</u>
     - Domain: **<u>sattvasichealth.com</u>**   [expires: May 7, 2027]
       - redirect/alias: **<u>sattvasic.com</u>**   [expires: Jun 20, 2027]
+      - redirect/alias: **<u>sattvasic.health</u>**   [expires: Jun 13, 2027]
       - redirect/alias: **<u>satvasic.com</u>**   [expires: Feb 25, 2027]
+      - redirect/alias: **<u>satvasic.health</u>**   [expires: Jun 13, 2027]
       - redirect/alias: **<u>satvasichealth.com</u>**   [expires: Sep 2, 2026]
-    - **<u>BUY-DOMAIN: sattvasic.health</u>**
     - **<u>BUY-DOMAIN: sattvasic.ai</u>**
 
 ## <u>ExoDev.AI Family of Companies</u>
@@ -92,8 +94,11 @@
     - Domain: **<u>exodev.pro</u>**   [expires: Sep 10, 2026]
       - redirect/alias: **<u>exodevpro.com</u>**   [expires: Sep 10, 2026]
     - Regional subsidiary: <u>ExoDev.Pro - Dallas, LLC</u>
+      - subdomain (for client project-management portal): **<u>dallas.exodev.pro</u>**
     - Regional subsidiary: <u>ExoDev.Pro - Los Angeles, LLC</u>
+      - subdomain (for client project-management portal): **<u>losangeles.exodev.pro</u>**
     - Regional subsidiary: <u>ExoDev.Pro - Chicago, LLC</u>
+      - subdomain (for client project-management portal): **<u>chicago.exodev.pro</u>**
   - Subsidiary: <u>AIXO.Dev Platforms, LLC</u>
     - Domain: **<u>aixo.devplatforms.llc</u>**
       - redirect/alias: **<u>devplatforms.llc</u>**   [expires: Mar 17, 2027] => **<u>aixo.devplatforms.llc</u>**

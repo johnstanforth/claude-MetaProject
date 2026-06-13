@@ -11,14 +11,9 @@ Registry, sale-page, and Spaceship pricing status checked June 13, 2026.
 | Recommended domain | Registry status | Sale / website status | Spaceship base registration price |
 | --- | --- | --- | --- |
 | **<u>crowdmadness.com</u>** | [Registered](https://rdap.verisign.com/com/v1/domain/crowdmadness.com) - Dynadot Inc | [**AVAILABLE! $2,285 => BrandBucket**](https://www.brandbucket.com/names/crowdmadness) | Not registrable now; [standard `.com`: $9.08 total / 1 year](https://www.spaceship.com/domains/gtld/com/) ($8.88 + $0.20 ICANN) |
-| **<u>diviacontacts.com</u>** | [Unregistered](https://rdap.verisign.com/com/v1/domain/diviacontacts.com) | - | [**$9.08 total / 1 year**](https://www.spaceship.com/domains/gtld/com/) ($8.88 + $0.20 ICANN) |
-| **<u>diviaenterprise.com</u>** | [Unregistered](https://rdap.verisign.com/com/v1/domain/diviaenterprise.com) | - | [**$9.08 total / 1 year**](https://www.spaceship.com/domains/gtld/com/) ($8.88 + $0.20 ICANN) |
-| **<u>diviapro.com</u>** | [Unregistered](https://rdap.verisign.com/com/v1/domain/diviapro.com) | - | [**$9.08 total / 1 year**](https://www.spaceship.com/domains/gtld/com/) ($8.88 + $0.20 ICANN) |
 | **<u>legendaryfinancial.ai</u>** | [Unregistered](https://rdap.identitydigital.services/rdap/domain/legendaryfinancial.ai) | - | [**$159.96 total / 2 years**](https://www.spaceship.com/domains/cctld/ai/) ($79.98/year; two-year minimum) |
 | **<u>patternicity.com</u>** | [Registered](https://rdap.verisign.com/com/v1/domain/patternicity.com) - NameBright.com | [**AVAILABLE! $3,195 => HugeDomains, Inc.**](https://www.hugedomains.com/domain_profile.cfm?d=patternicity.com) | Not registrable now; [standard `.com`: $9.08 total / 1 year](https://www.spaceship.com/domains/gtld/com/) ($8.88 + $0.20 ICANN) |
 | **<u>sattvasic.ai</u>** | [Unregistered](https://rdap.identitydigital.services/rdap/domain/sattvasic.ai) | - | [**$159.96 total / 2 years**](https://www.spaceship.com/domains/cctld/ai/) ($79.98/year; two-year minimum) |
-| **<u>sattvasic.health</u>** | [Unregistered](https://rdap.nic.health/domain/sattvasic.health) | - | [**$10.35 total / 1 year**](https://www.spaceship.com/domains/gtld/health/) (promotional first-year price; renews at $62.18/year) |
-| **<u>satvasic.health</u>** | [Unregistered](https://rdap.nic.health/domain/satvasic.health) | - | [**$10.35 total / 1 year**](https://www.spaceship.com/domains/gtld/health/) (defensive misspelling; renews at $62.18/year) |
 | **<u>sensorymq.ai</u>** | [Unregistered](https://rdap.identitydigital.services/rdap/domain/sensorymq.ai) | - | [**$159.96 total / 2 years**](https://www.spaceship.com/domains/cctld/ai/) ($79.98/year; two-year minimum) |
 | **<u>stanforth.ai</u>** | [Unregistered](https://rdap.identitydigital.services/rdap/domain/stanforth.ai) | - | [**$159.96 total / 2 years**](https://www.spaceship.com/domains/cctld/ai/) ($79.98/year; two-year minimum) |
 | **<u>tastypantry.com</u>** | [Registered](https://rdap.verisign.com/com/v1/domain/tastypantry.com) - NameBright.com | [**AVAILABLE! $4,695 => HugeDomains, Inc.**](https://www.hugedomains.com/domain_profile.cfm?d=tastypantry.com) | Not registrable now; [standard `.com`: $9.08 total / 1 year](https://www.spaceship.com/domains/gtld/com/) ($8.88 + $0.20 ICANN) |
@@ -37,3 +32,14 @@ Registry, sale-page, and Spaceship pricing status checked June 13, 2026.
 | **<u>fractionalrealty.com</u>** | [Registered](https://rdap.verisign.com/com/v1/domain/fractionalrealty.com) - GoDaddy.com, LLC | [**AVAILABLE! Price-on-request page; embedded listing price $4,499 => Afternic / GoDaddy**](https://www.afternic.com/domain/fractionalrealty.com) | Not registrable now; [standard `.com`: $9.08 total / 1 year](https://www.spaceship.com/domains/gtld/com/) ($8.88 + $0.20 ICANN) |
 | **<u>invendra.ai</u>** | [Unregistered](https://rdap.identitydigital.services/rdap/domain/invendra.ai) | - | [**$159.96 total / 2 years**](https://www.spaceship.com/domains/cctld/ai/) ($79.98/year; two-year minimum) |
 | **<u>txfr.com</u>** | [Registered](https://rdap.verisign.com/com/v1/domain/txfr.com) - NameSilo, LLC | [Registered: active TXFR website; no sale offer shown](https://txfr.com/) | Not registrable now; [standard `.com`: $9.08 total / 1 year](https://www.spaceship.com/domains/gtld/com/) ($8.88 + $0.20 ICANN) |
+
+## Activity / Changelog
+
+| Date | Domain | Price | Registrar |
+| --- | --- | ---: | --- |
+| June 13, 2026 | **<u>diviaenterprise.com</u>** | $9.08 | [Spaceship.com](https://www.spaceship.com/) |
+| June 13, 2026 | **<u>diviaprofessional.com</u>** | $9.08 | [Spaceship.com](https://www.spaceship.com/) |
+| June 13, 2026 | **<u>diviapro.com</u>** | $9.08 | [Spaceship.com](https://www.spaceship.com/) |
+| June 13, 2026 | **<u>sattvasic.health</u>** | $10.55 | [Spaceship.com](https://www.spaceship.com/) |
+| June 13, 2026 | **<u>diviacontacts.com</u>** | $9.08 | [Spaceship.com](https://www.spaceship.com/) |
+| June 13, 2026 | **<u>satvasic.health</u>** | $10.55 | [Spaceship.com](https://www.spaceship.com/) |
