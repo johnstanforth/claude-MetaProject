@@ -55,9 +55,9 @@ Two corporate families plus a few independent ventures, ~24 repos, one shared ph
 |---|---|---|
 | Foundation | `../README.md`, `../STATUS.md`, `../ERRATA.md` | ✅ written |
 | Vision index | `ULTIMATE_VISION/README.md` | ✅ written |
-| Ventures | `VENTURES/*` | 🟡 in progress |
-| User stories | `USER_STORIES/*` | ⬜ pending |
-| Products | `PRODUCTS/**` | ⬜ pending |
-| License column | `../../_projects/README.md` | ⬜ pending (final step) |
+| Ventures | `VENTURES/*` (README + 5 family docs) | ✅ written |
+| User stories | `USER_STORIES/*` (README + 5 scenarios) | ✅ written |
+| Products | `PRODUCTS/**` (21 product docs across 9 umbrellas) | ✅ written |
+| License column | `../../_projects/README.md` | ✅ added |
 
-*This table is the running checklist for the first edition; update it as docs land.*
+*First edition complete. This table is the running checklist; update it as the reference evolves.*
