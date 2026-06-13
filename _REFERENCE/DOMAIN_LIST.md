@@ -252,6 +252,7 @@
   - Subsidiary: <u>TastyTrucks by TastyPal</u>
     - Domain: **<u>tastytrucks.app</u>**   [expires: Mar 6, 2027]
       - redirect/alias: **<u>tastytrucksapp.com</u>**   [expires: Mar 6, 2027]
+    - **<u>BUY-DOMAIN: tastytruck.com</u>**
     - **<u>BUY-DOMAIN: tastytrucks.com</u>**
 
 - Company: <u>SensoryMQ, Inc.</u>
