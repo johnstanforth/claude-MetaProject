@@ -1,0 +1,107 @@
+#!/bin/bash
+
+# Claude Code wrapper script
+# Adds custom flags (--research, --collab-mode, --yolo) that are stripped
+# before invoking the real Claude CLI binary.
+
+CLI="$HOME/.local/bin/claude"
+NUDGE_FILE="$HOME/.claude/thinking_nudge.txt"
+
+# --- Defaults ---
+# MODEL="claude-opus-4-6[1M]"
+MODEL="claude-opus-4-8[1M]"
+SKIP_PERMISSIONS=false
+WATCHDOG_MS=420000          # 7 minutes
+SESSION_MODE="normal"
+
+# --- Parse our custom flags, collect passthrough args ---
+PASSTHROUGH_ARGS=()
+EXPLICIT_MODEL=false
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --research)
+            if [ "$SESSION_MODE" = "collab" ]; then
+                echo "[claude-wrapper] ERROR: --research and --collab-mode are mutually exclusive (different session types, different models)." >&2
+                exit 1
+            fi
+            SESSION_MODE="research"
+            MODEL="claude-opus-4-6[1M]"
+            SKIP_PERMISSIONS=true
+            WATCHDOG_MS=1200000   # 20 minutes
+            shift
+            ;;
+        --collab-mode)
+            if [ "$SESSION_MODE" = "research" ]; then
+                echo "[claude-wrapper] ERROR: --research and --collab-mode are mutually exclusive (different session types, different models)." >&2
+                exit 1
+            fi
+            SESSION_MODE="collab"
+            MODEL="claude-opus-4-8[1M]"
+            SKIP_PERMISSIONS=true
+            shift
+            ;;
+        --metaproject)
+            SESSION_MODE="metaproject"
+            # MODEL="claude-opus-4-8[1M]"
+            MODEL="claude-fable-5[1M]"
+            SKIP_PERMISSIONS=true
+            shift
+            ;;
+        --yolo)
+            SKIP_PERMISSIONS=true
+            shift
+            ;;
+        --model)
+            EXPLICIT_MODEL=true
+            shift
+            if [[ $# -gt 0 ]]; then
+                MODEL="$1"
+                shift
+            else
+                echo "[claude-wrapper] ERROR: --model requires a model name argument." >&2
+                exit 1
+            fi
+            ;;
+        *)
+            PASSTHROUGH_ARGS+=("$1")
+            shift
+            ;;
+    esac
+done
+
+# --- Thinking / effort ---
+# Opus 4.7 uses adaptive thinking; Opus 4.6 era settings are commented for reference:
+#   export MAX_THINKING_TOKENS="${MAX_THINKING_TOKENS:-63999}"
+#   export CLAUDE_CODE_ALWAYS_ENABLE_EFFORT="${CLAUDE_CODE_ALWAYS_ENABLE_EFFORT:-1}"
+#   export CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING="${CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING:-1}"
+# Unset so it doesn't block in-session /effort overrides
+unset CLAUDE_CODE_EFFORT_LEVEL
+
+# --- Stream-watchdog thresholds ---
+export CLAUDE_STREAM_IDLE_TIMEOUT_MS="$WATCHDOG_MS"
+export CLAUDE_ENABLE_STREAM_WATCHDOG=1
+
+# --- Build the final command ---
+FINAL_ARGS=("--model" "$MODEL")
+
+if [ "$SKIP_PERMISSIONS" = true ]; then
+    FINAL_ARGS+=("--dangerously-skip-permissions")
+fi
+
+if [ -f "$NUDGE_FILE" ]; then
+    FINAL_ARGS+=("--append-system-prompt-file" "$NUDGE_FILE")
+fi
+
+FINAL_ARGS+=("${PASSTHROUGH_ARGS[@]}")
+
+# --- Summary ---
+WATCHDOG_HUMAN=$(( WATCHDOG_MS / 60000 ))
+PERMS_LABEL="standard"
+if [ "$SKIP_PERMISSIONS" = true ]; then
+    PERMS_LABEL="skip-permissions"
+fi
+echo "[claude-wrapper] mode=$SESSION_MODE  model=$MODEL  permissions=$PERMS_LABEL  watchdog=${WATCHDOG_HUMAN}min"
+
+# --- Launch ---
+exec "$CLI" "${FINAL_ARGS[@]}"
