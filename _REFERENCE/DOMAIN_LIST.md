@@ -17,12 +17,14 @@
     - redirect/alias: **<u>divia.work</u>**   [expires: Aug 16, 2026]
   - Product line: <u>Divia.AI family of products</u>
     - Product: `Divia.AI Professional` (cross-platform desktop app)
-      - Domain: **<u>divia.pro</u>**   [expires: Aug 16, 2026]
-        - redirect/alias: **<u>diviapro.com</u>**   [expires: Jun 13, 2027]
-        - redirect/alias: **<u>diviaprofessional.com</u>**   [expires: Jun 13, 2027]
+      - canonical product page: **<u>divia.ai</u>**/diviaprofessionaldesktop/
+        - redirect/alias: **<u>divia.pro</u>**   [expires: Aug 16, 2026] => **<u>divia.ai</u>**/diviaprofessionaldesktop/
+        - redirect/alias: **<u>diviapro.com</u>**   [expires: Jun 13, 2027] => **<u>divia.ai</u>**/diviaprofessionaldesktop/
+        - redirect/alias: **<u>diviaprofessional.com</u>**   [expires: Jun 13, 2027] => **<u>divia.ai</u>**/diviaprofessionaldesktop/
       - git-repo: `@DiviaAI/divia_ai-professional`
     - Product: `Divia.AI Enterprise` (server)
-      - Domain: **<u>diviaenterprise.com</u>**   [expires: Jun 13, 2027]
+      - canonical product page: **<u>divia.ai</u>**/diviaenterpriseserver/
+        - redirect/alias: **<u>diviaenterprise.com</u>**   [expires: Jun 13, 2027] => **<u>divia.ai</u>**/diviaenterpriseserver/
       - git-repo: `@DiviaAI/divia_ai-enterprise`
     - Product line: `DiviaContacts`
       - Domain: **<u>diviacontacts.com</u>**   [expires: Jun 13, 2027]
@@ -67,9 +69,12 @@
       - redirect/alias: **<u>divia.house</u>**   [expires: Aug 16, 2026]
     - description: company manufacturing and selling smart-home devices and software
     - Open-source Software Project: `DiviaHome Community Edition`
+      - canonical product page: **<u>diviahome.com</u>**/communityedition/
+        - redirect/alias: **<u>divia.ai</u>**/diviahome/ => **<u>diviahome.com</u>**/communityedition/
+        - redirect/alias: **<u>divia.ai</u>**/diviahomeserver/ => **<u>diviahome.com</u>**/communityedition/
     - Open-source Software Project: `DiviaOS`
       - Domain: **<u>diviaos.com</u>**   [expires: May 7, 2027]
-
+  
 - Non-profit Organization: <u>The DIVIA Innovation Foundation</u>
   - Domain: **<u>diviafoundation.org</u>**   [expires: Aug 16, 2026]
     - redirect/alias: **<u>diviafoundation.com</u>**   [expires: Aug 16, 2026]
