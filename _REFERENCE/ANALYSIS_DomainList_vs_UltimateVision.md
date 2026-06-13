@@ -6,6 +6,8 @@
 > sweep of ~24 repos). **Report only — no corrections were made to either source.**
 
 - **Compiled:** 2026-06-13 · MetaProject session.
+- **Updated:** 2026-06-13 · added **§F — forensic git timeline** of the ExoDev.AI → ExoDev.Pro pivot
+  (requested for a team discussion on whether that decision was ever truly locked down).
 - **Anchor of truth:** `DOMAIN_LIST.md` (and its sibling `DOMAIN_WISHLIST.md`). Where the Guide
   disagrees with the validated list, the validated list wins.
 - **Direction note:** the validated list is **accurate-but-incomplete**. So:
@@ -25,7 +27,9 @@
    The Guide leads with the "Phase‑D" model in which **ExoDev.Pro, Inc. is the parent and "ExoDev.AI"
    is *retired*.** The validated list keeps **`ExoDev.AI Corp.` as the live corporate parent**, with
    **both** `ExoDev.Pro, Inc.` **and** `AIXO.Dev Platforms, LLC` as its subsidiaries. E‑01 is
-   effectively *decided* — against the model the Guide chose to lead with. (§A1)
+   effectively *decided* — against the model the Guide chose to lead with. (§A1) **§F (git forensics)
+   shows this pivot was an explicit John-directed decision on 2026‑04‑19 that never left the
+   `aixodev-web` research draft — and the June `DOMAIN_LIST.md` reverts to the ExoDev.AI‑parent model.**
 2. **🔴 Sattvasic Health is not an "independent / informal" venture — it's a subsidiary of the
    Foundation.** Validated: **`Sattvasic Health, LLC` is a "Public Benefit Corporation" under `The
    DIVIA Innovation Foundation`** (a Divia.AI-family non-profit that already owns registered domains).
@@ -289,6 +293,113 @@ tie-breaker for E‑01 and E‑06, update `VENTURES/ExoDev.md` §1 + `VENTURES/R
 under `TastyPal, Inc.`, rename "Divia.Foundation" → "The DIVIA Innovation Foundation," and either fold
 the missing portfolio companies (§B) into the Guide or explicitly scope the Guide as
 "repos-with-code only." **Per your instruction, none of that was done here — this is report-only.**
+
+---
+
+## F. Forensic timeline — the ExoDev.AI → ExoDev.Pro pivot (git archaeology)
+
+> Added 2026-06-13 at John's request, to set context for a team discussion on *whether the Phase‑D
+> "retire ExoDev.AI" decision was ever actually locked down.* All timestamps are **git author dates**
+> (Pacific, `-0700`) from the symlinked source repos. **Short answer: it was a real, explicit,
+> John-directed decision — but it was made inside a DRAFT research project, never propagated to the
+> operating docs, and the most recent validated artifact (June's `DOMAIN_LIST.md`) has since reverted
+> to the ExoDev.AI‑parent model.** That is exactly why the discrepancy in §A1 exists.
+
+### F.1 The one-paragraph story
+
+The **ExoDev.AI corporate parent** model was established in **early–mid March 2026** and baked into
+`aixodev-aixocode`'s `PRODUCT_AND_NAMING.md` (a **three‑tier / three‑brand** structure:
+`ExoDev.AI Corporation` parent → `AIXO.Dev Platforms LLC` product co. + `ExoDev.Pro` consultancies).
+Five weeks later, the **"Phase D" Product‑Development research** ran inside `aixodev-web`
+(2026‑04‑17 → 04‑25). Its 11 client‑facing artifacts were first drafted **still using ExoDev.AI**,
+passed a **"User Review hard gate"** on **04‑18**, and on **2026‑04‑19 at 09:41** John committed the
+pivot: **retire the separate ExoDev.AI Corp brand and collapse the three brand tiers into a *two‑tier*
+model** — `ExoDev.Pro, Inc.` as the customer‑facing parent + `AIXO.Dev Platform` as its product
+subsidiary, the old "civilizational parent" voice becoming one of **three voice registers inside the
+single ExoDev.Pro, Inc. entity.** The change touched **only** the `aixodev-web` research artifacts. It
+was **never** carried back to `aixodev-aixocode`'s naming docs (frozen 04‑02 / 04‑11), to John's global
+`CLAUDE.md`, or anywhere else — and June's validated `DOMAIN_LIST.md` is back on `ExoDev.AI Corp.` as
+parent.
+
+### F.2 Chronology
+
+| When (author date, `-0700`) | Repo | Commit | Event |
+|---|---|---|---|
+| 2026‑02‑28 | `aixodev-web` | `d014d54` | Repo's first commit ("Initial spec documents before starting work"); pre‑ExoDev naming. |
+| **2026‑03‑07 02:58** | `aixodev-web` | `0864f22` | **First appearance of "ExoDev.AI"** — "Standardize product naming and rebrand to AIXO.Dev Platform (Web)." *The ExoDev.AI era begins.* |
+| 2026‑03‑09 16:24 | `aixodev-web` | `d538c28` | First "ExoDev.Pro" — as the **consulting subsidiary**, coexisting under the ExoDev.AI parent. |
+| 2026‑03‑18 22:25 | `aixodev-aixocode` | `48bab26` | aixocode's first commit; already carries both ExoDev.AI (parent) + ExoDev.Pro (consultancy). |
+| **2026‑03‑19 05:05** | `aixodev-aixocode` | `357d90b` | **"Update PRODUCT_AND_NAMING.md with corrected corporate structure"** — pins the **three‑tier ExoDev.AI Corporation model the June `DOMAIN_LIST.md` still matches.** |
+| 2026‑04‑02 16:06 | `aixodev-aixocode` | `fb7e304` | **Last edit to `PRODUCT_AND_NAMING.md`** (ELEMENTS‑ENTITIES reframing). *Frozen here — never updated for the pivot.* |
+| 2026‑04‑11 03:24 | `aixodev-aixocode` | `7a5c4cd` | **Last edit to aixocode `CLAUDE.md`** — still "ExoDev.AI, Inc." |
+| 2026‑04‑17 → 04‑18 | `aixodev-web` | (Tracks 21–24) | **Phase D research sprint** (Palantir/FDSE/ontology). 11‑artifact "Product Development" suite committed **04‑18** (`e2cc8ac`), **still using "ExoDev.AI Corp."** |
+| 2026‑04‑18 09:29 | `aixodev-web` | `3a39516` | **"Phase D COMPLETE; Phase D → User Review hard gate live."** John reviews. |
+| **2026‑04‑19 09:41:32** | `aixodev-web` | **`838d3be`** (author: **John Stanforth**) | **THE PIVOT** — *"Phase D artifacts — Phase 1a revisions: **retire ExoDev.AI brand, two‑tier entity model**, Los Angeles spelling, ClientDomainGraph rename, FDSERole entity removed."* Rewrote 11 artifacts; also standardized **"Platform**s**" (plural)** and moved founder URLs `exodev.ai/*` → `exodev.pro/*`. |
+| 2026‑04‑19 (later) | `aixodev-web` | `14aea25` | Phase 1b follow‑up (DomainGraph triumvirate, Organization entity). |
+| 2026‑04‑24 21:53 | `aixodev-web` | `6ed9d17` | `synthesis.md` **top summary** updated to "*Corporate structure (post‑2026‑04‑19): parent `ExoDev.Pro, Inc.`… replacing retired ExoDev.AI Corporation brand*" — **but its body §5.5/§8 still describe the old three‑brand ExoDev.AI‑parent model** (the doc is internally self‑contradictory; see F.4). |
+| 2026‑04‑24 → 04‑25 | `aixodev-web` | `b14d917` | Phase 3 "cross‑artifact consistency pass: align… corporate vocabulary across 6 artifacts." |
+| 2026‑04‑25 | `aixodev-web` | `66bd11b` | Research project's **last commit.** The pivot has now touched **only** this repo's research artifacts. |
+| **2026‑06‑13** | `_REFERENCE` | (`DOMAIN_LIST.md`) | The **validated** list uses **`ExoDev.AI Corp.`** as parent again (three‑tier). *The most recent John‑reviewed artifact is on the pre‑pivot model.* |
+
+### F.3 The exact decision wording (commit `838d3be`, file `07-positioning-and-messaging.md`)
+
+The pivot's rationale is stated verbatim in the diff — note it cites **John's own direction that day**:
+
+> *"**Per user direction 2026‑04‑19** and synthesis §5.5. The prior **three‑brand framing (separate
+> ExoDev.AI Corp civilizational parent) is retired.** The architecture is now **two‑tier** —
+> `ExoDev.Pro, Inc.` as the **customer‑facing parent** plus `AIXO.Dev Platform` as its flagship
+> **product subsidiary** — with **four voice registers** layered across it."*
+
+And the same commit reassigned the parent's identity inside `ExoDev.Pro, Inc.`:
+
+> *(before)* `### §4.1 ExoDev.AI Corporation — Civilizational register` / "Parent holding company voice."
+> *(after)*  `### §4.1 Founder / CEO civilizational layer (within ExoDev.Pro, Inc.)` / "Founder‑driven
+> public voice **on behalf of the ExoDev.Pro, Inc. parent**."
+
+So this was **not AI drift** — it was a deliberate, dated, John‑authored decision. The open question is
+purely about its **scope and finality** (F.5).
+
+### F.4 Why the discrepancy survived: the pivot never propagated, and even its own source stayed split
+
+1. **Confined to a DRAFT research project.** Every changed file lives under
+   `aixodev-web/_specs_and_plans/_research/product_development_strategy/PRODUCT_DEVELOPMENT/` — the
+   suite the Guide itself flags as "marked DRAFT/aspirational… pre‑seed/pre‑office/pre‑customer"
+   (`VENTURES/ExoDev.md`). It was never promoted to canon.
+2. **The operating docs were already frozen before it happened.** aixocode's `PRODUCT_AND_NAMING.md`
+   (the actual naming authority) was last edited **2026‑04‑02**, and its `CLAUDE.md` **2026‑04‑11** —
+   both **before** the 04‑19 pivot. Neither was reopened. (At HEAD, `ExoDev.AI` still appears in
+   aixocode's `CLAUDE.md`, `README.md`, `PRODUCT_AND_NAMING.md`, users‑guide, workflow, and product‑spec.)
+3. **Even the synthesis that drove it was only half‑updated.** `synthesis.md`'s headline table row was
+   updated to the post‑pivot model on 04‑24, but its body (§5.5 "*three related brands with a shared
+   ExoDev.AI Corp parent*", §8 governance) still carries the **old** model — so the single most
+   authoritative Phase‑D document **contradicts itself** on this exact point.
+4. **June reverts.** The validated `DOMAIN_LIST.md` (2026‑06‑13) re‑affirms `ExoDev.AI Corp.` as the
+   parent — so the newest John‑reviewed artifact is back on the model the pivot tried to retire.
+
+### F.5 What this means for the team discussion (open questions, not conclusions)
+
+- **Was it ever ratified beyond the research draft?** Git says **no** — the decision is real and dated,
+  but it lived and died inside one DRAFT artifact suite. Nothing in any *operating* doc adopted it,
+  and the June reference reverts. So "did we lock it down?" → **not in any binding/propagated sense.**
+- **Three lenses were entangled in one decision.** The 04‑19 change simultaneously touched (a) **legal
+  corporate structure**, (b) **brand/voice architecture** (its primary driver — "three brand tiers →
+  one legal entity with three voice registers"), and (c) **platform data‑tenancy** (Organizations/
+  Depts in the DB schema). The "retire ExoDev.AI" wording was chiefly a **brand‑architecture
+  simplification**; whether John meant it as a *binding legal restructuring* (dissolving `ExoDev.AI
+  Corp.` as the holding entity) is unstated — and the persistence of `exodev.ai` (registered) +
+  `exodev.com` (buy‑list) + the June list all point to `ExoDev.AI Corp.` continuing as the legal parent.
+- **The Chicago thread is downstream of this.** In the Phase‑D entity model, **Dallas/LA were the only
+  offices**, with **NYC/Toronto/Chicago as "Q4 2027+ candidates,"** modeled as **Depts under one
+  ExoDev.Pro Organization, not separate tenants.** The validated `DOMAIN_LIST.md` now lists
+  **Dallas / LA / Chicago as three standing regional subsidiary LLCs** each with a live portal
+  subdomain — i.e. reality moved past the Phase‑D "future candidate" framing (cf. §A2).
+- **Net recommendation for the discussion:** treat the 04‑19 pivot as a **proposal that was drafted and
+  endorsed in research but never operationalized**, and treat the June `DOMAIN_LIST.md` as the current
+  *de facto* canon (ExoDev.AI Corp. parent). The decision to make is whether to (i) **re‑adopt** the
+  Phase‑D two‑tier ExoDev.Pro‑parent model and finally propagate it everywhere, or (ii) **formally
+  retire the pivot** and keep ExoDev.AI Corp. as the holding parent. Either way the goal is one model,
+  propagated to `PRODUCT_AND_NAMING.md` + both `CLAUDE.md`s + this `_REFERENCE/` at once. *(Per your
+  instruction, no such change was made here.)*
 
 ---
 
