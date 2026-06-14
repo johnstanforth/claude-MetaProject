@@ -4,6 +4,7 @@
 - **Status:** LATER — **blocked on the `kingstratvc-web` Inbox feature**; not yet assigned to a sprint
 - **Eventual owning project:** `kingstratvc-web` (the new Inbox / natural-language input-event funnel + the downstream workflows that project will define)
 - **The artifact:** [`../_REFERENCE/notes-domains-sept2025.md`](../_REFERENCE/notes-domains-sept2025.md) — an email John sent to himself, **Sep 3, 2025, 12:49 AM**, parked in this repo for safekeeping.
+- **Related design material:** [`../_REFERENCE/kingstratvc-web_DESIGN_NOTES.md`](../_REFERENCE/kingstratvc-web_DESIGN_NOTES.md) + the reconstructed [`…_gemini-naming-transcript.md`](../_REFERENCE/kingstratvc-web_gemini-naming-transcript.md) — the **"KingStrat VentureGPS" / Vector-Tracking-Loop** concept, the **dual-node** (Signal Node = studio control center / Trajectory Node = LP portal) architecture, and the telemetry UI direction for this product.
 
 ---
 
