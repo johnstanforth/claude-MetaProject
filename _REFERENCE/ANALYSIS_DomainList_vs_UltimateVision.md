@@ -1,5 +1,7 @@
 # ANALYSIS — `DOMAIN_LIST.md` vs. the `ULTIMATE_VISION` Guide
 
+> ⚠️ **SUPERSEDED (2026-06-14)** — the *interpretations* below are re-judged in [`REVISED_ANALYSIS_UltimateVision.md`](REVISED_ANALYSIS_UltimateVision.md), which reconciles most of these findings via John's time / entity-layer / lineage reframing (corporate-vs-marketing-vs-personal layers, project types, historical/successor lineage, reserved-domain ≠ operational-entity, open-question relationships). **Read that first.** This file is retained as the original *as-found* discrepancy record and for the **§F** ExoDev git-archaeology timeline.
+
 > A reconciliation pass: every divergence, mismatch, and contradiction between the **validated**
 > `DOMAIN_LIST.md` (John-reviewed; whatever data is present is verified-accurate, though some entries
 > are still missing) and the **constructed** `ULTIMATE_VISION/` Guide (aggregated from a read-only
