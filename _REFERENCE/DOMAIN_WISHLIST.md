@@ -1,6 +1,6 @@
 # Domain Wishlist
 
-Registry, sale-page, and Spaceship pricing status checked June 13, 2026.
+Registry, sale-page, and Spaceship pricing status checked June 13, 2026 (Priority additions re-checked June 14, 2026).
 
 > `Unregistered` means the responsible registry returned RDAP `404 Not Found`. This does not guarantee standard-price availability; a registry may classify a name as premium, reserved, or otherwise unavailable. Aftermarket prices, promotions, and listings can change at any time.
 >
@@ -10,8 +10,11 @@ Registry, sale-page, and Spaceship pricing status checked June 13, 2026.
 
 | Recommended domain | Registry status | Sale / website status | Spaceship base registration price |
 | --- | --- | --- | --- |
+| **<u>crowdmadness.ai</u>** | [Unregistered](https://rdap.identitydigital.services/rdap/domain/crowdmadness.ai) | - | [**$159.96 total / 2 years**](https://www.spaceship.com/domains/cctld/ai/) ($79.98/year; two-year minimum) |
 | **<u>crowdmadness.com</u>** | [Registered](https://rdap.verisign.com/com/v1/domain/crowdmadness.com) - Dynadot Inc | [**AVAILABLE! $2,285 => BrandBucket**](https://www.brandbucket.com/names/crowdmadness) | Not registrable now; [standard `.com`: $9.08 total / 1 year](https://www.spaceship.com/domains/gtld/com/) ($8.88 + $0.20 ICANN) |
+| **<u>crowdresearch.ai</u>** | [Unregistered](https://rdap.identitydigital.services/rdap/domain/crowdresearch.ai) | - | [**$159.96 total / 2 years**](https://www.spaceship.com/domains/cctld/ai/) ($79.98/year; two-year minimum) |
 | **<u>legendaryfinancial.ai</u>** | [Unregistered](https://rdap.identitydigital.services/rdap/domain/legendaryfinancial.ai) | - | [**$159.96 total / 2 years**](https://www.spaceship.com/domains/cctld/ai/) ($79.98/year; two-year minimum) |
+| **<u>legendaryfinancialai.com</u>** | [Unregistered](https://rdap.verisign.com/com/v1/domain/legendaryfinancialai.com) | - | [**$9.08 total / 1 year**](https://www.spaceship.com/domains/gtld/com/) ($8.88 + $0.20 ICANN) |
 | **<u>patternicity.com</u>** | [Registered](https://rdap.verisign.com/com/v1/domain/patternicity.com) - NameBright.com | [**AVAILABLE! $3,195 => HugeDomains, Inc.**](https://www.hugedomains.com/domain_profile.cfm?d=patternicity.com) | Not registrable now; [standard `.com`: $9.08 total / 1 year](https://www.spaceship.com/domains/gtld/com/) ($8.88 + $0.20 ICANN) |
 | **<u>sattvasic.ai</u>** | [Unregistered](https://rdap.identitydigital.services/rdap/domain/sattvasic.ai) | - | [**$159.96 total / 2 years**](https://www.spaceship.com/domains/cctld/ai/) ($79.98/year; two-year minimum) |
 | **<u>sensorymq.ai</u>** | [Unregistered](https://rdap.identitydigital.services/rdap/domain/sensorymq.ai) | - | [**$159.96 total / 2 years**](https://www.spaceship.com/domains/cctld/ai/) ($79.98/year; two-year minimum) |
