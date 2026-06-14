@@ -174,10 +174,12 @@ This file maps every venture idea, company family, product/service, and matching
       - redirect/alias: **<u>crowdmadness.net</u>**
       - redirect/alias: **<u>crowdmadness.pro</u>**
     - **<u>BUY-DOMAIN: crowdmadness.com</u>**
+    - **<u>BUY-DOMAIN: crowdmadness.ai</u>**
   - Product/Service line: `CrowdResearch` (online market-research services for SME businesses)
     - Domain: **<u>crowdresearch.com</u>**
+    - **<u>BUY-DOMAIN: crowdresearch.ai</u>**
     - description: professional client-admin portal where business clients provision new market-research surveys
-
+  
 - Company: <u>CTO Mindmeld Publishing, LLC</u>
   - Domain: **<u>ctomindmeld.com</u>**
 
@@ -201,7 +203,11 @@ This file maps every venture idea, company family, product/service, and matching
     - redirect/alias: **<u>invendra.cc</u>**
   - **<u>BUY-DOMAIN: invendra.ai</u>**
 
-- Company: <u>Kingmaker Strategic</u>
+- Company/Firm: <u>JSL Dragonfly Ltd.</u>
+  - Domain: **<u>jsldragonfly.com</u>**
+    - redirect/alias: **<u>jsld.com</u>**
+  
+- Company/Firm: <u>Kingmaker Strategic Venture Partners LLC</u>
   - Domain: **<u>kingmakerstrategic.com</u>**
     - redirect/alias: **<u>kingmakerstrategy.com</u>**
     - redirect/alias: **<u>kingstratvc.com</u>**
@@ -222,11 +228,13 @@ This file maps every venture idea, company family, product/service, and matching
   - Subsidiary: <u>LegendaryFinancial.AI</u>
     - Domain: **<u>legendary.financial</u>**
     - **<u>BUY-DOMAIN: legendaryfinancial.ai</u>**
-
+    - **<u>BUY-DOMAIN: legendaryfinancialai.com</u>**
+  
 - Company: <u>Patternicity.AI, LLC</u>
   - Domain: **<u>patternicity.ai</u>**
     - redirect/alias: **<u>patternicityai.com</u>**
     - redirect/alias (common typo): **<u>patterncityai.com</u>**
+    - redirect/alias: **<u>ptn-ai.com</u>**
     - redirect/alias: **<u>patternicity.app</u>**
     - redirect/alias: **<u>patternicity.blog</u>**
     - redirect/alias: **<u>patternicity.buzz</u>**
@@ -240,16 +248,19 @@ This file maps every venture idea, company family, product/service, and matching
   - Product/Service: `Patternicity News`
     - Domain: **<u>patternicity.news</u>**
       - redirect/alias: **<u>patternicitynews.com</u>**
-      - redirect/alias: **<u>patternicity.wtf</u>** => **<u>patternicity.news</u>**/weighthefacts/
+      - redirect/alias: **<u>ptnws.com</u>**
+  - Product/Service: `PatternicityNews Professional` (cross-platform desktop RSS-newsreader application)
+    - redirect/alias: **<u>patternicity.pro</u>** => **<u>patternicity.news</u>**/rssnewsreader/
+  - Product/Service: `Patternicity ONE`
+    - description: monthly subscription for bundles of premium/paid news sites such as NYT and WaPo
+    - redirect/alias: **<u>patternicity.one</u>** => **<u>patternicity.news</u>**/subscriptions/
+  - Product/Service: `PatternicityWTF`
     - description: web service/application that constructs chain-of-thought arguments with cross-referenced news evidence
     - possible secondary use: a YouTube channel that AI-generates news-related videos for a 20-30-year-old target audience, using an irreverent but evidence-driven tone and perspectives from both sides of the political aisle when possible
-    - Product/Service: `PatternicityNews Professional` (cross-platform desktop RSS-newsreader application)
-      - redirect/alias: **<u>patternicity.pro</u>** => **<u>patternicity.news</u>**/rssnewsreader/
-    - Product/Service: `Patternicity ONE`
-      - description: monthly subscription for bundles of premium/paid news sites such as NYT and WaPo
-      - redirect/alias: **<u>patternicity.one</u>** => **<u>patternicity.news</u>**/subscriptions/
+    - Domain: **<u>patternicity.news</u>**/WeighTheFacts/
+      - redirect/alias: **<u>patternicity.wtf</u>** => **<u>patternicity.news</u>**/WeighTheFacts/
   - Product/Service: `PatternicitySocial`
-    - description: social network similar to **<u>x.com</u>**, `Bluesky`, or `Mastodon`, with full support for the <u>DiviaCards</u> open standard so users can post and discuss `Patternicity News` articles as structured `DiviaCard::PatternicityNews::article` elements
+    - description: social network similar to X.com, `Bluesky`, or `Mastodon`, with full support for the <u>DiviaCards</u> open standard so users can post and discuss `Patternicity News` articles as structured `DiviaCard::PatternicityNews::article` elements
     - Domain: **<u>patternicity.social</u>**
       - redirect/alias: **<u>patternicitysocial.com</u>**
       - redirect/alias: **<u>patternicity.chat</u>**
@@ -257,12 +268,10 @@ This file maps every venture idea, company family, product/service, and matching
       - Domain: **<u>ptnws.link</u>**
         - redirect/alias: **<u>patternicity.click</u>**
         - redirect/alias: **<u>patternicity.link</u>**
-        - redirect/alias: **<u>ptn-ai.com</u>**
         - redirect/alias: **<u>ptn-ai.link</u>**
-        - redirect/alias: **<u>ptnws.com</u>**
   - Product/Service: `Patternicity Bet`
     - Domain: **<u>patternicity.bet</u>**
-
+  
 - Company: <u>TastyPal, Inc.</u>
   - Domain: **<u>tastypal.com</u>**
     - redirect/alias: **<u>tastypal.cc</u>**
@@ -305,10 +314,6 @@ This file maps every venture idea, company family, product/service, and matching
       - redirect/alias: **<u>txfrapp.com</u>**
 
 ### Miscellaneous Ad-Revenue and YouTube-Revenue Projects
-
-- Personal Project: <u>JSL Dragonfly</u>
-  - Domain: **<u>jsldragonfly.com</u>**
-    - redirect/alias: **<u>jsld.com</u>**
 
 - Open-source Software Project: `Dotfigurator.sh`
   - description: dotfiles-manager application
