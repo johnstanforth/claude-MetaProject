@@ -13,6 +13,10 @@ Once the new **Inbox** feature is working in `kingstratvc-web`, ingest `notes-do
 
 This doubles as an early **dogfood / test case** for that funnel: a real, messy, multi-topic NL note is exactly the kind of input the Inbox is meant to absorb and process — and it overlaps directly with the venture-ideas-database concept the note itself proposes (see "KingStrat InsightHub" below).
 
+## Design decision — temporal data (Postgres, timezone-aware UTC)
+
+When this note **and** the structured domain data (`../_REFERENCE/DOMAIN_LIST.md`, `../_REFERENCE/DOMAIN_MAPPINGS.md`, `../_REFERENCE/domains_rdap.jsonl`) are imported into the real `kingstratvc-web` knowledge base, store all timestamps in a **Postgres database with timezone-aware UTC handling** — persist the canonical UTC instant, render in the user's local timezone. This avoids the off-by-one-day artifact visible in the flat `DOMAIN_LIST.md` table, where RDAP **Creation Dates (UTC)** sit a calendar day apart from the registrar panel's **local-time Expiration Dates** (≈46 rows). The raw UTC timestamps are already preserved in `domains_rdap.jsonl`, so the canonical instants survive the import intact. This is the general pattern for the whole **chronology-aware provenance model**: record *when* every fact was true in UTC; render and reason in context.
+
 ## What's in the note (so future-us knows what we're processing)
 
 A raw brain-dump of domain + venture ideas, including:
