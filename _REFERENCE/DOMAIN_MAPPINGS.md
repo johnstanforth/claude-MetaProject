@@ -83,11 +83,11 @@ This file maps every venture idea, company family, product/service, and matching
       - Domain: **<u>diviaos.com</u>**
   
 - Non-profit Organization: <u>The DIVIA Innovation Foundation</u>
-  - Domain: **<u>diviafoundation.org</u>**
+  - Domain: **<u>divia.foundation</u>**
+    - redirect/alias: **<u>diviafoundation.org</u>**
     - redirect/alias: **<u>diviafoundation.com</u>**
     - redirect/alias: **<u>diviafoundation.net</u>**
     - redirect/alias: **<u>diviafoundation.shop</u>**
-    - redirect/alias: **<u>divia.foundation</u>**
     - redirect/alias: **<u>divia.ngo</u>**
     - redirect/alias: **<u>diviafoundation.ngo</u>**
   - Project / Subsidiary / Public Benefit Corporation: <u>Sattvasic Health, LLC</u>
@@ -204,9 +204,12 @@ This file maps every venture idea, company family, product/service, and matching
 - Company: <u>Kingmaker Strategic</u>
   - Domain: **<u>kingmakerstrategic.com</u>**
     - redirect/alias: **<u>kingmakerstrategy.com</u>**
+    - redirect/alias: **<u>kingstratvc.com</u>**
+    - redirect/alias: **<u>kingstrat.vc</u>**
   - Service/Product: <u>Kingmaker Strategic Knowledgebase</u>
-    - Domain: **<u>kingstratvc.com</u>**
-      - redirect/alias: **<u>kingstrat.vc</u>**
+    - description: the Python/Flask web service/application, distinct from the firm's public website (kingmakerstrategic.com)
+    - Domain: **<u>kingstrat.ventures</u>**
+      - redirect/alias: **<u>kingstratventures.com</u>**
     - github: [@KingStratVC/kingstratvc-web](https://github.com/KingStratVC/kingstratvc-web)
   
 - Company: <u>LegendaryMoney LLC</u>
