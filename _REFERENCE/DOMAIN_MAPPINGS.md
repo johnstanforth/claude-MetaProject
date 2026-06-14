@@ -87,6 +87,9 @@ This file maps every venture idea, company family, product/service, and matching
     - redirect/alias: **<u>diviafoundation.com</u>**
     - redirect/alias: **<u>diviafoundation.net</u>**
     - redirect/alias: **<u>diviafoundation.shop</u>**
+    - redirect/alias: **<u>divia.foundation</u>**
+    - redirect/alias: **<u>divia.ngo</u>**
+    - redirect/alias: **<u>diviafoundation.ngo</u>**
   - Project / Subsidiary / Public Benefit Corporation: <u>Sattvasic Health, LLC</u>
     - Domain: **<u>sattvasichealth.com</u>**
       - redirect/alias: **<u>sattvasic.com</u>**
@@ -203,6 +206,7 @@ This file maps every venture idea, company family, product/service, and matching
     - redirect/alias: **<u>kingmakerstrategy.com</u>**
   - Service/Product: <u>Kingmaker Strategic Knowledgebase</u>
     - Domain: **<u>kingstratvc.com</u>**
+      - redirect/alias: **<u>kingstrat.vc</u>**
     - github: [@KingStratVC/kingstratvc-web](https://github.com/KingStratVC/kingstratvc-web)
   
 - Company: <u>LegendaryMoney LLC</u>
