@@ -1,4 +1,6 @@
-# Domain List
+# Domain Mappings
+
+This file maps every venture idea, company family, product/service, and matching domain name (wherever one exists) across the full breadth of all of our projects in-development. Where a project has a code repository, its GitHub URL is included alongside it.
 
 > `BUY-DOMAIN` entries are strategic suggestions. They do not imply that a domain is unregistered or available at standard registration price.
 
@@ -21,23 +23,26 @@
         - redirect/alias: **<u>divia.pro</u>** => **<u>divia.ai</u>**/diviaprofessionaldesktop/
         - redirect/alias: **<u>diviapro.com</u>** => **<u>divia.ai</u>**/diviaprofessionaldesktop/
         - redirect/alias: **<u>diviaprofessional.com</u>** => **<u>divia.ai</u>**/diviaprofessionaldesktop/
-      - github: `@DiviaAI/divia_ai-professional`
+      - github: https://github.com/DiviaAI/divia_ai-professional
     - Product: `Divia.AI Enterprise` (server)
       - canonical product page: **<u>divia.ai</u>**/diviaenterpriseserver/
         - redirect/alias: **<u>diviaenterprise.com</u>** => **<u>divia.ai</u>**/diviaenterpriseserver/
-      - github: `@DiviaAI/divia_ai-enterprise`
+      - github: https://github.com/DiviaAI/divia_ai-enterprise _(planned; repo not yet initialized)_
+    - Product: `Divia.AI Swarm` (Rust agent backbone — containerized autonomous agents)
+      - github: https://github.com/DiviaAI/divia_ai-swarm
     - Product line: `DiviaContacts`
       - Domain: **<u>diviacontacts.com</u>**
       - Product: `DiviaContacts for Gmail`
-        - github: `@DiviaAI/diviacontacts-gmail`
+        - github: https://github.com/DiviaAI/diviacontacts-gmail
       - Product: `DiviaContacts for Android`
-        - github: `@DiviaAI/diviacontacts-android`
+        - github: https://github.com/DiviaAI/diviacontacts-android
       - Product: `DiviaContacts for iPhone/iPad`
-        - github: `@DiviaAI/diviacontacts-iOS`
+        - github: https://github.com/DiviaAI/diviacontacts-iOS
     - Project / Open Standard: <u>Divia.AI Semantic Smart Cards</u> (aka: <u>DiviaCards</u>)
       - Domain: **<u>divia.cards</u>**
         - redirect/alias: **<u>diviacards.com</u>**
         - redirect/alias: **<u>diviasmartcards.com</u>**
+      - github: _(rendering-layer app repo `divia_cards`; no GitHub remote yet)_
     - Project / Resource: <u>Divia.Network</u>
       - description: online tutorials and training site for the ecosystem of connected apps
       - Domain: **<u>divia.network</u>**
@@ -61,6 +66,7 @@
       - redirect/alias: **<u>divialife.me</u>**
       - redirect/alias: **<u>divia.live</u>**
       - redirect/alias: **<u>divialive.com</u>**
+    - github: https://github.com/DiviaLife/divialife-flutter _(android/iOS native editions not yet initialized)_
   - Subsidiary: <u>DiviaHome LLC</u>
     - Domain: **<u>diviahome.com</u>**
       - redirect/alias: **<u>diviahome.net</u>**
@@ -72,6 +78,7 @@
       - canonical product page: **<u>diviahome.com</u>**/communityedition/
         - redirect/alias: **<u>divia.ai</u>**/diviahome/ => **<u>diviahome.com</u>**/communityedition/
         - redirect/alias: **<u>divia.ai</u>**/diviahomeserver/ => **<u>diviahome.com</u>**/communityedition/
+      - github: https://github.com/DiviaHome/diviahome-web
     - Open-source Software Project: `DiviaOS`
       - Domain: **<u>diviaos.com</u>**
   
@@ -88,6 +95,7 @@
       - redirect/alias: **<u>satvasic.health</u>**
       - redirect/alias: **<u>satvasichealth.com</u>**
     - **<u>BUY-DOMAIN: sattvasic.ai</u>**
+    - github: _(local repo `sattvasichealth`; no GitHub remote yet)_
 
 ## <u>ExoDev.AI Family of Companies</u>
 
@@ -113,14 +121,23 @@
         - redirect/alias: **<u>aixodev.com</u>**
       - **<u>BUY-DOMAIN: aixo.com</u>**
       - **<u>BUY-DOMAIN: aixo.ai</u>**
+      - github: https://github.com/aixodev/aixodev-web
     - Software Product: `aixocode` (terminal/TUI application)
       - Domain: **<u>aixocode.com</u>**
         - redirect/alias: **<u>aixocode.pro</u>**
         - redirect/alias: **<u>aixo.codes</u>** => **<u>aixo.dev</u>**/aixocode/
       - **<u>BUY-DOMAIN: aixocode.dev</u>**
+      - github: https://github.com/aixodev/aixodev-aixocode
     - Software Product: `AIXO.Dev Professional` (cross-platform desktop application)
       - **<u>BUY-DOMAIN: aixodev.pro</u>**
       - **<u>BUY-DOMAIN: aixo.pro</u>**
+      - github: _(local repo `aixodev-professional`; no GitHub remote yet)_
+    - Prototype sub-projects (Flask; converging into AIXO.Dev Platform):
+      - `aixodev-projects` — https://github.com/aixodev/aixodev-projects
+      - `aixodev-codemap` — https://github.com/aixodev/aixodev-codemap
+      - `aixodev-collabs` — https://github.com/aixodev/aixodev-collabs
+      - `aixodev-workgroups` — https://github.com/aixodev/aixodev-workgroups
+      - `aixodev-openhands` — https://github.com/aixodev/aixodev-openhands
 
 ## Related Books by <u>John Stanforth</u>
 
@@ -186,6 +203,7 @@
     - redirect/alias: **<u>kingmakerstrategy.com</u>**
   - Service/Product: <u>Kingmaker Strategic Knowledgebase</u>
     - Domain: **<u>kingstratvc.com</u>**
+    - github: https://github.com/KingStratVC/kingstratvc-web
   
 - Company: <u>LegendaryMoney LLC</u>
   - Domain: **<u>legendarymoney.com</u>**
@@ -193,6 +211,7 @@
   - Software Product: `LegendaryMoney App`
     - Domain: **<u>legendarymoney.app</u>**
       - redirect/alias: **<u>legendarymoneyapp.com</u>**
+    - github: _(local repo `legendarymoney-web`; no GitHub remote yet)_
   - Subsidiary: <u>LegendaryFinancial.AI</u>
     - Domain: **<u>legendary.financial</u>**
     - **<u>BUY-DOMAIN: legendaryfinancial.ai</u>**
@@ -251,11 +270,14 @@
       - redirect/alias: **<u>tastypantry.life</u>**
       - redirect/alias: **<u>tastypantry.recipes</u>**
     - **<u>BUY-DOMAIN: tastypantry.com</u>**
+    - github: https://github.com/TastyPal/tastypantry
   - Subsidiary: <u>TastyTrucks by TastyPal</u>
     - Domain: **<u>tastytrucks.app</u>**
       - redirect/alias: **<u>tastytrucksapp.com</u>**
     - **<u>BUY-DOMAIN: tastytruck.com</u>**
     - **<u>BUY-DOMAIN: tastytrucks.com</u>**
+  - Project: `spicemaster3000` (standalone flavor-tech app; working title)
+    - github: https://github.com/johnstanforth/spicemaster3000
 
 - Company: <u>SensoryMQ, Inc.</u>
   - Domain: **<u>sensorymq.com</u>**
