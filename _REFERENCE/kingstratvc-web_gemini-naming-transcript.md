@@ -1,7 +1,7 @@
-# kingstratvc-web — Gemini naming/concept session (reconstructed transcript)
+# KingStrat VentureGPS (`kingstrat-venturegps`) — Gemini naming/concept session (reconstructed transcript)
 
 > A legible reconstruction of the 2026-06-14 Google Gemini chat about naming + designing
-> **`kingstratvc-web`**, recovered from the Gmail-printed PDF in this directory (whose tables and ASCII
+> **`kingstrat-venturegps`**, recovered from the Gmail-printed PDF in this directory (whose tables and ASCII
 > mockups were column-shredded by the print). The **distilled takeaways** live in
 > **`kingstratvc-web_DESIGN_NOTES.md`**; this file preserves the back-and-forth.
 
@@ -33,7 +33,7 @@ Plus a summary matrix (Name · Vibe · Best Suited For) and a next-step suggesti
 
 > *"I want to push back on one part of this: 'technical builders (looking for code blocks, deployment blueprints, infrastructure)' — that's the wrong audience…"*
 
-The point: `kingstratvc-web` is **not** a developer tool. Its users are the firm's **internal C-suite / operators / studio leadership** and its **LP investors** — a private-equity / venture-studio context. Any "deep-tech" styling should serve *impression and authority*, not literal coding.
+The point: `kingstrat-venturegps` is **not** a developer tool. Its users are the firm's **internal C-suite / operators / studio leadership** and its **LP investors** — a private-equity / venture-studio context. Any "deep-tech" styling should serve *impression and authority*, not literal coding.
 
 ### ③ Gemini — refit: a dual-audience "Strategic Operating System"
 

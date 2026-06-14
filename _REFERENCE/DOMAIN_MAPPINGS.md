@@ -27,7 +27,8 @@ This file maps every venture idea, company family, product/service, and matching
     - Product: `Divia.AI Enterprise` (server)
       - canonical product page: **<u>divia.ai</u>**/diviaenterpriseserver/
         - redirect/alias: **<u>diviaenterprise.com</u>** => **<u>divia.ai</u>**/diviaenterpriseserver/
-      - github: [@DiviaAI/divia_ai-enterprise](https://github.com/DiviaAI/divia_ai-enterprise) _(planned; repo not yet initialized)_
+      - github (Python prototype, active): [@DiviaAI/proto-divia_ai-enterprise](https://github.com/DiviaAI/proto-divia_ai-enterprise) _(tracks the DiviaHome lab as upstream)_
+      - github (Rust commercial, future): [@DiviaAI/divia_ai-enterprise](https://github.com/DiviaAI/divia_ai-enterprise) _(planned; begins after the prototype reaches v1 + ~30 days real use)_
     - Product: `Divia.AI Swarm` (Rust agent backbone — containerized autonomous agents)
       - github: [@DiviaAI/divia_ai-swarm](https://github.com/DiviaAI/divia_ai-swarm)
     - Product line: `DiviaContacts`
@@ -212,11 +213,11 @@ This file maps every venture idea, company family, product/service, and matching
     - redirect/alias: **<u>kingmakerstrategy.com</u>**
     - redirect/alias: **<u>kingstratvc.com</u>**
     - redirect/alias: **<u>kingstrat.vc</u>**
-  - Service/Product: <u>Kingmaker Strategic Knowledgebase</u>
-    - description: the Python/Flask web service/application, distinct from the firm's public website (kingmakerstrategic.com)
+  - Service/Product: <u>KingStrat VentureGPS</u>
+    - description: portfolio-tracking / venture-studio operating system (Python/Flask) — Studio Operations + LP Dashboard audiences; distinct from the firm's public website (kingmakerstrategic.com). See `kingstratvc-web_DESIGN_NOTES.md`.
     - Domain: **<u>kingstrat.ventures</u>**
       - redirect/alias: **<u>kingstratventures.com</u>**
-    - github: [@KingStratVC/kingstratvc-web](https://github.com/KingStratVC/kingstratvc-web)
+    - github: [@KingStratVC/kingstrat-venturegps](https://github.com/KingStratVC/kingstrat-venturegps)
   
 - Company: <u>LegendaryMoney LLC</u>
   - Domain: **<u>legendarymoney.com</u>**

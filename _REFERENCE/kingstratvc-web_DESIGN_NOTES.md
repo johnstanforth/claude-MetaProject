@@ -1,6 +1,6 @@
-# kingstratvc-web — Design Notes (Gemini naming/concept session)
+# KingStrat VentureGPS (`kingstrat-venturegps`) — Design Notes (Gemini naming/concept session)
 
-> Distilled, organized design input for the **`kingstratvc-web`** product, extracted from a brainstorming
+> Distilled, organized design input for the **KingStrat VentureGPS** (`kingstrat-venturegps`) product, extracted from a brainstorming
 > chat with Google Gemini (John steering) on **2026-06-14**. The chat's open question was the product
 > **name** ("KingStrat Helix? or KingStrat VentureGPS?") but it grew into a full concept + UI/UX direction.
 
@@ -80,4 +80,4 @@ A deliberate **aerospace / mission-control telemetry aesthetic** — explicitly 
 - **Name:** VentureGPS vs Helix (vs the others). *(John.)*
 - Is "VentureGPS / VTL" the **public** brand or just the internal **system** framing under a cleaner public name?
 - How literal to take the telemetry aesthetic for an **LP** audience (impressive vs. overwrought) — the Trajectory Node may want a calmer register than the Signal Node.
-- Relationship to the existing repo name `kingstratvc-web` and the canonical app domain **`kingstrat.ventures`** (the product name above the code-level short-name).
+- Relationship between the product name **KingStrat VentureGPS**, the repo short-name `kingstrat-venturegps`, and the canonical app domain **`kingstrat.ventures`**.
