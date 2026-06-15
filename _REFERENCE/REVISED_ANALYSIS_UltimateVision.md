@@ -1,5 +1,7 @@
 # REVISED ANALYSIS — `ULTIMATE_VISION` Guide reconciliation (new perspective)
 
+> **Note (2026-06-15):** the product referred to below as **KingStrat VentureGPS** (repo `kingstrat-venturegps`, domain `kingstrat.ventures`) was later renamed **KingStrat AdVentureGPS** (repo `kingstrat-adventuregps`, app `KSVGPS.kingstrat.ventures`). This dated analysis is intentionally left unchanged.
+
 > A fresh inventory of the discrepancies first catalogued in
 > [`ANALYSIS_DomainList_vs_UltimateVision.md`](ANALYSIS_DomainList_vs_UltimateVision.md), re-read
 > through John's 2026-06-14 clarifying notes (`notes-clarifying-UltimateVisionGuide.md`). **Purpose:**

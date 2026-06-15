@@ -1,5 +1,7 @@
 # KingStrat VentureGPS (`kingstrat-venturegps`) — Design Notes (Gemini naming/concept session)
 
+> **Note (2026-06-15):** the product was later renamed **KingStrat AdVentureGPS** (repo `kingstrat-adventuregps`, app `KSVGPS.kingstrat.ventures`). This historical record of the naming session is intentionally left unchanged; "VentureGPS" / `kingstrat-venturegps` below reflect the name at the time of writing.
+
 > Distilled, organized design input for the **KingStrat VentureGPS** (`kingstrat-venturegps`) product, extracted from a brainstorming
 > chat with Google Gemini (John steering) on **2026-06-14**. The chat's open question was the product
 > **name** ("KingStrat Helix? or KingStrat VentureGPS?") but it grew into a full concept + UI/UX direction.

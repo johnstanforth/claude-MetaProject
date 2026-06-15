@@ -209,15 +209,16 @@ This file maps every venture idea, company family, product/service, and matching
     - redirect/alias: **<u>jsld.com</u>**
   
 - Company/Firm: <u>Kingmaker Strategic Venture Partners LLC</u>
-  - Domain: **<u>kingmakerstrategic.com</u>**
+  - Domain: **<u>kingmakerstrategic.com</u>** — the one canonical firm front; every other `king*` variant redirects here (2026-06-15 consolidation)
     - redirect/alias: **<u>kingmakerstrategy.com</u>**
     - redirect/alias: **<u>kingstratvc.com</u>**
     - redirect/alias: **<u>kingstrat.vc</u>**
-  - Service/Product: <u>KingStrat VentureGPS</u>
+    - redirect/alias: **<u>kingstrat.ventures</u>** (apex + `www` ONLY — the `KSVGPS` subdomain below serves the app, so the redirect must not be wildcard)
+    - redirect/alias: **<u>kingstratventures.com</u>**
+  - Service/Product: <u>KingStrat AdVentureGPS</u> _(renamed from "KingStrat VentureGPS" 2026-06-15 — the old name collided with an existing fleet-management GPS company)_
     - description: portfolio-tracking / venture-studio operating system (Python/Flask) — Studio Operations + LP Dashboard audiences; distinct from the firm's public website (kingmakerstrategic.com). See `kingstratvc-web_DESIGN_NOTES.md`.
-    - Domain: **<u>kingstrat.ventures</u>**
-      - redirect/alias: **<u>kingstratventures.com</u>**
-    - github: [@KingStratVC/kingstrat-venturegps](https://github.com/KingStratVC/kingstrat-venturegps)
+    - Domain: **<u>KSVGPS.kingstrat.ventures</u>** (a subdomain of `kingstrat.ventures`; the app's main URL. Wordmark = "AdVentureGPS"; URL/acronym = "KSVGPS")
+    - github: [@KingStratVC/kingstrat-adventuregps](https://github.com/KingStratVC/kingstrat-adventuregps)
   
 - Company: <u>LegendaryMoney LLC</u>
   - Domain: **<u>legendarymoney.com</u>**
