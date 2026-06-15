@@ -48,6 +48,10 @@ MetaProject uses a **lightweight flow** — no sprint/phase pipeline, no `sp_`/`
 
 - **Always use Opus** for research and analysis subagents. Never use Sonnet for research tasks (documented factual errors in prior projects).
 
+## Documentation Conventions (cross-project)
+
+**No soft-wrapped lines in Markdown.** Write prose with NO manual/soft line-wrapping inside paragraphs: each paragraph and each list item is ONE unbroken line that soft-wraps in the renderer. Insert a newline ONLY at real semantic boundaries — a blank line between paragraphs, list items, headings, table rows, and fenced code blocks. Do NOT hard-wrap prose at a fixed column width (e.g. ~80 cols). Rationale: a one-sentence edit changes one line rather than re-flowing a block, so diffs stay clean and reviewable, and the rendered output is identical either way. This applies to all reports, research analyses, specs, briefs, and docs (including subagent output) — across this MetaProject **and** every managed sub-repo. When editing an already-soft-wrapped doc, apply the rule to new/rewritten content; do not reflow the whole file as a side effect. Each managed repo should also carry this rule in its own `CLAUDE.md` so subagents scoped to that repo inherit it.
+
 ## CRITICAL: Reason Step by Step
 
 Before answering any question, reason step by step. Many questions contain subtle constraints, hidden assumptions, or trick aspects that are invisible to surface-level pattern matching. Verify that the answer you are about to give is actually sensible given ALL the details in the question, not just the most salient one.
