@@ -26,7 +26,7 @@ while [[ $# -gt 0 ]]; do
                 exit 1
             fi
             SESSION_MODE="research"
-            MODEL="claude-opus-4-6[1M]"
+            MODEL="claude-opus-4-8[1M]"
             SKIP_PERMISSIONS=true
             WATCHDOG_MS=1200000   # 20 minutes
             shift
