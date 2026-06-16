@@ -9,7 +9,7 @@
 
 ## Why this note exists
 
-This is exactly the kind of cross-project product-scoping reasoning that, before this MetaProject existed, got lost as a throwaway sidenote inside one project's conversation — with no parallel note in the *other* affected projects to resurface it when the time was right. The "QR-code sticker in the storefront window" idea below is a concrete casualty: it had been discussed but was **written down nowhere** (a full read of `_REFERENCE/` confirmed it's absent — the only QR/registry hits were unrelated: TXFR's file-transfer QR codes and the DiviaCards "global registry"), and John couldn't recall whether it had been framed under Divia.Life or DiviaContacts. This note records the strategy and the idea so both survive.
+This consolidates cross-project product-scoping reasoning that would otherwise stay scattered — the kind of thing that, before this MetaProject existed, got lost as a throwaway sidenote with no parallel note in the *other* affected projects to resurface it at the right time. The "QR-code sticker in the storefront window" idea (§4) is the worked example: the *idea itself* turned out to be well-documented — in `kingstrat-adventuregps`'s Divia-platform **federation research** (where the entity-model / federated-identity work lives) — but its **cross-project product placement** (which app owns the AR surface, and why) was never consolidated. **Search-scope lesson:** an earlier `divia*`-scoped search missed it precisely because it lives under KingmakerStrategic, not a `divia*` repo; it took an *all-managed-projects* sweep (2026-06-16) to find it. This note consolidates the strategy + the idea's provenance + its product home so none of it is lost again.
 
 ## 1. The pattern: Flutter-first → native v2/v3 (only when warranted)
 
@@ -34,13 +34,23 @@ Flutter *can* access the camera — so this is **not** a hard technical constrai
 
 So `diviacontacts-android` is the right **experimental substrate** for AR, and `fracrealhomes-android` for 3D capture — and the learnings transfer to the eventual Divia.Life native builds (§5).
 
-## 4. The "QR-code sticker in the storefront window" idea (recorded for the first time)
+## 4. The "QR-code sticker in the storefront window" idea (provenance: kingstrat federation research)
 
-**The idea:** a business registers in the **Divia.Network Global Registry** (a registry of Place/Company identities), receives a Divia.Network ID/URL, and puts a **Divia.Network QR-code sticker in its storefront window**. A mobile app can then (a) **scan the window sticker** to resolve that storefront to its Divia.Network / PKMS entity, and (b) offer an **AR camera view that overlays nearby buildings/stores/Places with their Divia.Network identity (ID/URL)**.
+**Where it's documented (found 2026-06-16):** the idea lives in **`kingstrat-adventuregps`** — `_specs_and_plans/phase_00--ideation_and_research/DIVIA_PLATFORM_VISION_AND_FEDERATION.md` **§5 "The identity-link surface"**, grounded technically in `_specs_and_plans/_research/entity_model_and_graph_db/analysis-43--federated-identity-registry-models.md` **§4**. It was worked out there because that repo hosts the Divia-platform entity-model / federated-identity research — so it's *not* under Divia.Life or DiviaContacts (which answers John's open question), though the original note already leaned to DiviaContacts (below).
 
-**Where it belongs — resolved:** this is a **DiviaContacts** capability, and it lives in **`diviacontacts-android`**. DiviaContacts' core job is *resolving People, **Places**, and Companies to their PKMS/Divia.Network entities* (Streak-style, today in the Gmail inbox); the AR storefront view simply extends that resolution **from the inbox to the physical world**. (This also answers John's open question: the idea is DiviaContacts, not Divia.Life — and it had never been written down under either.) The detailed AR/QR option-space lives in `diviacontacts-android`'s `ROADMAP.md` as Phase-01-experimental.
+**The idea (gist).** §5 names four **identity-link surfaces**, all riding on one federated identity (a mutable human handle → a permanent registry UUID):
+- **`divia.me/{handle}`** — a Linktree-style personal identity URL.
+- **`Divia.Network/{company}/{location}` shop-window QR** — a Divia.Network-branded **QR sticker in a shop window** resolving to that exact store's location URL.
+- **business-card QR** — a QR serving **machine-readable, continuously-updated** contact JSON ("no more pen-struck-out phone numbers"; John intends to early-adopt later in 2026).
+- **AR overlay (a "later, fun feature")** — verbatim *"likely in a **DiviaContacts** mobile app (maybe also a consumer **Divia.Life** app if fun enough)"*: point your phone camera at the street → it overlays the correct `Divia.Network` links on the stores you see, via **GPS + compass + light OCR of store names — even for shops without a QR sticker.**
 
-> Terminology caution: "Divia.Network" is overloaded. In `DOMAIN_MAPPINGS.md` `divia.network` is described as a tutorials/training microsite; in the fan-out user story it's the open integration layer/protocol; here "Divia.Network **Global Registry**" is a (currently aspirational) registry of public Place/Company identities. Reconcile these senses when the registry concept is actually scoped.
+So the AR overlay was **already flagged for DiviaContacts** (Divia.Life a maybe), corroborating the placement below.
+
+**Technical grounding (analysis-43 §4):** the shop-window QR is a **dynamic QR** (encodes a *stable URL*, not raw data → reprint never needed), following GS1-GLN / Handle prefix-delegation (`Divia.Network/{company}/{location}`; the company owns its sub-namespace); endpoints serve a `did:web` document + **signed Verifiable Credentials** with **selective disclosure** (public-by-default, more-on-consent).
+
+**Product placement (this note's addition):** the **AR storefront-discovery surface** is owned by **`diviacontacts-android`** — DiviaContacts' core job is *resolving People, **Places**, and Companies to PKMS/Divia.Network entities*, and the AR view extends that from the inbox to the physical world. Its detailed AR option-space (which now cites this provenance) lives in `diviacontacts-android`'s `ROADMAP.md` as Phase-01-experimental.
+
+> Terminology caution: "Divia.Network" is overloaded — in `DOMAIN_MAPPINGS.md` `divia.network` is a tutorials/training microsite; in the fan-out user story it's the open integration layer/protocol; in the federation research (and here) **`Divia.Network/{company}/{location}`** is the **Global Registry of public Place/Company identities**. Reconcile these senses when the registry is actually scoped.
 
 ## 5. The convergence (why the experiments matter beyond their own apps)
 
