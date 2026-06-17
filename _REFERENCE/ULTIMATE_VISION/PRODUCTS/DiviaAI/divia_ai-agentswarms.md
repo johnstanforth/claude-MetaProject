@@ -1,10 +1,10 @@
-# Product — Divia.AI Swarm
+# Product — Divia.AI AgentSwarms
 
 > The Rust server that provides **containerized hosting for autonomous Divia.AI agents** — the intended
 > **AI backbone of the whole ecosystem.** In the OpenClaw/NanoClaw family; usable standalone, designed
 > to co-deploy with Enterprise and transparently power AI features everywhere.
 
-- **Names:** "Divia.AI Swarm" · repo/dir `divia_ai-swarm` · code id `diviaswarm` · env prefix `DIVIASWARM_`.
+- **Names:** "Divia.AI AgentSwarms" · repo/dir `divia_ai-agentswarms` · code id `divia-agentswarms` · env prefix `DIVIA_AGENTSWARMS_`.
 - **Umbrella / venture:** DiviaAI — see [`../../VENTURES/DiviaAI.md`](../../VENTURES/DiviaAI.md).
 - **License:** **Undocumented** (intended proprietary, by ecosystem analogy — not stated in-repo).
 - **Status:** 🟠 Just bootstrapped — workflow scaffold + README/CLAUDE only; Rust + Cargo settled; **Phase 00 (Ideation & Research) is NEXT.**

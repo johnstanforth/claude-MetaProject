@@ -1,6 +1,6 @@
 # LATER-001 — Workflow Lineage Tracking & Hybrid (Deterministic + LLM) Workflow Formalization
 
-- **Captured:** 2026-06-12, MetaProject session (while indexing the new `divia_ai-swarm` / `divialife-*` bootstraps)
+- **Captured:** 2026-06-12, MetaProject session (while indexing the new `divia_ai-agentswarms` / `divialife-*` bootstraps)
 - **Updated:** 2026-06-16 — John re-raised the core propagation problem at 20+-project scale and asked to "revisit cross-project workflows"; the new `research-pdf` skill surfaced a third propagation model. See the [2026-06-16 update](#2026-06-16-update--scale-re-framing--the-global-skill-propagation-model) section below.
 - **Status:** LATER — awaiting weekly backlog review; not yet assigned to a sprint
 - **Eventual owning project:** `aixodev-workgroups` (prototype), ultimately re-merged into the upstream AIXO.Dev Platform web service (`aixodev-web`) per the standard prototype → product convergence pattern
@@ -20,7 +20,7 @@
 
 2. **Routing improvements upstream.** The flow is bidirectional. A downstream fork (e.g. `divialife-flutter` adapting the system to Flutter) will learn things that generalize. Lineage identifies the trunk — the "most evolved" copy where improvements should land so the *next* bootstrap inherits them. Without it, every lesson stays siloed in whichever repo learned it, and the accumulated-lessons engine stops compounding.
 
-3. **Choosing the right ancestor for the next bootstrap.** This directly serves the original bootstrapping goal. The documented chain (`aixodev-collabs → tastypantry → sattvasichealth → diviahome-web → legendarymoney-web`) identifies the current tip — which is why `divia_ai-swarm` and `divialife-flutter` correctly cloned from DiviaHome rather than the older `aixodev-collabs` root. Cloning from a stale sibling resurrects already-fixed problems. Lineage makes "which one do I copy from?" a lookup instead of an 8-repo diff.
+3. **Choosing the right ancestor for the next bootstrap.** This directly serves the original bootstrapping goal. The documented chain (`aixodev-collabs → tastypantry → sattvasichealth → diviahome-web → legendarymoney-web`) identifies the current tip — which is why `divia_ai-agentswarms` and `divialife-flutter` correctly cloned from DiviaHome rather than the older `aixodev-collabs` root. Cloning from a stale sibling resurrects already-fixed problems. Lineage makes "which one do I copy from?" a lookup instead of an 8-repo diff.
 
 4. **A pointer to lost rationale.** Bootstrapped copies carry the rules but not the scar tissue — the *why* lives in the ancestor's git history and sprint retrospectives. When an agent in a thin new repo hits an ambiguous workflow rule, "this came from DiviaHome" is a one-line citation to a much richer context it can consult instead of guessing.
 

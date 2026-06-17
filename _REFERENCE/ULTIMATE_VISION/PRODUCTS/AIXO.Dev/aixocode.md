@@ -38,7 +38,7 @@ Three jobs: **(1)** manage multiple LLM-tool instances in organized workspaces; 
 ## Cross-product role
 - The laptop-side **client of `aixodev-web`** (the central platform). Contract is aligned both sides; **live E2E sync is the biggest unbuilt gap** (server integration is Sprint 05, not yet live).
 - Demarcation: the Platform owns orgs/projects/agents/tasks/personalities; aixocode owns workspaces, terminals, CollabPairs, and the session archives. Agent personalities defined on the Platform are *executed* locally by aixocode's AgentEngine mode.
-- aixocode's local collab subsystem is the **laptop-scale precursor of Divia.AI Swarm** at server scale; lessons are meant to flow aixocode → Swarm.
+- aixocode's local collab subsystem is the **laptop-scale precursor of Divia.AI AgentSwarms** at server scale; lessons are meant to flow aixocode → Swarm.
 
 ## Ideation & Exploration (capture everything, commit to nothing)
 

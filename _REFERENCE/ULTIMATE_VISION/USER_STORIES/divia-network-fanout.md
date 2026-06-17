@@ -17,7 +17,7 @@ It's evening. The user says — out loud to the **DiviaHome kitchen-counter devi
 
 Nothing is filled in. No form, no category dropdown, no amount. The sentence is captured **verbatim** as a natural-language **DiviaCard** and dropped, losslessly, into the **Activity Log** inbox. That's the whole user-facing interaction. Everything else happens *for* them.
 
-Later — on the next agent pass — a **Divia.AI Swarm**-hosted agent picks the card up and classifies it (*food-related, and a purchase*). It doesn't try to be clever in one place; it **fans the meaning out** across the products that each own a slice of it:
+Later — on the next agent pass — a **Divia.AI AgentSwarms**-hosted agent picks the card up and classifies it (*food-related, and a purchase*). It doesn't try to be clever in one place; it **fans the meaning out** across the products that each own a slice of it:
 
 - **TastyPantry** records a **food-eaten** entry — `quantity=2` of `Food("quesadilla")` if that's what "El Pollo Loco for dinner" decomposes to — and decrements on-hand inventory accordingly (cascading through the recipe → base-ingredient model).
 - **Sattvasic Health** records that food's **calories and macronutrients** into the day's intake, where it can later surface correlations the user never thought to ask for.

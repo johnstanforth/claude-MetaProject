@@ -27,7 +27,7 @@ Two corporate families plus a few independent ventures, ~24 repos, one shared ph
 
 ### PRODUCTS — `PRODUCTS/<Umbrella>/<product>.md`
 - **AIXO.Dev/** — `aixocode`, `aixodev-web`, `aixodev-projects`, `aixodev-codemap`, `aixodev-collabs`, `aixodev-workgroups`, `aixodev-openhands`, `aixodev-professional`
-- **DiviaAI/** — `divia_ai-professional`, `divia_ai-enterprise`, `divia_ai-swarm`, `diviacontacts` (gmail + android + iOS)
+- **DiviaAI/** — `divia_ai-professional`, `divia_ai-enterprise`, `divia_ai-agentswarms`, `diviacontacts` (gmail + android + iOS)
 - **DiviaHome/** — `diviahome`
 - **DiviaLife/** — `divialife` (flutter + android + iOS)
 - **DiviaCards/** — `divia_cards`

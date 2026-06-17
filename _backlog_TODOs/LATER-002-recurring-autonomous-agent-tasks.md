@@ -1,9 +1,9 @@
 # LATER-002 — Recurring Autonomous-Agent Tasks: Where Do They Live Long-Term?
 
 - **Captured:** 2026-06-12, MetaProject session (immediately following [LATER-001](LATER-001-workflow-lineage-and-hybrid-formalization.md)); **revised same day** to add the GTD Weekly Review use-case and the cross-product framing
-- **Status:** LATER — scratchpad for weekly backlog review; feeds `divia_ai-swarm` Phase 00 research scope
-- **Eventual owning projects:** `divia_ai-swarm` (primary — the "where do agents run" question), `divia_ai-enterprise` (the GTD/task-management use-case, §5), `aixodev-workgroups` (task definition/assignment, see LATER-001), `aixodev-web` (surfacing/approvals)
-- **Related:** LATER-001 · `divia_ai-swarm/CLAUDE.md` + `README.md` · `divia_ai-swarm/_specs_and_plans/_backlog/_horizon_NEXT.md` (competitive deep-dive item) · `aixodev-aixocode` Phase 8 (Analytics & Knowledge) · [GTD Weekly Review® official checklist (PDF)](https://gettingthingsdone.com/wp-content/uploads/2014/10/Weekly_Review_Checklist.pdf)
+- **Status:** LATER — scratchpad for weekly backlog review; feeds `divia_ai-agentswarms` Phase 00 research scope
+- **Eventual owning projects:** `divia_ai-agentswarms` (primary — the "where do agents run" question), `divia_ai-enterprise` (the GTD/task-management use-case, §5), `aixodev-workgroups` (task definition/assignment, see LATER-001), `aixodev-web` (surfacing/approvals)
+- **Related:** LATER-001 · `divia_ai-agentswarms/CLAUDE.md` + `README.md` · `divia_ai-agentswarms/_specs_and_plans/_backlog/_horizon_NEXT.md` (competitive deep-dive item) · `aixodev-aixocode` Phase 8 (Analytics & Knowledge) · [GTD Weekly Review® official checklist (PDF)](https://gettingthingsdone.com/wp-content/uploads/2014/10/Weekly_Review_Checklist.pdf)
 
 > **Nature of this file (per John):** a deliberately wide-scope scratchpad. Record *all* ideas we have right now — both to preserve what we were thinking for the future discussion, and to widen the considered space of use-cases, improvement opportunities, and alternate implementations. Nothing here is committed-to; everything here is fair game to discard.
 
@@ -13,11 +13,11 @@
 
 While setting up `_backlog_TODOs/` and its **weekly review routine**, the immediate implementation offer was a Claude Code `/schedule` cloud routine. That works today — but it raises the real question: **where should ongoing "autonomous agent"-level tasks belong long-term within our ecosystem?** Vendor-hosted scheduling (Claude Code cloud routines), local cron, the AIXO.Dev Platform, or our own agent-hosting infrastructure?
 
-This is properly a **Phase 00 research question for `divia_ai-swarm`** — and, as §3 below frames it, the question is much bigger than developer tooling: the same capability class shows up in *every* product family we ship.
+This is properly a **Phase 00 research question for `divia_ai-agentswarms`** — and, as §3 below frames it, the question is much bigger than developer tooling: the same capability class shows up in *every* product family we ship.
 
-## 2. Context from `divia_ai-swarm` (pulled from its repo docs, 2026-06-12)
+## 2. Context from `divia_ai-agentswarms` (pulled from its repo docs, 2026-06-12)
 
-- **Divia.AI Swarm** is a Rust server providing **containerized hosting for multiple autonomous Divia.AI agents** — same family as OpenClaw, IronClaw, PicoClaw, NanoClaw, Hermes Agent, and the broader field of agent frameworks/harnesses. Stood up alone, it works like those tools out of the box; its purpose-built role is the **AI backbone of the Divia.AI ecosystem**.
+- **Divia.AI AgentSwarms** is a Rust server providing **containerized hosting for multiple autonomous Divia.AI agents** — same family as OpenClaw, IronClaw, PicoClaw, NanoClaw, Hermes Agent, and the broader field of agent frameworks/harnesses. Stood up alone, it works like those tools out of the box; its purpose-built role is the **AI backbone of the Divia.AI ecosystem**.
 - Hosted agents run in **isolated containers** and maintain **real-time connections (WebSocket, ZeroMQ, etc.)** to the other Divia.AI products, transparently powering AI capabilities everywhere — e.g. the right-sidebar AI chat in Divia.AI Professional, and the intended **Swarm + Enterprise co-deployment** that gives Enterprise's document/task/project features agent-powered upgrades.
 - **Phase 00 (Ideation & Research) is NEXT**: a competitive deep-dive of the agent-framework field (architecture, agent lifecycle, scheduling/supervision, isolation/sandboxing models, integration surfaces), feeding the core stack decisions (async runtime, web/RPC framework, container runtime, database).
 
@@ -96,7 +96,7 @@ The autonomous agent then does the **first pass** ahead of the human's review se
 
 ### 5.4 Why this belongs to Divia.AI Enterprise
 
-This use-case sits squarely inside **Divia.AI Enterprise's** scope — the PKMS-plus-Asana-style project/task-management server — with the AI capabilities supplied, as always, by the **connected Divia.AI Swarm server** (the intended Swarm + Enterprise co-deployment from §2). It is exactly the kind of "dramatically upgraded, agent-powered capability" the Enterprise positioning promises, and a marquee demo of it: *"Enterprise doesn't just store your tasks — it prepares your Weekly Review."* Note the contrast with Use-case A: **same backbone, same recurring-agent pattern, completely different brain** (Enterprise's task graph vs. workgroups' project/workflow ledger) and completely different domain.
+This use-case sits squarely inside **Divia.AI Enterprise's** scope — the PKMS-plus-Asana-style project/task-management server — with the AI capabilities supplied, as always, by the **connected Divia.AI AgentSwarms server** (the intended Swarm + Enterprise co-deployment from §2). It is exactly the kind of "dramatically upgraded, agent-powered capability" the Enterprise positioning promises, and a marquee demo of it: *"Enterprise doesn't just store your tasks — it prepares your Weekly Review."* Note the contrast with Use-case A: **same backbone, same recurring-agent pattern, completely different brain** (Enterprise's task graph vs. workgroups' project/workflow ledger) and completely different domain.
 
 ## 6. Satellite expressions across the other product families
 
@@ -130,7 +130,7 @@ Each step trades convenience for ownership and integration depth. Key insight: *
 | Role | AIXO.Dev expression (Use-case A) | Divia.AI expression (Use-case B) |
 |---|---|---|
 | **Brain** (task definitions, schedules, approval queues, run history) | `aixodev-workgroups` → AIXO.Dev Platform | **Divia.AI Enterprise** (task/project graph) |
-| **Body** (containers, lifecycle, supervision, model routing, credentials, real-time connections) | Swarm (or a Platform-side runner — open question) | **Divia.AI Swarm** |
+| **Body** (containers, lifecycle, supervision, model routing, credentials, real-time connections) | Swarm (or a Platform-side runner — open question) | **Divia.AI AgentSwarms** |
 | **Face** (dashboards, approvals, digests, packet delivery) | `aixodev-web` | Professional / Divia.Life / DiviaHome surfaces |
 
 The two-column table *is* the §3 thesis in architectural form: same body, different brains and faces.
@@ -163,7 +163,7 @@ The two-column table *is* the §3 thesis in architectural form: same body, diffe
 - **Dogfooding chain**: aixocode's collab subsystem + Phase 7 workflow orchestration is the *local, laptop-scale precursor* of what Swarm does at server scale. Lessons should flow aixocode → Swarm deliberately, and aixocode could later gain a "remote agent" pane showing your Swarm fleet beside your local terminals.
 - **Divia.Network as agent transport**: agents as first-class Divia.Network participants — the same open integration layer that fans out "I had El Pollo Loco for dinner" carries agent→app notifications and app→agent task requests. The standard then serves humans, apps, *and* agents uniformly.
 - **Task market (SOMEDAY-grade, probably overkill)**: the brain as a marketplace where idle Swarm agents bid on queued tasks by declared capability/cost. Noted for completeness; revisit only if static assignment proves limiting.
-- **Effort-tiered scheduling → typed Swarm workflow steps** (LATER-001 echo): the Swarm scheduler budgets per-step model tiers — Haiku-medium for the mechanical aggregation pass, Fable-xhigh for the synthesis/judgment pass *within the same weekly task*. **This may warrant a deeper conceptual reframe.** Rather than "model tiers bolted onto a task," model the recurring task as a **workflow defined on the Divia.AI Swarm server** whose steps are explicitly **typed as either deterministic (plain code — a `git pull`, a SQL aggregate, a file diff) or probabilistic (an LLM call)**. Deterministic steps are cheap, reproducible, and need no model at all; each **probabilistic** step then *additionally* declares its effort tier (Haiku-medium for mechanical clarification, Fable-xhigh for judgment/synthesis). This makes cost, reproducibility, and *where the AI actually is* legible at the workflow level, and it dovetails cleanly with LATER-001's deterministic-gate guardrails — the gates simply *are* the deterministic steps. It's the Swarm-server expression of the same brain/body split: the workflow definition is brain-side; the typed-step execution is body-side.
+- **Effort-tiered scheduling → typed Swarm workflow steps** (LATER-001 echo): the Swarm scheduler budgets per-step model tiers — Haiku-medium for the mechanical aggregation pass, Fable-xhigh for the synthesis/judgment pass *within the same weekly task*. **This may warrant a deeper conceptual reframe.** Rather than "model tiers bolted onto a task," model the recurring task as a **workflow defined on the Divia.AI AgentSwarms server** whose steps are explicitly **typed as either deterministic (plain code — a `git pull`, a SQL aggregate, a file diff) or probabilistic (an LLM call)**. Deterministic steps are cheap, reproducible, and need no model at all; each **probabilistic** step then *additionally* declares its effort tier (Haiku-medium for mechanical clarification, Fable-xhigh for judgment/synthesis). This makes cost, reproducibility, and *where the AI actually is* legible at the workflow level, and it dovetails cleanly with LATER-001's deterministic-gate guardrails — the gates simply *are* the deterministic steps. It's the Swarm-server expression of the same brain/body split: the workflow definition is brain-side; the typed-step execution is body-side.
 
 **GTD-specific magnifiers (extending §5.3):**
 
@@ -176,7 +176,7 @@ The two-column table *is* the §3 thesis in architectural form: same body, diffe
 
 ## 11. Next actions (for weekly review)
 
-- [ ] Add "where do recurring autonomous-agent tasks live" to `divia_ai-swarm` Phase 00 ideation scope (alongside the competitive deep-dive in its `_horizon_NEXT.md`), including §8's three design tensions; cross-reference this file.
+- [ ] Add "where do recurring autonomous-agent tasks live" to `divia_ai-agentswarms` Phase 00 ideation scope (alongside the competitive deep-dive in its `_horizon_NEXT.md`), including §8's three design tensions; cross-reference this file.
 - [ ] When `divia_ai-enterprise` eventually activates (post-DiviaHome-v1 per its placeholder status), fold §5 (agent-assisted GTD Weekly Review) into its requirements as a marquee Swarm+Enterprise co-deployment feature.
 - [ ] Consider promoting §3's **implicit-data principle** ("discover-and-suggest, don't interrogate") into a canonical ecosystem-wide design-principles doc — it's load-bearing across at least six products and currently lives nowhere official.
 - [ ] Decide the near-term weekly-review mechanism — manual session vs. `/schedule` cloud routine (offer currently open) — and commit its prompt/definition as a portable file either way.

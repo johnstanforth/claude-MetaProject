@@ -243,7 +243,7 @@ entry yet**.
    validated list doesn't mention it anywhere. Given the list *does* carry TastyTrucks as TastyPal's
    second subsidiary (§B1), confirm whether spicemaster3000 belongs under `TastyPal, Inc.`, is a
    future standalone venture (its own brand/LLC, as the Guide argues), or simply hasn't been added.
-2. **`Divia.AI Swarm`, `Divia.AI Global (SaaS)`, `DiviaMesh`** — ecosystem components/planned services
+2. **`Divia.AI AgentSwarms`, `Divia.AI Global (SaaS)`, `DiviaMesh`** — ecosystem components/planned services
    in the Guide; no domains in the validated list (expected if domain-less today). Confirm whether any
    needs a domain/entity entry (e.g. a future `Divia.AI Global` identity service likely lives under
    `divia.ai`).

@@ -5,7 +5,7 @@
 > agents + mobile) ringed by open-source "home" editions, a nonprofit, and a future identity SaaS.
 
 - **Steward:** **Divia.AI, Inc.** (copyright lines run "© 1996–2026 John Stanforth & Divia.AI, Inc."; the brand-history doc frames the *Divia.AI* identity as "2020–present").
-- **Sources:** `divia_ai-professional/BRANDING_and_PRODUCTS.md` (the **canonical naming authority** for the whole ecosystem), `divia_ai-enterprise` README, `divia_ai-swarm`, `diviahome-web`, `divialife-flutter`, `diviacontacts-gmail`. Naming/stack conflicts → [`../../ERRATA.md`](../../ERRATA.md).
+- **Sources:** `divia_ai-professional/BRANDING_and_PRODUCTS.md` (the **canonical naming authority** for the whole ecosystem), `divia_ai-enterprise` README, `divia_ai-agentswarms`, `diviahome-web`, `divialife-flutter`, `diviacontacts-gmail`. Naming/stack conflicts → [`../../ERRATA.md`](../../ERRATA.md).
 
 ---
 
@@ -26,7 +26,7 @@ The pitch is "the assistant Siri never became" — proactive, not reactive; **10
 |---|---|---|---|
 | **Divia.AI Professional** | `divia_ai-professional` | Cross-platform desktop **outliner-editor**; owns `.dvai` + DiviaCards; the desktop client for Enterprise | Proprietary |
 | **Divia.AI Enterprise** | `divia_ai-enterprise` | Commercial **Rust team server** (a hardened re-implementation of the DiviaHome server) | Proprietary |
-| **Divia.AI Swarm** | `divia_ai-swarm` | Rust **agent backbone** — containerized autonomous agents powering AI across the ecosystem | Undocumented (intended proprietary) |
+| **Divia.AI AgentSwarms** | `divia_ai-agentswarms` | Rust **agent backbone** — containerized autonomous agents powering AI across the ecosystem | Undocumented (intended proprietary) |
 | **DiviaContacts** | `diviacontacts-{gmail,android,iOS}` | Lightweight **CRM-style reader/viewers** of the PKMS (Streak/Copper model) | Proprietary |
 | **DiviaHome** | `diviahome-web` | Open-source **household hub** + the experimental prototype that drives the ecosystem | **AGPLv3 + Commercial** |
 | **Divia.Life** | `divialife-{flutter,android,iOS}` | Commercial **mobile** app (Agenda / Journal / Messages / Friends & Family) | Proprietary, closed |

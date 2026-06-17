@@ -29,8 +29,8 @@ This file maps every venture idea, company family, product/service, and matching
         - redirect/alias: **<u>diviaenterprise.com</u>** => **<u>divia.ai</u>**/diviaenterpriseserver/
       - github (Python prototype, active): [@DiviaAI/proto-divia_ai-enterprise](https://github.com/DiviaAI/proto-divia_ai-enterprise) _(tracks the DiviaHome lab as upstream)_
       - github (Rust commercial, future): [@DiviaAI/divia_ai-enterprise](https://github.com/DiviaAI/divia_ai-enterprise) _(planned; begins after the prototype reaches v1 + ~30 days real use)_
-    - Product: `Divia.AI Swarm` (Rust agent backbone — containerized autonomous agents)
-      - github: [@DiviaAI/divia_ai-swarm](https://github.com/DiviaAI/divia_ai-swarm)
+    - Product: `Divia.AI AgentSwarms` (Rust agent backbone — containerized autonomous agents)
+      - github: [@DiviaAI/divia_ai-agentswarms](https://github.com/DiviaAI/divia_ai-agentswarms)
     - Product line: `DiviaContacts`
       - Domain: **<u>diviacontacts.com</u>**
       - Product: `DiviaContacts for Gmail`

@@ -71,7 +71,7 @@ A pervasive, low-stakes-but-everywhere inconsistency:
 
 ## 🟠 E-08 — The Enterprise ↔ Swarm relationship is asserted from one side only
 
-- `divia_ai-swarm` frames **Divia.AI Enterprise** as "a PKMS + **Asana-style** task/project server" that **co-deploys with Swarm** so Swarm can power Enterprise's AI features.
+- `divia_ai-agentswarms` frames **Divia.AI Enterprise** as "a PKMS + **Asana-style** task/project server" that **co-deploys with Swarm** so Swarm can power Enterprise's AI features.
 - `divia_ai-enterprise`'s **own README** frames itself as a **collaboration/sync server** and **never mentions Swarm or an "AI backbone" at all.**
 - `divia_ai-professional`'s BRANDING frames Enterprise as the full collaboration server whose desktop client is Pro (no Asana framing, no Swarm).
 
@@ -100,7 +100,7 @@ Several repos describe features as if present that depend on unbuilt work:
 
 Canonical decisions captured in the MetaProject's `_backlog_TODOs/LATER-002` have **no footprint in the product repos yet** — expected, since LATER-002 *is* the capture point, but listed so they get pushed down later:
 - **`.dvai` "LiveDocuments"** + **Divia.AI Enterprise "Research Projects"** — absent from divia_ai-professional/-enterprise/-swarm.
-- **Typed Swarm workflow steps** (deterministic-vs-probabilistic + Haiku→Fable tiers) — absent from `divia_ai-swarm`.
+- **Typed Swarm workflow steps** (deterministic-vs-probabilistic + Haiku→Fable tiers) — absent from `divia_ai-agentswarms`.
 - **DiviaHome nightly consumption-driven replenishment** + **kitchen-counter voice device** — absent from `diviahome-web` (it lists only a future "DiviaHome devices" repo; no nightly review, grocery, or replenishment logic).
 - **"KingStratVC Knowledgebase"** product name — absent from `kingstratvc-web` (in-repo it's "KingStrat.vc").
 

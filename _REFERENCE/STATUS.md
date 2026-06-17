@@ -35,7 +35,7 @@
 
 **⚪→🟠 divia_ai-enterprise** — *Intentional empty placeholder* — a single provisional README, **not yet even a git repo.** The commercial Rust team server: "a higher-performance, locked-down Rust re-implementation of the DiviaHome server." **Deliberately not started** until DiviaHome reaches a battle-tested v1 + ~30 days of real use. **Next big thing (strategic):** once begun, harden DiviaHome into Rust — and ultimately spin a specialized build into the **Divia.AI Global (SaaS)** identity/auth service behind the "one global username, federated home+work servers" model.
 
-**🟠 divia_ai-swarm** — Just bootstrapped: workflow scaffold + README/CLAUDE only; Phase 00 is next. The Rust server for **containerized hosting of autonomous Divia.AI agents** — the intended **AI backbone of the whole ecosystem** (OpenClaw/NanoClaw family; usable standalone, designed to co-deploy with Enterprise). **Next big thing:** the Phase 00 competitive deep-dive of the agent-framework field + the core Rust stack decisions (async runtime, RPC, container runtime, DB) — and (new in LATER-002) typed deterministic-vs-probabilistic workflow steps.
+**🟠 divia_ai-agentswarms** — Just bootstrapped: workflow scaffold + README/CLAUDE only; Phase 00 is next. The Rust server for **containerized hosting of autonomous Divia.AI agents** — the intended **AI backbone of the whole ecosystem** (OpenClaw/NanoClaw family; usable standalone, designed to co-deploy with Enterprise). **Next big thing:** the Phase 00 competitive deep-dive of the agent-framework field + the core Rust stack decisions (async runtime, RPC, container runtime, DB) — and (new in LATER-002) typed deterministic-vs-probabilistic workflow steps.
 
 **🟠 diviacontacts-gmail** — Research **complete** (16 tracks, ~69k words), pre-Phase-00, no code yet. A Chrome MV3 + InboxSDK **CRM-style reader/viewer** that surfaces the Divia.AI PKMS inside Gmail (entity resolution, task/event surfacing, email/call logging) — **Streak/Copper is the explicit model.** **Next:** build the v0 stub-data prototype, then the real extension against the DiviaHome dev/test server. *(Research was done with Fable 5, per John's directive — see ERRATA.)*
 
@@ -75,6 +75,6 @@
 
 - **Shipping/working software (🟢):** aixocode, aixodev-web, aixodev-projects, divia_ai-professional, divia_cards. (Five real apps; aixocode and divia_ai-professional are the most product-complete.)
 - **Active build (🟡):** aixodev-codemap, aixodev-openhands, spicemaster3000.
-- **Docs/research, pre-code (🟠):** aixodev-collabs, aixodev-workgroups, divia_ai-swarm, diviacontacts-gmail, diviahome-web, divialife-flutter, tastypantry, legendarymoney-web, sattvasichealth, kingstratvc-web.
+- **Docs/research, pre-code (🟠):** aixodev-collabs, aixodev-workgroups, divia_ai-agentswarms, diviacontacts-gmail, diviahome-web, divialife-flutter, tastypantry, legendarymoney-web, sattvasichealth, kingstratvc-web.
 - **Empty/placeholder (⚪):** aixodev-professional, divia_ai-enterprise (no git repo), diviacontacts-android/iOS, divialife-android/iOS.
 - **The critical-path bet right now:** **DiviaHome v1** gates the entire commercial Divia.AI server line (Enterprise → Global SaaS). It is the current 60-day focus and the highest-leverage unbuilt thing in the portfolio.
