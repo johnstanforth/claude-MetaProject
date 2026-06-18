@@ -1,3 +1,6 @@
 
 _claude/
 
+# Generated research PDFs (large binaries; generated here per the cross-project
+# "keep PDF generation in MetaProject" decision, but never committed)
+_generated/
