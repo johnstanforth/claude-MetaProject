@@ -37,6 +37,7 @@ _REFERENCE/
 ├── STATUS.md                  # current state of every project (what works now + the next big phase)
 ├── ERRATA.md                  # ★ the discrepancy log — contradictions across (and within) projects
 ├── ARCHITECTURE_CONVERGENCE.md # how core functionality converges on the Divia.AI Enterprise server (clients vs. server, parallel tracks)
+├── PROJECT-ORGANIZATION-MODEL.md # how every venture is organized: Build Lines / Product Versions / Triangulation Targets / [DEALBREAKER-HOOK]
 └── ULTIMATE_VISION/           # the future-version "Guide" of everything we're trying to build
     ├── README.md              # vision overview + full index + build status
     ├── PRODUCTS/<Umbrella>/   # one doc per product, grouped by corporate/product umbrella
@@ -53,4 +54,4 @@ _REFERENCE/
 
 ## For future Claude instances
 
-Read [`STATUS.md`](STATUS.md) for the current-state snapshot, [`ERRATA.md`](ERRATA.md) before trusting any single repo's self-description, [`ARCHITECTURE_CONVERGENCE.md`](ARCHITECTURE_CONVERGENCE.md) for how the products depend on each other technically (the convergence on the Divia.AI Enterprise server), and the relevant `ULTIMATE_VISION/PRODUCTS/<Umbrella>/<product>.md` for deep product context. When this reference and a single repo's older docs disagree, **this reference is the intended canonical source** — but check `ERRATA.md`, because some conflicts are still awaiting John's decision.
+Read [`STATUS.md`](STATUS.md) for the current-state snapshot, [`ERRATA.md`](ERRATA.md) before trusting any single repo's self-description, [`ARCHITECTURE_CONVERGENCE.md`](ARCHITECTURE_CONVERGENCE.md) for how the products depend on each other technically (the convergence on the Divia.AI Enterprise server), [`PROJECT-ORGANIZATION-MODEL.md`](PROJECT-ORGANIZATION-MODEL.md) for how every venture is organized into Build Lines / Product Versions / Triangulation Targets (and what `[DEALBREAKER-HOOK]` means), and the relevant `ULTIMATE_VISION/PRODUCTS/<Umbrella>/<product>.md` for deep product context. When this reference and a single repo's older docs disagree, **this reference is the intended canonical source** — but check `ERRATA.md`, because some conflicts are still awaiting John's decision.
