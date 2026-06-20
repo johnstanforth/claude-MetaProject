@@ -1,0 +1,60 @@
+# Brief (Software-Dev) — `tastypal`
+
+> **Software-dev-side brief** → the **AIXO.Dev Platform software-dev knowledgebase** (repos · upstreams · Build Lines · Build Envelopes · Triangulation Targets · Stages→Phases→Sprints · lineage · `[DEALBREAKER-HOOK]`s · dev discussions). Paired **[business brief](../ULTIMATE_VISION/PRODUCTS/TastyPal/tastypal.md)** (the `Company → Product` overlap anchors both). Each `##`/`###` section is bounded so it maps cleanly to a graph-DB node/edge. **Status: scaffold** (Phase 00; pre/early-code). **Venture-level brief — consolidates the prior single-product `spicemaster3000.md` + `tastypantry.md` files (now superseded).** *Good-enough bootstrap.*
+
+## Project / repos
+
+| Repo / dir | Surface | Techstack | License | Status |
+|---|---|---|---|---|
+| **`spicemaster3000`** *(repo name today; reframed as Build Line **`proto-tastypal-web`** — see below)* | Python/Flask web app — explore spice blends, core spices, flavor pairings; the DailySpikeDriver-level personal/prototype playground driving the TastyPal web app | Python 3.12+ (`.python-version` pins 3.12) · `uv` · Flask (planned; only skeleton `main.py` so far) · pytest · Linux (primary). Data-layer recommendation (from research, not yet implemented): SQLite + sqlite-vec for MVP (offline NetworkX graph analytics → precomputed results), Postgres + pgvector later; FlavorGraph 300D embeddings | **Undocumented** (no license file in repo) | 🟡 Phase 00 research **in progress** (large corpus); skeleton Flask code only |
+| **`tastypantry`** | Python/Flask web app — kitchen pantry-inventory (5 domains: Foods/Ingredients · Food Logs · Grocery Receipts · Shopping Lists · Recipes-as-compound-foods) | Python 3.12+ · `uv` · Flask (app-factory `create_app()` + Blueprints + Jinja2) · SQLAlchemy 2.0+ (Flask-SQLAlchemy) · SQLite→PostgreSQL · Flask-Migrate/Alembic · pydantic-settings (env prefix `TASTYPANTRY_`) · Bootstrap CDN (tentative) · pytest · Ruff · Linux/macOS | **Undocumented** (no license file in repo) | 🟠 Phase 00 **pending**; scaffold only, zero application code |
+| **TastyPal app repo** *(parent-brand)* | The TastyPal web app product itself (what `proto-tastypal-web` drives toward) | **Unknown (not in source files)** — no dedicated repo exists today; the web app's prototype/driver is `proto-tastypal-web` (née `spicemaster3000`) | **Unknown** | **TBD** — no repo yet |
+| **TastyTrucks repo** | TastyTrucks subsidiary product | **Unknown (not in source files)** — brand + domain record only, no repo | **Unknown** | **TBD** — no repo yet |
+
+- **GitHub remotes (from `DOMAIN_MAPPINGS.md`):** `spicemaster3000` → **`@johnstanforth/spicemaster3000`**; `tastypantry` → **`@TastyPal/tastypantry`** (`https://github.com/TastyPal/tastypantry`). The TastyPal-app and TastyTrucks repos have **no remote recorded — Unknown (not in source files)**.
+- **Repo-naming caveat:** the repo/symlink is still **physically named `spicemaster3000` today**; the **`proto-tastypal-web`** name is the Build-Line modeling decision in this brief, not a rename that has happened on disk. Treat `spicemaster3000` (path/GitHub) and `proto-tastypal-web` (Build Line) as the same thing until John renames the repo.
+- **Maps to business Products:** `proto-tastypal-web` (née `spicemaster3000`) → the **TastyPal App** (drives its web surface) **and** carries the standalone **spicemaster3000** flavor-tech product; `tastypantry` → the **TastyPantry** product. *(Business side: [brief](../ULTIMATE_VISION/PRODUCTS/TastyPal/tastypal.md).)*
+
+## Build Lines · Build Envelopes · Triangulation Target
+
+*(Modeled per `PROJECT-ORGANIZATION-MODEL.md`; the `proto-tastypal-web` line follows the FracRealHomes **DailySpikeDriver** pattern — a private/personal playground that merges up into a public Build Line and never appears in the Product's public Version-Releases.)*
+
+| Build Line | Build Envelope | Role / status | In the Product's Version-Releases? |
+|---|---|---|---|
+| **`proto-tastypal-web` (née `spicemaster3000`)** | "Playground" (John only · Python/Flask · idea-of-the-day; the flavor-tech research corpus is its dogfood data) | The **DailySpikeDriver-level driver for the TastyPal web app** — a personal/prototype playground where TastyPal web features are spiked, and the home of the standalone spicemaster3000 flavor-tech bet; **merges up** into the (future) public TastyPal-app Build Line. | **No** — private/prototype playground, never released as such |
+| **TastyPal-app Line** *(near-term public product)* | "Seed"-class — **stack TBD (not in source files)**; expected Python/Flask by inheritance from its driver | The shippable TastyPal web app that `proto-tastypal-web` drives toward. **No repo yet — TBD.** | **Yes (later)** — would deliver the TastyPal App's public Version-Releases |
+| **`tastypantry` Line** | "Seed"-class small Flask web app · Python/Flask/SQLite→Postgres (per its CLAUDE.md) | The pantry-inventory app + Divia.Network "food eaten" node / household-app seed prototype; a **standalone single-`main` repo**. | **Yes (later)** — would deliver TastyPantry's public Version-Releases |
+| **TastyTrucks Line** | **Unknown (not in source files)** | Brand + domain record only; no repo, no stack, no status documented. | **TBD** |
+
+- **Triangulation Target (`proto-tastypal-web` / TastyPal-app):** a unified "your real kitchen, understood" consumer web app (pantry + spice + recipe), with the spice/flavor engine — the **23,690-pairing Flavor Bible corpus + FlavorDB molecules + 6 vendor catalogs** — as a hard-to-replicate data moat. The DailySpikeDriver merges personal experiments up without obligating the public TastyPal PRD.
+- **Triangulation Target (`tastypantry`):** a clean, Postgres-portable pantry-inventory engine that is the canonical Divia.Network "food eaten" capture node and the substrate the household-app fan-out reads from.
+- **Cross-line synergy (`[DEALBREAKER-HOOK]`-adjacent — see below):** spicemaster3000's "Virtual Spice Cabinet" re-invents `tastypantry`'s inventory/shopping-list model scoped to spices; a **shared inventory substrate** (spices as a TastyPantry food category) is the obvious convergence. Neither repo references the other today.
+
+## Stages → Phases → Sprints
+
+- **`proto-tastypal-web` (née `spicemaster3000`):** **Phase 00 — Research & Ideation, IN PROGRESS.** Major in-flight artifact = an **18-track research corpus** (~18,400 lines, 200+ sources) under `_research/`: a parsed *Flavor Bible* dataset (**23,690 pairings / 595 subjects**, 6 rank tiers ETHEREAL→AVOID, 16 CSVs), **6 vendor catalogs** (Penzeys, See Smell Taste, Burlap & Barrel, The Spice House, Morton & Bassett, Everest — core spices + blends + per-blend recipe recommendations), and a ratio-based spice-combinations chart (~25+ classic blends). Existing code = skeleton `main.py` + research utilities (`utilities/verifier.py` is the authoritative Flavor Bible PDF parser; `parser_v2.py`, `parse_test.py`, `verify_test.py`). No DB schema or Flask app yet.
+- **`tastypantry`:** **Phase 00 — Ideation & Research, PENDING** (next up; not yet opened). Workflow system + specs scaffold in place (bootstrapped from `aixodev-collabs`); **zero application code, no phases/sprints**. Phase-00 goal: settle the five-domain data model + feature priorities.
+- **TastyPal-app Line / TastyTrucks Line:** no stages — no repo exists. **TBD.**
+
+## Convergence / lineage
+
+- **`tastypantry` lineage:** bootstrapped from **`aixodev-collabs`** (workflow system + specs scaffold; its `CLAUDE.md`/`README.md` were generated fresh) — a **workflow-inheritance** lineage, *not* a code-fork lineage. It is a **standalone single-`main` repo** (no upstream fork, no client-mirror branch). Its own docs claim *"standalone … not part of any larger platform,"* yet it carries `_REFERENCE/_EXTERNAL/` read-only symlinks to `sattvasichealth`, `legendarymoney-web`, and `diviahome-web` — see the contradiction at [`../ERRATA.md`](../ERRATA.md) E-06. Cross-repo lineage claims (tastypantry = seed/ancestor of the household-app chain) are **self-reported and inconsistent across repos** (ERRATA: LegendaryMoney says `DiviaHome → Sattvasic → TastyPantry → aixodev-collabs`; Sattvasic says it came directly from TastyPantry; DiviaHome says it came from Sattvasic).
+- **`spicemaster3000` / `proto-tastypal-web` lineage:** **fully standalone** — its only tie is the **AIXO.Dev workflow methodology** (adapted into `_specs_and_plans/_workflows/`, 20 workflow docs) and John personally; **zero** Divia/TastyPal references in its own docs (ERRATA E-06 confirms this one is *correctly* standalone). Early research data was gathered with **Google Gemini** and verified with Python scripts. No upstream/fork; single git repo.
+- **Build-Line relations:** **`proto-tastypal-web` → TastyPal-app Line** = DailySpikeDriver **merge-up** (shared-stack clone-lineage, Python/Flask — the FracRealHomes DailySpikeDriver→EstimatePacket pattern). **`tastypantry`** = independent standalone repo; its convergence with `proto-tastypal-web` (shared spice/food inventory substrate) is a **candidate, not a committed lineage**. **TastyTrucks** = no relations documented.
+
+## `[DEALBREAKER-HOOK]`s
+
+*(No formal dealbreaker analysis exists in the source files for this venture — unlike FracRealHomes' SORTING-PASS. The following are the irreversible v1 seams the existing material implies; flagged as candidate hooks, not a ratified set.)*
+
+- **Shared inventory substrate across `proto-tastypal-web` and `tastypantry`** — spicemaster3000's "Virtual Spice Cabinet" and TastyPantry's Foods/Ingredients model are the same shape; deciding the inventory primitive once (spices as a TastyPantry food category) is cheap now and catastrophic to reconcile after both ship divergent schemas. The clearest unexploited cross-product seam in the portfolio.
+- **Postgres-portable schema from day one (`tastypantry`)** — both repos start on SQLite and plan a PostgreSQL upgrade; avoiding SQLite-specific features and keeping migrations Alembic-portable is the explicit standing instruction in `tastypantry`'s CLAUDE.md.
+- **Natural-language food-log → structured-decrement mapping (`tastypantry`)** — the "I ate two quesadillas" NL capture is the canonical Divia.Network "food eaten" node; modeling it as a first-class, machine-readable consumption event (not free text) is what lets the recipe→base-ingredient cascade and the downstream fan-out (macros → Sattvasic, expense → LegendaryMoney) work later.
+- **Standalone-vs-ecosystem framing (`tastypantry`)** — whether TastyPantry is *in* the Divia.Network (shared identity/event model) or genuinely standalone is an **unresolved decision** (ERRATA E-06) that, left wrong, forces a later data-model retrofit; the evidence (symlinks, fan-out role) says it belongs in the ecosystem while its docs lag.
+
+## Cross-references
+
+- Paired business brief: [`../ULTIMATE_VISION/PRODUCTS/TastyPal/tastypal.md`](../ULTIMATE_VISION/PRODUCTS/TastyPal/tastypal.md).
+- Organizing model (Build Lines · Build Envelopes · the DailySpikeDriver concept): [`../PROJECT-ORGANIZATION-MODEL.md`](../PROJECT-ORGANIZATION-MODEL.md).
+- Engineering exemplar with a DailySpikeDriver line: [`fracrealhomes.md`](fracrealhomes.md).
+- Errata (E-06 standalone-vs-ecosystem; self-reported-lineage inconsistency; spicemaster3000 data-count): [`../ERRATA.md`](../ERRATA.md).
+- *(Supersedes the prior single-product files `../ULTIMATE_VISION/PRODUCTS/TastyPal/spicemaster3000.md` + `tastypantry.md`.)*

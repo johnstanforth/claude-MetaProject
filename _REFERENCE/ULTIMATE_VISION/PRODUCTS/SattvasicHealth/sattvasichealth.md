@@ -1,30 +1,91 @@
-# Product — Sattvasic Health
+# Brief (Business) — Sattvasic Health
 
-> A personal **health-metrics aggregator** that unifies a lifetime of scattered health data — labs,
-> CGM, weight/DEXA, Rx/supplements, calories/macros — into one longitudinal record, with a future
-> **correlation engine** as the payoff.
+> **Business-side brief** → the **KSVGPS business knowledgebase** (companies / corporate structure / brands / Product Lines / Products / GTM / domains / Product Version-Releases). Self-contained (domains + cross-refs pulled in). Its **software-dev facet** (repo · techstack · Build Lines · lineage) is the paired **[engineering brief](../../../SOFTWARE_DEV/sattvasichealth.md)**. Each `##`/`###` section is bounded so it maps cleanly to a graph-DB node/edge. *(Replaces the earlier single-file `sattvasichealth.md`, whose still-valid content is migrated below; its engineering content moved to the paired brief.)*
 
-- **Names:** "Sattvasic Health" · repo/dir `sattvasichealth` · env prefix `SATTVASIC_`.
-- **License:** **Undocumented** (no LICENSE, no statement — a notable gap vs its dual-licensed siblings).
-- **Status:** 🟠 Phase 00 pending; docs-only, zero code. Python 3.12+ · Flask · SQLite→Postgres.
+## Identity
 
----
+| Field | Value |
+|---|---|
+| **Product (full)** | Sattvasic Health |
+| **Wordmark** | Sattvasic Health · slug/repo `sattvasichealth` · env prefix `SATTVASIC_` |
+| **One-line** | A personal **health-metrics aggregator** that unifies a lifetime of scattered health data — labs, CGM, weight/DEXA, Rx/supplements, calories/macros — into one longitudinal record, with a future **correlation engine** as the payoff. |
+| **Framing** | "Aggregate a lifetime of health data scattered across labs, devices, and apps into one unified, longitudinal record," then graph → trend → (future) correlate. |
 
-## What it is (consensus)
-*"Aggregates a lifetime of health data scattered across labs, devices, and apps into one unified, longitudinal record,"* then graphs/trends/(future) correlations. **Seven domains:**
-1. **Blood & Lab Results** — normalize the same analyte across labs (Quest, LabCorp) onto one timeline with reference ranges.
-2. **CGM Data** — continuous-glucose streams (e.g. Abbott Libre); a prime correlation candidate.
-3. **Weight & Body Composition** — frequent smart-scale data + occasional high-accuracy **DEXA** scans on one timeline.
-4. **Rx & Vitamin/Supplement Management** — **refill-runway** calculations; intended CVS + Amazon Subscribe & Save integrations.
-5. **Food, Calorie & Macro Tracking** — **integrates with sibling TastyPantry.**
-6. **Device & Legacy-Data Import** — unify Libre/Quest/scale/BP/Fitbit (incl. sleep)/ketone exports ("many 'new' sources are really import adapters for an existing export format").
-7. **Trends & Correlation Analysis** — the payoff layer (e.g. "eating certain foods → headaches ~2h later").
+## Company / corporate structure · Brands
 
-### Cross-product role
-Consumes TastyPantry food data for macros (the "health" reader of the Divia.Network fan-out).
+The corporate-structure placement of this venture is a **known unresolved "question-mark" relationship** — see the dedicated section below. The candidate legal/brand entities that appear in source files:
 
-> ⚠️ ERRATA E-06: Sattvasic's own docs say it is *"a standalone project, not part of any larger platform,"* integrating **only** with TastyPantry. **LegendaryMoney names it as an ecosystem sibling; Sattvasic doesn't reciprocate** — a one-directional ecosystem membership to reconcile. The recurring weekly-correlation agent (LATER-002) is **not** in the repo. See [`../../ERRATA.md`](../../ERRATA.md).
+- **Legal entity (as named in `DOMAIN_MAPPINGS.md`):** **Sattvasic Health, LLC**, captioned there as a "**Project / Subsidiary / Public Benefit Corporation**" — three layered descriptors, themselves unsettled (LLC vs. PBC, project vs. subsidiary). John's own notes refer to it as the "**Sattvasic Health Public Benefit Corporation**."
+- **Brand:** product wordmark *Sattvasic Health* (no separate firm-front brand documented).
+- **Umbrella (as named in `VENTURES/README.md`):** listed under "**(informal umbrella)**" — i.e. no committed corporate parent.
+- **Candidate parent (the open question):** **The DIVIA Innovation Foundation** (a planned 501(c)(3) nonprofit; domain `divia.foundation`), under which `DOMAIN_MAPPINGS.md` currently nests Sattvasic Health.
+
+## Corporate-structure question-mark relationship (UNRESOLVED — model both, commit to neither)
+
+This venture's placement in the corporate structure is **genuinely undecided by design** — a first-class "question-mark" relationship to be modeled as *alternatives*, not collapsed to one answer. The two source files disagree, and that disagreement is **the open question itself, not a bug to fix**:
+
+- **Candidate A — under The DIVIA Innovation Foundation.** `DOMAIN_MAPPINGS.md` nests "Sattvasic Health, LLC" beneath "The DIVIA Innovation Foundation" as a "Project / Subsidiary / Public Benefit Corporation." This matches John's recurring team discussion of whether the **Sattvasic Health PBC should be a subsidiary of the Divia Foundation** — "or how that actually works in practice and in corporate structuring/implementation."
+- **Candidate B — its own / informal umbrella.** `VENTURES/README.md` lists SattvasicHealth under an "**(informal umbrella)**" with no committed parent — i.e. an independent venture outside the Foundation.
+
+**Why it's unresolved (verbatim sense from source):** John: *"We've had multiple discussions … about what form the Sattvasic Health Public Benefit Corporation should take, whether it should be a subsidiary of the Divia Foundation, or how that actually works in practice … There are a couple of different places it could exist within the corporate structure and it's not entirely clear which one is better at this stage."* The `REVISED_ANALYSIS` re-casts this as **§A4 — "Open question (by design)": its place in the corporate structure (under the Foundation, or elsewhere) is genuinely undecided — model both candidates** (lens **L7 — open-question relationships: model alternatives, commit to none**). It is the canonical worked example of the "question-mark" graph-relationship John wants the future KingStrat AdVentureGPS system to support, so neither candidate above is finalized.
+
+```mermaid
+graph TD
+    SH["Sattvasic Health<br/>(LLC / PBC — descriptors also unsettled)"]
+    F["The DIVIA Innovation Foundation<br/>(planned 501c3)"]
+    U["Own / informal umbrella<br/>(no committed parent)"]
+    F -. "Candidate A: subsidiary-of? (UNRESOLVED)" .-> SH
+    U -. "Candidate B: independent? (UNRESOLVED)" .-> SH
+```
+
+## Product Lines → Products
+
+- **Product Line:** a single personal health-data product (no multi-product line documented).
+  - **Product: Sattvasic Health.** Organized around **seven interconnected domains** (the data model is settled during Phase 00; the domains capture intended scope):
+    1. **Blood & Lab Results** — normalize the same analyte (fasting glucose, HbA1c, LDL, …) across **multiple commercial labs** (Quest, LabCorp, others) onto one timeline with reference ranges and units.
+    2. **CGM Data** — continuous-glucose-monitor streams (e.g. Abbott Libre); a prime correlation candidate against food logs.
+    3. **Weight & Body Composition** — frequent **at-home smart-scale** data + occasional high-accuracy **DEXA** scans, merged onto one body-composition timeline (the two-source merge).
+    4. **Rx & Vitamin / Supplement Management** — **refill-runway** calculations (days-of-supply remaining, when to reorder); intended integrations: **CVS** (Rx refills) and **Amazon Subscribe & Save** (supplement reordering).
+    5. **Food, Calorie & Macro Tracking** — records what was eaten with calorie/macro detail, rolled up daily/weekly/monthly; **integrates with the sibling TastyPantry project** (TastyPantry specifies *what* was eaten; Sattvasic Health records calorie/macro detail).
+    6. **Device & Legacy-Data Import** — unify historical exports (Libre CGM, Quest labs, old scale/weight/BP spreadsheets, Fitbit incl. sleep stages, BP-monitor, ketone-monitor); "many 'new' sources are really import adapters for an existing export format" (with dedup).
+    7. **Trends & Correlation Analysis** — the payoff layer: graphs/trends now, future **health-event correlations** (motivating example: certain foods → headaches ~2 hours later).
+
+## Cross-product / ecosystem role (one-directional — see ERRATA)
+
+- **Intended role:** the **"health" reader of the Divia.Network fan-out** — a single NL capture (*"I had El Pollo Loco for dinner"*) fans out from DiviaHome's Activity Log to TastyPantry (food), **Sattvasic Health (macros)**, and LegendaryMoney (expense). Sattvasic Health **consumes TastyPantry food data** for calorie/macro detail.
+- ⚠️ **ERRATA E-06 (one-directional ecosystem membership).** Sattvasic Health's own README/`CLAUDE.md` call it *"a standalone project … not part of any larger platform,"* integrating **only** with TastyPantry. **LegendaryMoney and the Divia.AI venture docs name Sattvasic Health as an ecosystem sibling; Sattvasic Health does not reciprocate** — a membership to reconcile (the evidence says it is *meant* to be in the Divia.Network ecosystem; its docs lag). See [`../../../ERRATA.md`](../../../ERRATA.md).
+
+## Product Version-Releases
+
+Pre-release (Phase 00 pending; docs-only, zero application code). When releases exist, they follow the model's **immutable-past / flexible-future** rule (past = git-matched historical record; future = a movable "marketing sketch" re-bucketable like kanban cards). A documented Phase-01 first slice — **one metric domain end-to-end** (e.g. a cross-lab analyte/lab-result timeline) — is the natural first public Version-Release candidate.
+
+## Go-to-market / strategic role
+
+No formal GTM is documented (the product is a **personal** health aggregator, pre-code). Its strategic role in source files is as a **Divia.Network ecosystem app** — the health-domain consumer of the cross-app NL fan-out — and as one expression of the portfolio's **"implicit-data, discover-and-suggest"** brand promise (observe real behavior, surface insight; never make the user fill out a form). The weekly-correlation agent (below) is the purest health-domain instance of that promise.
+
+## Domains (self-contained — from `DOMAIN_MAPPINGS.md` / `DOMAIN_LIST.md` / `DOMAIN_WISHLIST.md`)
+
+- **Canonical:** **`sattvasichealth.com`** (registered May 7, 2023).
+- **Redirects / aliases:** `sattvasic.com`, `sattvasic.health`, `satvasic.com`, `satvasic.health`, `satvasichealth.com`.
+- **Wishlist / to-buy:** **`sattvasic.ai`** (marked `BUY-DOMAIN`; listed unregistered at ~$159.96 / 2 yr).
+- **Note:** `sattvasic.health` and `satvasic.health` registered Jun 13, 2026; `satvasichealth.com` registered Sep 2, 2025. *(No GitHub remote yet — local repo only; → [engineering brief](../../../SOFTWARE_DEV/sattvasichealth.md).)*
 
 ## Ideation & Exploration (capture everything, commit to nothing)
+
+*(Migrated from the predecessor single-file brief — high-value product ideas.)*
 - **From the repo:** cross-lab analyte normalization onto one timeline (the central data-model challenge); the two-source body-composition merge (scale + DEXA); a refill-runway model; the import-adapter architecture for legacy/device sources (with dedup); the future correlation engine (foods→headaches, CGM vs food logs, sleep vs metrics); a Phase-01 first slice (one metric domain end-to-end, e.g. a lab-result timeline).
-- ✦ **New:** the **recurring weekly correlation agent** (LATER-002 §6) — a weekly pass over labs/CGM/weight/macros/Rx that surfaces *hypotheses* ("sleep-quality dips follow late-eating days") as suggestions for the human and their doctor to evaluate — insights the user wouldn't think to query. The purest expression of discover-and-suggest in the health domain. ✦ The refill-runway model is the **same time-decay primitive** as DiviaHome's grocery replenishment and LegendaryMoney's scheduled outflows — build it once, reuse across all three. ✦ Sattvasic + TastyPantry + LegendaryMoney through one Activity Log enables cross-domain insight no single app could see ("late-night fast-food spend tracks with worst-sleep nights"). ✦ Close the license gap (likely AGPL+Commercial like its siblings — confirm).
+- ✦ **The recurring weekly correlation agent** (LATER-002 §6) — a weekly pass over labs/CGM/weight/macros/Rx that surfaces *hypotheses* ("sleep-quality dips follow late-eating days") as suggestions for the human and their doctor to evaluate — insights the user wouldn't think to query. The purest expression of discover-and-suggest in the health domain. *(Per ERRATA, this agent is **not** in the repo.)*
+- ✦ The **refill-runway model** is the **same time-decay primitive** as DiviaHome's grocery replenishment and LegendaryMoney's scheduled outflows — build it once, reuse across all three.
+- ✦ Sattvasic + TastyPantry + LegendaryMoney through one Activity Log enables cross-domain insight no single app could see ("late-night fast-food spend tracks with worst-sleep nights").
+- ✦ **Close the license gap** (likely AGPL+Commercial like its siblings — *confirm*; engineering detail in the paired brief).
+
+## Status
+
+Phase 00 (Ideation & Research) **PENDING**; docs-only, **zero application code**. **Licensing: Undocumented** — no LICENSE file, no statement (a notable gap vs. its dual-licensed siblings; closing it is an open ideation item, likely AGPLv3 + Commercial to match siblings — *not confirmed*). **Corporate placement: unresolved** (DIVIA Foundation subsidiary vs. own/informal umbrella — see the question-mark section above). *(Engineering lineage / techstack / git topology → the [engineering brief](../../../SOFTWARE_DEV/sattvasichealth.md).)*
+
+## Cross-references
+
+- Paired engineering brief: [`../../../SOFTWARE_DEV/sattvasichealth.md`](../../../SOFTWARE_DEV/sattvasichealth.md).
+- ERRATA (E-06 ecosystem-membership; E-09 lineage self-report disagreement): [`../../../ERRATA.md`](../../../ERRATA.md).
+- Ecosystem context: `../../VENTURES/DiviaAI.md` (Divia.Foundation + the Divia.Network fan-out); `../../USER_STORIES/divia-network-fanout.md`.
+- Model: [`../../../PROJECT-ORGANIZATION-MODEL.md`](../../../PROJECT-ORGANIZATION-MODEL.md) (the question-mark / L7 open-question relationship).
