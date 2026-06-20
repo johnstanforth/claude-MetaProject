@@ -43,7 +43,7 @@ Pre-release (Phase 00). When releases exist, they follow the model's **immutable
 
 ## Status
 
-Phase 00 (ideation/research). License: inherited DiviaHome **AGPLv3 + Commercial** dual-license (not yet client-tailored). Rebranded from the parked predecessor "KingStratVC Knowledgebase" (2026-06-14) and renamed "VentureGPS" → "AdVentureGPS" (2026-06-15, to avoid a fleet-GPS trademark collision). *(Engineering lineage/git topology → the [engineering brief](../../../SOFTWARE_DEV/kingstrat-adventuregps.md).)*
+Phase 00 (ideation/research). **Licensing:** KSVGPS is a **proprietary, single-firm internal web service** (private SaaS deployment) — *not* redistributable software: the firm's content is all-rights-reserved IP, access is insider-only, and it's governed by terms-of-use rather than a software license. *(The underlying DiviaHome/proto-divia **engine** is separately AGPLv3 + Commercial dual-licensed; KSVGPS runs it under DiviaAI's commercial grant — engine-license detail in the [engineering brief](../../../SOFTWARE_DEV/kingstrat-adventuregps.md).)* Rebranded from the parked predecessor "KingStratVC Knowledgebase" (2026-06-14) and renamed "VentureGPS" → "AdVentureGPS" (2026-06-15, to avoid a fleet-GPS trademark collision). *(Engineering lineage/git topology → the [engineering brief](../../../SOFTWARE_DEV/kingstrat-adventuregps.md).)*
 
 ## Cross-references
 

@@ -1,6 +1,6 @@
 # Brief (Software-Dev) — `kingstrat-adventuregps`
 
-> **Software-dev-side brief** → the **AIXO.Dev Platform software-dev knowledgebase** (repos · upstreams · Build Lines · Build Envelopes · Stages/Phases/Sprints · dev discussions). Paired **[business brief](ULTIMATE_VISION/PRODUCTS/KingmakerStrategic/kingstrat-adventuregps.md)** (the `Company → Product` overlap anchors both). Each `##`/`###` section is bounded so it maps cleanly to a graph-DB node/edge. **Exemplar — sets the engineering-brief template (2026-06-20).** *(Note: location/structure of this software-dev set is a proposal pending confirmation; kept in MetaProject `_REFERENCE/` for now, not in the project repo.)*
+> **Software-dev-side brief** → the **AIXO.Dev Platform software-dev knowledgebase** (repos · upstreams · Build Lines · Build Envelopes · Stages/Phases/Sprints · dev discussions). Paired **[business brief](ULTIMATE_VISION/PRODUCTS/KingmakerStrategic/kingstrat-adventuregps.md)** (the `Company → Product` overlap anchors both). Each `##`/`###` section is bounded so it maps cleanly to a graph-DB node/edge. **Exemplar — sets the engineering-brief template (2026-06-20).** *(Software-dev briefs live in `_REFERENCE/SOFTWARE_DEV/` — confirmed; kept in MetaProject for now, not in the project repo, per the bootstrap decision.)*
 
 ## Project / repo
 
@@ -9,6 +9,7 @@
 | **Repo / dir** | `kingstrat-adventuregps` |
 | **GitHub** | `@KingStratVC/kingstrat-adventuregps` · `git@github.com:KingStratVC/kingstrat-adventuregps.git` |
 | **Techstack** | Python · Flask · SQLAlchemy · SQLite → Postgres |
+| **License (engine)** | AGPLv3 + Commercial (CLA) dual-license, inherited from the DiviaHome lineage; KSVGPS operates under DiviaAI's **commercial grant**, so no AGPL §13 network-copyleft attaches to the private deployment. *(KSVGPS-as-product is itself a proprietary internal web service — [business brief](../ULTIMATE_VISION/PRODUCTS/KingmakerStrategic/kingstrat-adventuregps.md).)* |
 | **Maps to business Product** | KingStrat AdVentureGPS (KSVGPS) |
 
 ## Build Lines · Build Envelopes · Triangulation Target
