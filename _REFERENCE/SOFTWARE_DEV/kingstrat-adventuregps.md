@@ -9,7 +9,7 @@
 | **Repo / dir** | `kingstrat-adventuregps` |
 | **GitHub** | `@KingStratVC/kingstrat-adventuregps` · `git@github.com:KingStratVC/kingstrat-adventuregps.git` |
 | **Techstack** | Python · Flask · SQLAlchemy · SQLite → Postgres |
-| **License (engine)** | AGPLv3 + Commercial (CLA) dual-license, inherited from the DiviaHome lineage; KSVGPS operates under DiviaAI's **commercial grant**, so no AGPL §13 network-copyleft attaches to the private deployment. *(KSVGPS-as-product is itself a proprietary internal web service — [business brief](../ULTIMATE_VISION/PRODUCTS/KingmakerStrategic/kingstrat-adventuregps.md).)* |
+| **License (engine)** | **Closed / commercial** — KSVGPS runs on **`proto-divia_ai-enterprise`** (the Python/Flask prototype of the Enterprise server), which carries the same closed/commercial license as the future Rust `divia_ai-enterprise` (not intended for public release). The **AGPLv3 + Commercial** dual-license belongs only to the upstream ancestor **DiviaHome** (so home/self-host users can install it) and does **not** flow down to the prototype or to KSVGPS. *(KSVGPS-as-product is itself a proprietary internal web service — [business brief](../ULTIMATE_VISION/PRODUCTS/KingmakerStrategic/kingstrat-adventuregps.md).)* |
 | **Maps to business Product** | KingStrat AdVentureGPS (KSVGPS) |
 
 ## Build Lines · Build Envelopes · Triangulation Target
