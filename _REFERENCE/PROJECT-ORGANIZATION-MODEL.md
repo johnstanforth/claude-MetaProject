@@ -20,21 +20,30 @@ Company / Venture
  ├─ corporate structure · Brands
  └─ Product Lines        (families of related products — the standard business meaning)
      └─ Products         (individual offerings)
-         ├─ public Version history  (v1.0 … vN.0 — a "moving symlink" across Build Lines)
+         ├─ Product Version-Releases  (v1.0 … vN.0 — a "moving symlink" across Build Lines)
          └─ Build Lines  (the engineering codebases that deliver the Product)
              ├─ Build Envelope        ← the engineering scale/scope/stack being built FOR
              ├─ Triangulation Target  ← the far destination guiding forks
-             └─ Stages   (Build-Line-local milestones; public Stages → the Product's Versions)
+             └─ Stages   (Build-Line-local milestones; public Stages → the Product's Version-Releases)
                  └─ Phases → Sprints  (the existing execution machinery — unchanged)
 Features = graph nodes throughout (Requester-Source · Build Line · target Version · dealbreaker-flag · typed relations)
 ```
 
 - **Company / Venture** — the legal/conceptual entity ("a conceptual grouping of related ideas that evolves toward a holistic whole").
 - **Product Line** — a **family** of related products (standard meaning), e.g. FracRealHomes' consumer-diligence line vs. its B2B ADU-data line.
-- **Product** — an individual offering within a line, with a public **Version history** (`v1.0…vN.0`) that behaves like a **moving symlink**, pointing to whichever **Build Line** currently delivers it.
+- **Product** — an individual offering within a line, with public **Product Version-Releases** (`v1.0…vN.0`) that behave like a **moving symlink**, pointing to whichever **Build Line** currently delivers each one.
 - **Build Lines** — the **engineering codebases** (repos/stacks) delivering a Product, named descriptively per-venture; **some are private** (a personal playground that never ships). They relate by **clone-lineage + merge** (shared stack) or **succession, no-merge** (a different-stack successor, e.g. `proto-divia_ai-enterprise` Python → Rust `divia_ai-enterprise`).
-- **Stages** — a Build-Line-local milestone (its internal `v1/v2/v3`); on a *public* Build Line, certain Stages get **promoted to the Product's public Versions** (private Build Lines have Stages but no Versions). Each Stage is delivered via the existing **Phases → Sprints**, unchanged.
+- **Stages** — a Build-Line-local milestone (its internal `v1/v2/v3`); on a *public* Build Line, certain Stages get **promoted to the Product's public Version-Releases** (private Build Lines have Stages but no Version-Releases). Each Stage is delivered via the existing **Phases → Sprints**, unchanged.
 - **Features** — modeled as **graph nodes, not free-text kanban cards** (the board is the human *view*; the graph is the model). Each carries **Requester-Source** (John / research / business-dev / dogfooding / partner-deal), its Build Line + target Version, a `[DEALBREAKER-HOOK]` flag, and typed relations.
+
+## Product Version-Releases — immutable past, movable future
+
+A **Product Version-Release** is a public release milestone (`v1.0 … vN.0`) of a Product. A **moving "today" marker** splits the sequence into two halves that behave very differently — the whole point of the name (not "Version *history*," which implies git-style immutability and a past-only tense):
+
+- **Past (before today) — immutable, git-matched.** Released versions are a historical record pinned to what actually shipped (the git history). Web-app-wise they stay editable, but only behind a root-level admin-override ACL — never moved casually.
+- **Future (after today) — a flexible "marketing sketch."** Unreleased version numbers are **movable like kanban cards**: re-bucketable, re-numberable, pushable further out by anyone (e.g. a marketing teammate). A far target sketched *today* — "v5.0 = the National-AVM Build Line" — can slide to v6.0, then v7.0, as nearer ideas claim the lower numbers; marketing can align branding around a conceptual "v7.0" a year before anything exists.
+
+This asymmetry is deliberate: re-bucketing a *future* version takes seconds; rewriting the *released past* takes an admin override. It's what lets **every idea get thrown at the build-lines matrix** at fine granularity — "great idea, but that's v7.0 scope, not v4.0 and not the next few" becomes a first-class triage move — replacing the coarse GTD "Someday/Maybe" list and the vague "Someday" backlog with a placeable, re-bucketable future.
 
 ## Build Envelope (formal: **Architectural Build Envelope**) — an independent axis
 
@@ -49,7 +58,7 @@ A **Build Envelope** is a **named, per-venture, reusable** definition of *the en
 
 The portfolio is modeled across **two** graph-DB knowledgebases — both on the Divia.AI Enterprise graph-DB technology — split by domain so each stays free of the other's noise:
 
-- **KSVGPS — the business side:** Companies · corporate structure + subsidiary LLCs · Brands · Product Lines · Products · GTM strategies · domains · a Product's public Version history. *No dev/technical/software notes.*
+- **KSVGPS — the business side:** Companies · corporate structure + subsidiary LLCs · Brands · Product Lines · Products · GTM strategies · domains · a Product's public Version-Releases. *No dev/technical/software notes.*
 - **AIXO.Dev Platform — the software-dev side** (prototyping now in `aixodev-projects` + `aixodev-workgroups`): every project · repo · repo-remote/upstream · **Build Line · Build Envelope · Stage → Phase → Sprint** · techstack · lineage/convergence relations · dev-team discussions — modeled in extreme detail.
 
 **Build Lines and Build Envelopes are engineering-team concepts — they live in the AIXO.Dev model, not KSVGPS.** The two knowledgebases **share an overlap/union anchored at `Company → Product`** (the business anchor the software-dev side hangs repos/Build-Lines off). So a self-contained brief that bootstraps both carries a clear **business facet** (→ KSVGPS) and a **software-dev facet** (→ AIXO.Dev).
@@ -62,13 +71,13 @@ It is **one fractal principle at three scales** — identical to the entity-mode
 
 ## Worked example — FracRealHomes
 
-| Build Line | Build Envelope | Role | In the Product's Version history? |
+| Build Line | Build Envelope | Role | In the Product's Version-Releases? |
 |---|---|---|---|
 | **DailySpikeDriver** | "Playground" (John only, Python/Flask, idea-of-the-day) | dogfood + experiment; **merges up** into EstimatePacket Line | **No** — private, never released |
 | **EstimatePacket Line** *(middle)* | "Seed" (6–18 mo · ~50–100-person startup · ~20–40-person dev · Python/Flask) | the near-term product (the SORTING-PASS diligence scope) | **Yes** — delivers public **v1.0 → v4.0** |
 | **National-AVM Line** | "Enterprise" (3–5 yr · regulated multi-market · different stack) | the far-future public AVM (Codex's home; a categorization bucket for now) | **Yes (later)** — delivers public **v5.0+** (succession, no-merge) |
 
-The FracRealHomes **Venture** may carry multiple **Product Lines** (consumer-diligence vs. a B2B ADU-data line); the table above is the main diligence Product. DailySpikeDriver feeds the public Build Line via merge but never appears in the public Version history — so "I want a Zillow-email triage parser *for my own use*" is a first-class DailySpikeDriver feature that creates **zero** obligation on the venture's PRD.
+The FracRealHomes **Venture** may carry multiple **Product Lines** (consumer-diligence vs. a B2B ADU-data line); the table above is the main diligence Product. DailySpikeDriver feeds the public Build Line via merge but never appears in the public Version-Releases — so "I want a Zillow-email triage parser *for my own use*" is a first-class DailySpikeDriver feature that creates **zero** obligation on the venture's PRD.
 
 ## Two benefits beyond clarity
 

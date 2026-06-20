@@ -10,13 +10,13 @@ Everything written into these briefs is **both** the initial dataset **and** the
 
 ## The structural model (per PROJECT-ORGANIZATION-MODEL v2)
 
-`Company/Venture → corporate structure · Brands → Product Lines (families) → Products → [public Version history] → Build Lines (3-part) → Build Envelope · Triangulation Target · Stages → Phases → Sprints`, with Features as graph nodes throughout. The **Build Envelope** (formal: *Architectural Build Envelope*) is the independent "what engineering scale/scope/stack we build FOR" axis — per-venture, reusable copy-on-write, the explicit context handed to Codex so it designs *for that level*, and the home for techstack standardization + continuous improvement (e.g. the future "Flask+FastAPI → async Quart?" question).
+`Company/Venture → corporate structure · Brands → Product Lines (families) → Products → [Product Version-Releases] → Build Lines (3-part) → Build Envelope · Triangulation Target · Stages → Phases → Sprints`, with Features as graph nodes throughout. (**Product Version-Releases** = public release milestones `v1.0…vN.0` split by a moving "today" marker: immutable git-matched past + a flexible, kanban-movable future "marketing sketch.") The **Build Envelope** (formal: *Architectural Build Envelope*) is the independent "what engineering scale/scope/stack we build FOR" axis — per-venture, reusable copy-on-write, the explicit context handed to Codex so it designs *for that level*, and the home for techstack standardization + continuous improvement (e.g. the future "Flask+FastAPI → async Quart?" question).
 
 ## The briefs — structure + principles
 
 - **Self-contained per Product/Venture.** Each brief carries *everything* needed to reason about that project — including its **domains + cross-references/relationships pulled in from `DOMAIN_LIST`/`DOMAIN_MAPPINGS`** — so a tightly-scoped "reason about these 3 projects" discussion never has to parse the portfolio-wide files. (Redundancy with `DOMAIN_*` is intentional and fine.)
 - **Clean internal isolation** — each concept a bounded section, so it maps 1:1 to a graph-DB node/edge later.
-- **Home + structure:** self-contained per-Product briefs in `_REFERENCE/ULTIMATE_VISION/PRODUCTS/<Umbrella>/` + a README index (confirmed — **not** a separate `BUILD_LINES/` subdir, which would re-fragment scope-ability). Enrich existing briefs; create where missing.
+- **Home + structure (DECIDED 2026-06-20):** **two briefs per project** — a **business-side** brief in `_REFERENCE/ULTIMATE_VISION/PRODUCTS/<Umbrella>/` and an **engineering-side** brief in `_REFERENCE/SOFTWARE_DEV/` — with **both sets kept here in MetaProject `_REFERENCE/`**, *not* in the `kingstrat-adventuregps` / `aixodev-*` project repos, for the next ~1–2 weeks while we bootstrap the graph-DB spikes (so "does capability X serve *both* the business-side and engineering-side data models?" can be reasoned about with both file-sets in one tree). **Separate files, not one tagged file** — so an engineering-scope projection ("pull the techstack from Divia.AI Enterprise") never drags in the business side's dozens-of-LLCs corporate-structure noise. Enrich existing briefs; create where missing.
 - **The endpoint:** these prototype the scoped projections; eventually a **SKILL** tells the LLM exactly how to query the graph-DB for "the techstack from here, the GTM strategy from there," retiring the makeshift markdown.
 
 ## The shared-substrate reasoning (the actual test)
@@ -25,37 +25,41 @@ The pattern: **Divia.AI Enterprise server (the graph-DB core)** → **KSVGPS** (
 
 ## Proposed Sequence — briefing batches
 
-> Full portfolio inventory below, batched by reasoning-priority. Flags: **[GRAPH]** graph-DB substrate · **[NEW]** net-new venture (no repo/brief yet) · status: *active* / *scaffold* / *idea-only*. Review & reorder as you like; **Batch 1 is the immediate first batch** (created this round as the exemplar).
+> Full portfolio inventory below, **ordered as a dependency graph** (2026-06-20) so each later batch can lean on the reference pages written by earlier ones — both when reasoning about and when writing the newer items. Flags: **[GRAPH]** graph-DB substrate · **[NEW]** net-new venture (no repo/brief yet) · status: *active* / *scaffold* / *idea-only*.
 
-**Batch 1 — the graph-DB substrate (foundation for the new-venture reasoning) — DOING NOW**
-- **KingStrat AdVentureGPS / KSVGPS** (`kingstrat-adventuregps`, *active*) **[GRAPH]** — the graph-DB R&D + dogfood site. *(Exemplar brief written this round.)*
+**Batch 1 — knowledgebase scope (everything-business + everything-engineering) — DOING NOW**
+- **KingStrat AdVentureGPS / KSVGPS** (`kingstrat-adventuregps`, *active*) **[GRAPH]** — the graph-DB R&D + dogfood site; the **business**-knowledgebase exemplar. *(Two-file exemplar — business + engineering — written this round.)*
+- **AIXO.Dev Platform** — the **software-dev** knowledgebase (the peer to KSVGPS's *business* one): `aixodev-web` + the `aixodev-projects` / `aixodev-workgroups` prototypes modeling every project / repo / upstream + **Build Lines · Build Envelopes · Stages/Phases/Sprints** + dev discussions. **[GRAPH]** *(absorbs the formerly-separate `aixodev-web` / `aixodev-projects` bullets.)*
+
+> **Two knowledgebases (per model doc v2):** **KSVGPS** = the **business** side (companies / products / GTM / domains / corporate structure); the **AIXO.Dev Platform** = the **software-dev** side (repos, Build Lines, Build Envelopes, Stages/Phases/Sprints, dev discussions). They overlap at `Company → Product`. **Structure decision (DECIDED 2026-06-20):** split into **two sets of briefs** — business-side (`_REFERENCE/ULTIMATE_VISION/PRODUCTS/<Umbrella>/`) and engineering-side (`_REFERENCE/SOFTWARE_DEV/`) — but **both sets stay here in MetaProject `_REFERENCE/`**, *not* in the `kingstrat-adventuregps` / `aixodev-*` repos, for the next ~1–2 weeks while we bootstrap the graph-DB spikes. Separate files (not one tagged file) so an engineering projection ("pull the techstack from Divia.AI Enterprise") never drags in the business side's dozens-of-LLCs corporate-structure noise.
+
+**Batch 2 — technology foundations (graph-DB core, desktop stacks, card vocabulary)**
 - **Divia.AI Enterprise** — graph-DB core: `proto-divia_ai-enterprise` (*active*, Python/Flask, stable-API target) + planned Rust `divia_ai-enterprise` (*idea-only*). **[GRAPH]**
 - **Divia.AI Professional** (`divia_ai-professional`, *active*) — Rust/Tauri desktop; the stack **PatternicityNews Reader** shares.
-- **AIXO.Dev Platform** — the **software-dev knowledgebase** (the peer to KSVGPS's *business* one): `aixodev-web` + the `aixodev-projects` / `aixodev-workgroups` prototypes modeling every project / repo / upstream + **Build Lines · Build Envelopes · Stages/Phases/Sprints** + dev discussions. **[GRAPH]**
+- **DiviaCards** (`divia_cards`, *active*) — the DiviaCard vocabulary PatternicityNews / PatternicitySocial use.
+- **Divia.Network** (*idea-only*) — the ecosystem integration layer.
 
-> **Two knowledgebases (per model doc v2):** **KSVGPS** = the **business** side (companies / products / GTM / domains / corporate structure); the **AIXO.Dev Platform** = the **software-dev** side (repos, Build Lines, Build Envelopes, Stages/Phases/Sprints, dev discussions). They overlap at `Company → Product`. **Open structure decision:** each brief as one self-contained file with both facets tagged (as in the KSVGPS exemplar), vs. split business-briefs (here in `_REFERENCE`) and software-dev-briefs (in the AIXO.Dev model).
+**Batch 3 — other B2C small-startup web apps in the connected Divia.Network ecosystem**
+- **FracRealHomes** (`fracrealhomes-web` + flutter/android, *scaffold*; **no brief yet**) — the sorting-pass example.
+- **LegendaryMoney** (`legendarymoney-web`, *active*) — FracRealHomes leans on it for financial services.
+- **TastyPal** (TastyPal app/mobile + **TastyPantry** app/mobile). *Note:* the current **`spicemaster3000`** should become **`proto-tastypal-web`** — i.e. the **DailySpikeDriver-level** Build Line for the TastyPal web app.
+- **SattvasicHealth**
 
-**Batch 2 — the two NEW target ventures (today's focus)** **[NEW]**
+**Batch 4 — the two NEW target ventures (today's focus)** **[NEW]**
 - **PatternicityNews** (Patternicity.AI, LLC; *idea-only*) — News + **PatternicityNews Reader** (desktop) + **PatternicitySocial** (DiviaCards) + sub-brands (Patternicity ONE, WTF/WeighTheFacts, Bet, `ptnws.link`).
 - **CrowdMadness** (CrowdMadness, Inc.; *idea-only*) — MobThought-reboot prediction-market *game* + **CrowdResearch**.
 
-**Batch 3 — adjacent / referenced ventures (likely to surface in the reasoning)**
-- **FracRealHomes** (`fracrealhomes-web` + flutter/android, *scaffold*; **no brief yet**) — the sorting-pass example.
-- **LegendaryMoney** (`legendarymoney-web`, *active*) — FracRealHomes leans on it for financial services.
-- **DiviaCards** (`divia_cards`, *active*) — the DiviaCard vocabulary PatternicityNews/Social use.
-- **Divia.Network** (*idea-only*) — the ecosystem integration layer.
+**Batch 5 — the rest of the active AIXO.Dev / Divia.AI portfolio** (lower priority)
+- **AIXO.Dev:** aixocode, aixodev-codemap, aixodev-collabs, aixodev-workgroups, aixodev-openhands, aixodev-professional.
+- **Divia.AI:** Divia.AI AgentSwarms, DiviaHome **[GRAPH-lineage]**, DiviaContacts (gmail/android/iOS), Divia.Life (flutter/android/iOS), DiviaOS.
 
-**Batch 4 — the rest of the active AIXO.Dev / Divia.AI portfolio**
-- AIXO.Dev: **aixodev-web** **[GRAPH]**, **aixodev-projects** **[GRAPH]**, aixocode, aixodev-codemap, aixodev-collabs, aixodev-workgroups, aixodev-openhands, aixodev-professional.
-- Divia.AI: Divia.AI AgentSwarms, DiviaHome **[GRAPH-lineage]**, DiviaContacts (gmail/android/iOS), Divia.Life (flutter/android/iOS), DiviaOS.
-
-**Batch 5 — other portfolio companies (mostly idea-only; lower priority)**
-- TastyPal (TastyPantry, spicemaster3000), SattvasicHealth.
+**Batch 6 — other portfolio companies (mostly idea-only; lowest priority)**
+- *(For now, the only goal for this batch is to **parse all existing files** — U_V Guide, `DOMAIN_*` docs, etc. — into same-format Reference Brief files; **not** planning to discuss/expand these this week, until we start building specific projects.)*
 - Domain-only ventures: SensoryMQ (+ .Cloud), TXFR.Cloud (+ .App), Invendra, AdEvolve, CTO Mindmeld, JSL Dragonfly, Dotfigurator, VelocityTerminal, GridTransmit, Neurogrammatic, Quintivity, RosettaMQ, Surreality, Transformulator.
 
 *(Corporate-structure ambiguities flagged for the graph-DB to resolve later: Sattvasic Health under DIVIA Foundation vs. its own umbrella; several "question-mark relationships" per `notes-clarifying-UltimateVisionGuide.md` §7.)*
 
-## The two target ventures (seed capture — full briefs in Batch 2)
+## The two target ventures (seed capture — full briefs in Batch 4)
 
 ### PatternicityNews — `Patternicity.AI, LLC` (~5-person startup)
 - **Products:** **PatternicityNews** (news website/portal) + **PatternicityNews Reader** (desktop; *same stack as Divia.AI Professional, later AIXO.Dev Professional*); later **PatternicitySocial** (X-like; posts **`DiviaCard`** structured types — `DiviaCard::PatternicityNews::article` — with embedded/interactive functionality). Sub-brands: Patternicity ONE (premium-news bundle), WTF/WeighTheFacts (chain-of-thought argument builder), Patternicity Bet.
@@ -70,16 +74,15 @@ The pattern: **Divia.AI Enterprise server (the graph-DB core)** → **KSVGPS** (
 
 ## The sequence (steps)
 
-1. **Align** model + plan docs (done: name = Build Envelope; hierarchy reconciled; briefs structure confirmed).
-2. **Build the substrate briefs** — Batch 1, self-contained, to the model's detail. *(KSVGPS exemplar done; graph-DB core + Divia.AI Professional next.)*
+1. **Align** model + plan docs (done: name = Build Envelope; hierarchy reconciled; two-file briefs structure + dependency-graph batch order confirmed; Version-Releases named).
+2. **Build the substrate briefs** — Batches 1–3 (knowledgebase scope → tech foundations → ecosystem apps), two files each, to the model's detail. *(KSVGPS two-file exemplar done; AIXO.Dev Platform + Batch 2 next.)*
 3. **Reason** about the two new ventures against that substrate (graph-DB needs; how each scope differs from KSVGPS).
-4. **Write** the two venture briefs (Batch 2), self-contained.
+4. **Write** the two venture briefs (Batch 4), two files each, self-contained.
 5. **Breadth-first** each venture's Phase-00 research topics.
 6. **Sequence** the topics.
 7. **Run** the first topic through the new **multiagent research workflow** (the live test).
 
 ## Open items (for your review)
 
-- **Review the Proposed Sequence** — confirm the batching / flag any other entities relevant to today's discussions.
-- **Confirm the KSVGPS exemplar brief** sets the right template (then I mass-produce the rest).
-- On your go, I'll do the **rest of Batch 1** (graph-DB core + Divia.AI Professional) and **Batch 2/3** during your ~2-hour window.
+- **Confirm the two-file KSVGPS exemplar** (business brief + engineering brief) sets the right template — review the **business side first** per John's instruction, before I mass-produce the rest.
+- On your go, I'll finish **Batch 1** (the AIXO.Dev Platform software-dev knowledgebase) and proceed through **Batches 2–3** (then the new ventures in Batch 4) during your window.
