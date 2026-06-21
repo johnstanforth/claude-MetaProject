@@ -1,0 +1,31 @@
+# RESEARCH Backlog — cross-venture research topics
+
+Standing aggregation of topics we know we need to **research** before (or while) committing a venture's architecture or business model. Distinct from the `LATER-{NNN}` deferred-TODO items (which are decisions/obligations): this file is a flat, growing list of **research questions**, the destination for the `[Backlog:RESEARCH]` shorthand used in venture-brief answers. Reviewed to pick topics for the **multiagent research workflow** (the early-wide-net + late-adversarial-audit Claude×Codex process).
+
+> Convention: one `###` entry per topic — *what · why-it-matters · trigger/venture · criticality · status*. **Criticality:** `blocking` (a route can't be committed without it) · `shaping` (changes the design) · `enriching` (nice to know). **Status:** open / queued / researching / done. Captured topics survive even after they graduate — note where they went, don't delete.
+
+---
+
+### R-001 — Wikipedia static-dump licensing for a commercial derived entity-graph
+- **What:** Can we ingest the Wikipedia static dump + periodic updates into an internal copy and build a **commercial** NER-primed entity graph (people / places / companies + relationships) on top of it? CC BY-SA share-alike scope, attribution obligations, the derivative-work-vs-separate-database line, and **Wikidata (CC0)** as an alternative/complement.
+- **Why it matters / criticality:** `blocking` for PatternicityNews — Wikipedia is its *primary* NER-priming source, and share-alike could encumber the derived graph that is the venture's core moat.
+- **Trigger / venture:** PatternicityNews (tech/data-architecture). John-flagged in the first question round.
+- **Status:** open.
+
+### R-002 — Online prediction-market / gambling legality, 2018 → present (the "game vs. gambling" line)
+- **What:** The regulatory arc that makes CrowdMadness feasible now and wasn't in 2004–2008: the **2018 PASPA repeal** (Murphy v. NCAA) → legal sports betting → FanDuel/DraftKings; then **Polymarket / Kalshi** and the **CFTC** event-contract regime; per-state rules. The legal line between a **play-money / sweepstakes "game"** and a **real-money prediction market**, and what each requires to launch. (MobThought's 2004–2008 posture was explicitly "this is a GAME, not gambling — a real for-money market would be illegal," while building "in a background thread" awaiting exactly the 2018 changes.)
+- **Why it matters / criticality:** `blocking` + the venture's reason-to-exist-now. Also scopes a core feature — an **autonomous agent that tracks state/federal legislative change nightly** and translates it into required app changes (the LLM-economics thesis: thousands in engineering vs. the tens-of-millions in legal that killed the model in 2005).
+- **Trigger / venture:** CrowdMadness. John-flagged.
+- **Status:** open.
+
+### R-003 — Modeling multi-decade idea-arcs with pause/reboot in the graph-DB
+- **What:** How to represent a venture that spans decades with a gap: vague idea (pre-name) → named → prototype → wind-down/pause → **reboot-as-successor** years later, with `successor-of` / `historically-owned` edges across a moving "today," distinct from a simple rename or a v2. MobThought→CrowdMadness is the canonical case — already the lead example in `kingstrat-adventuregps`'s entity-model research (`_specs_and_plans/_research/entity_model_and_graph_db/analysis-03--lineage-successor.md`).
+- **Why it matters / criticality:** `shaping` for the KSVGPS business-side graph-DB schema (the venture-studio reframing makes decade-arcs the norm, not the exception).
+- **Trigger / venture:** KSVGPS graph-DB / the venture-studio reframing.
+- **Status:** open.
+
+### R-004 — Topic-hub + vector-segmentation architecture for a million-entity news graph
+- **What:** For PatternicityNews's entity graph — **topic-hubs** (dozens of graphs/clusters with inter-vertices: one partitioned graph vs. many?) and **vector-search segmentation** so distance is meaningful *within* a topic (per-topic vs. global embedding spaces; topic-boundary definition; entity-resolution / dedup at scale).
+- **Why it matters / criticality:** `shaping` — PatternicityNews's central ongoing engineering investment and a likely `[DEALBREAKER-HOOK]`.
+- **Trigger / venture:** PatternicityNews (data-architecture).
+- **Status:** open.

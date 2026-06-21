@@ -8,6 +8,10 @@ Deferred TODO items captured during MetaProject (cross-project) work — ideas, 
 - **Write for a cold reader.** Each file must carry enough context (capture date, originating discussion, full rationale) that a future agent or human who wasn't in the originating conversation can act on it.
 - **Header fields:** capture date · status · eventual owning project (if known) · related docs.
 
+## The RESEARCH backlog (a different artifact)
+
+[`RESEARCH-BACKLOG.md`](RESEARCH-BACKLOG.md) is **not** a `LATER-{NNN}` item — it is a single, standing, growing list of **research questions** (one `###` entry each), the destination for the `[Backlog:RESEARCH]` shorthand used in venture-brief answers. Whereas `LATER-{NNN}` files capture *decisions/obligations*, the RESEARCH backlog captures *things we must go research* before (or while) committing a route. It's reviewed to pick topics for the multiagent research workflow.
+
 ## Weekly review routine
 
 These items are reviewed on a **weekly cadence**: aggregate related items, refine scope, and when an item becomes focused enough, re-assign it to the agents (Claude / Codex) working within the relevant individual project — typically as input to that project's sprint planning.

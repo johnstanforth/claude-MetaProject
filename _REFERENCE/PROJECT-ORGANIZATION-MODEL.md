@@ -54,6 +54,10 @@ A **Build Envelope** is a **named, per-venture, reusable** definition of *the en
 - **The explicit context handed to Codex** so it designs *for that Envelope* instead of reverting to IANA-grade enterprise specs just to mint a cross-project `user_id`. (This is the same over-calibration the Build Lines first exposed.)
 - **Pairs as two axes:** **Triangulation Target (where we're going) × Build Envelope (the ground we may build on now).** Each Build Line centers on one Build Envelope.
 
+## Dated Triangulation Targets & future-scenario projection
+
+Each **Triangulation Target** (and major Build-Line milestone) carries a **frequently-updated absolute-date estimate** — "in 36 months" is stored as a concrete date (e.g. `2029-Q2`), re-checked every planning pass as milestones move and `v1→v2→v3` re-sequence. Two payoffs: (1) the date makes "triangulate to where you want to be" **measurable** — the backlog horizons (NEXT/LATER/SOMEDAY → Stages→Phases→Sprints) are the path that closes the gap between today and the dated Target; (2) the portfolio becomes **sliceable by date** — "what state is every venture in as of {future date}?" is a cross-venture query (a manual read of the briefs today; a SQL-slice across the graph-DB later) that powers **future-scenario reasoning** (e.g. "what happens to a paper grocery receipt in Jan 2030?" — see [`../_workflows/workflow_cross_venture_future_scenario.md`](../_workflows/workflow_cross_venture_future_scenario.md)). Conclusions from such reasoning are written back both forward (the future version's features) and backward (the backlog steps that build toward them).
+
 ## Two knowledgebases — business (KSVGPS) vs. software-dev (AIXO.Dev)
 
 The portfolio is modeled across **two** graph-DB knowledgebases — both on the Divia.AI Enterprise graph-DB technology — split by domain so each stays free of the other's noise:
