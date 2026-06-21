@@ -94,6 +94,11 @@
 **What we know / infer**
 - **idea-only** (`PLAN…`). Domains registered 2023 (anchors), 2025 (shorteners), 2026 (gTLD expansion). **No repo; no prior brief** (this is the first). License: **TBD**.
 
+## Cross-pollination from KSVGPS / the ecosystem
+
+**❓ Additional Questions for John**
+22. Which **KSVGPS-originated patterns** should carry into Patternicity? Two candidates: the **`.dvai` LiveDocument / self-refreshing dossier** pattern → a **living "topic dossier"** per entity (a person/company page that updates itself as news breaks); and the **entity-intelligence** angle → is the self-maintaining entity graph itself a B2B product (the KSVGPS "Research Project" / Monday-brief pattern, pointed at the public news graph)?
+
 ## Cross-references
 
 - Paired engineering brief: [`../../../SOFTWARE_DEV/patternicity.md`](../../../SOFTWARE_DEV/patternicity.md).

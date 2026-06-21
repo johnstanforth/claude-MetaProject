@@ -96,6 +96,11 @@
 **What we know / infer**
 - **idea-only** (`PLAN…`). Domains held (2001/2008 legacy + 2023/2026). No repo; no prior brief (this is the first). License: **TBD**.
 
+## Cross-pollination from KSVGPS / the ecosystem
+
+**❓ Additional Questions for John**
+18. Which **KSVGPS-originated patterns** should carry into CrowdMadness? Candidates: the **dealflow-pipeline DiviaCards + GTD-reviewer** pattern → **market-pipeline cards** with an agent suggesting which markets to create/resolve next; and the **LiveDocument** pattern → a self-refreshing **"market dossier"** per question (the living evidence behind why a market is priced where it is).
+
 ## Cross-references
 
 - Paired engineering brief: [`../../../SOFTWARE_DEV/crowdmadness.md`](../../../SOFTWARE_DEV/crowdmadness.md).
