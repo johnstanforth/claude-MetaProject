@@ -25,11 +25,16 @@ flowchart TD
   PDF --> INBOX["DiviaHome auto-imports → new DiviaCard in the Inbox"]
   INBOX --> AGENT["DiviaHome agent identifies: WinCo grocery receipt"]
   AGENT --> PARSE["Parse line-items → DiviaCard::Financial::StoreReceipt"]
-  PARSE -->|"Divia.Network route: Financial"| LM["LegendaryMoney: record to accounts; ComparisonShopping (SKU price-match across stores + Amazon S&S / Walmart+)"]
+  PARSE -->|"Divia.Network route: Financial"| LMA["LegendaryMoney Accounts: record the line-items to the user's accounts (the core money-management line)"]
+  PARSE -->|"Divia.Network route: Financial"| PS["PriceScanner — LegendaryMoney's comparison-shopping app (brand TBD): per-SKU price-match"]
+  PS --> B1["Local stores (Ralphs · Vons · Sprouts · Trader Joe's)"]
+  PS --> B2["Online stores (Walmart+ · Amazon Subscribe & Save)"]
   PARSE -->|"Divia.Network route: Food"| TP["TastyPantry: increment on-hand inventory by item + qty"]
   TP --> TREND["Nightly agent: per-item consumption trend-estimate → shopping list, urgency rising day by day"]
-  TREND --> ERRAND["First item hits 'urgent' → triggers a batched grocery errand (groups nearby-due items) into a low-stress slot (per Sattvasic Health energy window)"]
+  TREND --> ERRAND["First item hits 'urgent' → batched grocery errand (groups nearby-due items) in a low-stress slot (per Sattvasic Health energy window)"]
 ```
+
+**Modeling approach the diagram illustrates** (the real point of this example): when a routed item has several downstream uses, **decompose it — branch out each distinct consumer and use — rather than collapsing them into one box.** Here the single receipt fans into LegendaryMoney *Accounts* (record the spend) **and** its *PriceScanner* comparison-shopping app (brand TBD), which itself fans into *local* vs. *online* store price-matches — plus TastyPantry on the Food route. Branching the uses out is how the cross-venture value becomes visible; collapsing it into "LegendaryMoney does finance stuff" hides exactly the interplay we're reasoning about. Future Claude instances running this workflow should default to this **fan-out decomposition**.
 
 The trend logic is the interesting part: an item goes on the list at **half-package remaining** as "needed within ~10 days," and the urgency **escalates daily** toward the consumption trend-estimate (itself revised nightly by whether the household ate as predicted). The estimate accounts for household rules (e.g. "the after-school nanny makes the kids quesadillas") — so on the day the last tortillas would run out, tortillas become an **URGENT-today** task, while the cheese (not itself urgent, but within its shelf-life window) is **batched into the same trip**. The goal is one or two conveniently-scheduled weekly trips that clear "needed within 3 days" items *before* any of them interrupt the day — not panic runs.
 
