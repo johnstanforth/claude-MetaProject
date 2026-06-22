@@ -4,5 +4,5 @@
 
 - **Theme group:** Other / domain-only ventures.
 - **Parent topic:** (root).
-- **Ideas tagged here (1):** [IoT / connected-device platform](../IDEAS/iot-connected-device-platform.md).
-- **Scope / notes:** IoT / connected-device & fleet platforms (the SensoryMQ → GridTransmit lineage).
+- **Ideas tagged here (2):** [Cloud orchestration platform (CloudXMT → SensoryMQ.Cloud)](../IDEAS/cloud-orchestration-platform.md) · [IoT / connected-device platform (GridTransmit → SensoryMQ)](../IDEAS/iot-connected-device-platform.md).
+- **Scope / notes:** IoT / connected-device & fleet platforms — the award-winning **GridTransmit** (44K+ devices, 6 countries) → its AI successor **SensoryMQ**.

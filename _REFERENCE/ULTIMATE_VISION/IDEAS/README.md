@@ -2,7 +2,7 @@
 
 Brand-free, **durable** Idea nodes for the KSVGPS Strategic Landscape (Module 1) — each tagged to ≥1 [Topic](../TOPICS/), carrying its own research + a time-bounded **channel symlink** to whichever [Venture](../PRODUCTS/) embodies it (Ideas **persist when their channel detaches**). Model: [`STRATEGIC-LANDSCAPE-MODEL.md`](../../STRATEGIC-LANDSCAPE-MODEL.md).
 
-**59 Idea nodes** across 22 topics. Grouped by primary topic:
+**61 Idea nodes** across 24 topics. Grouped by primary topic:
 
 ### AI & Data Infrastructure
 
@@ -14,6 +14,11 @@ Brand-free, **durable** Idea nodes for the KSVGPS Strategic Landscape (Module 1)
 ### Developer Tooling
 
 - **[Developer Tooling & AI-Assisted Coding](../TOPICS/developer-tooling-ai-coding.md):** [Context-preserving search](context-preserving-search.md) · [Cross-platform offline-first AI-coding desktop](cross-platform-ai-coding-desktop.md) · [Cross-vendor agent collaboration bus](cross-vendor-agent-collaboration-bus.md) · [Design-token management system (DB-as-source-of-truth)](design-token-management-system.md) · [Dotfiles manager](dotfiles-manager.md) · [Hybrid deterministic + LLM workflow engine](hybrid-deterministic-llm-workflow-engine.md) · [Laptop TUI multi-tool coding-session manager](laptop-tui-coding-session-manager.md) · [Lossless AI-coding-session capture & archive](lossless-ai-coding-session-archive.md) · [Multi-agent dev-team coordination ("Asana for agents")](multi-agent-dev-team-coordination.md) · [Software-dev knowledgebase / "Ontology" graph](software-dev-knowledgebase-ontology-graph.md) · [Source-code analysis / cross-project codemap](source-code-analysis-codemap.md) · [VelocityTerminal](velocityterminal.md)
+
+### Frameworks & Infrastructure
+
+- **[Frameworks & Runtime Infrastructure](../TOPICS/frameworks-and-runtime-infrastructure.md):** [RosettaMQ](rosettamq.md) · [Scalara Web Services Framework](scalara-web-services-framework.md)
+- **[Cloud Orchestration & DevOps](../TOPICS/cloud-orchestration-devops.md):** [Cloud orchestration platform (CloudXMT → SensoryMQ.Cloud)](cloud-orchestration-platform.md)
 
 ### Consumer & Household
 
@@ -42,11 +47,11 @@ Brand-free, **durable** Idea nodes for the KSVGPS Strategic Landscape (Module 1)
 
 ### Other / domain-only ventures
 
-- **[IoT & Connected Devices](../TOPICS/iot-connected-devices.md):** [IoT / connected-device platform](iot-connected-device-platform.md)
+- **[IoT & Connected Devices](../TOPICS/iot-connected-devices.md):** [Cloud orchestration platform (CloudXMT → SensoryMQ.Cloud)](cloud-orchestration-platform.md) · [IoT / connected-device platform (GridTransmit → SensoryMQ)](iot-connected-device-platform.md)
 - **[File Transfer & Data Movement](../TOPICS/file-transfer-data-movement.md):** [High-speed file transfer](high-speed-file-transfer.md)
 - **[E-commerce Fulfillment](../TOPICS/ecommerce-fulfillment.md):** [Invendra](invendra.md)
 - **[Publishing / Media Content](../TOPICS/publishing-media-content.md):** [CTO Mindmeld (publishing)](cto-mindmeld-publishing.md)
 
 ### Unclassified — name-only ventures (awaiting John; no topic assignable yet)
 
-[Neurogrammatic](neurogrammatic.md) · [Quintivity](quintivity.md) · [RosettaMQ](rosettamq.md) · [Surreality](surreality.md) · [Transformulator](transformulator.md)
+[Neurogrammatic](neurogrammatic.md) · [Quintivity](quintivity.md) · [Surreality](surreality.md) · [Transformulator](transformulator.md)

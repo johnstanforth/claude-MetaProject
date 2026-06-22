@@ -1,10 +1,12 @@
 # Idea — RosettaMQ
 
-> Layer-A Idea node (durable · brand-free). Model: [`STRATEGIC-LANDSCAPE-MODEL.md`](../../STRATEGIC-LANDSCAPE-MODEL.md). **Bootstrap seed — thin stub.**
+> Layer-A Idea node (durable · brand-free). Model: [`STRATEGIC-LANDSCAPE-MODEL.md`](../../STRATEGIC-LANDSCAPE-MODEL.md). **Enriched from John's first-hand history (2026-06-22); supersedes the earlier thin domain-only stub.**
 
-- **Topic(s):** TBD **(no topic assignable — name only; no product description in sources to tag from — flag)**.
-- **One-line:** TBD — a held domain; the name "RosettaMQ" appears in the Guide as a code/extraction concept (`aixodev-codemap` / `divia_ai-enterprise`), but no product description exists.
-- **Axes (Idea-level):** Conviction = TBD · Horizon = TBD · Provenance = domain-grab · Leverage = TBD.
-- **Idea↔Idea edges:** none-yet.
-- **Channel (Idea→Venture, time-bounded):** none — `rosettamq.com` (no brief yet) is a bare entry under "Remaining Domain Inventory" in `DOMAIN_MAPPINGS.md`, with no owning entity assigned.
-- **Notes:** Sources = `DOMAIN_MAPPINGS.md` ("Remaining Domain Inventory") + `ANALYSIS_DomainList_vs_UltimateVision.md` (§B3 note: "RosettaMQ" and the "Scalara Framework" appear in the Guide "only as code/extraction concepts in `aixodev-codemap` / `divia_ai-enterprise`," and are also held domains). Domain: `rosettamq.com`. Whether RosettaMQ is a product venture or only an internal code concept is unresolved — no product mechanics stated. Everything is TBD.
+- **Topic(s):** [Frameworks & Runtime Infrastructure](../TOPICS/frameworks-and-runtime-infrastructure.md).
+- **One-line:** A planned **Rust-based, cross-language modular framework** — the successor to the **Scalara Web Services Framework**, broadened beyond web-services — that **transforms legacy code (any of ~a dozen supported languages) into registered RosettaMQ modules** behind a high-performance (millions req/sec) server-to-server microservices infrastructure, so legacy migrations *route requests to extracted-functionality modules* instead of being rewritten from scratch.
+- **Axes (Idea-level):** Conviction = **idea / serious-someday** (on the dev roadmap) · Horizon = **far (~3yr+)** · Provenance = conceived **~2014/2015** during the GridTransmit venture; successor to Scalara (1995–2012) · Leverage = the Scalara framework lineage + **LLM "codemap" scanning** to do the legacy-function→module transformation.
+- **Idea↔Idea edges:** `successor-of` → [Scalara Web Services Framework](scalara-web-services-framework.md) · `enables` → [cloud-orchestration-platform](cloud-orchestration-platform.md) (SensoryMQ.Cloud's proprietary IoT libs layer onto RosettaMQ) · `realized-via` [source-code-analysis-codemap](source-code-analysis-codemap.md) (legacy-transformation = codemap-scanning, productized).
+- **Channel (Idea→Venture, time-bounded):** idea-only; would ship as **public open-source** (`rosettamq.com`). **Dual nature:** a venture/product we build *and*, from the AIXO.Dev-projects view, **just another external OSS dependency** our projects consume like Django (see [`CODEMAP-AND-SHARED-FRAMEWORK-MODEL.md`](../../CODEMAP-AND-SHARED-FRAMEWORK-MODEL.md) §2b).
+- **Supported languages (planned):** Rust + C/C++, Python, Go/Golang, PHP, Ruby/Rails, + more (TBD) — a server-to-server core + per-language SDKs.
+- **Far Triangulation Target (~3yr):** a **fine-tuned local LLM trained on RosettaMQ's reference material**, from its expert creators, that scans legacy code and proposes the most elegant best-practice architecture.
+- **Notes:** Tames the "scattered languages" tech-debt small startups accrue (the Rails→J2EE rewrite-treadmill mess consulting clients arrive with). The `rosettamq.com` domain + the "code/extraction concept" mention in codemap research are now explained: this is the shared-framework, productized as OSS. Per John (2026-06-22).

@@ -2,7 +2,7 @@
 
 Brand-free **Topic** nodes for the KSVGPS Strategic Landscape (Module 1). Topics classify [Ideas](../IDEAS/) (**many-to-many**). Model: [`STRATEGIC-LANDSCAPE-MODEL.md`](../../STRATEGIC-LANDSCAPE-MODEL.md).
 
-## Topics (22), by theme
+## Topics (24), by theme
 
 **AI & Data Infrastructure**
 
@@ -14,6 +14,11 @@ Brand-free **Topic** nodes for the KSVGPS Strategic Landscape (Module 1). Topics
 **Developer Tooling**
 
 - [Developer Tooling & AI-Assisted Coding](developer-tooling-ai-coding.md) — 12 ideas
+
+**Frameworks & Infrastructure**
+
+- [Frameworks & Runtime Infrastructure](frameworks-and-runtime-infrastructure.md) — 2 ideas
+- [Cloud Orchestration & DevOps](cloud-orchestration-devops.md) — 1 ideas
 
 **Consumer & Household**
 
@@ -42,7 +47,7 @@ Brand-free **Topic** nodes for the KSVGPS Strategic Landscape (Module 1). Topics
 
 **Other / domain-only ventures**
 
-- [IoT & Connected Devices](iot-connected-devices.md) — 1 ideas
+- [IoT & Connected Devices](iot-connected-devices.md) — 2 ideas
 - [File Transfer & Data Movement](file-transfer-data-movement.md) — 1 ideas
 - [E-commerce Fulfillment](ecommerce-fulfillment.md) — 1 ideas
 - [Publishing / Media Content](publishing-media-content.md) — 1 ideas

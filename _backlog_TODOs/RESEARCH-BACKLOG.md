@@ -35,3 +35,9 @@ Standing aggregation of topics we know we need to **research** before (or while)
 - **Why it matters / criticality:** `shaping` — a core lens for the **KSVGPS Strategic-Landscape dimensional model** (the *business-wave* and *founder-fit* axes): it explains why John (a first-wave person) treats far-future scaling stages as "a different company I wouldn't run," and how to tag an idea's wave / scale / who-runs-it over its arc.
 - **Trigger / venture:** KSVGPS Strategic-Landscape modeling (John-flagged). Candidate first-test topic for the multiagent research workflow.
 - **Status:** open.
+
+### R-006 — Confirm the GridTransmit M2M-Evolution award (exact name, category, year)
+- **What:** Confirm the precise name of the award GridTransmit won at the **M2M Evolution conference** (~2014/2015) — John recalls a "Business Impact Award" or similar; verify the exact title/category/year (the *M2M Evolution* conference later rebranded to *IoT Evolution*). A factual-record confirmation, not a deep research topic.
+- **Why it matters / criticality:** `enriching` — provenance/credibility detail for the GridTransmit case study and the SensoryMQ reboot story.
+- **Trigger / venture:** GridTransmit / SensoryMQ ([`iot-connected-device-platform`](../_REFERENCE/ULTIMATE_VISION/IDEAS/iot-connected-device-platform.md)). John-flagged (2026-06-22).
+- **Status:** open.
