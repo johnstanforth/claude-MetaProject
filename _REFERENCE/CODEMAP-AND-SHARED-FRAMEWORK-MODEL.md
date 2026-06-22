@@ -20,6 +20,16 @@ The project's own one-liner: *"builds structural call graphs and semantic 'featu
 
 **Obvious from your description (the derived layer):** (i) **vulnerability-flagging → fix-once → propagate-to-all-consumers** (the security registry made operational, with an "intensively-retest-then-approve-push" gate); (j) **the new-Build-Line-vs-portfolio-upgrade decision** — codemap surfaces when a needed change means *a new Build Line on a different techstack*, not upgrading every project's DB; (k) **Build-Envelope alignment** — making "all Seed-tier Flask projects share this auth lib" visible and enforceable; (l) **rebuild-a-Build-Line-overnight** from shared components per a sprint plan; (m) **the bidirectional improvement funnel** — a "we should do XYZ" win in one project flows *up* into the shared framework and *out* to all 20+ consumers (the `_workflows`-propagation pattern, for code); (n) **the engineering scoped-projection source** that future-Claude queries ("what shared components exist; cookie-JWT like FracRealHomes or Redis-tokens like Patternicity?").
 
+## 2b. The three kinds of code codemap must distinguish (John, 2026-06-22)
+
+Conflating these is half of what makes "vibe-coded AI" bad. Codemap keeps them separate:
+
+1. **External libraries/frameworks** — public OSS we *consume* (Django, SvelteKit — **and RosettaMQ**, see below). Codemap doesn't own their internals; it tracks **which of our projects use which, at which version**, and keeps their **reference docs available inside the AIXO.Dev Platform** so Claude has direct, consistent access to every supported framework's docs across *all* projects. This is the **context-engineering substrate**: pick proven frameworks and code *within* them — the whole point of a framework (encapsulate + evolve shared functionality manageably) holds for LLMs exactly as for human engineers — instead of raw-coding from scratch per request.
+2. **Project-core functionality** — code specific to one project; lives and dies with its Build Line.
+3. **Shared internal functionality** — code shared *across our own projects* (e.g. the JWT user-auth in every Python/Flask Build Line). **This is the layer that must be actively managed** — mapped, versioned, and (on a security fix) pushed back out to every dependent project. "Shared" = shared with *our* projects only (everything in `_projects/README` = the engineering-side view of what KSVGPS cares about): the de-facto **AIXO.Dev shared-functionality library, per techstack** (a vetted Python/Flask stack, a vetted SvelteKit stack, …).
+
+**RosettaMQ's dual nature (resolves §7.5).** RosettaMQ is *both* a **venture/product we build** — the Rust successor to the **Scalara Framework** (7 generations, C++→Python, 1995–2012; a cross-language modular framework that transforms legacy code into registered RosettaMQ modules) — *and*, from the AIXO.Dev-projects perspective, **just another external OSS dependency** our projects consume (like Django). No collision: it's the shared-framework *productized as public open-source*. *(Far-future ~3-yr Triangulation Target: a **fine-tuned local LLM trained on RosettaMQ's reference material**, from its expert creators, that scans legacy code and proposes the most elegant best-practice architecture — codemap-scanning as a model capability. Full Scalara/RosettaMQ lineage → its Idea node.)*
+
 ## 3. The refined chain (with codemap in place)
 
 ```mermaid
@@ -36,7 +46,7 @@ flowchart TD
   CM -. shared-framework registry · vuln-flag · fix-once-propagate · rebuild-overnight .-> BL
 ```
 
-## 4. Three model refinements this surfaces (proposed — pending your confirm)
+## 4. Three model refinements this surfaces (**CONFIRMED 2026-06-22** — folded into the model docs)
 
 ### 4a. Stage vs. Milestone — *span* vs. *point*, *engineering* vs. *business*
 
@@ -78,11 +88,11 @@ This is the "hidden benefit." A Build Line carries an explicit attribute: **is i
 
 ## 7. Open questions (yours to settle / mine surfaced)
 
-1. **Confirm 4a–4c?** The Stage/Milestone split, Build-Lines-attach-to-Idea, and the research-scope flag — if you bless them, I'll fold them into [`PROJECT-ORGANIZATION-MODEL.md`](PROJECT-ORGANIZATION-MODEL.md) + [`STRATEGIC-LANDSCAPE-MODEL.md`](STRATEGIC-LANDSCAPE-MODEL.md).
+1. **4a–4c — CONFIRMED (2026-06-22)** and folded into [`PROJECT-ORGANIZATION-MODEL.md`](PROJECT-ORGANIZATION-MODEL.md) + [`STRATEGIC-LANDSCAPE-MODEL.md`](STRATEGIC-LANDSCAPE-MODEL.md).
 2. **Granularity of a "shared component"** — function · module/library · service? (JWT-auth = a module/library; a single util fn is too fine.) This sets what codemap treats as a node.
 3. **Graduation ritual** playground → shared component / real Build Line — what's the gate?
 4. **Codemap's own minimal next step** — do we resurrect it as a focused Seed Build Line (finish the semantic + cross-project layer over our real repos), explicitly with the far-future Rust/RosettaMQ scope parked? (This would itself be a `[Backlog:RESEARCH]`-able decision, but the *near-term build* is not a research project.)
-5. **RosettaMQ reconciliation** — it's both a **domain-only venture** (the `rosettamq` Idea node from today's sweep) *and* codemap's named far-future Rust shared-framework. Are these the same thing (the venture = the shared-framework-productized), or a name collision to disambiguate?
+5. **RosettaMQ — RESOLVED (2026-06-22):** *not* a collision — the **shared-framework productized as public open-source**. A **venture/product we build** (the Rust successor to the Scalara Framework) *and*, from the AIXO.Dev-projects view, **an external OSS dependency** our projects consume (like Django). See §2b + its enriched Idea node.
 6. **Does codemap track business at all, or strictly engineering?** My read: strictly engineering, but *joined* to business at Idea→Build-Line and Stage⟷Milestone — so it never holds business data, it points at it.
 
 ## 8. Cross-references

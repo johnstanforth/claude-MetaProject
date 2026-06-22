@@ -43,9 +43,9 @@ A **channel** is a *time-bounded assignment of an Idea to the Venture/brand that
 
 **Detach-and-reuse (the reuse engine):** when a channel ends — a venture pauses, dissolves, or *pivots* — the Idea **detaches back to Layer A intact** and remains reusable. If CrowdMadness ever became real-money-only, the game-money Idea would simply sit back in the Strategic Landscape, available later (e.g. a foreign-market game under different regulation). This is the same dynamic as MobThought's ideas/IP surviving its 2008 pause to power CrowdMadness now.
 
-## Idea → Build Line (the clean join to Layer B)
+## Idea → Build Line (Build Lines are owned by the Idea) — confirmed 2026-06-22
 
-A **Build Line realizes an Idea inside a Venture.** So one Idea can be delivered by **several Build Lines across scale** — the **AVM** Idea is realized by FracRealHomes' **EstimatePacket Line** (near-term scale) *and* its **National-AVM Line** (far scale): two Build Lines, one Idea. This is the join that connects Layer A down to the existing model: `Topic → Idea → (channel) → Venture → Build Line → Version-Release`.
+A **Build Line realizes an Idea and is *owned by the durable Idea* (Layer A)** — it is *operated within* whichever Venture currently channels the Idea, and **moves with the Idea** if the channel changes (the real-money-market Build Line follows its Idea from CrowdMadness → Patternicity; same code, new brand). One Idea → **several Build Lines across scale** (the **AVM** Idea owns both FracRealHomes' **EstimatePacket** and **National-AVM** lines). A Build Line can be **retired/rebuilt** for the same durable Idea (MobThought's code died; the Idea didn't). Each Build Line also carries a **research/optimization-scope flag** — *playground* (`research=OFF`: hands-off, vibe-code-now, e.g. DailySpikeDriver) vs. *optimization-target* (`research=ON`), the engineering SortingHat. Refined chain: `Topic → Idea → [Build Lines, durable] → (channel) → Venture (as a Product/Business-Line) → Stage → Phase → Sprint`, with **Stages** (engineering spans) driving toward business **Milestones** (some public = Product Version-Releases). (Engineering-side detail: [`CODEMAP-AND-SHARED-FRAMEWORK-MODEL.md`](CODEMAP-AND-SHARED-FRAMEWORK-MODEL.md) §4.)
 
 ## The dimensional axes, re-homed onto the two layers
 
