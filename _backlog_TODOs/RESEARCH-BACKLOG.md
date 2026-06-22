@@ -29,3 +29,9 @@ Standing aggregation of topics we know we need to **research** before (or while)
 - **Why it matters / criticality:** `shaping` — PatternicityNews's central ongoing engineering investment and a likely `[DEALBREAKER-HOOK]`.
 - **Trigger / venture:** PatternicityNews (data-architecture).
 - **Status:** open.
+
+### R-005 — The "three waves of business" (Cringely, ~1999–2000) and its modern applicability
+- **What:** Deep-dive into Robert X. Cringely's **"three waves"** model — first-wave (garage / new-market pioneers; "Navy SEALs who take the beach, 10× the normal soldier"), second-wave (the regular army scaling/expanding), third-wave (the "police force" maintaining a successful/monopoly position, e.g. 1990s Microsoft). Plus the corollaries: why 2nd/3rd-wave firms innovate by **acquiring** first-wave companies rather than internally; and why the *people* who excel at first-wave work (ambitious new-market ideation) differ fundamentally from third-wave operators (scaling to a billion users — e.g. the Google-SRE lift-and-shift of the YouTube acquisition). Find Cringely's original source + modern equivalents/critiques (Christensen disruption, Geoffrey Moore's TALC/chasm, founder-vs-operator literature).
+- **Why it matters / criticality:** `shaping` — a core lens for the **KSVGPS Strategic-Landscape dimensional model** (the *business-wave* and *founder-fit* axes): it explains why John (a first-wave person) treats far-future scaling stages as "a different company I wouldn't run," and how to tag an idea's wave / scale / who-runs-it over its arc.
+- **Trigger / venture:** KSVGPS Strategic-Landscape modeling (John-flagged). Candidate first-test topic for the multiagent research workflow.
+- **Status:** open.
