@@ -23,7 +23,7 @@
 - **Product subsidiary (the "Foundry analog"):** **AIXO.Dev Platforms LLC** (note plural; "An ExoDev.AI Company") — owns the software platform. *(John's `CLAUDE.md` author field uses the singular "AIXO.Dev Platform LLC"; the Phase-D canon and PRODUCT_AND_NAMING use plural "Platforms LLC.")*
 - **Regional services subsidiaries (the consultancies — the first/internal customers):**
   - **ExoDev.Pro - Dallas** (a.k.a. `ExoDev.Pro - Dallas, LLC`).
-  - **ExoDev.Pro - Los Angeles** (a.k.a. `ExoDev.Pro - Los Angeles, LLC`).
+  - **ExoDev.Pro - Los Angeles** (a.k.a. `ExoDev.Pro - Los Angeles, LLC`) — the planned **reboot of John's predecessor LA consulting firm Scalara Inc** (2002–present). The shift is a **business-model evolution** (Scalara's project-build-with-no-recurring-revenue → ExoDev.Pro's FDSE + licensed-platform recurring revenue), *not* a rename; realistically John founds the Dallas HQ first, then reboots Scalara's LA base. Lineage → [`../../VENTURES/ExoDev.md`](../../VENTURES/ExoDev.md) §1a.
   - **ExoDev.Pro - Chicago, LLC** — present in `DOMAIN_MAPPINGS.md` (subdomain `chicago.exodev.pro`); part of the planned expansion.
   - Planned expansion "to other cities in late 2026 / early 2027" (Phase-D names future NYC, Chicago, Ireland).
 - **Brands:** corporate front = *ExoDev* / *ExoDev.Pro*; platform product = *AIXO.Dev Platform*; the consultancies operate as *ExoDev.Pro - {City}*.

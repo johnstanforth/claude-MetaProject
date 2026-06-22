@@ -18,6 +18,16 @@ The most recent canon (the `aixodev-web` Phase-D research, Apr 2026) defines a *
 
 > **Older, still-in-use names** (flagged in ERRATA): John's `CLAUDE.md` and aixocode's in-repo docs say **"ExoDev.AI, Inc."** with **"ExoDev.Pro - Dallas/Los Angeles."** aixocode's `PRODUCT_AND_NAMING.md` says **"ExoDev.AI Corporation"** with **"ExoDevPro … Inc."** Pick one (a John decision).
 
+### 1a. Lineage — Scalara Inc → ExoDev.Pro (a business-model evolution, not a rename)
+
+ExoDev.Pro's Los Angeles presence has a real predecessor: **Scalara Inc** (2002–present, Greater Los Angeles), John's web-development / web-services consulting firm (**with a few prior name changes** — *TBD; cross-reference John's LinkedIn résumé to confirm the names + exact date-ranges across these ventures*), which built and used the open-source **Scalara Web Services Framework** (1995–2012; see the [`scalara-web-services-framework`](../IDEAS/scalara-web-services-framework.md) Idea node). The shift to ExoDev.Pro is **conceptual on several axes, not a corporate rename:**
+
+- **Business model:** Scalara = **project-based web/platform-building** → ExoDev.Pro = **FDSE consulting, primarily AI-based** (the Palantir Forward-Deployed-Software-Engineer model).
+- **Recurring revenue + platform IP:** Scalara had **none** — it was retained to *build* platforms *for* clients, who then **owned and operated their own** platform afterward (no recurring revenue beyond the build engagement). ExoDev.Pro instead **licenses built-in platforms (e.g. the AIXO.Dev Platform) to clients** (the Palantir Foundry/AIP model), so the platform IP compounds vendor-side and revenue recurs.
+- **Geography:** Scalara = **one LA office** → ExoDev.Pro = **several regional offices** (Dallas HQ + LA + planned others).
+
+**The realistic sequence (vs. the marketing framing):** John is relocating **LA → Dallas** and founding **ExoDev.Pro, Inc. (Dallas HQ) first**; only *afterward* does he return to **reboot the remnants of Scalara's LA client-base / address-book as a new "ExoDev.Pro – Los Angeles" office** taking Scalara's place. The line *"Scalara Inc is now the LA office of ExoDev.Pro"* is a **marketing positioning** (leverage Scalara's credibility, re-introduce to past clients) — *not* the literal corporate sequence. *(This lineage also helps ground the E-01 corporate-identity question — it explains where the ExoDev.Pro regional-office structure comes from.)*
+
 ## 2. What the family sells
 
 **Two intertwined revenue motions:**
