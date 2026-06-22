@@ -7,6 +7,14 @@
 1. **The target schema is ~80% already designed — and never migrated.** `aixodev-web`'s `_specs_and_plans/phase_05.../reference--entity_model_specification.md` (66 KB) already specifies SQL for `phases`, `sprints`, `dev_tasks` (ltree), `topics`, `research_projects`, `agents`, `software_projects`, `backlogs` (Families 2–9), and `aixodev-workgroups`' 2026-06-18 research designed the strongest `project`/`repository`/`project_repository` + cross-repo rule-sync schema (`analysis-09`/`-12`), consciously written as a *successor* to the live models. **Neither was built.** So step one is *reconcile two existing designs + migrate*, not *design from scratch*. **Caveat:** **"Build Line" and "Stage" are net-new even to those specs** (the spec's spine is Goal→Initiative→Phase→Sprint; our model inserts Build-Line and Stage above Phase) — those two entities are the genuine new design work.
 2. **None of your scattered repos is a personal-convenience spike.** The inventory triage finds **0 confident DailySpikeDriver donors** — every one of `aixodev-projects/-codemap/-collabs/-workgroups` is a *core-functionality prototype* meant to merge into `aixodev-web`. So your "create a quick separate Python/Flask project" habit was really the **prototype→product** pattern, and the new model converts those into **feature-branches/Build-Lines of the parent**, not separate repos. The **DailySpikeDriver is forward-looking** — a place for *future* personal hacks you don't currently have as repos. (Which is the cleanest possible confirmation of your own instinct: *codemap isn't a DailySpikeDriver thing; it's a feature-branch in AIXO.Dev's middle Build-Line.*)
 
+## 0b. The confirmed plan & versioning (John, 2026-06-22)
+
+The engine fork (§3.2) is **decided**, giving a clean three-version path — **v0.1 and v0.5 are both temporary scaffolds to reach the real v1:**
+
+- **v0.1 — the markdown bootstrap** (`_REFERENCE/` Ideas/Topics/briefs/model-docs): the hand-written proto-graph + dataset; **what we rely on until v1**, especially for KSVGPS.
+- **v0.5 — `aixodev-web` on *relational* PostgreSQL + LTREE** (confirmed: plain relational SQL, *not* a graph-in-Postgres like Apache AGE — that's a v1-spike candidate). The **immediate** build: CRUD for the new-model types (Build-Lines · Build-Envelopes · techstacks · Stages · Phases · Sprints · Milestones · Ideas · Topics · Project/Repository), so the whole scattered `_projects` inventory becomes **visible and reorganizable in the AIXO.Dev Platform UI**. Its purpose is *convenience* — to gather and organize the portfolio far better than today — not to be the final platform.
+- **v1 — the real graph-DB** — validated by the **KSVGPS graph-DB spikes**, then **graduated back** into a future AIXO.Dev Build-Line. **KSVGPS skips Postgres and goes straight to v1**; v0.5 AIXO.Dev exists to organize the work while that happens, and the **`proto-divia_ai-enterprise ⟷ kingstrat-adventuregps` chain is preserved.**
+
 ## 1. Where each project goes (triage)
 
 Most projects **stay standalone ventures (A)** and simply get *modeled* in the graph (their Build-Lines/Stages become data) without moving. The ones that **change**:
@@ -25,6 +33,22 @@ Most projects **stay standalone ventures (A)** and simply get *modeled* in the g
 | `divia_cards` | **flag (E)** | Standalone library or a component of the Divia.AI family? No stated merge target — a John call. |
 
 **The conceptual rule going forward:** *same-techstack* core-functionality experiments = **feature-branches of the parent Build-Line** (no new repo); *different-techstack succession* (Python→Rust) = a **separate succession Build-Line** (which may justify its own repo); *personal-convenience hacks* = the **DailySpikeDriver Build-Line** (`research=OFF`). The separate-spike-repo was a workaround for not having Build-Lines + the research-firewall.
+
+## 1b. The AIXO.Dev rebuild — its own Build-Lines (from the history catalog)
+
+The full feature/research catalog of `aixodev-web` is in [`AIXODEV-WEB-HISTORY-CATALOG.md`](AIXODEV-WEB-HISTORY-CATALOG.md) (Phases 1–4 complete + Phase 5 in progress; ~660–695 tests; 24 research tracks). Treating the current repo as a **"bag of assets to scavenge,"** its features/research sort into **five Build-Lines** (no DailySpikeDriver — doesn't apply to this project):
+
+| Build-Line | What it holds (catalog bucket) | Horizon | Status |
+|---|---|---|---|
+| **BL-A · Platform Product** | The shipped app + near-term roadmap — auth/RBAC, issue tracking (SocketIO), session import (lossless JSONB), versioned wiki, analytics, GitHub integration, hook-sync, the aixocode↔web ingest API (Bucket 1: *all the shipped code* — Phases 1–4 + P5 S02–04). | now / 3–6mo | **built** |
+| **BL-B · PostgresModeledGraph (v0.5 — IMMEDIATE PRIORITY)** | The new-model project-management layer in relational Postgres + LTREE: CRUD for Build-Lines · Build-Envelopes · techstacks · Stages · Phases · Sprints · Milestones · Ideas · Topics · Project/Repository — the whole `_projects` portfolio, visible + reorganizable in the UI. Reconciles the two competing entity specs + `workgroups/analysis-09` (Bucket 2: mostly *spec, not built*). | now (build first) | **to build** |
+| **BL-C · FullGraphDatabase (v1)** | The graph-DB-engine version — the graph tech validated in the **KSVGPS spikes**, graduated back here (Bucket 3: KG-tech-landscape research only today). | future | research-only |
+| **BL-D · ExoDev.Pro Engagement Platform** | Consulting-engagement tooling — the **EngagementGraph**, FDSE/Palantir-style features, the national-consulting research (Bucket 4: lives in `_research/product_development_strategy/` Tracks 18/21/22/23 + the carved-out `internal_engagement_graph/`; dated Apr-2026, cleanly separable). | 12–18mo | research-only |
+| **BL-E · Far-Future Enterprise** | The 2028–2030 "shock-and-awe" vision + national-LLC expansion (Bucket 5: Track 24). A **Triangulation-Target band** — a destination the multiagent workflow can dump far-future ideas into, re-scoped by horizon. | 36mo+ | research-only |
+
+**The rebuild move (once v0.5 exists):** walk the catalog and **pull/move/clone** each feature into BL-A/BL-B, and **scavenge the research** into BL-C/D/E as Triangulation-Target research — much of it **re-scoped by the multiagent workflow** (§6), curing the mixed-time-horizon mess. The current `aixodev-web` repo thus becomes *a clean collection of new-model Build-Lines* — and, being the authoritative organizer, the first project fully expressed in the model it enforces.
+
+**Two catalog hazards to handle in BL-B:** (1) reconcile the **two competing entity-model specs** (the Phase-5 engineering `reference--entity_model_specification.md` vs. the product-strategy `03-entity-model-spec-v2.md`); (2) the **old 66KB entity-model spec is moved to a backlog as a *mining source***, not a build target — its still-valuable ideas (a research-container node, an OKR/key-results measurement spine, a first-class **Agent** entity, **custom-fields** as the no-migration evolvability hatch, + 6 more) are preserved in **[`LATER-007`](../_backlog_TODOs/LATER-007-aixodev-web-entity-model-spec-mining.md)** so nothing is lost.
 
 ## 2. The self-hosting bootstrap (the compiler analogy)
 
@@ -53,8 +77,8 @@ flowchart TD
 ### 3.1 Reconcile the two Project/Repo designs + insert Build-Line & Stage
 There are **two** designs: the *live* one in `aixodev-web` (`projects` self-FK tree + `project_repositories`) and the *improved successor* in `aixodev-workgroups/analysis-09` (adds `local_path`, a proper M2M association object with `role`/`is_primary`, written by reading both siblings). Pick the workgroups design as the base (it's the conscious successor), then **insert the net-new layers**: `Build-Line` (owned by an Idea; carries Build-Envelope + the `research`-scope flag) and `Stage` (engineering span; drives toward `Milestone`). Decide how Build-Line/Stage sit relative to the spec's existing `software_projects`/Phase/Sprint spine. *This is the single highest-leverage design task.*
 
-### 3.2 Settle the graph-DB **engine** question (the central `[DEALBREAKER-HOOK]`)
-Does the engineering graph live in **`aixodev-web`'s own Postgres** (the entity-model spec's relational + ltree approach) **or** in the **`proto-divia_ai-enterprise` graph-DB server** (the convergence vision, where the ONE graph-DB engine concentrates and downstream projects are clients)? `aixodev-projects`' 2026-06-16 LATER item already flags routing this to proto-divia. **Recommendation:** for the bootstrap, **use `aixodev-web`'s Postgres** (it's near-ready, ltree-capable, gets you to self-hosting fastest), and treat *"graduate the general graph-DB engine into proto-divia / Rust `divia_ai-enterprise`"* as a **later convergence step** (the standard "build what you need now, graduate infrastructure upstream, watch the diff shrink" discipline) — **not** a bootstrap blocker. Hooking this now (a clean client/engine seam) is the irreversible fork; building the Rust engine first is not required.
+### 3.2 The graph-DB **engine** question — DECIDED (2026-06-22)
+Does the engineering graph live in **`aixodev-web`'s own Postgres** (the entity-model spec's relational + ltree approach) **or** in the **`proto-divia_ai-enterprise` graph-DB server** (the convergence vision, where the ONE graph-DB engine concentrates and downstream projects are clients)? `aixodev-projects`' 2026-06-16 LATER item already flags routing this to proto-divia. **Decided (2026-06-22):** v0.5 AIXO.Dev uses **relational Postgres + LTREE** (plain relational, *not* graph-in-Postgres); the real graph-DB is validated in the **KSVGPS spikes** and **graduates back** into AIXO.Dev v1 later (the standard "build-now, graduate-infrastructure-upstream, watch-the-diff-shrink" discipline). **KSVGPS itself skips Postgres and goes straight to the graph-DB**, and the **`proto-divia_ai-enterprise ⟷ kingstrat-adventuregps` chain is preserved.** This keeps the bootstrap fast and acyclic. (The irreversible fork is the clean **client/engine seam** — hook that now so v0.5's project-management state can later point at the graph engine instead of holding it.)
 
 ## 4. Sequencing — AIXO.Dev-first vs. KSVGPS-first
 
@@ -66,7 +90,7 @@ Does the engineering graph live in **`aixodev-web`'s own Postgres** (the entity-
 | **Cross-dependency** | AIXO.Dev-first **gives KSVGPS its engineering scaffolding** (KSVGPS-the-app's own Build-Lines/Stages live in the AIXO.Dev graph) — *your point* | "decide WHAT before HOW" — business drives engineering |
 | **Self-hosting** | naturally engineering-first (the platform hosting its own build) | business graph doesn't self-host in the compiler sense |
 
-**Recommendation: AIXO.Dev-first** — because the first thing we *do* is build, `aixodev-web` is the only near-ready host, and the engineering graph is what gives KSVGPS-the-app its own Build-Lines/Stages. **The nuance that softens the choice:** both are the *same graph-DB tech, two knowledgebases* — so "first" means *which domain to populate/manage first*, not two separate builds. Concretely: build the engineering-graph-management in `aixodev-web`, **import the business-side markdown (Ideas/Topics/Ventures) in parallel as the test dataset** (Step 3), so KSVGPS business data is never blocked — it rides along, and graduates to its own GP/LP surfaces (and eventually the Divia.AI Enterprise engine) afterward.
+**Decided (2026-06-22): a thin AIXO.Dev v0.5 organizing layer first → then the KSVGPS graph-DB is the real priority.** Build v0.5 (relational Postgres) *just far enough* to gather and reorganize the whole `_projects` portfolio in the AIXO.Dev UI — its job is **convenience/organization**, not to be the platform. Then **pause/slow** AIXO.Dev and **prioritize the KSVGPS graph-DB spikes + the real `kingstrat-adventuregps` build** (the higher engineering + business priority). **KSVGPS stays on the v0.1 markdown** until its graph-DB is up (no Postgres detour). The validated graph tech later **graduates back** into AIXO.Dev v1. So it is *not* "AIXO.Dev fully first" — it is "**a thin AIXO.Dev organizing layer first, KSVGPS graph-DB core next, AIXO.Dev v1 graph last.**"
 
 ## 5. Dependency & circularity check (looking for inconsistencies)
 
@@ -81,8 +105,8 @@ The codemap 168K-word corpus and the FracRealHomes 73-track Codex corpus aren't 
 
 ## 7. Open forks for John (in priority order)
 
-1. **The engine fork (§3.2)** — `aixodev-web` Postgres now + graduate to the Divia.AI Enterprise graph-DB engine later? (My rec: yes.) *This is the one to settle first — everything sequences off it.*
-2. **AIXO.Dev-first?** (My rec: yes, with parallel business-data import.)
+1. ~~The engine fork (§3.2)~~ — **DECIDED**: relational Postgres for v0.5; the graph engine is validated in KSVGPS and graduates back for v1.
+2. ~~AIXO.Dev-first?~~ — **DECIDED** (§4): a thin AIXO.Dev v0.5 organizing layer first, then the KSVGPS graph-DB core, then AIXO.Dev v1.
 3. **Build-Line + Stage as net-new entities** — how they sit relative to the existing `software_projects`/Goal→Initiative→Phase→Sprint spine (§3.1).
 4. **`divia_cards`** — standalone library or Divia.AI-family component? (Triage bucket E.)
 5. **Reconcile the two Project/Repo designs** — adopt the workgroups `analysis-09` successor as the base? (My rec: yes.)
