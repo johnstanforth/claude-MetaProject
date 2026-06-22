@@ -1,0 +1,12 @@
+# Idea — Graph-DB entity-knowledge engine
+
+> Layer-A Idea node (durable · brand-free). Model: [`STRATEGIC-LANDSCAPE-MODEL.md`](../../STRATEGIC-LANDSCAPE-MODEL.md). **Bootstrap seed.**
+
+- **Topic(s):** [knowledge-graph-entity-modeling](../TOPICS/knowledge-graph-entity-modeling.md).
+- **One-line:** One optimized home for the portfolio's core knowledge capabilities — a graph-DB + entity/knowledge model (plus task-management and research-doc handling) that every other product is a **client of, not a copy of**.
+- **Axes (Idea-level):** Conviction = **active / committed** (the convergence core) · Horizon = prototype **now / v1**, Rust commercial server **far** · Provenance = John, 2026-06-16 MetaProject session (cross-project workflow centralization) · Leverage = the `diviahome-web` → `proto-divia_ai-enterprise` Python/Flask lineage; KingStrat's real companies/entities/domains *are* the graph-DB acceptance test ("optimize once; business data doubles as the validation set").
+- **Idea↔Idea edges:** `enables` → [agent-hosting & orchestration server](agent-hosting-orchestration-server.md) · `enables` → [cross-app integration standard](cross-app-integration-standard.md) (the network sits atop this core) · `enables` → [federated identity & auth layer](federated-identity-auth-layer.md) (the SaaS is a specialized build of this server) · sibling-of [structured-knowledge document format](structured-knowledge-document-format.md) (the `.dvai` content it stores).
+- **Channel (Idea→Venture, time-bounded):** [Divia.AI Enterprise](../PRODUCTS/DiviaAI/divia_ai-enterprise.md) (Phase 00 — pre-release; proprietary/commercial).
+- **Realized by (Build Lines, Layer B):** two Build Lines, succession-no-merge — `proto-divia_ai-enterprise` (Python/Flask prototype, ACTIVE/live integration target) and the future Rust `divia_ai-enterprise` commercial server (idea-only, gated on prototype v1 + ~30 days real use); graph-DB seams dogfooded upstream in `kingstrat-adventuregps`. See [engineering brief](../../SOFTWARE_DEV/divia_ai-enterprise.md) · [`ARCHITECTURE_CONVERGENCE.md`](../../ARCHITECTURE_CONVERGENCE.md).
+- **Research:** [`R-003`](../../../_backlog_TODOs/RESEARCH-BACKLOG.md) (the graph-DB schema / two-layer model itself).
+- **Notes:** Source = [Enterprise business brief](../PRODUCTS/DiviaAI/divia_ai-enterprise.md) ("graph-DB core of the whole portfolio") + [`ARCHITECTURE_CONVERGENCE.md`](../../ARCHITECTURE_CONVERGENCE.md). The portfolio-wide "downstream clients, not copies" convergence principle.

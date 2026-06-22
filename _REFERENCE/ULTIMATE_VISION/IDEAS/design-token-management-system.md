@@ -1,0 +1,11 @@
+# Idea — Design-token management system (DB-as-source-of-truth)
+
+> Layer-A Idea node (durable · brand-free). Model: [`STRATEGIC-LANDSCAPE-MODEL.md`](../../STRATEGIC-LANDSCAPE-MODEL.md). **Bootstrap seed.**
+
+- **Topic(s):** [structured-documents-and-cards](../TOPICS/structured-documents-and-cards.md), [developer-tooling-ai-coding](../TOPICS/developer-tooling-ai-coding.md).
+- **One-line:** A **database-as-source-of-truth** for design themes/tokens with bidirectional industry-standard interchange (DESIGN.md (Google) ⇄ W3C DTCG JSON, round-trip-proven) and framework-native CSS output (Tailwind 4 `@theme`, Bootstrap `_variables.scss`, CSS custom properties, DaisyUI semantic roles).
+- **Axes (Idea-level):** Conviction = **active** (Phase-02 Theme Management complete — the most mature AIXO.Dev prototype) · Horizon = **now / v1** (912 tests, ruff clean) · Provenance = grew out of a project-tracker prototype; the interchange is "genuinely novel" per the source · Leverage = an 8-table token schema; imports 6 commercial Bootstrap/SCSS themes (~2,954 tokens each); the "Prototype Freedom" stance (the one surviving constraint = PostgreSQL portability for the merge).
+- **Idea↔Idea edges:** none-yet (a distinct customer-value — design tokens, not AI-coding or agent orchestration).
+- **Channel (Idea→Venture, time-bounded):** [AIXO.Dev Platform / ExoDev](../PRODUCTS/AIXO.Dev/aixodev-projects.md) (active) — realized by `aixodev-projects`; merges into `aixodev-web`. **License: Proprietary.**
+- **Realized by (Build Lines, Layer B):** `aixodev-projects` (the Theme Management System layer; the repo also still carries the original project-tracker: Project / ProjectLanguage / ProjectRepository) → merges into `aixodev-web`. See the [engineering brief](../../SOFTWARE_DEV/aixodev-platform.md).
+- **Notes:** Ideation: position it as the **design layer for the whole portfolio** (one DB-as-source-of-truth could theme aixodev-web, aixocode's TUI themes, *and* the Divia apps); ship the round-trip DESIGN.md/DTCG engine as a standalone open tool (a possible AIXO.Dev community wedge). A rare AIXO↔Divia idea-level link floated: DiviaCard Svelte components as an intermediary for Bootstrap→Tailwind conversion. Included as a thin stub — distinct Idea, modest source depth. Source: [`aixodev-projects.md`](../PRODUCTS/AIXO.Dev/aixodev-projects.md).

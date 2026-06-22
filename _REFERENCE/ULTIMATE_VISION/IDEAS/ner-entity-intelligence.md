@@ -1,0 +1,12 @@
+# Idea — NER-at-scale entity intelligence
+
+> Layer-A Idea node (durable · brand-free). Model: [`STRATEGIC-LANDSCAPE-MODEL.md`](../../STRATEGIC-LANDSCAPE-MODEL.md). **Bootstrap seed.**
+
+- **Topic(s):** [knowledge-graph-entity-modeling](../TOPICS/knowledge-graph-entity-modeling.md) (+ [news-media-world-knowledge](../TOPICS/news-media-world-knowledge.md)).
+- **One-line:** A self-maintaining entity graph of the public world — millions of entities (every person/place/company in every article), resolved across thousands of sources into single nodes — offered as a B2B entity-intelligence data/API product, distinct from any consumer news surface.
+- **Axes (Idea-level):** Conviction = **idea-only** (raised as an open question, not yet committed) · Horizon = TBD · Provenance = the Patternicity entity-graph work; the KSVGPS "Research Project / Monday-brief" pattern pointed at the public news graph · Leverage = the same Divia.AI Enterprise graph-DB core + NER pipeline (Wikipedia dump → parse → prime NER); per-topic vector segmentation so distance is meaningful within a topic.
+- **Idea↔Idea edges:** `variant-of` / *same-engine-different-customer* of [news portal over a world-knowledge graph](news-portal-world-knowledge-graph.md) — a **new Idea** (B2B data/API vs. consumer portal) sharing one substrate · `depends-on` → [graph-DB entity-knowledge engine](graph-db-entity-knowledge-engine.md).
+- **Channel (Idea→Venture, time-bounded):** [Patternicity / PatternicityNews](../PRODUCTS/Patternicity/patternicity.md) (idea-only) — *whether the entity graph itself is a sellable B2B product, or strictly the engine behind the consumer surfaces, is an explicit open question for John.*
+- **Realized by (Build Lines, Layer B):** TBD — likely the NER/entity-graph backend as its own service/repo (the heavy, distinctive part), separate from the reader-facing portal (per the engineering brief).
+- **Research:** [`R-001`](../../../_backlog_TODOs/RESEARCH-BACKLOG.md) (Wikipedia/Wikidata licensing) + `R-004` (topic-hubs / vector-segmentation / entity-resolution).
+- **Notes:** Sources = [Patternicity business brief](../PRODUCTS/Patternicity/patternicity.md) Q11/Q16/Q22 + [engineering brief](../../SOFTWARE_DEV/patternicity.md) §graph-DB. Captured as a *new* Idea (not the same as the news portal) because the customer + value differ — the same-idea-vs-new-idea test. Entity-resolution (one node per real-world entity across thousands of articles) is the hard part; reuse of KSVGPS's source-neutral-ID / UUIDv7 hooks is a candidate, not decided.

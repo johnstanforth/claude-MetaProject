@@ -1,0 +1,11 @@
+# Idea — Federated identity & auth layer
+
+> Layer-A Idea node (durable · brand-free). Model: [`STRATEGIC-LANDSCAPE-MODEL.md`](../../STRATEGIC-LANDSCAPE-MODEL.md). **Bootstrap seed.**
+
+- **Topic(s):** [federation-identity-network](../TOPICS/federation-identity-network.md).
+- **One-line:** A central identity/auth authority — "one global username" — that **federates a user's separate home and work servers** (and, longer-term, every product in the portfolio: "sign in with Divia" as the spine).
+- **Axes (Idea-level):** Conviction = **serious-someday** (the strategic endgame / recurring-revenue SaaS) · Horizon = **far / ~5yr** (a specialized upgraded build of the team server; v2 layers identity onto a v1 that already carries placeholder fields) · Provenance = the Divia.AI three-stage business ladder ("recurring revenue via identity") · Leverage = placeholder global-identity fields carried in the v1 prototype *now* so the later migration is painless (a `[DEALBREAKER-HOOK]`).
+- **Idea↔Idea edges:** `depends-on` → [graph-DB entity-knowledge engine](graph-db-entity-knowledge-engine.md) (it is a specialized build of that team server) · sibling-of [cross-app integration standard](cross-app-integration-standard.md) (a **different** federation axis — identity/auth vs app-to-app integration; sources stress: do not conflate).
+- **Channel (Idea→Venture, time-bounded):** **Divia.AI Global (SaaS)** — a future identity service of the [Divia.AI venture](../VENTURES/DiviaAI.md), delivered as a specialized build of [Divia.AI Enterprise](../PRODUCTS/DiviaAI/divia_ai-enterprise.md) (no standalone product brief of its own yet in sources).
+- **Realized by (Build Lines, Layer B):** TBD — no dedicated Build Line; anticipated as a specialized/upgraded build atop the Enterprise core (`proto-divia_ai-enterprise` → Rust `divia_ai-enterprise`). Placeholder-identity-field hook honored in both the Enterprise and Pro engineering briefs.
+- **Notes:** Source = [Divia.AI venture brief](../VENTURES/DiviaAI.md) §3 + [Enterprise business brief](../PRODUCTS/DiviaAI/divia_ai-enterprise.md) ("strategic endgame"). Referenced user story `federated-home-and-work.md` (federating DiviaHome + Enterprise). Brand-vs-product detail (the "Divia.AI Global" SaaS) is thinly specified in sources beyond the identity-federation role — most specifics TBD.

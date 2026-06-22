@@ -1,0 +1,12 @@
+# Idea — Consumption-driven replenishment / smart-shopping-list loop
+
+> Layer-A Idea node (durable · brand-free). Model: [`STRATEGIC-LANDSCAPE-MODEL.md`](../../STRATEGIC-LANDSCAPE-MODEL.md). **Bootstrap seed.**
+
+- **Topic(s):** [home-household-automation](../TOPICS/home-household-automation.md) (+ [food-and-kitchen](../TOPICS/food-and-kitchen.md), [personal-productivity-life-os](../TOPICS/personal-productivity-life-os.md))
+- **One-line:** From observed consumption ("we're nearly out of milk"), proactively stage a time-decaying grocery item and escalate the grocery-run errand's priority *before* the staple actually runs out — nobody fills out a form.
+- **Axes (Idea-level):** Conviction = **aspirational** (none of it built; DiviaHome pre-code) · Horizon = **later** (depends on the home-OS + the kitchen device) · Provenance = John's LATER-002 note (now [LATER-002 §6](../../../_backlog_TODOs/LATER-002-recurring-autonomous-agent-tasks.md)) · Leverage = **time-decay priority as a reusable primitive** ("needed within N hrs, priority escalating every M hrs") — reusable across DiviaHome, LegendaryMoney, Sattvasic (Rx refills); TastyPantry's inventory/depletion model.
+- **Idea↔Idea edges:** `depends-on` [household home-OS](household-home-os.md) (consumption signals originate from its Activity Log) · `depends-on` [scan-and-import data unification](scan-and-import-data-unification.md) (infers over the unified consumption history) · `enabled-by` [kitchen-counter voice-capture device](kitchen-counter-voice-device.md) (both capture and delivery surface for the loop) · *(a domain-specific expression of the recurring autonomous-agent capability — see Notes; flag for dedup with the Divia.AI-infra cluster)*
+- **Channel (Idea→Venture, time-bounded):** [DiviaHome](../PRODUCTS/DiviaHome/diviahome.md) (🟠 pre-code) — via DiviaHome + the kitchen device + Swarm agents
+- **Realized by (Build Lines, Layer B):** TBD.
+- **Research:** none cited in source (omit).
+- **Notes:** Runs **nightly, not weekly** — only a daily cadence catches replenishment in time (the crisp argument that recurring-agent cadence is a per-domain design decision). Source: [`diviahome-nightly-replenishment.md`](../USER_STORIES/diviahome-nightly-replenishment.md) + [LATER-002 §6](../../../_backlog_TODOs/LATER-002-recurring-autonomous-agent-tasks.md). **Cross-cluster:** the underlying "Swarm-hosted recurring agent" engine is the Divia.AI-infra cluster (agentswarms / LATER-002) — this Idea is the household *expression*, not the engine; flag for dedup.

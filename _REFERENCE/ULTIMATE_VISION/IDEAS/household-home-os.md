@@ -1,0 +1,11 @@
+# Idea — Household "home OS" (Activity-Log / task / calendar / document hub)
+
+> Layer-A Idea node (durable · brand-free). Model: [`STRATEGIC-LANDSCAPE-MODEL.md`](../../STRATEGIC-LANDSCAPE-MODEL.md). **Bootstrap seed.**
+
+- **Topic(s):** [home-household-automation](../TOPICS/home-household-automation.md) (+ [structured-documents-and-cards](../TOPICS/structured-documents-and-cards.md), [personal-productivity-life-os](../TOPICS/personal-productivity-life-os.md))
+- **One-line:** A self-hosted household hub that unifies a family's free-form NL captures, tasks, calendar, and documents into one lossless, AI-assisted record — "first unify, then understand."
+- **Axes (Idea-level):** Conviction = **active / current ~60-day singular focus** · Horizon = **now / v1** (but pre-code, Phase 00) · Provenance = John's portfolio vision (the ecosystem anchor) · Leverage = the four-domain model (Activity Log / Task Mgmt / Event Calendaring / Document Editing-DDF/`.dvai`); the graph-DB core; the Python ancestor of the Rust Enterprise server.
+- **Idea↔Idea edges:** `depends-on` [scan-and-import data unification](scan-and-import-data-unification.md) (its v1 mission) · `enables` [consumption-driven replenishment loop](consumption-driven-replenishment-loop.md) (originates from its Activity Log) · `sibling-of` [personal life-OS / GTD weekly review](personal-life-os-gtd.md) (different customer/regime: household + self-hosted server vs. personal mobile single-user) · `depends-on` the structured-docs/cards substrate (the same outliner-of-DiviaCards model as Divia.AI Professional)
+- **Channel (Idea→Venture, time-bounded):** [DiviaHome](../PRODUCTS/DiviaHome/diviahome.md) (🟠 pre-code, Phase 00 PENDING)
+- **Realized by (Build Lines, Layer B):** TBD — DiviaHome Build Lines, once defined (repo `diviahome-web`; planned mobile + smart-home devices are a separate product).
+- **Notes:** The "ecosystem anchor" and the Python ancestor that **gates the entire commercial server line** (Enterprise → Global SaaS). AI classification/delegation of captures is explicitly **v2**, not v1. Source: [`diviahome.md`](../PRODUCTS/DiviaHome/diviahome.md). Open Phase-00 question: app-DB-authoritative vs `.dvai`-file-authoritative.

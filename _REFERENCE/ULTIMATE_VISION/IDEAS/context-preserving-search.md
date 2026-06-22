@@ -1,0 +1,12 @@
+# Idea — Context-preserving search
+
+> Layer-A Idea node (durable · brand-free). Model: [`STRATEGIC-LANDSCAPE-MODEL.md`](../../STRATEGIC-LANDSCAPE-MODEL.md). **Bootstrap seed.**
+
+- **Topic(s):** [developer-tooling-ai-coding](../TOPICS/developer-tooling-ai-coding.md).
+- **One-line:** Run all the heavy search I/O — many broad-then-narrow `grep`/`rg`/`find` passes, with filtering, ranking, dedup, clustering — in a **disposable context**, returning to the orchestrating agent **only the final distilled hits** (file:line + one-line excerpt, ranked, + a 1–2 line coverage summary), so hundreds of KB of intermediate noise never crosses back and the orchestrator's LLM context lasts far longer.
+- **Axes (Idea-level):** Conviction = **captured / deferred** (LATER-005, awaiting weekly backlog review; partially possible today) · Horizon = **near** (a small, high-leverage win) · Provenance = a 2026-06-16 MetaProject session where a single QR-code sweep dumped 397 KB into the orchestrator's context · Leverage = the `Explore` sub-agent pattern, the `research-pdf`-style "offload heavy work, return only the artifact" precedent, and `EFFICIENCY_RULES.md` E9.
+- **Idea↔Idea edges:** related-to [lossless AI-coding-session archive](lossless-ai-coding-session-archive.md) (a mineable corpus to search) · related-to [hybrid deterministic+LLM workflow engine](hybrid-deterministic-llm-workflow-engine.md) (a deterministic search step feeding the LLM is exactly that hybrid pattern) · candidate-home in [laptop TUI coding-session manager](laptop-tui-coding-session-manager.md).
+- **Channel (Idea→Venture, time-bounded):** TBD — eventual owning project undecided: most likely a **Claude skill**, or a feature of **`aixocode`** (a "scoped project search" tool), or a **`_workflows/`** doc — decided at triage.
+- **Realized by (Build Lines, Layer B):** TBD. Candidate shapes: a "search sub-agent" pattern/skill; a wrapper script/skill around `rg` with smart defaults baked in; an `aixocode` feature.
+- **Research:** [`LATER-005`](../../../_backlog_TODOs/LATER-005-context-preserving-search-workflow.md).
+- **Notes:** Purely about **preserving the orchestrator's LLM context**, not search correctness. Hard-won lessons to bake in: scope to the symlinked *project* dirs not umbrella dirs; exclude `.git`/`node_modules`/`.venv`/`target`/`build`/`dist`/`*.min.js`/`*.map`/binaries by default; post-filter single-word patterns; find-then-read keeps context lean. Source: [`LATER-005`](../../../_backlog_TODOs/LATER-005-context-preserving-search-workflow.md).
