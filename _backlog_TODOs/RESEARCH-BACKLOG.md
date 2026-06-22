@@ -18,11 +18,11 @@ Standing aggregation of topics we know we need to **research** before (or while)
 - **Trigger / venture:** CrowdMadness. John-flagged (incl. the current Polymarket/Kalshi state-AG fights and the MobThought *Big Brother* prize-value precedent).
 - **Status:** open.
 
-### R-003 — Modeling multi-decade idea-arcs with pause/reboot in the graph-DB
-- **What:** How to represent a venture that spans decades with a gap: vague idea (pre-name) → named → prototype → wind-down/pause → **reboot-as-successor** years later, with `successor-of` / `historically-owned` edges across a moving "today," distinct from a simple rename or a v2. MobThought→CrowdMadness is the canonical case — already the lead example in `kingstrat-adventuregps`'s entity-model research (`_specs_and_plans/_research/entity_model_and_graph_db/analysis-03--lineage-successor.md`).
-- **Why it matters / criticality:** `shaping` for the KSVGPS business-side graph-DB schema (the venture-studio reframing makes decade-arcs the norm, not the exception).
-- **Trigger / venture:** KSVGPS graph-DB / the venture-studio reframing.
-- **Status:** open.
+### R-003 — The Idea/Venture two-layer model: durable Ideas & Topics, time-bounded Venture channels, multi-decade arcs
+- **What:** The graph-DB entity model for the KSVGPS Strategic Landscape (Module 1), now designed in [`STRATEGIC-LANDSCAPE-MODEL.md`](../_REFERENCE/STRATEGIC-LANDSCAPE-MODEL.md): a **two-layer** structure — durable, brand-free **Ideas** (tagged many-to-many to a **Topic** taxonomy, carrying their own research) above time-bounded **Venture/brand channels** (Layer B), connected by a **channel symlink** (Idea→Venture, time-bounded; **detaches on pause/pivot** so the Idea returns to Layer A for reuse). Plus: `successor-of` / `historically-owned` / `depends-on` / `variant-of` / `enables` edges; the *same-idea-different-scale* rule; **a Build Line realizes an Idea** (one Idea → several Build Lines across scale); the dimensional axes re-homed (Conviction/Horizon/Provenance/Leverage on Ideas; Wave/Founder-fit on Venture-instantiations); and **ACL-scoping** (a firm researcher sees Layer A only; a GP sees both). MobThought→CrowdMadness is the canonical multi-decade case — already the lead example in `kingstrat-adventuregps`'s entity-model research (`analysis-03--lineage-successor.md`).
+- **Why it matters / criticality:** `shaping` — this is the core KSVGPS business-side graph-DB schema; the markdown bootstrap (`STRATEGIC-LANDSCAPE-MODEL.md` + the `ULTIMATE_VISION/IDEAS/` and `TOPICS/` trees) is the manual proto-version we iterate before implementing it.
+- **Trigger / venture:** KSVGPS graph-DB / the venture-studio reframing (John confirmed the two-layer model 2026-06-22).
+- **Status:** open — design in progress (the markdown bootstrap is being built).
 
 ### R-004 — Topic-hub + vector-segmentation architecture for a million-entity news graph
 - **What:** For PatternicityNews's entity graph — **topic-hubs** (dozens of graphs/clusters with inter-vertices: one partitioned graph vs. many?) and **vector-search segmentation** so distance is meaningful *within* a topic (per-topic vs. global embedding spaces; topic-boundary definition; entity-resolution / dedup at scale).
