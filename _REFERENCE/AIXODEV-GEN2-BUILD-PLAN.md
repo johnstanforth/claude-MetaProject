@@ -5,7 +5,9 @@
 ## The framing (confirmed 2026-06-22)
 
 - **One new repo: `aixodev-GEN2`.** Every existing repo is a **frozen "scavenge-source"** — never edited. We **re-implement** chosen functionality in GEN2 (not `git pull`), verify GEN2 works with its small feature subset, and **only ever edit GEN2.**
-- v0.5 stack: **Python · Flask · SQLAlchemy · SQLite→Postgres-portable · server-rendered Jinja/HTMX/Bootstrap** (the `aixodev-projects` stack). **No auth** in v0.5 (single-user, local) — defer until multi-user is needed. Relational Postgres + LTREE for deep hierarchies (per the [migration decision §3.2](MIGRATION-AND-SELF-HOSTING-PROPOSAL.md)); the real graph-DB stays a v1 concern validated in KSVGPS.
+- v0.5 stack: **Python · Flask · SQLAlchemy · server-rendered Jinja/HTMX/Bootstrap** (the `aixodev-projects` stack). **No auth** in v0.5 (single-user, local).
+- **No Sacred Cows — throwaway-fast iteration (critical).** GEN2 has *no users but John, who isn't even using it except to eyeball prototypes.* So for the **first ~48 hours / first ~10–20 plan→build→replan passes** there are **NO migrations** — each pass just **drops the local SQLite DB and regenerates the schema** from the models. Iterate hard toward a *minimal, barely-working* CRUD UI; treat every version as disposable. **Codex must be told this explicitly** — it tends to defend a 10-minute-old "production" schema; here there is nothing precious to protect.
+- **The "take it seriously" demarcation:** once we have a minimally-usable, stable version, we **(a) move to Postgres + LTREE and (b) add the Evolvability Hatch** (custom-fields, [`LATER-007`](../_backlog_TODOs/LATER-007-aixodev-web-entity-model-spec-mining.md) B-10) — *that* is the point we adopt proper Alembic migrations and stop dropping the DB. Not before. (The real graph-DB stays a v1 concern validated in KSVGPS.)
 - Once the UI works, **Build-Lines are defined *in the UI*** — GEN2 becomes the authoritative organizer, the first project expressed in the model it enforces.
 
 ## Lift-and-shift sources (read-only)
@@ -14,8 +16,6 @@
 |---|---|---|
 | **`aixodev-projects`** (BASE) | The running **Flask app skeleton** (app-factory · blueprints · services · Jinja+Bootstrap templates · Alembic · SQLite→Postgres discipline) **and** the working **Project / ProjectRepository / ProjectLanguage CRUD** (models · `project_service.py` cycle-guard · views · templates · tests). **Strip the entire design-theme/token subsystem** (8 tables, irrelevant). | *Re-implement* the lifted code into GEN2 (clean copy, not a clone), verify each piece runs. |
 | **`aixodev-workgroups`** (SCHEMA) | The better **Repository/association design** — a shareable `Repository` entity (`CHECK(local_dir OR remote_url)`), a `project_repositories` association object (`role`/`is_primary`), and `projects.local_path` — with ready SQLAlchemy 2.0 ORM in `DEV_PLAN.md §1.1` / `analysis-09`. | *Implement fresh* from its design (no code exists to lift). |
-| **`aixodev-codemap`** (PATTERNS) | Only the **API-envelope + test-fixture patterns** — not its domain tables (wrong shape). | Optional reference. |
-| **`aixodev-web`** (LATER) | Mature **auth/RBAC/admin** + the lossless-session-ingest API — *only if/when* GEN2 needs multi-user or session capture. | Deferred past v0.5. |
 
 ## The v0.5 entity model (what the CRUD UI edits)
 
@@ -24,22 +24,32 @@ Relational schema (LTREE for deep trees; adjacency for shallow), grouped by the 
 - **Layer A — Strategic Landscape:** `Topic` (taxonomy, ltree) · `Idea` (durable; the four axes Conviction/Horizon/Provenance/Leverage) · `idea_topics` (M2M) · `idea_edges` (typed: `depends-on`/`variant-of`/`enables`/`successor-of`).
 - **Layer B — Ventures & engineering:** `Venture` (brand) · `idea_channels` (the time-bounded **channel-symlink** Idea→Venture: `start_date`/`end_date`) · `Project` (hierarchy + `local_path`) · `Repository` + `project_repositories` (the workgroups design) · `Techstack` (first-class).
 - **Build structure:** `BuildEnvelope` (named/reusable: scale·scope·team·timeframe·stack) · `BuildLine` (**owned by an Idea**; `build_envelope_id`; `techstack_id`; the **`research_scope` flag** playground/optimization) · `TriangulationTarget` (dated; `build_line_id`; **re-bucketable** across Build-Lines) · `Stage` (engineering span, `build_line_id`) · `Milestone` (business point, dated; some = Product Version-Releases) · `stage_milestones` (M2M, the Stage⟷Milestone join) · `Phase` (`stage_id`) · `Sprint` (`phase_id`).
-- **Evolvability hatch (recommended):** `custom_field_definitions`/`custom_field_values` (per [`LATER-007`](../_backlog_TODOs/LATER-007-aixodev-web-entity-model-spec-mining.md) B-10) so further axes land as data, not migrations.
+- *(Deferred — the **Evolvability Hatch** (custom-fields, [`LATER-007`](../_backlog_TODOs/LATER-007-aixodev-web-entity-model-spec-mining.md) B-10) is **not** in the rapid-iteration phase; it lands at the "take it seriously" demarcation, alongside Postgres + LTREE + migrations.)*
 
 CRUD UI = list / create / edit / delete for each entity + manage the relationships (tag an Idea to Topics, channel an Idea to a Venture, attach Build-Lines to an Idea, attach a Build-Envelope + Techstack + research-flag to a Build-Line, Stages→Phases→Sprints, Stage⟷Milestone).
 
-## Steps
+## Build steps (the content of each pass)
 
 1. **[John] Create the empty repo:** `~/Code/AIXO.Dev/aixodev-GEN2` + `git init` + the GitHub remote + the `_projects/aixodev-GEN2` symlink (as with `divia_ai-agentswarms`). *(Or tell me to do the local `mkdir`/`git init`.)*
-2. **[Claude or Codex] Scaffold** the Flask app by re-implementing `aixodev-projects`' skeleton into GEN2 (app-factory, blueprints, services, templates, Alembic, `run_dev_server.sh`); **strip themes.**
-3. **[Claude or Codex] Schema:** implement the v0.5 entity model above — lift Project/ProjectRepository/Techstack (graft the workgroups Repository design), then add the net-new Build-Line/Build-Envelope/Stage/Milestone/Phase/Sprint/Idea/Topic/Target entities + relationships; Alembic migrations; Postgres-portable (`db.JSON`, named constraints, LTREE where deep).
-4. **[Claude or Codex] CRUD UI + API** for every entity, following the lifted pattern; tests per entity.
-5. **[Claude or Codex] Seed-import** the **v0.1 markdown bootstrap** (`_REFERENCE/ULTIMATE_VISION/{IDEAS,TOPICS}/` + the briefs' Build-Line/Stage tables) as the first dataset — validating the schema on real data and giving John the whole portfolio to edit on day one.
-6. **[Both] Verify:** the app runs; the UI creates/edits all entities; the markdown imports cleanly; each lifted piece works in GEN2's small-subset context.
+2. **Scaffold** — re-implement `aixodev-projects`' Flask skeleton into GEN2 (app-factory · blueprints · services · Jinja+Bootstrap templates · `run_dev_server.sh`); **strip themes**; **SQLite, no migrations.**
+3. **Schema (drop-and-regenerate)** — implement the v0.5 entity model above: lift Project/ProjectRepository/Techstack (graft the workgroups Repository design), then add the net-new Build-Line/Build-Envelope/Stage/Milestone/Phase/Sprint/Idea/Topic/Target entities + relationships. **`create_all`-style regeneration each pass — NO Alembic** until the demarcation. Postgres-portable *in spirit* (`db.JSON`, named constraints) but don't over-engineer.
+4. **CRUD UI + API** — list/create/edit/delete + relationship management for each entity, following the lifted pattern; a few smoke tests per entity (not exhaustive — it's throwaway).
+5. **Seed-import** the **v0.1 markdown bootstrap** (`_REFERENCE/ULTIMATE_VISION/{IDEAS,TOPICS}/` + the briefs' Build-Line/Stage tables) so John edits the whole portfolio on day one.
+6. **[Claude] Verify** the pass: app runs, UI CRUDs the entities, markdown imports.
 
-## Execution
+*Expect to run the plan→build→eyeball→replan cycle **~10–20 times over the first couple days** — each pass disposable (drop the DB, regenerate) — converging on a minimal, stable, barely-working CRUD UI. Only **then** the demarcation (Postgres + LTREE, migrations, the Evolvability Hatch).*
 
-The plan is structured to be runnable by **Codex** (John may say *"use codex with gpt-5.3-codex-spark at xhigh to execute the plan"* → delegated via the `skill-codex` plugin) or by Claude. Lift-and-shift discipline: **re-implement, don't `git pull`; verify GEN2 works at each step**, even though it holds a small fraction of any source repo's features.
+## Execution model — Claude orchestrates, Codex builds, Claude reviews & commits
+
+**Claude is the main orchestrator and the quality gate; Codex is the fast builder.** Per build-step (steps #2–#5, and each re-iteration) — *not* the whole plan at once:
+
+1. **Claude writes a narrowly-scoped "Step-N only" coding task** — one step's content, with precise acceptance criteria + the explicit "no sacred cows / drop-and-regenerate, don't defend the schema" instruction.
+2. **Claude delegates it to Codex** via the `skill-codex` plugin (e.g. *"use codex with gpt-5.3-codex-spark at xhigh to execute this Step-N task"*).
+3. **Codex builds it in its own context** — so the implementation detail does **not** burn Claude's orchestrator context.
+4. **Claude reviews the result adversarially** — does it match the assigned task? Is it correct, *minimal*, and high-quality? **Code quality is the highest priority** — if Codex over-engineered, added unrequested machinery, or implemented something poorly, **Claude pushes back and re-delegates to Codex to fix it differently** (citing the specific problem). Repeat until it passes.
+5. **Claude does the git commit** of the reviewed/approved work — only after it passes review. Lift-and-shift discipline holds: **re-implement, don't `git pull`; verify GEN2 works** with its small subset at each step.
+
+*This run is also an **experiment**: does the `skill-codex` path give fast, subagent-level builds that complete quickly **without consuming Claude's main-loop context** — distinct from the back-and-forth collab-group? We'll learn across the ~10–20 passes.*
 
 ## Cross-references
 
