@@ -82,44 +82,69 @@ Different kinds of thing can own repos/build-lines and all map to a GitHub-style
 ## 10. Populate plan — EDITABLE HIERARCHY  *(edit this freely and resend; add/rename/reorder Product-Lines and Current Build-Lines)*
 
 - **Divia.AI**
+  - Product-Line: **Divia.AI Global Service** (online/hosted SaaS subscription service at `divia.ai`)
+    - Current Build-Line: **DiviaGlobalService**  ·  repo: `divia_ai-globalservice`
   - Product-Line: **Divia.AI Professional** (desktop outliner)
-    - Current Build-Line: **OutlinerDesktop**  ·  repo: `divia_ai-professional`
+    - Current Build-Line: **DesktopOutliner**  ·  repo: `divia_ai-professional`
   - Product-Line: **Divia.AI Enterprise** (teams/workgroups server)
-    - Current Build-Line: **WorkgroupsServer**  ·  repo: `proto-divia_ai-enterprise`
+    - Current Build-Line: **DiviaServerPrototype**  ·  repo: `proto-divia_ai-enterprise`
+    - Far-horizon Build-Line: **WorkgroupServer**  ·  repo: `divia_ai-enterprise`   ·  **`succeeds` DiviaServerPrototype** — Gen 2; the Rust techstack pivot is *exactly* what makes it a generation (this was inverted in the edit — see Q&A 1)
 - **DiviaHome**
-  - Product-Line: **DiviaHome** (self-hosted household hub)
-    - Current Build-Line: **HomeHub**  ·  repo: `diviahome-web`
-- **DiviaLife**
-  - Product-Line: **Divia.Life** (cross-platform mobile life app)
-    - Current Build-Line: **LifeMobile**  ·  repo: `divialife-flutter`
+  - Product-Line: **DiviaHome (service)** (online/hosted SaaS subscription service at `diviahome.com`)
+    - Current Build-Line: **GlobalHomeService**  ·  repo: `diviahome-service`
+  - Product-Line: **DiviaHome: Community Edition** (self-hosted open-source household hub)
+    - Current Build-Line: **CommunityHomeHub**  ·  repo: `diviahome-community` *(renamed from `diviahome-web` — same techstack & scope, so the SAME Build-Line; just a repo rename, NOT a Gen-2/`succeeds`. You had this one right — see Q&A 1.)*
+  - *(DiviaLife dropped as a standalone venture — its Divia.Life product-line now lives under DiviaHome; see Q&A 5.)*
+  - Product-Line: **Divia.Life** (cross-platform mobile app, with messaging of DiviaCard types/objects)
+    - Current Build-Line: **LifeCardMessenger**  ·  repo: `divialife-flutter`
 - **LegendaryMoney**
-  - Product-Line: **LegendaryMoney** (AI personal-finance manager)
-    - Current Build-Line: **ConfidenceLedger**  ·  repo: `legendarymoney-web`
+  - Product-Line: **LegendaryMoney (service)** (AI personal-finance manager)
+    - Current Build-Line: **ConfidenceLedger**  ·  repo: `legendarymoney-web` + repo: `legendarymoney-flutter` 
+  - Product-Line: **LegendaryMoney: Community Edition** (self-hosted open-source personal-finance manager web application)
+    - Current Build-Line: **HouseholdLedger**  ·  repo: `legendarymoney-community`
 - **Kingmaker Strategic**
   - Product-Line: **AdVentureGPS / KSVGPS** (venture-studio OS)
     - Current Build-Line: **AdVentureGPS**  ·  repo: `kingstrat-adventuregps`
-- **TastyPal**  *(John: you mentioned TastyPal app + spicemaster prototype + TastyPantry + TastyTrucks — fill in below)*
-  - Product-Line: **TastyPal app** (?)
-    - Current Build-Line: **(name?)**  ·  early prototype: "spicemaster"
-  - Product-Line: **TastyPantry** (pantry inventory)
-    - Current Build-Line: **PantryCore**  ·  repo: `tastypantry`
-  - Product-Line: **TastyTrucks** (?)
-    - Current Build-Line: **(name?)**
+- **TastyPal**
+  - Product-Line: **TastyPal (service)** (online/hosted website/service for taste-preferences, finding restaurants your taste-palate will like, "others like you also like" recommendation engine, coordination of TastyPal+TastyPantry mobile apps, etc)
+    - Personal Build-Line x `johnstanforth`:  **TastySpikeDriver**   ·  repo: `spicemaster3000` *(repo to be renamed; old `spicemaster3000` placed here = a personal playground line co-owned by `tastypal` + `johnstanforth`)*
+    - Current Build-Line: **TastePalatesEngine**  ·   repo: `tastypal-web`
+  - Product-Line: **TastyPal** (mobile app for taste-preferences, finding restaurants your taste-palate will like, others like you also like, etc)
+    - Current Build-Line: **TastePalatesEngine**  ·   repo: `tastypal-flutter`
+      - *(Q&A 2: yes — one Build-Line can span multiple Product-Lines and bundle `-web` + `-flutter` repos; see the recommendation there.)*
+  - Product-Line: **TastyPantry (by TastyPal)** (household kitchen/pantry inventory app)
+    - Current Build-Line: **CorePantryMobile**  ·  repo: `tastypantry-flutter`
+  - Product-Line: **TastyPantry: Community Edition** (self-hosted household kitchen/pantry inventory web app)
+    - Current Build-Line: **CommunityPantry**  ·  repo: `tastypantry-community`
+  - Product-Line: **TastyTrucks (by TastyPal)** (online site showing the location of food-trucks in your area, showing which ones match your TastyPal taste-preferences, etc; combines our award-winning GridTransmit/SensoryMQ GPS/IoT Fleet-Tracking platform with the food-trucks use-case)
+    - Current Build-Line: **TastySpatialGPS** ·  repo: `tastytrucks-web` +  repo: `tastytrucks-flutter`
 - **SattvasicHealth**
   - Product-Line: **SattvasicHealth** (health-metrics aggregator)
     - Current Build-Line: **VitalsAggregator**  ·  repo: `sattvasichealth`
 - **FracRealHomes**
   - Product-Line: **Property Valuation** (the diligence/estimate product)
+    - Personal Build-Line x `johnstanforth`:  **DailySpikeDriver**   ·  repo: `fracrealhomes-johnstanforth`   
+      - *(I want to build `fracrealhomes-johnstanforth` soon — a small Python/Flask spike, starting with Gmail-parsing of Zillow/Redfin emails. Personal-Build-Line process — standalone vs fork-from-current — in Q&A 3.)*
+      - *(Q&A 4: yes — `build_line_owners` allows unlimited co-owners, e.g. `fracrealhomes` + `johnstanforth` + `davidlang`; confirmed, with implications reasoned through there.)*
     - Current Build-Line: **EstimatePacket** `current`  ·  repo: `fracrealhomes-web`
     - Far-horizon Build-Line: **National-AVM** `far-horizon`  ·  (succeeds EstimatePacket)
   - Product-Line: **ADU-Evaluation-Service** (?) — future
-    - Current Build-Line: **(name?)**
+    - Current Build-Line: [TBD]
 - **CrowdMadness**
   - Product-Line: **CrowdMadness** (prediction-market game)
     - Current Build-Line: **PredictionArena**  ·  (pre-code)
 - **Patternicity**
   - Product-Line: **PatternicityNews** (news portal)
-    - Current Build-Line: **PatternFeed**  ·  (pre-code)
+    - Current Build-Line: **PTNewsFeed**  ·  (pre-code)
+  - Product-Line: **PatternicityNews Reader** (cross-platform desktop RSS/News reading app)
+    - Current Build-Line: **PTNewsReaderApp**  ·  (pre-code)
+  - Product-Line: **Patternicity.Social** (Twitter/BlueSky/Mastodon-like social network to discuss )
+    - Current Build-Line: **PTSocialNews**  ·  (pre-code)
+
+
+
+### Deferring These for Now:  (I want to think more about these first)
+
 - **AIXO.Dev**  *(FLAG: multiple product-lines; you already have BL-A…E in MIGRATION-AND-SELF-HOSTING-PROPOSAL.md — confirm the breakdown)*
   - Product-Line: **AIXO.Dev Platform** (the web app)
     - Current Build-Line: **PlatformGraph** (= GEN2 / BL-B)  ·  repo: `aixodev-GEN2`
@@ -128,3 +153,46 @@ Different kinds of thing can own repos/build-lines and all map to a GitHub-style
   - Product-Line: **AIXO.Dev Professional** (desktop) — future
     - Current Build-Line: **(name?)**
 - **ExoDev.Pro, Inc.**  *(FLAG: services/holding firm — likely no software Product-Line; its software is AIXO.Dev)*
+  - *(John confirmed-- no software Product-Line for now; client-engagement SDK, etc, TBD est. 2027)*
+
+---
+
+## 11. Q&A (answered 2026-06-23 — reply inline under any answer; I'll fold your replies back in)
+
+**Q&A 1 — When is it a NEW Build-Line / `succeeds` (Gen 2), vs the SAME Build-Line?** *(covers your Divia.AI-Enterprise and DiviaHome-Community notes — which pointed opposite ways, so here's the single rule.)*
+
+The discriminator is **techstack**:
+- **Techstack CHANGES** (Python/Flask → Rust): a **new Build-Line**, a new generation, starting internally at **Stage v1**, linked by a **`succeeds`** edge. → So **WorkgroupServer (Rust) DOES `succeed` DiviaServerPrototype (Python)** — the Rust pivot is *precisely* what makes it a Gen-2, not what disqualifies it. (Your Enterprise note had this inverted.)
+- **Techstack STAYS THE SAME** (just renaming `diviahome-web` → `diviahome-community`, same Flask, same scope): the **SAME Build-Line** — no new generation, no `succeeds`, just rename the Repository (or swap it in `build_line_repositories`). → Your DiviaHome-Community note had this **right**.
+
+Mnemonic: **`succeeds` = a techstack pivot; same techstack = same Build-Line.** Stages (v1→v4) progress *within* one Build-Line on one techstack; crossing to a new techstack starts a new Build-Line at v1 linked by `succeeds`. *(Applied in §10: WorkgroupServer marked `succeeds`; CommunityHomeHub marked same-BL repo rename.)*
+
+**Q&A 2 — Can one Build-Line span multiple Product-Lines AND bundle multiple repos (`-web` + `-flutter`)?**
+
+**Yes on both.** `product_line_build_lines` is M2M (a Build-Line can belong to many Product-Lines) and `build_line_repositories` is M2M (a Build-Line can bundle many repos — exactly like FracRealHomes' EstimatePacket = {web, flutter, android}). So your "TastePalatesEngine" with `tastypal-web` + `tastypal-flutter`, in both the service and mobile Product-Lines, is fully valid.
+
+My recommendation: decide by whether the mobile app is a **separate product** (its own release cadence / market identity → keep it a separate Product-Line, sharing the one Build-Line via the M2M, or split into its own Build-Line) or a **client of the same product** (→ one "TastyPal" Product-Line, one "TastePalatesEngine" Build-Line bundling both repos with `role`=backend/service vs mobile). From your description (mobile = a subset-functionality client of the `tastypal.com` service), I'd lean **one Product-Line + one Build-Line + two repos** — cleaner, with the web/flutter distinction living on the repo `role`, not duplicated in the product structure. But the model supports your two-PL version too. (Note: Flask vs Flutter are different techstacks, but here they're *parallel components*, not a `succeeds` succession — different rule from Q&A 1.) **→ Your call: consolidate to one TastyPal PL, or keep service/mobile as two?**
+
+**Q&A 3 — Process for creating personal Build-Lines (standalone vs git-cloned from the Current Build-Line)?**
+
+Both are first-class, and `build_line_edges` records which:
+- **Standalone spike** — fresh Python/Flask, unrelated to the main codebase's structure (e.g., a Gmail-parser that just needs IMAP + regex). No `forked-from` edge; when it contributes code upstream, add a **`merges-into`** edge to the Current Build-Line. Best for self-contained modules.
+- **Fork-from-current** — git-clone the Current Build-Line's repo and hack in-context. Add a **`forked-from`** edge; PR features up via **`merges-into`**. Best when prototyping a change *to* the existing product.
+
+For your **`fracrealhomes-johnstanforth` Gmail-parser**: it's a fairly self-contained parser feeding EstimatePacket's valuation inputs, so I'd default to a **standalone spike** (`research_scope=playground`, co-owned `fracrealhomes` + `johnstanforth`) with a **`merges-into` EstimatePacket** edge once a feature is ready to graduate.
+
+**Proposed convention (needs your sign-off):** personal Build-Lines default to **standalone** unless you're modifying existing product code, in which case **fork-from-current**; either way a **`merges-into`** edge records the upstream graduation, and `research_scope=playground` + a Person co-owner marks it personal/experimental. **→ Does that match how you want this process to work?**
+
+**Q&A 4 — Can a Build-Line have multiple person-owners + the venture (e.g., `fracrealhomes` + `johnstanforth` + `davidlang`)?**
+
+**Yes, unlimited.** `build_line_owners` is a true M2M; the only uniqueness is `(build_line_id, owner_id)` (can't add the *same* owner twice), so any number of distinct owners is fine. Your Digital Insight 1997 example = one Build-Line owned by `[Venture] + [Person:John] + [Person:David]`, `research_scope=optimization-target` (a serious rebuild, not a playground). **No "single personal account" constraint exists anywhere — confirmed by design.** Implications:
+- The link's **`role`** column distinguishes them (venture = `sponsor`; the two devs = `lead`/`contributor`) — useful for display and a future ACL/permissions hook (who can edit/merge).
+- The Build-Line shows up under **all three** owners' detail pages — correct, it's genuinely shared.
+- Ownership ≠ Product-Line association ≠ generation-lineage stay independent (the three-orthogonal-relations principle), so co-owning doesn't entangle the product structure.
+- If we ever add a "primary owner," it'd be a `role`/flag on the link, **never** a structural single-owner limit.
+
+**Q&A 5 — Structure changes I applied from your edits** *(verify these):*
+- **DiviaLife removed as a standalone venture**; "Divia.Life" is now a Product-Line under **DiviaHome**. At populate time I'll drop the DiviaLife Owner and create the Divia.Life PL under DiviaHome.
+- The recurring **"(service)" vs "Community Edition"** split (Divia.AI Global Service; DiviaHome service + community; LegendaryMoney service + community; TastyPantry + community) = just multiple Product-Lines per Venture — fully supported; it cleanly encodes the commercial-hosted-SaaS vs AGPL-self-hosted dual-license pattern.
+- **AIXO.Dev** + **ExoDev.Pro** deferred (ExoDev confirmed no software Product-Line; client-engagement SDK ~2027).
+- **Net populate count:** 12 ventures → **11** (DiviaLife gone); AIXO.Dev + ExoDev deferred → **9 ventures populated now**: Divia.AI, DiviaHome, LegendaryMoney, Kingmaker Strategic, TastyPal, SattvasicHealth, FracRealHomes, CrowdMadness, Patternicity. *(The DiviaLife Owner row is deleted in the migration; ExoDev.Pro + AIXO.Dev remain as Owner/Venture rows with no Product-Lines/Build-Lines yet.)*
