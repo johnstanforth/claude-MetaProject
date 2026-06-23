@@ -2,6 +2,15 @@
 
 > Plan (2026-06-22), John + Claude. The **first project built fully in the new model**: a Python/Flask web app whose entire v0.5 purpose is **CRUD for the new-model entities**, so John can create/edit Projects · Build-Lines · Stages · Phases · Sprints · Ideas · Topics in a UI. This is the migration proposal's **BL-B "PostgresModeledGraph"** ([`MIGRATION-AND-SELF-HOSTING-PROPOSAL.md`](MIGRATION-AND-SELF-HOSTING-PROPOSAL.md)). Source inventory + the base recommendation are in the Appendix of [`AIXODEV-WEB-HISTORY-CATALOG.md`](AIXODEV-WEB-HISTORY-CATALOG.md).
 
+## Status & re-entry notes (2026-06-22)
+
+*(Written so this doc is a complete post-compact re-entry point — re-reading it + the pointers below is all that's needed to continue.)*
+
+- **Step 1 (repo) + Step 2 (scaffold) are DONE and committed** in `aixodev-GEN2` (commit `28b8df6`): the `create_app()` factory, the single `/` route + Bootstrap `base`/`index` templates, the `flask init-db` drop-and-regenerate CLI, an empty `app/models/` package, `pyproject.toml` (`[tool.uv] package = false`), `.gitignore`, the no-sacred-cows `CLAUDE.md`, and passing pytest smoke tests. **The build resumes at Step 3.**
+- **Decision (2026-06-22): combine Steps 3 + 4 + 5 into ONE Codex task** (full entity model + CRUD UI/API + seed-import the v0.1 markdown), *not* step-by-step. Claude **reviews the whole result in one pass and commits**; no per-piece explanation needed at this early stage; John requests changes afterward.
+- **Codex model caveat:** the `skill-codex` wrapper ran both prior delegations under a **"work" profile = gpt-5.5 / high**, *overriding* the `-m gpt-5.3-codex-spark --config model_reasoning_effort=xhigh` flags (visible in its `[codex-wrapper] Launching with profile: work ... [gpt-5.5 : high]` banner). Before the combined run, decide whether to fix the wrapper/codex profile (so spark/xhigh actually applies) or proceed as-is.
+- **Re-entry pointers (post-compact):** to assemble the combined Step-3–5 Codex task, re-read **(1)** the *entity model* + *build steps* below; **(2)** the exact `-workgroups` `Repository` / `project_repositories` / `local_path` schema in **Appendix AP.4 of [`AIXODEV-WEB-HISTORY-CATALOG.md`](AIXODEV-WEB-HISTORY-CATALOG.md)**; **(3)** the current GEN2 repo state (the committed skeleton at `_projects/aixodev-GEN2`); **(4)** the entity *semantics* in [`PROJECT-ORGANIZATION-MODEL.md`](PROJECT-ORGANIZATION-MODEL.md) and [`STRATEGIC-LANDSCAPE-MODEL.md`](STRATEGIC-LANDSCAPE-MODEL.md).
+
 ## The framing (confirmed 2026-06-22)
 
 - **One new repo: `aixodev-GEN2`.** Every existing repo is a **frozen "scavenge-source"** — never edited. We **re-implement** chosen functionality in GEN2 (not `git pull`), verify GEN2 works with its small feature subset, and **only ever edit GEN2.**
