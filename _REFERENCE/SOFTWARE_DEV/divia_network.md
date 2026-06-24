@@ -26,6 +26,8 @@ Divia.Network is anticipated to be the **federation / integration layer atop the
 
 Note the **two distinct "federation" axes** (do not conflate): Divia.Network = **app-to-app integration** (this entity); **Divia.AI Global (SaaS)** = **identity/auth federation** ("one global Divia.AI username" across home/work servers). Different layers; both aspirational.
 
+**Open standard, not a captive family API (John, 2026-06-24).** Frame Divia.Network as an **open, http-like protocol *any* company can opt into** — by (a) supporting the **DiviaCards** data-structure standard and (b) layering on the AI functionality a use-case needs — *not* a Divia-family-only integration bus. Canonical fan-out example: one paper grocery receipt dispatched to **LegendaryMoney** (a *finance* topic — reconcile vs. personal accounts) **and** to **TastyPantry** (a *food* topic — weekly meal-prep), each an independent app "speaking the protocol." Consequence for the model: **adopters are independent tech-clients, not "Divia companies."** A day-one `Divia.Network/{topic}/` category page may list a single app (finance = just LegendaryMoney) and grow via paid partnerships + free open-source adopters; the 20-yr moonshot is DiviaCards as ubiquitous as http (the "Divia-compatible ecosystem" becoming as meaningless a distinction as "the http-connected internet"). *(Business/corporate framing canon: the [Patternicity brief](../ULTIMATE_VISION/PRODUCTS/Patternicity/patternicity.md) "Divia.Network relationship" section + [`../STRATEGIC-LANDSCAPE-MODEL.md`](../STRATEGIC-LANDSCAPE-MODEL.md).)*
+
 ## Dependencies (anticipated)
 
 | Depends on | Why (anticipated) | Status |

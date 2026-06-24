@@ -54,6 +54,15 @@ flowchart TD
 
 **Revised ownership chain:** `Venture ──owns──▶ { Build-Line ──uses⇄── Repository ; Build-Line ▶ Stage ▶ Phase ▶ Sprint ; Product-Line ▶ Version-Release ──realized-by──▶ [Build-Line→Stage] }`, with the **Idea / Topic / (future) Thesis / Event ontology to the side**, joined by non-owning M2M edges. (Engineering-side detail: [`CODEMAP-AND-SHARED-FRAMEWORK-MODEL.md`](CODEMAP-AND-SHARED-FRAMEWORK-MODEL.md) §4.)
 
+## Inter-venture relationships — the Divia.Network protocol edge (not corporate siblinghood)
+
+Ventures relate to *each other* in the model by only two kinds of edge, **neither of which is corporate siblinghood** (John, 2026-06-24):
+
+- **Non-owning Idea edges** — two Ventures that reference the same Layer-A Idea/Thesis/Event (MobThought ↔ CrowdMadness sharing the prediction-market Idea). Covered above; this is the cross-venture-reasoning engine.
+- **The Divia.Network protocol edge** — a Venture is a **tech-client / adopter of the Divia.Network open standard** (it supports **DiviaCards** + the AI use-cases), exactly as a web app "speaks http." It is *not* a parent/child or sibling corporate relationship.
+
+So the portfolio startups (AIXO.Dev, ExoDev.Pro, Patternicity, FracRealHomes, TastyPal, LegendaryMoney, …) are **independent companies that happen to be Divia.Network / DiviaCards-compatible — NOT "Divia companies," and NOT a product suite** (deliberate, to avoid the "1990s Microsoft Office Suite" perception; each is its own standalone consumer-facing startup with its own daily-operational team). What they may share is at most an **overlapping-Venn of KingStrat-LP ownership** — a cap-table fact, not official siblinghood. (Engineering framing: [`SOFTWARE_DEV/divia_network.md`](SOFTWARE_DEV/divia_network.md); the worked write-up is the [Patternicity brief](ULTIMATE_VISION/PRODUCTS/Patternicity/patternicity.md) "Divia.Network relationship" section.)
+
 ## The dimensional axes, re-homed onto the two layers
 
 The earlier "an idea is a multi-dimensional object" axes still apply — they sort onto the right layer:

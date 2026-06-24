@@ -6,6 +6,12 @@ Registry, sale-page, and Spaceship pricing status checked June 13, 2026 (Priorit
 >
 > Spaceship prices below are current base promotional prices for a new, non-premium registration. Registered domains cannot currently be registered at these prices; the applicable TLD price is shown only as a reference if the domain is released. Aftermarket purchase prices are separate.
 
+## Buying philosophy
+
+This wishlist is deliberately **skewed toward buying names we may never use** (John, 2026-06-24). The framing is *"buy every name we might ever want"* now — a ~$9–$160 registration — versus paying **$3,000+** to repurchase from an aftermarket reseller (HugeDomains / BrandBucket / Atom) later, or losing the name entirely. The **asymmetric downside of *not* owning a name we later want dwarfs the registration cost**, so the bar to add a candidate here is low: register first, decide later.
+
+The cautionary tale: MobThought owned **crowdmadness.com** for years, then forgot to renew it amid the post-pause chaos; a reseller picked it up and now prices it in the thousands (it's back on the Priority list below at $2,285). This is also *why* KSVGPS runs a **domain-management / renewal-reminder system** as part of its outsourced-IP-dept role — so no portfolio name is ever lost to oversight again (see the [KingmakerStrategic brief §3](ULTIMATE_VISION/VENTURES/KingmakerStrategic.md), and the GEN2 Domain entity that models renewal/expiry dates).
+
 ## Priority Domains
 
 | Recommended domain | Registry status | Sale / website status | Spaceship base registration price |
