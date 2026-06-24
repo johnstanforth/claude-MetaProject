@@ -58,12 +58,12 @@
 | divia.wiki | Spaceship.com | Jul 26, 2024 | Jul 26, 2026 |
 | divia.work | Spaceship.com | Aug 16, 2023 | Aug 16, 2026 |
 | divia.wtf | Spaceship.com | Mar 4, 2026 | Mar 4, 2027 |
-| diviaagentswarms.com ‡ | Spaceship.com | TBD | TBD |
+| diviaagentswarms.com | Spaceship.com | Jun 17, 2026 | Jun 17, 2027 |
 | diviaai.com | Spaceship.com | Aug 17, 2023 | Aug 16, 2026 |
 | diviaaimentality.com | Spaceship.com | Sep 2, 2025 | Sep 1, 2026 |
 | diviaapp.com | Spaceship.com | Aug 17, 2023 | Aug 16, 2026 |
 | diviacards.com | Spaceship.com | Mar 11, 2022 | Mar 10, 2027 |
-| diviaclaw.com ‡ | Spaceship.com | TBD | TBD |
+| diviaclaw.com | Spaceship.com | Jun 14, 2026 | Jun 14, 2027 |
 | diviacontacts.com | Spaceship.com | Jun 13, 2026 | Jun 13, 2027 |
 | diviaenterprise.com | Spaceship.com | Jun 13, 2026 | Jun 13, 2027 |
 | diviafoundation.com | Spaceship.com | Aug 17, 2023 | Aug 16, 2026 |
@@ -151,11 +151,11 @@
 | ptnws.com | Spaceship.com | Sep 2, 2025 | Sep 2, 2026 |
 | ptnws.link | Spaceship.com | Sep 2, 2025 | Sep 2, 2026 |
 | quintivity.com | Spaceship.com | Jul 14, 2001 | Jul 14, 2027 |
-| redreamrebuild.com ‡ | Spaceship.com | TBD | TBD |
-| redreamrebuild.construction ‡ | Spaceship.com | TBD | TBD |
-| redreamrebuild.contractors ‡ | Spaceship.com | TBD | TBD |
-| redreamrebuild.homes ‡ | Spaceship.com | TBD | TBD |
-| redreamrebuildhomes.com ‡ | Spaceship.com | TBD | TBD |
+| redreamrebuild.com | Spaceship.com | Jun 17, 2026 | Jun 17, 2027 |
+| redreamrebuild.construction | Spaceship.com | Jun 17, 2026 | Jun 17, 2027 |
+| redreamrebuild.contractors | Spaceship.com | Jun 17, 2026 | Jun 17, 2027 |
+| redreamrebuild.homes | Spaceship.com | Jun 17, 2026 | Jun 17, 2027 |
+| redreamrebuildhomes.com | Spaceship.com | Jun 17, 2026 | Jun 17, 2027 |
 | rosettamq.com | Spaceship.com | Mar 4, 2022 | Mar 3, 2027 |
 | sattvasic.com | Spaceship.com | Jun 20, 2002 | Jun 20, 2027 |
 | sattvasic.health | Spaceship.com | Jun 13, 2026 | Jun 13, 2027 |
@@ -173,13 +173,13 @@
 | tastypal.app | Spaceship.com | May 8, 2018 | May 8, 2027 |
 | tastypal.cc | Spaceship.com | Mar 4, 2026 | Mar 4, 2027 |
 | tastypal.com | Spaceship.com | Nov 10, 2017 | Nov 10, 2026 |
-| tastypal.coupons ‡ | Spaceship.com | TBD | TBD |
-| tastypal.food ‡ | Spaceship.com | TBD | TBD |
-| tastypal.me ‡ | Spaceship.com | TBD | TBD |
-| tastypal.net ‡ | Spaceship.com | TBD | TBD |
-| tastypal.org ‡ | Spaceship.com | TBD | TBD |
-| tastypal.pro ‡ | Spaceship.com | TBD | TBD |
-| tastypal.wine ‡ | Spaceship.com | TBD | TBD |
+| tastypal.coupons | Spaceship.com | Jun 24, 2026 | Jun 24, 2027 |
+| tastypal.food | Spaceship.com | Jun 24, 2026 | Jun 24, 2027 |
+| tastypal.me | Spaceship.com | — | TBD |
+| tastypal.net | Spaceship.com | Jun 24, 2026 | Jun 24, 2027 |
+| tastypal.org | Spaceship.com | Jun 24, 2026 | Jun 24, 2027 |
+| tastypal.pro | Spaceship.com | Jun 24, 2026 | Jun 24, 2027 |
+| tastypal.wine | Spaceship.com | Jun 24, 2026 | Jun 24, 2027 |
 | tastypalapp.com | Spaceship.com | Feb 25, 2022 | Feb 25, 2027 |
 | tastypantry.app | Spaceship.com | May 28, 2026 | May 28, 2027 |
 | tastypantry.food | Spaceship.com | Mar 4, 2026 | Mar 4, 2027 |
@@ -205,6 +205,6 @@
 
 † Slated for deprecation/deletion: `divia.link`, `divialink.com` (plan aborted; see `DOMAIN_MAPPINGS.md`).
 
-‡ Added 2026-06-24 from John's recent Spaceship registrations; **Creation/Expiration dates pending backfill** — RDAP was unreachable from this environment, so backfill the exact RDAP creation dates + registrar-verified expirations. All 14 are 1-year "regular" Spaceship registrations. Recorded paid prices — **batch 1:** `diviaagentswarms.com` $9.08 · `diviaclaw.com` $9.08 · `redreamrebuild.com` $9.08 · `redreamrebuild.construction` $31.25 · `redreamrebuild.contractors` $28.15 · `redreamrebuild.homes` $1.24 · `redreamrebuildhomes.com` $9.08; **batch 2 (TastyPal redirects):** `tastypal.coupons` $2.27 · `tastypal.food` $4.35 · `tastypal.me` $8.70 · `tastypal.net` $11.40 · `tastypal.org` $6.85 · `tastypal.pro` $2.79 · `tastypal.wine` $7.45.
+**Newly registered & added 2026-06-24** (14 domains): **creation dates backfilled from RDAP**; **expiration dates are RDAP-derived (UTC) — pending John's registrar-panel verification** (may sit one day off per the header note). `tastypal.me` has no public RDAP server, so its creation is `—` and its expiration awaits verification (`TBD`). Full raw RDAP responses were appended to [`domains_rdap.jsonl`](domains_rdap.jsonl). Paid prices — **batch 1:** `diviaagentswarms.com` $9.08 · `diviaclaw.com` $9.08 · `redreamrebuild.com` $9.08 · `redreamrebuild.construction` $31.25 · `redreamrebuild.contractors` $28.15 · `redreamrebuild.homes` $1.24 · `redreamrebuildhomes.com` $9.08; **batch 2 (TastyPal redirects):** `tastypal.coupons` $2.27 · `tastypal.food` $4.35 · `tastypal.me` $8.70 · `tastypal.net` $11.40 · `tastypal.org` $6.85 · `tastypal.pro` $2.79 · `tastypal.wine` $7.45.
 
-*Total: 185 domains (181 Spaceship.com, 4 Namecheap.com). Creation Date (UTC) from RDAP for 165; 6 lack a public RDAP server (divialife.me, dot8.me, dotfigurate.me, dotfigurator.sh, kingstrat.vc, velocityterminal.sh); 14 newly added with dates pending backfill (‡). 2 flagged for deprecation.*
+*Total: 185 domains (181 Spaceship.com, 4 Namecheap.com). Creation Date (UTC) from RDAP for 178; 7 lack a public RDAP server (divialife.me, dot8.me, dotfigurate.me, dotfigurator.sh, kingstrat.vc, velocityterminal.sh, tastypal.me). 2 flagged for deprecation.*
