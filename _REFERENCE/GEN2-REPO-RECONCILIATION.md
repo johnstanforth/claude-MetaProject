@@ -2,7 +2,7 @@
 
 > Cross-references the **Repository** rows now in the `aixodev-GEN2` database (the "aspirational future" repo names, attached to current/far-horizon Build-Lines) against the repos that **actually exist on disk** (the `_projects/` symlinks) and their **real git remotes**. Goal: find existing repos that closely match a *current Build-Line* so they can be **adopted almost as-is** (de-frozen from "scavenge-source" → the real repo for that Build-Line), rather than re-created from scratch.
 >
-> ⚠️ All names are **working placeholders** pending the July 15–17 partner review (see [`GEN2-MODEL-AND-POPULATE-PLAN.md`](GEN2-MODEL-AND-POPULATE-PLAN.md)). Every repo except `aixodev-GEN2` is "frozen scavenge-source" status today. Code-maturity below is from the `_projects/README.md` index (an automated scan misreads nested `src/` layouts); git remotes were verified live via `git remote -v`.
+> ⚠️ All names are **working drafts** — freely rearrangeable right now; decide each on its own merits, don't defer (see [`GEN2-MODEL-AND-POPULATE-PLAN.md`](GEN2-MODEL-AND-POPULATE-PLAN.md)). Every repo except `aixodev-GEN2` is "frozen scavenge-source" status today. Code-maturity below is from the `_projects/README.md` index (an automated scan misreads nested `src/` layouts); git remotes were verified live via `git remote -v`.
 
 ## 1. Reconciliation table — DB Repository × on-disk reality
 

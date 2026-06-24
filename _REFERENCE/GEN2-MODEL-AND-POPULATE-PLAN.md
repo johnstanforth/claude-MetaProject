@@ -2,7 +2,7 @@
 
 > **Working spec, 2026-06-23 (John + Claude).** Consolidates the model revisions agreed across this session — the **Owner (Party) supertype**, **Product-Line ⇄ Build-Line** structure, and **Build-Line Generations** — plus the venture-by-venture populate plan. This is the build target for the next `aixodev-GEN2` schema/UI pass; once it stabilizes it folds back into the canonical [`PROJECT-ORGANIZATION-MODEL.md`](PROJECT-ORGANIZATION-MODEL.md) + [`STRATEGIC-LANDSCAPE-MODEL.md`](STRATEGIC-LANDSCAPE-MODEL.md). Optimizing for the **v1 graph-DB accuracy**, not SQLite-scope convenience. **Status: design only — nothing below is built in the running app yet** (the server on :5000 still holds the prior Venture-owned schema with the 12 ventures + seed topics/ideas).
 >
-> ⚠️ **The §9–§10 venture / product / ownership assignments are WORKING PLACEHOLDERS — many are tentative and NOT yet agreed.** Some names/owners are John's working guesses (a few seeded from last year's Claude trademark research, used to jog memory); the *model* (§1–§8) is the stable part, the *populate names/placements* are being experimented with and will be reviewed with the Divia cofounders / KSV GPs the **week of July 15–17, 2026**. Only a few are firm (e.g. "Divia.AI, Inc." ≈ 99% certain). Treat the rest as editable drafts, not canon.
+> ⚠️ **The §9–§10 venture / product / ownership assignments are WORKING DRAFTS — freely rearrangeable right now; decide each on its own merits.** Some names/owners are John's working guesses (a few seeded from last year's Claude trademark research, used to jog memory); the *model* (§1–§8) is the **stable** part, the *populate names/placements* are still being experimented with. Only a few are firm (e.g. "Divia.AI, Inc." ≈ 99% certain). Treat the rest as editable drafts, not canon — and **do not defer a change waiting for any sign-off**: if it's right to change now, change it. (The names lock only once John presents the finished model to the Divia cofounders / KSV GPs, after which they get much harder to change — so the value is in arranging them well *while they're still fluid*, not in waiting.)
 
 ## 1. Owner (a.k.a. "Party") supertype — distinct subtypes, NOT flattened
 
@@ -66,7 +66,7 @@ Different kinds of thing can own repos/build-lines and all map to a GitHub-style
 
 ---
 
-## 9. Populate plan — SUMMARY  *(authoritative editable hierarchy is §10; all names are working placeholders — see top banner)*
+## 9. Populate plan — SUMMARY  *(authoritative editable hierarchy is §10; all names are working drafts — see top banner)*
 
 | Venture (display) | Product-Lines | Current Build-Line(s) |
 |---|---|---|
@@ -83,7 +83,7 @@ Different kinds of thing can own repos/build-lines and all map to a GitHub-style
 
 ---
 
-## 10. Populate plan — EDITABLE HIERARCHY  *(working placeholders — many tentative, pending the July 15–17 partner review; `display name` uses proper spelling, slugs/repos use the machine form)*
+## 10. Populate plan — EDITABLE HIERARCHY  *(working drafts — freely rearrangeable now, decide on merits; not pending any gate; `display name` uses proper spelling, slugs/repos use the machine form)*
 
 - **Divia.AI**
   - Product-Line: **Divia.AI Global Service** (online/hosted SaaS subscription service at `divia.ai`)
@@ -184,4 +184,4 @@ This is bigger than a throwaway-SQLite concern, so my recommendation on **scope*
 - **Cascade + auto-escalation.** Ceremony can inherit (Venture default → Product-Line → Build-Line) and *escalate on graduation*: a `playground` line's `merges-into` edge can auto-flip the receiving Stage to `formal`. The "training wheels come off" automatically when code heads for production.
 - **The real prize (you named it):** the web-UI becomes the place where you + I **co-author and version the collaboration presets** — the durable "operating agreement." Every future Claude/Codex instance inherits a stable, eval-tuned baseline and hits peak human-AI collaboration *instantly*, right out of the gate, without re-deriving it from dozens of documents. That's a genuine compounding-alignment flywheel, and it's exactly the AIXO.Dev thesis (make the collaboration legible, reusable, improvable) made concrete at the Build-Line level.
 
-**→ Decisions for you:** (a) key-name **`ceremony_level`** + the **`CeremonyLevel` entity** — good? (b) initial levels/aliases (I propose `playground` {low, vibe} · `standard` {medium, normal} · `formal` {high, rigorous} — edit freely); (c) confirm we build the **minimal entity now** and defer the prompt-template/eval system to `aixodev-web`. *(All non-blocking — I can ship a plain enum and upgrade to the entity later if you'd rather decide this after July 15–17.)*
+**→ Decisions for you:** (a) key-name **`ceremony_level`** + the **`CeremonyLevel` entity** — good? (b) initial levels/aliases (I propose `playground` {low, vibe} · `standard` {medium, normal} · `formal` {high, rigorous} — edit freely); (c) confirm we build the **minimal entity now** and defer the prompt-template/eval system to `aixodev-web`. *(Resolved — approved; we shipped the minimal `CeremonyLevel` entity in GEN2, with the prompt-template/eval system deferred to `aixodev-web`.)*
