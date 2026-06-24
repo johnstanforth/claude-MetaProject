@@ -31,22 +31,27 @@ Split into **pending** (still to adopt/create), **🔍 still investigating** (un
 
 ### 🔍 Still investigating — on-disk dirs not yet accounted for (2026-06-24)
 
-A sweep of `~/Code/<Owner>/` for project dirs created over the past few years that **haven't** come up in our modeling discussions and aren't in the Pending/Done tables or the §3 already-placed list. Goal: identify each and check whether it (or its domain) was missed in `DOMAIN_LIST` / the v0.1 docs. Convention: a `_domain.tld` (underscore-prefixed) dir is a **website/template container** for that domain — here they're all empty, so each is effectively a *domain to verify*. Probed live (empty? git? remotes?) on 2026-06-24.
+A sweep of `~/Code/<Owner>/` across John's two dev machines — **@jsdesk** (Linux desktop, the one live-probed) and **@jsmacmini** (Mac mini, from a dir-tree John pasted, not yet probed) — for project dirs created over the past few years that **haven't** come up in our modeling discussions and aren't in the Pending/Done tables or the §3 already-placed list. Goal: identify each and check whether it (or its domain) was missed in `DOMAIN_LIST` / the v0.1 docs. The **Server/Host** column tags where each lives (some repos exist on only one machine). Convention: a `_domain.tld` (underscore-prefixed) dir is a **website/template container** for that domain — all empty here, so each is effectively a *domain to verify*.
 
-**Only 3 have real content + git history — investigate those first; the rest are empty stubs:**
+On **@jsdesk**, only 3 dirs have real content + git history (★) and the rest are empty stubs; the **@jsmacmini** rows are repos that exist **only on the Mac** — including the `DiviaFoundation` repo that was missing on @jsdesk:
 
-| Dir (`~/Code/<Owner>/…`) | Owner | State | Git (remote · commits) | Likely identity / to investigate |
-|---|---|---|---|---|
-| **`aixodev-LEGACY`** | AIXO.Dev | content (48) | origin → `aixodev/aixodev-web` · **366 commits** | ★ Real repo — a legacy clone of `aixodev-web` (origin points there; carries `.bsync-snap` files). Pre-rewrite snapshot/archive? Compare vs current `aixodev-web`; decide keep-as-archive vs retire. |
-| **`dotfig_proto_cc`** | Dotfigurator | content (13) | local-only · 4 commits | ★ Real repo — a dotfiles/config-tooling prototype (atuin, fish, `_documentation`). Never modeled. Is **Dotfigurator** a tool/venture to add to GEN2? |
-| **`velocityterminal`** | VelocityTerminal | content (9) | local-only · 2 commits | ★ Real repo — early scaffold (specs + research + CLAUDE.md). **VelocityTerminal** is noted as a non-venture owner; this is its actual repo. Model it? |
-| `DiviaFoundation/` | DiviaFoundation | **empty** | — | Owner folder for **Divia.Foundation** (org exists in the GEN2 DB) but holds no repos. Expected, or is a repo missing? |
-| `fracreality-adu-eval` | FracRealHomes | **empty** | — | Stub. Name ⇒ **ADU** (accessory-dwelling-unit) evaluation tool — a planned FracRealHomes sub-product not in the model. |
-| `fracreality-avm` | FracRealHomes | **empty** | — | Stub. **AVM** = automated valuation model — likely the "next-gen Zillow estimate" engine; reconcile with `fracrealhomes-web`'s EstimatePacket Build-Line. |
-| `tastypal-mobile` | TastyPal | **empty** | — | Stub. Pending table calls this `tastypal-flutter` (TastyPalMobile) — same thing pre-stubbed under a different name? Reconcile. |
-| `tastypal-web` | TastyPal | **empty** | — | Stub. **Discrepancy:** Pending table lists `tastypal-web` as ❌-not-on-disk CREATE, yet this (empty) dir exists. |
-| `txfrapp-android` · `txfrapp-ios` | TXFR.Cloud | **empty** | — | Stubs — planned native apps. |
-| `txfrcloud-cli` · `txfrcloud-daemon` · `txfrcloud-web` | TXFR.Cloud | **empty** | — | Stubs — planned CLI / daemon / web. **The entire TXFR.Cloud repo set is empty** — the venture exists (recently added) but none of its repos are in the GEN2 model yet. |
+| Dir (`~/Code/<Owner>/…`) | Owner | Server/Host | State | Git (remote · commits) | Likely identity / to investigate |
+|---|---|---|---|---|---|
+| **`aixodev-LEGACY`** | AIXO.Dev | @jsdesk | content (48) | origin → `aixodev/aixodev-web` · **366 commits** | ★ Real repo — a legacy clone of `aixodev-web` (origin points there; carries `.bsync-snap` files). Pre-rewrite snapshot/archive? Compare vs current `aixodev-web`; decide keep-as-archive vs retire. |
+| **`dotfig_proto_cc`** | Dotfigurator | @jsdesk | content (13) | local-only · 4 commits | ★ Real repo — a dotfiles/config-tooling prototype (atuin, fish, `_documentation`). Never modeled. Is **Dotfigurator** a tool/venture to add to GEN2? |
+| **`velocityterminal`** | VelocityTerminal | @jsdesk | content (9) | local-only · 2 commits | ★ Real repo — early scaffold (specs + research + CLAUDE.md). **VelocityTerminal** is noted as a non-venture owner; this is its actual repo. Model it? |
+| `DiviaFoundation/` | DiviaFoundation | @jsdesk | **empty** | — | Owner folder — **empty on @jsdesk because its repo `opensoftwarelib-web` lives on @jsmacmini** (see below). Sync/move it over. |
+| `fracreality-adu-eval` | FracRealHomes | @jsdesk | **empty** | — | Stub. Name ⇒ **ADU** (accessory-dwelling-unit) evaluation tool — a planned FracRealHomes sub-product not in the model. |
+| `fracreality-avm` | FracRealHomes | @jsdesk | **empty** | — | Stub. **AVM** = automated valuation model — likely the "next-gen Zillow estimate" engine; reconcile with `fracrealhomes-web`'s EstimatePacket Build-Line. |
+| `tastypal-mobile` | TastyPal | @jsdesk | **empty** | — | Stub. Pending table calls this `tastypal-flutter` (TastyPalMobile) — same thing pre-stubbed under a different name? Reconcile. |
+| `tastypal-web` | TastyPal | @jsdesk | **empty** | — | Stub. **Discrepancy:** Pending table lists `tastypal-web` as ❌-not-on-disk CREATE, yet this (empty) dir exists. |
+| `txfrapp-android` · `txfrapp-ios` | TXFR.Cloud | @jsdesk | **empty** | — | Stubs — planned native apps. |
+| `txfrcloud-cli` · `txfrcloud-daemon` · `txfrcloud-web` | TXFR.Cloud | @jsdesk | **empty** | — | Stubs — planned CLI / daemon / web. **The entire TXFR.Cloud repo set is empty** — the venture exists (recently added) but none of its repos are in the GEN2 model yet. |
+| **`opensoftwarelib-web`** | DiviaFoundation | **@jsmacmini** | not probed (Mac) | ? | ★ The **Divia.Foundation** repo you remembered — explains the empty `DiviaFoundation/` on @jsdesk. Likely an open-source-software-library web app. Probe + decide its home. |
+| `ensemble` | DiviaAI | **@jsmacmini** | not probed (Mac) | ? | Mac-only & unmodeled — likely the multi-agent **ensemble/collab tooling** (cf. `~/Code/_ensemble/`). Identify; is `DiviaAI/` the right home? |
+| `aixodev-openhands-claude` | AIXO.Dev | **@jsmacmini** | not probed (Mac) | ? | The **retired `openhands-claude` fork** (its @claude research line was merged back into `aixodev-openhands`, per `_projects/README`). Mac-only leftover — archive or delete? |
+
+> **Cross-host notes:** (1) `DiviaHome/diviahome-web` still exists on **@jsmacmini** under the **old** name — it's the same repo as the renamed `diviahome-community`, so the Mac copy needs the same dir + remote rename we applied on @jsdesk, or it'll drift. (2) Most empty stubs and `_domain.tld` containers exist on **both** machines; only genuinely Mac-only dirs are added as `@jsmacmini` rows above.
 
 **Empty `_`-prefixed website/domain containers** (your CMS convention — all empty, so really a checklist of *domains to verify against `DOMAIN_LIST`*):
 
