@@ -41,3 +41,9 @@ Standing aggregation of topics we know we need to **research** before (or while)
 - **Why it matters / criticality:** `enriching` — provenance/credibility detail for the GridTransmit case study and the SensoryMQ reboot story.
 - **Trigger / venture:** GridTransmit / SensoryMQ ([`iot-connected-device-platform`](../_REFERENCE/ULTIMATE_VISION/IDEAS/iot-connected-device-platform.md)). John-flagged (2026-06-22).
 - **Status:** open.
+
+### R-007 — "Cal AI" calorie-tracking app: product, nine-figure MyFitnessPal acquisition, and App Store removal
+- **What:** Thorough research on **Cal AI**, the AI photo-based calorie-tracking app — its product/mechanics, the **high-school-student founder** story, the reported **nine-figure acquisition by MyFitnessPal**, and the report that **Apple pulled it from the App Store** over a payment-screen / App-Review policy violation (confirm exactly what happened). Plus: traction/market-size signals, the accuracy critique of photo-only portion estimation, the App-Store-compliance lesson, and the competitive/defensibility picture versus a **scale-augmented** approach.
+- **Why it matters / criticality:** `shaping` — directly shapes **TastyCal (by TastyPal)** positioning and the build/buy/differentiate decision. John's thesis is that **photo-only portion estimation is weak**, and TastyCal's edge is a **Bluetooth-connected scale × AI food-ID** combo (shared with Sattvasic Health's nutrition tracking, white-labeled to a different audience). Cal AI's surprising popularity + a clean acquisition comp is the evidence the category is worth entering; its App-Store removal is a concrete compliance lesson.
+- **Trigger / venture:** TastyPal → **TastyCal** product-line (+ Sattvasic Health nutrition). John-flagged 2026-06-24.
+- **Status:** open.
