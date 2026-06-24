@@ -173,6 +173,13 @@
 | tastypal.app | Spaceship.com | May 8, 2018 | May 8, 2027 |
 | tastypal.cc | Spaceship.com | Mar 4, 2026 | Mar 4, 2027 |
 | tastypal.com | Spaceship.com | Nov 10, 2017 | Nov 10, 2026 |
+| tastypal.coupons ‡ | Spaceship.com | TBD | TBD |
+| tastypal.food ‡ | Spaceship.com | TBD | TBD |
+| tastypal.me ‡ | Spaceship.com | TBD | TBD |
+| tastypal.net ‡ | Spaceship.com | TBD | TBD |
+| tastypal.org ‡ | Spaceship.com | TBD | TBD |
+| tastypal.pro ‡ | Spaceship.com | TBD | TBD |
+| tastypal.wine ‡ | Spaceship.com | TBD | TBD |
 | tastypalapp.com | Spaceship.com | Feb 25, 2022 | Feb 25, 2027 |
 | tastypantry.app | Spaceship.com | May 28, 2026 | May 28, 2027 |
 | tastypantry.food | Spaceship.com | Mar 4, 2026 | Mar 4, 2027 |
@@ -198,6 +205,6 @@
 
 † Slated for deprecation/deletion: `divia.link`, `divialink.com` (plan aborted; see `DOMAIN_MAPPINGS.md`).
 
-‡ Added 2026-06-24 from John's Spaceship registrations (registered ~the week of June 16–20, 2026); **Creation/Expiration dates pending backfill** — RDAP was unreachable from this environment, so backfill the exact RDAP creation dates + registrar-verified expirations. All 7 are 1-year "regular" Spaceship registrations. Recorded prices: `diviaagentswarms.com` $9.08 · `diviaclaw.com` $9.08 · `redreamrebuild.com` $9.08 · `redreamrebuild.construction` $31.25 · `redreamrebuild.contractors` $28.15 · `redreamrebuild.homes` $1.24 · `redreamrebuildhomes.com` $9.08.
+‡ Added 2026-06-24 from John's recent Spaceship registrations; **Creation/Expiration dates pending backfill** — RDAP was unreachable from this environment, so backfill the exact RDAP creation dates + registrar-verified expirations. All 14 are 1-year "regular" Spaceship registrations. Recorded paid prices — **batch 1:** `diviaagentswarms.com` $9.08 · `diviaclaw.com` $9.08 · `redreamrebuild.com` $9.08 · `redreamrebuild.construction` $31.25 · `redreamrebuild.contractors` $28.15 · `redreamrebuild.homes` $1.24 · `redreamrebuildhomes.com` $9.08; **batch 2 (TastyPal redirects):** `tastypal.coupons` $2.27 · `tastypal.food` $4.35 · `tastypal.me` $8.70 · `tastypal.net` $11.40 · `tastypal.org` $6.85 · `tastypal.pro` $2.79 · `tastypal.wine` $7.45.
 
-*Total: 178 domains (174 Spaceship.com, 4 Namecheap.com). Creation Date (UTC) from RDAP for 165; 6 lack a public RDAP server (divialife.me, dot8.me, dotfigurate.me, dotfigurator.sh, kingstrat.vc, velocityterminal.sh); 7 newly added with dates pending backfill (‡). 2 flagged for deprecation.*
+*Total: 185 domains (181 Spaceship.com, 4 Namecheap.com). Creation Date (UTC) from RDAP for 165; 6 lack a public RDAP server (divialife.me, dot8.me, dotfigurate.me, dotfigurator.sh, kingstrat.vc, velocityterminal.sh); 14 newly added with dates pending backfill (‡). 2 flagged for deprecation.*

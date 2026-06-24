@@ -288,6 +288,13 @@ This file maps every venture idea, company family, product/service, and matching
 - Company: <u>TastyPal, Inc.</u>
   - Domain: **<u>tastypal.com</u>**
     - redirect/alias: **<u>tastypal.cc</u>**
+    - redirect/alias: **<u>tastypal.coupons</u>**
+    - redirect/alias: **<u>tastypal.food</u>**
+    - redirect/alias: **<u>tastypal.me</u>**
+    - redirect/alias: **<u>tastypal.net</u>**
+    - redirect/alias: **<u>tastypal.org</u>**
+    - redirect/alias: **<u>tastypal.pro</u>**
+    - redirect/alias: **<u>tastypal.wine</u>**
   - Software Product: `TastyPal App`
     - Domain: **<u>tastypal.app</u>**
       - redirect/alias: **<u>tastypalapp.com</u>**
