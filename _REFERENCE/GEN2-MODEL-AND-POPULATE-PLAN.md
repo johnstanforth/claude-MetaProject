@@ -20,7 +20,7 @@ Different kinds of thing can own repos/build-lines and all map to a GitHub-style
 
 ## 3. Build-Lines + ownership
 
-- **`BuildLine`** — `name` (**non-unique** — a human label; identity is `id`, so "DailySpikeDriver" can recur freely), `build_envelope_id` (single FK, conditional), `research_scope` (`playground` = the DailySpikeDriver/personal-experiment class · `optimization-target`; see §11-B on the key-name), `description`.
+- **`BuildLine`** — `name` (**non-unique** — a human label; identity is `id`, so "DailySpikeDriver" can recur freely), `build_envelope_id` (single FK, conditional), `rigor_mode` (the rigor/formality flag — `playground` vs `optimization-target`; key-name being finalized in §11-B; **NOT** about whether research happens), `description`.
 - **`build_line_owners`** (M2M) — `build_line_id`, `owner_id`, `role`. **Co-ownership is unlimited:** a Build-Line can be owned by `[Venture] + [Person:John] + [Person:David] + …` (the Digital-Insight-1997 two-devs-plus-the-company case). Only `UNIQUE(build_line_id, owner_id)` (no dup owner); no "single account" limit anywhere. `role` (e.g. `sponsor`/`lead`/`contributor`) is also the future ACL/permissions hook.
 - **`build_line_repositories`** (M2M) — `build_line_id`, `repository_id`, `role`, `status`, `is_primary`. Which repos a Build-Line uses (web/flutter/android/…); a repo is shared across Build-Lines only when the stack stays continuous.
 - **`Stage`** (reset `v1→v2→v3` per Build-Line) → **`Phase`** → **`Sprint`**. A techstack pivot makes a *new* Build-Line starting at `v1`, never a `v5` of the old one.
@@ -31,14 +31,14 @@ Different kinds of thing can own repos/build-lines and all map to a GitHub-style
 - **`edge_type` values:** `succeeds` (**= the Generation link**: `source` is the next-gen successor of `target`, e.g. `aixodev-GEN2 --succeeds--> aixodev-web`) · `forked-from` (a personal experiment forked off a main line) · `merges-into` (the GitHub-PR-upstream flow).
 - **Generation number is DERIVED** (`1 + length of the succeeds-chain behind it`) → shown as a "Gen N" badge; not a stored int (avoids renumber-drift). ORM exposes `BuildLine.successors` / `.predecessors` and a derived `.generation`.
 - **The techstack-pivot rule is a HEURISTIC, not DB-enforced.** `build_line_edges` lets you add a `succeeds` between *any* two Build-Lines, so deliberate exceptions are fine — e.g. `aixodev-web` → `aixodev-GEN2` is a clean-rebuild `succeeds` even though both stay Python/Flask. The rule ("techstack change → new Build-Line at v1; same techstack → same Build-Line, just a repo rename") guides the common case; the edge table never blocks the rare "exception that proves the rule."
-- **Personal-Build-Line creation convention (confirmed):** default to a **standalone** spike (fresh project) unless you're modifying existing product code, in which case **fork-from-current** (`forked-from` edge); either way a **`merges-into`** edge records the upstream graduation, and `research_scope=playground` + a Person co-owner marks it personal/experimental. (Claude-era lift-and-shift makes the standalone path cheap — partial functionality moves between lines without git-clone/merge ceremony.)
+- **Personal-Build-Line creation convention (confirmed):** default to a **standalone** spike (fresh project) unless you're modifying existing product code, in which case **fork-from-current** (`forked-from` edge); either way a **`merges-into`** edge records the upstream graduation, and `rigor_mode=playground` + a Person co-owner marks it personal/experimental. (Claude-era lift-and-shift makes the standalone path cheap — partial functionality moves between lines without git-clone/merge ceremony.)
 - **No techstack denormalization.** The techstacks live on `repository_techstacks`; "find all Python/Flask Build-Lines succeeded by Rust ones" is a clean multi-hop join now and a native graph traversal in v1. The ORM association-proxy gives `build_line.successors[0].techstacks` without copying.
 - **Payoff (future AIXO.Dev security/CVE tracking):** a CVE matched to a techstack → the affected (production-deployed) Build-Lines → automatically re-check their `succeeds` successors and record a "verified the Rust successor is not also vulnerable to this JWT flaw" status. Needs zero new schema beyond this edge + the existing techstack links.
 
 ## 5. Product-Lines, the PL⇄BL structure, Version-Releases
 
 - **`ProductLine`** — `owner_id` (FK → Owner; usually a Venture, but a Person/Org can ship products too), `slug`, `name`, `description`.
-- **`product_line_build_lines`** (M2M) — `product_line_id`, `build_line_id`, `status` (`current` | `planned` | `far-horizon` | `retired`), `UNIQUE(pl, bl)`. The structural "which Build-Lines build this product." Lets EstimatePacket (`current`) **and** National-AVM (`far-horizon`) both belong to FracRealHomes' Valuation Product-Line; a Build-Line can belong to zero Product-Lines (pure experiment), one, or several (a shared backend feeding many app Product-Lines).
+- **`product_line_build_lines`** (M2M) — `product_line_id`, `build_line_id`, `status` (`current` | `planned` | `far-horizon` | `retired`), `UNIQUE(pl, bl)`. The structural "which Build-Lines build this product." Lets EstimatePacket (`current`) **and** National-AVM (`far-horizon`) both belong to FracRealHomes' Valuation Product-Line; a Build-Line can belong to zero Product-Lines (pure experiment), one, or several (a shared backend feeding many app Product-Lines — the TastyPal case).
 - **`VersionRelease`** — `product_line_id`, `version`, `release_date`, `status`, `stage_id` (the moving symlink → `[Build-Line→Stage]`); `version_release_milestones` (M2M). *(Soft invariant: a release's stage's Build-Line should be one of its Product-Line's associated Build-Lines.)*
 - **`Milestone`** — `name`, `milestone_date`, `team`, `description`; `stage_milestones` (M2M) + `version_release_milestones` (M2M). Business/HR (bonus-linked, team-scoped); may later be authored in KSVGPS and synced back.
 - **The "(service)" vs "Community Edition" split means different things per venture.** For most (e.g. **LegendaryMoney**) the AGPLv3 self-host edition and the commercial closed SaaS are roughly the *same product* under different licenses (with a Python-open → Rust-commercial / CLA-relicensing caveat). For **DiviaHome** it is *not*: the Community Edition (AGPLv3 + Commercial, CLA-governed Python/Flask, free on GitHub) is one thing, but the **Global Service** at `diviahome.com` is a separate federation / message-queue-relay SaaS (TBD) — **not** a commercial clone of the GitHub app. DiviaHome's dual-license + CLA exists to clear a **future smart-home-hardware product-line** (a "DiviaHome Hub" device — router / DNS / DHCP + a preinstalled, likely-Rust, commercial DiviaHome server matching the Python community functionality; the CLA legally clears rewriting contributed Python → Rust for that closed product). Far-future (2028+; hardware via Shenzhen + tariff/trade complexity) — a `[DEALBREAKER-HOOK]`-style license decision made *now* for a future scenario. *(More detail — incl. the high-priority China trademark plan for "Divia" names — lives in the ~100-page "Divia Trademark Guide" research from last summer, to be re-imported into KSVGPS as we build the graph-DB.)*
@@ -58,7 +58,7 @@ Different kinds of thing can own repos/build-lines and all map to a GitHub-style
 
 - **Add** `Owner` + subtypes `Person`, `Organization`; **`Venture` becomes a subtype** (`owner_id` 1:1).
 - **Add** `build_line_owners` (M2M) · `product_line_build_lines` (M2M) · `build_line_edges` · `owner_ideas` (rename of `venture_ideas`).
-- **Change** `Repository.venture_id → owner_id` (+ `UNIQUE(owner_id, name)`) · `ProductLine.venture_id → owner_id` · `BuildLine.venture_id` → `build_line_owners` M2M.
+- **Change** `Repository.venture_id → owner_id` (+ `UNIQUE(owner_id, name)`) · `ProductLine.venture_id → owner_id` · `BuildLine.venture_id` → `build_line_owners` M2M · `BuildLine.research_scope → rigor_mode` (pending §11-B).
 - **Keep** everything else (Repository/Techstack/`repository_techstacks`/`build_line_repositories`/Stage/Phase/Sprint/Milestone/`stage_milestones`/`version_release_milestones`/VersionRelease/BuildEnvelope/TriangulationTarget/Topic/Idea/`idea_topics`/`idea_edges`).
 - **Migration:** the existing ventures → `Owner(kind=venture)` + `Venture` rows; **drop the DiviaLife Owner** (folded into DiviaHome). Topics/Ideas/links unaffected. Hard-gate `export-all-data` first.
 
@@ -72,7 +72,7 @@ Different kinds of thing can own repos/build-lines and all map to a GitHub-style
 | **DiviaHome** | Service · Community Edition · Divia.Life · *(future: DiviaHome Hub hardware)* | GlobalHomeService · CommunityHomeHub · LifeCardMessenger |
 | **LegendaryMoney** | Service · Community Edition | ConfidenceLedger (web+flutter) · HouseholdLedger |
 | **Kingmaker Strategic** | AdVentureGPS / KSVGPS | AdVentureGPS |
-| **TastyPal** | *under discussion — see §10 + §11-A* | *(central backend + per-app clients)* |
+| **TastyPal** | Platform (web superset) · TastyPal/TastyPantry/TastyTrucks (mobile verticals) · TastyPantry CE · Professional Services | TastePalatesEngine (backend+web) · per-app mobile lines · TastySpatialGPS · CommunityPantry |
 | **Sattvasic Health** | Service · Community Edition | VitalsGlobalService · VitalsDataLake |
 | **FracRealHomes** | Property Valuation *(+ future ADU-Evaluation)* | EstimatePacket `current` (+ National-AVM `far-horizon`); personal DailySpikeDriver × John |
 | **CrowdMadness** | CrowdMadness | PredictionArena *(pre-code)* |
@@ -107,18 +107,20 @@ Different kinds of thing can own repos/build-lines and all map to a GitHub-style
 - **Kingmaker Strategic**
   - Product-Line: **AdVentureGPS / KSVGPS** (venture-studio OS)
     - Current Build-Line: **AdVentureGPS**  ·  repo: `kingstrat-adventuregps`
-- **TastyPal**  *(structure under discussion — see §11-A for the revised "central backend + per-app clients" recommendation; the rows below are your current sketch)*
-  - Product-Line: **TastyPal (service)** (the `tastypal.com` central SaaS backend powering all three apps: taste-preferences, restaurant matching, "others like you also like" engine, cross-app coordination)
-    - Personal Build-Line × `johnstanforth`: **TastySpikeDriver**  ·  repo: `spicemaster3000` *(repo to be renamed; personal playground co-owned by `tastypal` + `johnstanforth`)*
-    - Current Build-Line: **TastePalatesEngine**  ·  repo: `tastypal-web`
-  - Product-Line: **TastyPal** (mobile app — taste-preferences / restaurant matching subset)
-    - Current Build-Line: **TastePalatesEngine**  ·  repo: `tastypal-flutter`
-  - Product-Line: **TastyPantry (by TastyPal)** (household kitchen/pantry inventory app)
-    - Current Build-Line: **CorePantryMobile**  ·  repo: `tastypantry-flutter`
+- **TastyPal**  *(proposed structure per §11-A — confirm or tweak)*
+  - Product-Line: **TastyPal Platform** (the `tastypal.com` web product — the "Yelp-for-taste-palates" SUPERSET: all three verticals' functionality via the website; the shared backend + taste-palate AI models live here)
+    - Current Build-Line: **TastePalatesEngine**  ·  repos: `tastypal-backend` + `tastypal-web`  ·  the shared engine/backend — **also powers the three mobile apps** (linked `current` to their PLs via the M2M)
+    - Personal Build-Line × `johnstanforth`: **TastySpikeDriver**  ·  repo: `spicemaster3000` *(playground; to be renamed; co-owned `tastypal` + `johnstanforth`)*
+  - Product-Line: **TastyPal** (mobile app — the restaurant/taste-matching vertical; small, light, focused)
+    - Current Build-Line: **TastyPalMobile**  ·  repo: `tastypal-flutter`  *(uses the TastePalatesEngine backend)*
+  - Product-Line: **TastyPantry** (mobile app — the pantry/recipes vertical)
+    - Current Build-Line: **TastyPantryMobile**  ·  repo: `tastypantry-flutter`
   - Product-Line: **TastyPantry: Community Edition** (self-hosted pantry web app; federates with `tastypal.com`)
     - Current Build-Line: **CommunityPantry**  ·  repo: `tastypantry-community`
-  - Product-Line: **TastyTrucks (by TastyPal)** (food-truck locator matched to your TastyPal taste-preferences; combines the award-winning GridTransmit/SensoryMQ GPS/IoT fleet-tracking platform with the food-trucks use-case)
-    - Current Build-Line: **TastySpatialGPS**  ·  repos: `tastytrucks-web` + `tastytrucks-flutter`
+  - Product-Line: **TastyTrucks** (mobile app — the food-truck-locator vertical)
+    - Current Build-Line: **TastyTrucksMobile**  ·  repo: `tastytrucks-flutter`
+    - Current Build-Line: **TastySpatialGPS**  ·  repo: `tastytrucks-gps`  ·  the food-truck GPS / fleet-tracking service (the GridTransmit/SensoryMQ lineage); `current` for this PL alongside the mobile app
+  - Product-Line: **TastyPal Professional Services** (culinary consultants tuning restaurant menus from the taste-palate AI models — a *services* line; no software Build-Line, like ExoDev.Pro)
 - **Sattvasic Health**
   - Product-Line: **Sattvasic Health (service)** (health-metrics aggregator service)
     - Current Build-Line: **VitalsGlobalService**  ·  repo: `sattvasichealth-globalservice`
@@ -149,21 +151,25 @@ Different kinds of thing can own repos/build-lines and all map to a GitHub-style
 
 ---
 
-## 11. Open questions (for your decision — reply inline, I'll fold in)
+## 11. Open questions (reply inline)
 
-**A — TastyPal structure (revised after your clarification: one central backend serving three app-clients).**
+**A — TastyPal structure — PROPOSED (reflected in §10; confirm or tweak).**
 
-Your layout: `tastypal.com` is the **central SaaS backend** holding all server-side functionality; **TastyPal / TastyPantry / TastyTrucks** are three mobile apps each exposing a named subset; **TastyPantry: Community Edition** is a self-host Python/Flask app that *federates* back to the global service. The model handles this cleanly via the M2M — here's the revised shape I'd propose (replacing the earlier "one TastePalatesEngine spanning everything" sketch):
+Your clarification settles it: `tastypal.com` **is** a product — the **web SUPERSET** (all three verticals' functionality via the site), while each mobile app is a deliberately small/fast **vertical** (you reach for the light TastyTrucks app to check if the truck is outside, not a bloated all-in-one). So the structure (now in §10):
+- **TastyPal Platform** Product-Line = the `tastypal.com` web superset + the shared backend / taste-palate AI engine → **TastePalatesEngine** Build-Line (which is *also* the backend the mobiles call, linked `current` to their PLs via the M2M — the "one shared backend feeding many Product-Lines" case).
+- One PL + one focused Build-Line per mobile vertical: **TastyPal** / **TastyPantry** / **TastyTrucks** → `TastyPalMobile` / `TastyPantryMobile` / `TastyTrucksMobile`. TastyTrucks also gets **TastySpatialGPS** (the GridTransmit/SensoryMQ-lineage food-truck GPS service), `current` for that PL alongside the app.
+- **TastyPantry: Community Edition** (self-host, federates) → `CommunityPantry`.
+- **TastyPal Professional Services** = a *services* Product-Line (culinary consultants + the taste-palate AI models); no software Build-Line, like ExoDev.Pro.
 
-- **One shared backend Build-Line** — `TastyServiceBackend` (repo `tastypal-web` / `tastypal-service`) — associated `current` with **all three** app Product-Lines (the "shared infra Build-Line feeding multiple Product-Lines" case `product_line_build_lines` was built for).
-- **One Build-Line per mobile app** — `TastyPalMobile` (`tastypal-flutter`), `TastyPantryMobile` (`tastypantry-flutter`), `TastyTrucksMobile` (`tastytrucks-flutter`) — each `current` for its own app Product-Line.
-- **TastyPantry: Community Edition** — its own Product-Line + `CommunityPantry` Build-Line (`tastypantry-community`), which *federates* with the backend (a relationship we can model explicitly later; for now a `note`).
-- *(Optionally a **"TastyPal Platform"** Product-Line if you ever sell/position the `tastypal.com` service itself as a product, vs. treating it purely as shared infra.)*
+**→ Confirm or adjust the Product-Line / Build-Line names above.** *(Your full TastyPal origin story — the Yelp-for-taste thesis, the Yell.com/Google-co-branded lineage, Chef-Roy-Choi-era food trucks + GridTransmit — is excellent venture-brief material; I'll capture it in the TastyPal venture brief, not this populate spec.)*
 
-The win vs. your current §10 sketch: the backend is **its own** Build-Line shared across the app Product-Lines, and each app is **its own** Build-Line — instead of conflating `-web` + `-flutter` into one line listed twice. **→ Take this to your colleagues; tell me which Product-Lines / Build-Lines to actually create.**
+**B — Rename `research_scope` → and you caught a deeper error.** You're right: **`research = OFF` is wrong** — a `playground` line absolutely *can and does* run research (your DailySpikeDriver's very first task is a multi-agent research workflow on the Gmail API + whether an hourly inbox-poller wants async FastAPI/Quart rather than Flask). The flag has **nothing to do with whether research happens**; it's purely about **process rigor / specification formality** — how much ceremony the build carries. So we drop the "research" framing entirely and rename.
 
-**B — Is `research_scope` the right key-name?**
+Brainstormed keys (with a value-pair), all conveying rigor/formality:
+- **`ceremony`** / `ceremony_level` — the agile term-of-art for *exactly* this (process overhead): `low` | `high` (or `playground` | `formal`). **My top pick** — it's the established word.
+- **`rigor_mode`** — `playground` | `optimization-target` (or `playground` | `production`). *(Your pick; clear, keeps the evocative `playground` value.)*
+- **`formality`** / `spec_formality` — `informal` | `formal`.
+- **`rigor_level`** / `process_rigor` / `discipline` — `low` | `high`.
+- **`build_mode`** — `spike` | `product`.
 
-- **What it is:** a per-Build-Line flag — `playground` (throwaway/experimental — hands-off, vibe-code-it-now, research = OFF) vs `optimization-target` (serious/production-bound — research = ON). The "engineering SortingHat": *whether to invest rigor/optimization in this line at all.*
-- **Where it's used:** only on the Build-Line (and as a future scoping signal for agents). It is **distinct from the Build Envelope** — the *Envelope* is the "build it FOR this scale/team/timeframe/stack" context handed to Codex to stop it over-engineering to IANA-200-page specs. So the "don't over-spec / right-size the solution" job you described is the **Build Envelope's**, not `research_scope`'s.
-- **Naming:** the current name works but "research" is a bit oblique. If we rename, I'd suggest **`build_disposition`** or **`rigor_mode`** (values `playground` / `optimization-target`) over `architecture_scope` (which would wrongly imply architecture-sizing — that's the Envelope's job). **→ Keep `research_scope`, or rename to `build_disposition` / `rigor_mode`?** (No rush — a tiny rename whenever you decide.)
+The **values matter as much as the key** — `playground` is a great value to keep, so e.g. `rigor_mode = playground | production` reads well; or full term-of-art `ceremony = low | high`. **→ Pick a key + value-pair and I'll use it throughout.** (Non-blocking for the build — easy to lock now or rename later.)
