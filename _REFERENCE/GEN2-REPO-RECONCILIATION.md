@@ -6,7 +6,7 @@
 
 ## 1. Reconciliation table — DB Repository × on-disk reality
 
-Split into **pending** (still to adopt/create) and **✅ done** (already adopted/migrated) below.
+Split into **pending** (still to adopt/create), **🔍 still investigating** (unaccounted-for on-disk dirs), and **✅ done** (already adopted/migrated) below.
 
 ### Pending — still to adopt or create
 
@@ -28,6 +28,34 @@ Split into **pending** (still to adopt/create) and **✅ done** (already adopted
 | tastypal-flutter (TastyPalMobile `current`) | TastyPal | ❌ no | — | CREATE |
 | tastypantry-flutter (TastyPantryMobile `current`) | TastyPal | ❌ no | — | CREATE (disk `tastypantry` is the *web* edition) |
 | tastytrucks-flutter / tastytrucks-gps (`current`) | TastyPal | ❌ no | — | CREATE |
+
+### 🔍 Still investigating — on-disk dirs not yet accounted for (2026-06-24)
+
+A sweep of `~/Code/<Owner>/` for project dirs created over the past few years that **haven't** come up in our modeling discussions and aren't in the Pending/Done tables or the §3 already-placed list. Goal: identify each and check whether it (or its domain) was missed in `DOMAIN_LIST` / the v0.1 docs. Convention: a `_domain.tld` (underscore-prefixed) dir is a **website/template container** for that domain — here they're all empty, so each is effectively a *domain to verify*. Probed live (empty? git? remotes?) on 2026-06-24.
+
+**Only 3 have real content + git history — investigate those first; the rest are empty stubs:**
+
+| Dir (`~/Code/<Owner>/…`) | Owner | State | Git (remote · commits) | Likely identity / to investigate |
+|---|---|---|---|---|
+| **`aixodev-LEGACY`** | AIXO.Dev | content (48) | origin → `aixodev/aixodev-web` · **366 commits** | ★ Real repo — a legacy clone of `aixodev-web` (origin points there; carries `.bsync-snap` files). Pre-rewrite snapshot/archive? Compare vs current `aixodev-web`; decide keep-as-archive vs retire. |
+| **`dotfig_proto_cc`** | Dotfigurator | content (13) | local-only · 4 commits | ★ Real repo — a dotfiles/config-tooling prototype (atuin, fish, `_documentation`). Never modeled. Is **Dotfigurator** a tool/venture to add to GEN2? |
+| **`velocityterminal`** | VelocityTerminal | content (9) | local-only · 2 commits | ★ Real repo — early scaffold (specs + research + CLAUDE.md). **VelocityTerminal** is noted as a non-venture owner; this is its actual repo. Model it? |
+| `DiviaFoundation/` | DiviaFoundation | **empty** | — | Owner folder for **Divia.Foundation** (org exists in the GEN2 DB) but holds no repos. Expected, or is a repo missing? |
+| `fracreality-adu-eval` | FracRealHomes | **empty** | — | Stub. Name ⇒ **ADU** (accessory-dwelling-unit) evaluation tool — a planned FracRealHomes sub-product not in the model. |
+| `fracreality-avm` | FracRealHomes | **empty** | — | Stub. **AVM** = automated valuation model — likely the "next-gen Zillow estimate" engine; reconcile with `fracrealhomes-web`'s EstimatePacket Build-Line. |
+| `tastypal-mobile` | TastyPal | **empty** | — | Stub. Pending table calls this `tastypal-flutter` (TastyPalMobile) — same thing pre-stubbed under a different name? Reconcile. |
+| `tastypal-web` | TastyPal | **empty** | — | Stub. **Discrepancy:** Pending table lists `tastypal-web` as ❌-not-on-disk CREATE, yet this (empty) dir exists. |
+| `txfrapp-android` · `txfrapp-ios` | TXFR.Cloud | **empty** | — | Stubs — planned native apps. |
+| `txfrcloud-cli` · `txfrcloud-daemon` · `txfrcloud-web` | TXFR.Cloud | **empty** | — | Stubs — planned CLI / daemon / web. **The entire TXFR.Cloud repo set is empty** — the venture exists (recently added) but none of its repos are in the GEN2 model yet. |
+
+**Empty `_`-prefixed website/domain containers** (your CMS convention — all empty, so really a checklist of *domains to verify against `DOMAIN_LIST`*):
+
+- **DiviaAI** `_divia.ai` · **DiviaHome** `_diviahome.com` · **LegendaryMoney** `_legendarymoney.com`
+- **TastyPal** `_tastycal.com` _(⚠️ unfamiliar — TastyCal?)_ · `_tastypal.com` · `_tastypantry.com` · `_tastytrucks.app`
+- **TXFR.Cloud** `_txfr.app` · `_txfr.cloud` · **VelocityTerminal** `_velocityterminal.sh`
+- **`_WEBSITES/`** `_ctomindmeld.com` · `_divia.foundation` · `_johnstanforth.com` · `_jsldragonfly.com` _(⚠️ unfamiliar — JSL Dragonfly?)_ · `_kingmakerstrategic.com` · `_stanforth.ai`
+
+_(Also: `~/Code/FracReality` is a symlink → `FracRealHomes` — a brand alias of the venture folder, not a separate repo.)_
 
 ### ✅ Done — already adopted / migrated (2026-06-23)
 
