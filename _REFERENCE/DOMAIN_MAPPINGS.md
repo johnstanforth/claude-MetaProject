@@ -30,6 +30,9 @@ This file maps every venture idea, company family, product/service, and matching
       - github (Python prototype, active): [@DiviaAI/proto-divia_ai-enterprise](https://github.com/DiviaAI/proto-divia_ai-enterprise) _(tracks the DiviaHome lab as upstream)_
       - github (Rust commercial, future): [@DiviaAI/divia_ai-enterprise](https://github.com/DiviaAI/divia_ai-enterprise) _(planned; begins after the prototype reaches v1 + ~30 days real use)_
     - Product: `Divia.AI AgentSwarms` (Rust agent backbone — containerized autonomous agents)
+      - canonical product page: **<u>divia.ai</u>**/diviaagentswarms/
+        - redirect/alias: **<u>diviaagentswarms.com</u>** => **<u>divia.ai</u>**/diviaagentswarms/ _(redirect/hold — kept as a separate site only as a name-stakeout; consolidates to the canonical for PageRank/site-quality)_
+        - redirect/alias: **<u>diviaclaw.com</u>** => **<u>divia.ai</u>**/diviaagentswarms/ _("DiviaClaw" — the OpenClaw/NanoClaw-family agent-harness brand; redirect/hold)_
       - github: [@DiviaAI/divia_ai-agentswarms](https://github.com/DiviaAI/divia_ai-agentswarms)
     - Product line: `DiviaContacts`
       - Domain: **<u>diviacontacts.com</u>**
@@ -274,6 +277,14 @@ This file maps every venture idea, company family, product/service, and matching
   - Product/Service: `Patternicity Bet`
     - Domain: **<u>patternicity.bet</u>**
   
+- Company: <u>ReDream Rebuild</u> _(content venture; no legal entity captured yet)_
+  - description: renovation & remodeling education-content venture — ad-revenue + affiliate, SEO-led; first venture explicitly framed as a topic-cluster (e.g. an OSHA contractor-safety report-card business-line clusters in rather than spinning up a standalone niche). Brief: [`ULTIMATE_VISION/VENTURES/ReDreamRebuild.md`](ULTIMATE_VISION/VENTURES/ReDreamRebuild.md)
+  - Domain: **<u>redreamrebuild.com</u>**
+    - redirect/alias: **<u>redreamrebuild.homes</u>**
+    - redirect/alias: **<u>redreamrebuildhomes.com</u>**
+    - redirect/alias: **<u>redreamrebuild.construction</u>**
+    - redirect/alias: **<u>redreamrebuild.contractors</u>**
+
 - Company: <u>TastyPal, Inc.</u>
   - Domain: **<u>tastypal.com</u>**
     - redirect/alias: **<u>tastypal.cc</u>**
