@@ -12,6 +12,19 @@
 1. What's the intended **repo structure** — e.g. `patternicity-web` (portal + NER pipeline), the Reader (on the Divia.AI Professional stack), `patternicity-social` later? Is there a **DailySpikeDriver-level proto** (`proto-patternicity-web`) you'd drive personally first, à la `proto-tastypal-web`?
 2. Is the **NER/entity-graph backend** its own service/repo (the heavy, distinctive part), separate from the reader-facing portal?
 
+## Integration surfaces — how the world-knowledge graph is consumed  *(NEW — John, 2026-06-24)*
+
+**What we know / infer**
+- The world-knowledge graph is not just the news site's backend — it's exposed through **four consumption surfaces**, each a distinct engineering integration:
+  1. **Divia-agent "memory layer."** The graph is queried as a memory/knowledge layer by the Divia agents inside Divia.AI products and DiviaHome devices ("Hey Divia, what's happening with X?") — so an LLM answer can draw on up-to-date world-knowledge. *Implies a read API/contract the Divia.AI Enterprise agents call.*
+  2. **The Reader's right-sidebar agent.** In the desktop Reader, a **Divia agent powered by Claude (Anthropic API)** sits in a right sidebar; right-click a person/company in an article → ask, with the agent reasoning across the **entire Patternicity graph**. *This is the agent-over-graph query path at the desktop tier.*
+  3. **"Morning Briefing" homepage of Divia.AI Enterprise.** The world-knowledge surface can be embedded as the default homepage corporate teams open each morning — a high-visibility integration into the Enterprise server's UI.
+  4. **MCP server.** An **MCP** endpoint exposes the PatternicityNews world-knowledge DB so an external **Claude desktop** can query current news *past* the model's training cutoff. *A new, distinct service surface (likely its own deployable) with its own auth/rate/licensing posture.*
+
+**❓ Additional Questions for John**
+- ⭐ Is the **MCP server** its own repo/service (separate from the portal backend and the Divia-agent read API)? Do the four surfaces share **one read contract** over the graph, or each get a bespoke integration?
+- The **memory-layer** path: does Divia.AI Enterprise call Patternicity as an external client (cross-venture service boundary), or is some Patternicity-derived world-knowledge **replicated into** the Enterprise deployment? (A scale + licensing + freshness question.)
+
 ## Build Lines · Build Envelopes · Triangulation Target (dated)
 
 **What we know / infer**
