@@ -9,6 +9,7 @@
 - **What it is:** a **prediction-market *game*** — "like Polymarket/Kalshi but **intended as a game** (massively-scalable)" (`PLAN…`); sources also phrase it "online prediction market and multiplayer betting site" (`DOMAIN_MAPPINGS.md`).
 - **A direct reboot of MobThought** (2004–2008) — see *Venture origin & lineage* below.
 - One-line / tagline: **TBD**.
+- **⚠️ Competitive / naming watch (2026-06-23):** Meta/Facebook announced its own prediction-market app **called / code-named "Arena"** ([NYT, 2026-06-23](https://www.nytimes.com/2026/06/23/technology/meta-prediction-markets-app.html)). Two implications: (1) a major incumbent is entering the prediction-market space — track for competitive positioning; (2) John renamed the planned engineering Build-Line **`PredictionArena` → `PredictionBracketsEngine`** to avoid the "Arena" collision (and "Brackets" reinforces the March-Madness motif raised in Q2 below).
 
 **❓ Additional Questions for John**
 1. One-sentence pitch for CrowdMadness today? Is "**a prediction-market game** (play-for-prizes, leaderboards), *not* a real-money market" still the core identity — or has the reboot's framing shifted?
