@@ -56,7 +56,7 @@ On **@jsdesk**, only 3 dirs have real content + git history (★) and the rest a
 **Empty `_`-prefixed website/domain containers** (your CMS convention — all empty, so really a checklist of *domains to verify against `DOMAIN_LIST`*):
 
 - **DiviaAI** `_divia.ai` · **DiviaHome** `_diviahome.com` · **LegendaryMoney** `_legendarymoney.com`
-- **TastyPal** `_tastycal.com` _(identified — the **TastyCal** product-line, now in the TastyPal + Sattvasic Health briefs; ⚠️ NOT in `DOMAIN_LIST` — verify the domain is actually registered)_ · `_tastypal.com` · `_tastypantry.com` · `_tastytrucks.app`
+- **TastyPal** `_tastycal.com` _(the **TastyCal** product concept, now in the briefs; ⚠️ `tastycal.com` is registered to a **third party** — the name is **blocked**, so the product needs renaming + more research, see R-007)_ · `_tastypal.com` · `_tastypantry.com` · `_tastytrucks.app`
 - **TXFR.Cloud** `_txfr.app` · `_txfr.cloud` · **VelocityTerminal** `_velocityterminal.sh`
 - **`_WEBSITES/`** `_ctomindmeld.com` · `_divia.foundation` · `_johnstanforth.com` · `_jsldragonfly.com` _(accounted — in `DOMAIN_LIST`; JSL Dragonfly Ltd., see `IDEAS/jsl-dragonfly.md` — product still TBD)_ · `_kingmakerstrategic.com` · `_stanforth.ai`
 
