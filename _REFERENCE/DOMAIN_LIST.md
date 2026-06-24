@@ -58,10 +58,12 @@
 | divia.wiki | Spaceship.com | Jul 26, 2024 | Jul 26, 2026 |
 | divia.work | Spaceship.com | Aug 16, 2023 | Aug 16, 2026 |
 | divia.wtf | Spaceship.com | Mar 4, 2026 | Mar 4, 2027 |
+| diviaagentswarms.com ‡ | Spaceship.com | TBD | TBD |
 | diviaai.com | Spaceship.com | Aug 17, 2023 | Aug 16, 2026 |
 | diviaaimentality.com | Spaceship.com | Sep 2, 2025 | Sep 1, 2026 |
 | diviaapp.com | Spaceship.com | Aug 17, 2023 | Aug 16, 2026 |
 | diviacards.com | Spaceship.com | Mar 11, 2022 | Mar 10, 2027 |
+| diviaclaw.com ‡ | Spaceship.com | TBD | TBD |
 | diviacontacts.com | Spaceship.com | Jun 13, 2026 | Jun 13, 2027 |
 | diviaenterprise.com | Spaceship.com | Jun 13, 2026 | Jun 13, 2027 |
 | diviafoundation.com | Spaceship.com | Aug 17, 2023 | Aug 16, 2026 |
@@ -149,6 +151,11 @@
 | ptnws.com | Spaceship.com | Sep 2, 2025 | Sep 2, 2026 |
 | ptnws.link | Spaceship.com | Sep 2, 2025 | Sep 2, 2026 |
 | quintivity.com | Spaceship.com | Jul 14, 2001 | Jul 14, 2027 |
+| redreamrebuild.com ‡ | Spaceship.com | TBD | TBD |
+| redreamrebuild.construction ‡ | Spaceship.com | TBD | TBD |
+| redreamrebuild.contractors ‡ | Spaceship.com | TBD | TBD |
+| redreamrebuild.homes ‡ | Spaceship.com | TBD | TBD |
+| redreamrebuildhomes.com ‡ | Spaceship.com | TBD | TBD |
 | rosettamq.com | Spaceship.com | Mar 4, 2022 | Mar 3, 2027 |
 | sattvasic.com | Spaceship.com | Jun 20, 2002 | Jun 20, 2027 |
 | sattvasic.health | Spaceship.com | Jun 13, 2026 | Jun 13, 2027 |
@@ -191,4 +198,6 @@
 
 † Slated for deprecation/deletion: `divia.link`, `divialink.com` (plan aborted; see `DOMAIN_MAPPINGS.md`).
 
-*Total: 171 domains (167 Spaceship.com, 4 Namecheap.com). Creation Date (UTC) from RDAP for 165; 6 lack a public RDAP server (divialife.me, dot8.me, dotfigurate.me, dotfigurator.sh, kingstrat.vc, velocityterminal.sh). 2 flagged for deprecation.*
+‡ Added 2026-06-24 from John's Spaceship registrations (registered ~the week of June 16–20, 2026); **Creation/Expiration dates pending backfill** — RDAP was unreachable from this environment, so backfill the exact RDAP creation dates + registrar-verified expirations. All 7 are 1-year "regular" Spaceship registrations. Recorded prices: `diviaagentswarms.com` $9.08 · `diviaclaw.com` $9.08 · `redreamrebuild.com` $9.08 · `redreamrebuild.construction` $31.25 · `redreamrebuild.contractors` $28.15 · `redreamrebuild.homes` $1.24 · `redreamrebuildhomes.com` $9.08.
+
+*Total: 178 domains (174 Spaceship.com, 4 Namecheap.com). Creation Date (UTC) from RDAP for 165; 6 lack a public RDAP server (divialife.me, dot8.me, dotfigurate.me, dotfigurator.sh, kingstrat.vc, velocityterminal.sh); 7 newly added with dates pending backfill (‡). 2 flagged for deprecation.*
