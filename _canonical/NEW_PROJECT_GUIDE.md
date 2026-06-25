@@ -87,7 +87,7 @@ Because the template is release-clean, there is **no residue to scrub and no git
 ### Step 4 — Fill the per-project files
 - **Deterministic substitution** across the instantiated files: replace every `{{PLACEHOLDER}}` with its manifest value, and delete the `<!-- TEMPLATE FILE … -->` header line from each file. Files: `_workflows/PROJECT_IDENTITY.md`, `CLAUDE.md`, `README.md`, `LICENSE.md`, `_specs_and_plans/README.md`, `ROADMAP.md`, `phase_00…/README.md`, `DECISIONS.md`, the four backlog headers.
 - **Agent-written prose** for the genuinely bespoke parts marked `<!-- AGENT: … -->`: `CLAUDE.md` Project Overview, `README.md` intro, `PROJECT_IDENTITY.md` Project Context block, `ROADMAP.md` stance, `phase_00` goals, `DECISIONS.md` ADR context/consequences. Write these from the manifest + domain understanding (look at a sibling project's CLAUDE.md for tone). Delete the `AGENT` comments when done.
-- **Verify** no `{{` or `AGENT:` markers remain: `grep -rn '{{\|AGENT:' .` should be empty (outside `_workflows/` body files, which legitimately contain none).
+- **Verify** no markers remain: `grep -rn '{{' .` and `grep -rn '<!-- AGENT:' .` should both be empty.
 
 ### Step 5 — Per-stack skeleton (build projects only; skip for research/docs-only)
 Open the active techstack doc (`_workflows/{{ACTIVE_TECHSTACK_DOC}}`) and run its **Skeleton Generation** section to produce a functional app skeleton (the logic is also described in `_workflows/workflow_build_new_project.md`). Then run its **Commands & Validation** to confirm green (e.g. `uv sync --group dev && uv run pytest tests/ -v && uv run ruff check .`). Tailor `.gitignore` / `.python-version` to the stack.
@@ -168,7 +168,7 @@ The canonical only stays authoritative if improvements flow back into it. Improv
 
 ## 10. Verification checklist for a freshly created project
 
-- [ ] `grep -rn '{{' .` and `grep -rn 'AGENT:' .` return nothing (all placeholders filled, all guidance prose written).
+- [ ] `grep -rn '{{' .` and `grep -rn '<!-- AGENT:' .` return nothing (all placeholders filled, all guidance prose written).
 - [ ] No `<!-- TEMPLATE FILE … -->` header lines remain.
 - [ ] `_workflows/PROJECT_IDENTITY.md` fully reflects the new project; its "Active techstack doc" points at a doc that exists.
 - [ ] `CLAUDE.md` / `README.md` describe the new project in its own domain terms.

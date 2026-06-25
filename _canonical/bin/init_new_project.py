@@ -279,7 +279,7 @@ Deterministic steps are done. Remaining (a Claude/human pass):
      README intro, PROJECT_IDENTITY Project Context, ROADMAP stance,
      phase_00 goals, DECISIONS ADR context). The manifest is in
      _specs_and_plans/_research/genesis.json.
-  2. Verify nothing is left:  grep -rn '{{{{' .   and   grep -rn 'AGENT:' .
+  2. Verify nothing is left:  grep -rn '{{{{' .   and   grep -rn '<!-- AGENT:' .
   3. If a build project: run the active techstack's Skeleton Generation,
      then its Commands & Validation suite (e.g. uv sync && pytest && ruff).
   4. Commit (local-only, no remote, no Co-Authored-By). See NEW_PROJECT_GUIDE.md.
