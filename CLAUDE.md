@@ -18,6 +18,7 @@ _claude.MetaProject/
 ├── _REFERENCE/           # Canonical cross-venture knowledgebase (the manual proto-graph-DB):
 │                         #   PROJECT-ORGANIZATION-MODEL.md, ULTIMATE_VISION/ briefs, SOFTWARE_DEV/ briefs, DOMAIN_* docs
 ├── _workflows/           # MetaProject's cross-venture reasoning workflows (+ README index/map)
+├── _canonical/           # Canonical clean-project TEMPLATE + NEW_PROJECT_GUIDE.md — the single source for creating new repos
 ├── _backlog_TODOs/       # Cross-project deferred items (LATER-NNN) + the standing RESEARCH-BACKLOG.md
 └── _skills/              # Git-tracked source skills that copy-deploy to ~/.claude/skills/ (e.g. research-pdf)
 ```
@@ -26,6 +27,7 @@ _claude.MetaProject/
 
 - **`_REFERENCE/`** is the canonical cross-venture knowledgebase — the manual, markdown proto-version of the future KSVGPS business-side graph-DB. The structural model lives in [`_REFERENCE/PROJECT-ORGANIZATION-MODEL.md`](_REFERENCE/PROJECT-ORGANIZATION-MODEL.md) (ventures · Build Lines · Build Envelopes · Triangulation Targets · Product Version-Releases · the business/software-dev two-knowledgebase split). Per-venture **briefs** are two files: business-side under `_REFERENCE/ULTIMATE_VISION/PRODUCTS/<Umbrella>/`, engineering-side under `_REFERENCE/SOFTWARE_DEV/`.
 - **`_workflows/`** holds the cross-venture reasoning workflows — start at [`_workflows/README.md`](_workflows/README.md) (the map). Current: `workflow_new_venture_intro_brief.md` (interview-as-you-draft a new venture) and `workflow_cross_venture_future_scenario.md` (reason about a dated future across all ventures).
+- **`_canonical/`** is the **single source of truth for creating new project repos**: `project-template/` (the always-clean blank repo — standardized layout + project-agnostic `_workflows/` + `techstacks/` + placeholder docs) and [`_canonical/NEW_PROJECT_GUIDE.md`](_canonical/NEW_PROJECT_GUIDE.md) (the how-to). New repos are created by instantiating this template and filling one `PROJECT_IDENTITY.md`, **not** by cloning a sibling. (Layout is v0, pending John+team finalization; the existing-repo cleanup is a deliberate manual, one-at-a-time pass — no automated sync.)
 - **`_backlog_TODOs/RESEARCH-BACKLOG.md`** is the standing list of cross-venture research topics — the destination for the `[Backlog:RESEARCH]` shorthand used in venture-brief answers.
 
 ## Working Across Projects (the symlinked repos)

@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+
+# uv
+# (uv.lock IS committed once it exists)
+
+# Environment / secrets (OAuth client secrets, API tokens, .env)
+.env
+.env.*
+*.local
+instance/
+secrets/
+client_secret*.json
+token*.json
+
+# SQLite databases (runtime + test artifacts)
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Test / tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Developer resources (@jstanforth) — symlinked reference projects, never committed
+_claude
+_REFERENCE/_assets
+_REFERENCE/_EXTERNAL
+_assets
+
+# Logs
+logs/
+*.log
+
+# Generated PDFs (research compendiums — large build artifacts; regenerate via the research-pdf skill)
+*.pdf
