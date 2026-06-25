@@ -38,6 +38,7 @@ _REFERENCE/
 ├── ERRATA.md                  # ★ the discrepancy log — contradictions across (and within) projects
 ├── ARCHITECTURE_CONVERGENCE.md # how core functionality converges on the Divia.AI Enterprise server (clients vs. server, parallel tracks)
 ├── PROJECT-ORGANIZATION-MODEL.md # how every venture is organized: Build Lines / Product Versions / Triangulation Targets / [DEALBREAKER-HOOK]
+├── IDEA_CATALOG.md            # every product/feature/venture idea as one Venture → Product-Line → Idea outline (wide net; for pruning/merging into the GEN2 Ideas — see LATER-009)
 └── ULTIMATE_VISION/           # the future-version "Guide" of everything we're trying to build
     ├── README.md              # vision overview + full index + build status
     ├── PRODUCTS/<Umbrella>/   # one doc per product, grouped by corporate/product umbrella
