@@ -37,6 +37,19 @@ Different kinds of thing can own repos/build-lines and all map to a GitHub-style
 - **No techstack denormalization.** The techstacks live on `repository_techstacks`; "find all Python/Flask Build-Lines succeeded by Rust ones" is a clean multi-hop join now and a native graph traversal in v1. The ORM association-proxy gives `build_line.successors[0].techstacks` without copying.
 - **Payoff (future AIXO.Dev security/CVE tracking):** a CVE matched to a techstack → the affected (production-deployed) Build-Lines → automatically re-check their `succeeds` successors and record a "verified the Rust successor is not also vulnerable to this JWT flaw" status. Needs zero new schema beyond this edge + the existing techstack links.
 
+### Lifecycle / maintenance status — a separate axis from the `succeeds` edge (PROPOSED 2026-06-28; tracked: `_backlog_TODOs/LATER-010`)
+
+- **The gap (John + Claude, 2026-06-28):** the `succeeds` edge models *lineage/generation* but deliberately does **not** lock or archive the predecessor — correct, but it means there is currently **no first-class way to say "this Build-Line / repo is archived legacy reference; skip it."** The existing status fields are the wrong shape: `product_line_build_lines.status` (`current`/`planned`/`far-horizon`/`retired`) is a *roadmap position* and is *membership-scoped* (per Product-Line; a BL can belong to many); `build_line_repositories.status` is a repo's *role* within a BL; and `GEN2-REPO-RECONCILIATION.md`'s "frozen scavenge-source" / "superseded-parked" categories live only in prose. The CVE-tracking payoff just above already *assumes* a distinct "(production-deployed)" status that is not yet modeled.
+- **Proposed addition:** a first-class **lifecycle / maintenance status**, orthogonal to *both* the `succeeds` edge *and* the roadmap `product_line_build_lines.status`. Put it on the **Repository** (repo-global — the on-disk repo is the unit the standardization/migration pass operates on), optionally rolled up to the Build-Line: **`Repository.lifecycle_status ∈ { active, maintained, frozen-reference, archived }`**.
+- **Why it MUST be independent of `succeeds`:** a superseded predecessor is sometimes dead-and-frozen and sometimes still in production — *same edge, different lifecycle*:
+
+| Case | `succeeds` edge | `lifecycle_status` | Standardization / migration |
+|---|---|---|---|
+| `aixodev-web` superseded by `aixodev-GEN2` | predecessor | `frozen-reference` | **exempt** — legacy source only |
+| a production `-GEN2` maintained while `-GEN3` is built | predecessor | `maintained` | **in scope** — it's a living repo |
+
+- **Payoff:** (1) `frozen-reference` / `archived` becomes the **gate that exempts a repo from the `_canonical/MIGRATE_ADAPT.md` standardization pass** (don't migrate legacy scavenge-source). (2) It formalizes the "(production-deployed)" distinction the CVE-tracking payoff already needs. (3) Do **not** overload `retired` for this — keep lifecycle a separate axis or queries drift. Cheap to add now while `build_line_edges` is still design-only.
+
 ## 5. Product-Lines, the PL⇄BL structure, Version-Releases
 
 - **`ProductLine`** — `owner_id` (FK → Owner; usually a Venture, but a Person/Org can ship products too), `slug`, `name`, `description`.
