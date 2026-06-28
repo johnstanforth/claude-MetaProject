@@ -106,8 +106,8 @@ Read the backlog, read the code, debate each other, and converge on
 the scope that produces the best sprint.
 
 DELIVERABLE FILE NAMING (follow these EXACTLY):
-- Sprint spec: _specs_and_plans/phase_{PHASE_NN}--{PHASE_SLUG}/sp_{SPRINT_NN}--{SPRINT_SLUG}.md
-- Execution plan: _specs_and_plans/phase_{PHASE_NN}--{PHASE_SLUG}/xp_{SPRINT_NN}--{SPRINT_SLUG}.md
+- Sprint spec: _stages_and_phases/phase_{PHASE_NN}--{PHASE_SLUG}/sp_{SPRINT_NN}--{SPRINT_SLUG}.md
+- Execution plan: _stages_and_phases/phase_{PHASE_NN}--{PHASE_SLUG}/xp_{SPRINT_NN}--{SPRINT_SLUG}.md
 - Both files go FLAT in the phase directory (NO sprint subdirectory)
 
 Sprint branch: claudecode/@claude/phase{PHASE_NN}-sprint{SPRINT_NN}

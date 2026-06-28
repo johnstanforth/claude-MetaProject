@@ -3,11 +3,11 @@
 
 <!-- AGENT: Write a 1–2 paragraph description of {{FULL_PROJECT_NAME}} from the manifest — what it is, who it's for, and its relationship to any "real"/main sibling. -->
 
-See [`CLAUDE.md`](CLAUDE.md) for the full project guide and [`_specs_and_plans/ROADMAP.md`](_specs_and_plans/ROADMAP.md) for status.
+See [`CLAUDE.md`](CLAUDE.md) for the full project guide and [`_stages_and_phases/ROADMAP.md`](_stages_and_phases/ROADMAP.md) for status.
 
 ## Status
 
-**Phase {{STARTING_PHASE}} (Ideation & Research) — opened {{CREATION_DATE}}.** There is no application code yet. This repository currently holds the development workflow system (`_workflows/`), the specs/backlog scaffold (`_specs_and_plans/`), and the project docs. The application skeleton is scaffolded in a later phase.
+**Phase {{STARTING_PHASE}} (Ideation & Research) — opened {{CREATION_DATE}}.** There is no application code yet. This repository currently holds the development workflow system (`_workflows/`), the specs/backlog scaffold (`_stages_and_phases/`), and the project docs. The application skeleton is scaffolded in a later phase.
 
 ## Tech Stack
 
@@ -30,7 +30,7 @@ The exact commands live in the active techstack doc's **Commands & Validation** 
 ├── README.md                 # This file
 ├── LICENSE.md                # License
 ├── _workflows/               # Workflow system (project-agnostic bodies + PROJECT_IDENTITY.md + techstacks)
-├── _specs_and_plans/         # Specs, roadmap, backlog horizons, research
+├── _stages_and_phases/         # Specs, roadmap, backlog horizons, research
 │   ├── README.md
 │   ├── ROADMAP.md
 │   ├── _backlog/             # NEXT / LATER / SOMEDAY / UNSORTED_QUEUE

@@ -42,11 +42,11 @@ The single source of truth for this project's identity and active stack is [`_wo
 
 ## Development Workflows
 
-This project's `_workflows/` system is the shared, project-agnostic workflow system; all per-project identity lives in [`_workflows/PROJECT_IDENTITY.md`](_workflows/PROJECT_IDENTITY.md) (the one file edited per repo), and all per-stack specifics (commands, debugging) live in the active `techstacks/` doc. The comprehensive guide is [`_workflows/README.md`](_workflows/README.md); the specs index is [`_specs_and_plans/README.md`](_specs_and_plans/README.md). The canonical source of the workflow bodies is the MetaProject's `_canonical/project-template/`.
+This project's `_workflows/` system is the shared, project-agnostic workflow system; all per-project identity lives in [`_workflows/PROJECT_IDENTITY.md`](_workflows/PROJECT_IDENTITY.md) (the one file edited per repo), and all per-stack specifics (commands, debugging) live in the active `techstacks/` doc. The comprehensive guide is [`_workflows/README.md`](_workflows/README.md); the specs index is [`_stages_and_phases/README.md`](_stages_and_phases/README.md). The canonical source of the workflow bodies is the MetaProject's `_canonical/project-template/`.
 
 | Phase | Name | Status | Directory |
 |-------|------|--------|-----------|
-| {{STARTING_PHASE}} | Ideation & Research | **PLANNING** (opened {{CREATION_DATE}}) | `_specs_and_plans/phase_{{STARTING_PHASE}}--ideation_and_research/` |
+| {{STARTING_PHASE}} | Ideation & Research | **PLANNING** (opened {{CREATION_DATE}}) | `_stages_and_phases/phase_{{STARTING_PHASE}}--ideation_and_research/` |
 
 **Primary loop:** New Phase → Sprint Planning → Human Review → Sprint Execution → Code Review → Sprint Closeout. The `sp_` says "what and why"; the `xp_` says "how, exactly" and is the contract. **Playground caveat (personal/experimental Build-Lines):** use as much or as little of this ceremony as a piece of work warrants — a quick spike does not need a full `sp_`/`xp_` pair, but anything substantial should still produce one for clarity and resumability.
 
@@ -92,10 +92,12 @@ For work outside a formal sprint, use descriptive messages without the prefix.
 |---------|------|
 | Project overview / product spec | `README.md` |
 | **Project identity (single source of truth)** | `_workflows/PROJECT_IDENTITY.md` |
-| Specs & plans index | `_specs_and_plans/README.md` |
-| Roadmap | `_specs_and_plans/ROADMAP.md` |
-| Backlog horizons | `_specs_and_plans/_backlog/` (NEXT, LATER, SOMEDAY, UNSORTED_QUEUE) |
-| Research archive | `_specs_and_plans/_research/` |
+| Specs & plans index | `_stages_and_phases/README.md` |
+| Roadmap | `_stages_and_phases/ROADMAP.md` |
+| Backlog horizons | `_backlog/` (NEXT, LATER, SOMEDAY, UNSORTED_QUEUE) |
+| Research archive | `_research/` |
+| Status reports / reviews | `_status_reports/` |
+| Product documentation | `_documentation/` |
 | Workflows guide | `_workflows/README.md` |
 | Active tech-stack reference | `_workflows/{{ACTIVE_TECHSTACK_DOC}}` |
 | Reference projects (read-only) | `_REFERENCE/_EXTERNAL/` (git-ignored symlinks) |

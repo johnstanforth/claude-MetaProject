@@ -41,14 +41,14 @@ MANDATORY READING BEFORE ANY DISCUSSION:
    - claude-2 (WORKER): Read the DO NOT EDIT section of
      `_workflows/_templates/COLLAB_ROLE_WORKER.md`
 3. Read `CLAUDE.md` (project context, architecture, conventions)
-4. Read `_specs_and_plans/ROADMAP.md` (authoritative project status)
+4. Read `_stages_and_phases/ROADMAP.md` (authoritative project status)
 5. Read `{PHASE_README_PATH}` (current phase goals, sprint history)
 6. Read `{RECENT_SP_PATH}` (most recent sprint — follow-ups and closeout notes)
 7. Read ALL four backlog files:
-   a. `_specs_and_plans/_backlog/_UNSORTED_QUEUE.md`
-   b. `_specs_and_plans/_backlog/_horizon_NEXT.md`
-   c. `_specs_and_plans/_backlog/_horizon_LATER.md`
-   d. `_specs_and_plans/_backlog/_horizon_SOMEDAY.md`
+   a. `_backlog/_UNSORTED_QUEUE.md`
+   b. `_backlog/_horizon_NEXT.md`
+   c. `_backlog/_horizon_LATER.md`
+   d. `_backlog/_horizon_SOMEDAY.md`
 
 TASK: Review the entire project backlog, roadmap, and phase state.
 Determine what has been implemented, what remains, and how to organize
@@ -101,11 +101,11 @@ UNSORTED_QUEUE must be EMPTY after this process. Every item either
 moves to a horizon or gets archived with a disposition note.
 
 DELIVERABLES (written by codex-1 ONLY after full discussion):
-- `_specs_and_plans/_backlog/_UNSORTED_QUEUE.md` (should be empty except header)
-- `_specs_and_plans/_backlog/_horizon_NEXT.md`
-- `_specs_and_plans/_backlog/_horizon_LATER.md`
-- `_specs_and_plans/_backlog/_horizon_SOMEDAY.md`
-- `_specs_and_plans/ROADMAP.md` (phase assessment note, backlog summary, refreshed planned phases)
+- `_backlog/_UNSORTED_QUEUE.md` (should be empty except header)
+- `_backlog/_horizon_NEXT.md`
+- `_backlog/_horizon_LATER.md`
+- `_backlog/_horizon_SOMEDAY.md`
+- `_stages_and_phases/ROADMAP.md` (phase assessment note, backlog summary, refreshed planned phases)
 
 ROLE SPECIALIZATION:
 - codex-1 (LEAD): Analyze, propose sorting, write updated files.

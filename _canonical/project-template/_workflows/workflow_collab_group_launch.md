@@ -22,4 +22,4 @@ These resources are used by both paths and should be prepared before launching a
 | Roadmap rescheduling prompt | `_templates/COLLAB_PROMPT_ROADMAP_RESCHEDULING.md` | Template for roadmap rescheduling sessions |
 | External review prompt | `_templates/EXTERNAL_REVIEW_PROMPT.md` | Template for external reviewer prompts (pre-requisite for code review) |
 
-All template paths are relative to `_specs_and_plans/`.
+All template paths are relative to `_stages_and_phases/`.

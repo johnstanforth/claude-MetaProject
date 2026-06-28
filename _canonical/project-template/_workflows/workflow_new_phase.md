@@ -6,7 +6,7 @@
 
 | Item | Value |
 |------|-------|
-| Phase directory | `_specs_and_plans/phase_{NN}--{slug}/` |
+| Phase directory | `_stages_and_phases/phase_{NN}--{slug}/` |
 | Required files | `README.md`, `DECISIONS.md` |
 | Templates | `_workflows/_templates/PHASE_README_TEMPLATE.md`, `DECISION_TEMPLATE.md` |
 | First branch | `claudecode/@claude/phase{NN}-sprint01` |
@@ -43,9 +43,9 @@ Do NOT start a new phase for:
 Before creating any files, discuss with the human:
 
 1. **Read the backlog:**
-   - `_specs_and_plans/_backlog/_horizon_NEXT.md` — items ready for implementation
-   - `_specs_and_plans/_backlog/_horizon_LATER.md` — items that may be ready to graduate
-   - `_specs_and_plans/_backlog/_horizon_SOMEDAY.md` — aspirational items to consider
+   - `_backlog/_horizon_NEXT.md` — items ready for implementation
+   - `_backlog/_horizon_LATER.md` — items that may be ready to graduate
+   - `_backlog/_horizon_SOMEDAY.md` — aspirational items to consider
 
 2. **Read the previous phase retrospective** (post-sprint notes from the final sprint)
 
@@ -77,12 +77,12 @@ Note: slugs use underscores (not hyphens) to match the directory naming conventi
 ### Step 3: Create Phase Directory
 
 ```bash
-mkdir -p _specs_and_plans/phase_{NN}--{slug}/
+mkdir -p _stages_and_phases/phase_{NN}--{slug}/
 ```
 
 ### Step 4: Create Phase README
 
-Create `_specs_and_plans/phase_{NN}--{slug}/README.md` using the template at `_workflows/_templates/PHASE_README_TEMPLATE.md`.
+Create `_stages_and_phases/phase_{NN}--{slug}/README.md` using the template at `_workflows/_templates/PHASE_README_TEMPLATE.md`.
 
 The README must include:
 
@@ -118,7 +118,7 @@ See `DECISIONS.md` for architectural decision records (ADRs).
 
 ### Step 5: Create DECISIONS.md
 
-Create `_specs_and_plans/phase_{NN}--{slug}/DECISIONS.md` using the template at `_workflows/_templates/DECISION_TEMPLATE.md`.
+Create `_stages_and_phases/phase_{NN}--{slug}/DECISIONS.md` using the template at `_workflows/_templates/DECISION_TEMPLATE.md`.
 
 This file will accumulate ADRs as the phase progresses. Start with a header:
 
@@ -152,7 +152,7 @@ Before proceeding to Sprint 01 planning, check the UNSORTED_QUEUE item count:
 
 ```bash
 # Count items in the UNSORTED_QUEUE
-grep -c '^- ' _specs_and_plans/_backlog/_UNSORTED_QUEUE.md || echo "0 items"
+grep -c '^- ' _backlog/_UNSORTED_QUEUE.md || echo "0 items"
 ```
 
 **Ask the user:** "The UNSORTED_QUEUE currently has N items. Starting a new phase is a natural point for roadmap rescheduling. Would you like to run a rescheduling session first? If so, collab-group or solo?"
@@ -171,16 +171,16 @@ grep -c '^- ' _specs_and_plans/_backlog/_UNSORTED_QUEUE.md || echo "0 items"
 The phase infrastructure and Sprint 01 planning documents are committed together:
 
 ```bash
-git add _specs_and_plans/phase_{NN}--{slug}/README.md
-git add _specs_and_plans/phase_{NN}--{slug}/DECISIONS.md
-git add _specs_and_plans/phase_{NN}--{slug}/sp_01--{sprint_slug}.md
-git add _specs_and_plans/phase_{NN}--{slug}/xp_01--{sprint_slug}.md
+git add _stages_and_phases/phase_{NN}--{slug}/README.md
+git add _stages_and_phases/phase_{NN}--{slug}/DECISIONS.md
+git add _stages_and_phases/phase_{NN}--{slug}/sp_01--{sprint_slug}.md
+git add _stages_and_phases/phase_{NN}--{slug}/xp_01--{sprint_slug}.md
 git commit -m "P{NN}-S01-T00 Phase {NN} infrastructure and Sprint 01 planning"
 ```
 
 ### Step 9: Update Top-Level README
 
-Update `_specs_and_plans/README.md` to include the new phase in the phase table. Commit this as part of the planning commit or as a separate follow-up.
+Update `_stages_and_phases/README.md` to include the new phase in the phase table. Commit this as part of the planning commit or as a separate follow-up.
 
 ---
 

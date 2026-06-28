@@ -96,7 +96,7 @@ Collab-group sessions have historically produced these errors:
 
 | Error | Fix |
 |-------|-----|
-| Files placed in a subdirectory (e.g., `sprint_03/sp_03--...`) instead of flat in the phase directory | Move files to `_specs_and_plans/phase_{NN}--{phase_slug}/` |
+| Files placed in a subdirectory (e.g., `sprint_03/sp_03--...`) instead of flat in the phase directory | Move files to `_stages_and_phases/phase_{NN}--{phase_slug}/` |
 | Misnamed files (e.g., `sprint_spec_03.md` instead of `sp_03--{slug}.md`) | Rename to correct pattern |
 | Missing "Context and Scope Boundaries" section in xp | Add it as the first section, before any other content |
 | xp references external documents instead of inlining implementation details | Inline the referenced content |
@@ -107,8 +107,8 @@ Collab-group sessions have historically produced these errors:
 After verification and any corrections:
 
 ```bash
-git add _specs_and_plans/phase_{NN}--{phase_slug}/sp_{NN}--{sprint_slug}.md
-git add _specs_and_plans/phase_{NN}--{phase_slug}/xp_{NN}--{sprint_slug}.md
+git add _stages_and_phases/phase_{NN}--{phase_slug}/sp_{NN}--{sprint_slug}.md
+git add _stages_and_phases/phase_{NN}--{phase_slug}/xp_{NN}--{sprint_slug}.md
 git commit -m "P{NN}-S{NN}-T00 Sprint {NN} planning: {brief description}"
 ```
 
@@ -120,8 +120,8 @@ Tell the user:
 
 > Sprint {NN} planning is complete. Two documents committed:
 >
-> - Sprint spec: `_specs_and_plans/phase_{NN}--{phase_slug}/sp_{NN}--{sprint_slug}.md`
-> - Execution plan: `_specs_and_plans/phase_{NN}--{phase_slug}/xp_{NN}--{sprint_slug}.md`
+> - Sprint spec: `_stages_and_phases/phase_{NN}--{phase_slug}/sp_{NN}--{sprint_slug}.md`
+> - Execution plan: `_stages_and_phases/phase_{NN}--{phase_slug}/xp_{NN}--{sprint_slug}.md`
 >
 > **Next steps:**
 > 1. Review both documents -- are goals correct? Tasks complete? Critical Rules sufficient?

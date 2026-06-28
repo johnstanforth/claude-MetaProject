@@ -74,10 +74,10 @@ Scan the phase directory for the highest non-COMPLETE sprint:
 
 ```bash
 # List sprint specs, most recent first
-ls -t _specs_and_plans/phase_*--*/sp_*.md 2>/dev/null
+ls -t _stages_and_phases/phase_*--*/sp_*.md 2>/dev/null
 
 # Check status of the most recent sprint spec
-grep -i "Status" _specs_and_plans/phase_{NN}--{slug}/sp_{NN}--{slug}.md
+grep -i "Status" _stages_and_phases/phase_{NN}--{slug}/sp_{NN}--{slug}.md
 ```
 
 **HARD GATE — Status Check:** The sp_ file's `Status` field must be `APPROVED` or `IN PROGRESS`. If it shows `PLANNING`, the sprint has not been reviewed and approved by the project owner — **STOP immediately** and report:
@@ -87,7 +87,7 @@ grep -i "Status" _specs_and_plans/phase_{NN}--{slug}/sp_{NN}--{slug}.md
 Confirm the execution plan exists:
 
 ```bash
-ls _specs_and_plans/phase_{NN}--{slug}/xp_{NN}--{slug}.md
+ls _stages_and_phases/phase_{NN}--{slug}/xp_{NN}--{slug}.md
 ```
 
 **HARD GATE — xp File Check:** If the xp file does not exist, **STOP immediately**. Report to the user:
@@ -277,14 +277,14 @@ Copy the template and fill all `{PLACEHOLDER}` values:
 Save the review prompt as:
 
 ```
-_specs_and_plans/phase_{NN}--{slug}/REVIEW-PROMPT--P{NN}-S{NN}.md
+_stages_and_phases/phase_{NN}--{slug}/REVIEW-PROMPT--P{NN}-S{NN}.md
 ```
 
 Commit the review prompt together with the post-sprint notes update:
 
 ```bash
-git add _specs_and_plans/phase_{NN}--{slug}/REVIEW-PROMPT--P{NN}-S{NN}.md
-git add _specs_and_plans/phase_{NN}--{slug}/sp_{NN}--{slug}.md
+git add _stages_and_phases/phase_{NN}--{slug}/REVIEW-PROMPT--P{NN}-S{NN}.md
+git add _stages_and_phases/phase_{NN}--{slug}/sp_{NN}--{slug}.md
 git commit -m "P{NN}-S{NN} Post-sprint notes and external review prompt"
 ```
 
@@ -302,7 +302,7 @@ Validation: pytest {PASS/FAIL} | ruff {PASS/FAIL}
 Commits: {N} (list commit hashes or oneline)
 
 Review prompt saved to:
-  _specs_and_plans/phase_{NN}--{slug}/REVIEW-PROMPT--P{NN}-S{NN}.md
+  _stages_and_phases/phase_{NN}--{slug}/REVIEW-PROMPT--P{NN}-S{NN}.md
 
 Next steps (code review is ALWAYS required after sprint execution):
   1. Send review prompt to external reviewers (Gemini, Cursor, KimiK25, etc.)

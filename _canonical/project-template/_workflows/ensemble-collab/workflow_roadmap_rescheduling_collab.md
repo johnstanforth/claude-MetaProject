@@ -18,7 +18,7 @@ Fill in the template at `_templates/COLLAB_PROMPT_ROADMAP_RESCHEDULING.md`:
 
 | Placeholder | How to fill |
 |-------------|-------------|
-| `{UNSORTED_COUNT}` | Count items in `_specs_and_plans/_backlog/_UNSORTED_QUEUE.md` |
+| `{UNSORTED_COUNT}` | Count items in `_backlog/_UNSORTED_QUEUE.md` |
 | `{TEST_COUNT}` | Run `uv run pytest tests/ -v --tb=no -q` and count passes |
 | `{PHASE_NN}` | Current phase number, zero-padded |
 | `{SPRINT_NN}` | Most recent sprint number, zero-padded |
@@ -33,11 +33,11 @@ Write the filled prompt to `/tmp/collab-roadmap-rescheduling.txt`.
 Confirm these files are present and up to date:
 
 - [ ] `CLAUDE.md`
-- [ ] `_specs_and_plans/ROADMAP.md`
-- [ ] `_specs_and_plans/_backlog/_UNSORTED_QUEUE.md`
-- [ ] `_specs_and_plans/_backlog/_horizon_NEXT.md`
-- [ ] `_specs_and_plans/_backlog/_horizon_LATER.md`
-- [ ] `_specs_and_plans/_backlog/_horizon_SOMEDAY.md`
+- [ ] `_stages_and_phases/ROADMAP.md`
+- [ ] `_backlog/_UNSORTED_QUEUE.md`
+- [ ] `_backlog/_horizon_NEXT.md`
+- [ ] `_backlog/_horizon_LATER.md`
+- [ ] `_backlog/_horizon_SOMEDAY.md`
 - [ ] `_workflows/workflow_collab_group_agent_guidelines.md`
 - [ ] Current phase README
 - [ ] Most recent sprint sp file
@@ -94,11 +94,11 @@ The `/collab` skill provides periodic status updates. The session typically runs
 
 When the session concludes, verify these files were written or updated:
 
-- [ ] `_specs_and_plans/_backlog/_UNSORTED_QUEUE.md` (should be empty except header)
-- [ ] `_specs_and_plans/_backlog/_horizon_NEXT.md` (updated)
-- [ ] `_specs_and_plans/_backlog/_horizon_LATER.md` (updated)
-- [ ] `_specs_and_plans/_backlog/_horizon_SOMEDAY.md` (updated)
-- [ ] `_specs_and_plans/ROADMAP.md` (phase assessment note added, backlog summary updated)
+- [ ] `_backlog/_UNSORTED_QUEUE.md` (should be empty except header)
+- [ ] `_backlog/_horizon_NEXT.md` (updated)
+- [ ] `_backlog/_horizon_LATER.md` (updated)
+- [ ] `_backlog/_horizon_SOMEDAY.md` (updated)
+- [ ] `_stages_and_phases/ROADMAP.md` (phase assessment note added, backlog summary updated)
 
 ---
 

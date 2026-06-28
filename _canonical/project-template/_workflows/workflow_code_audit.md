@@ -243,7 +243,7 @@ Phase 3 (Code Review & Remediation) is the canonical example of this workflow:
 - **Remediation:** 5 sprints over Phase 3
 - **Key outcome:** Zero regressions because tests were added before refactoring
 
-Files: `_specs_and_plans/phase_03--code_review_remediation/`
+Files: `_stages_and_phases/phase_03--code_review_remediation/`
 
 ---
 

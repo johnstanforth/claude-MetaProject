@@ -86,7 +86,7 @@ If Sprint N+1 scope is already known, add a PLANNING row for it.
 
 ### Step 5: Update ROADMAP.md
 
-Update `_specs_and_plans/ROADMAP.md` to reflect progress from the just-completed sprint. ROADMAP.md is the authoritative forward-looking record for the project.
+Update `_stages_and_phases/ROADMAP.md` to reflect progress from the just-completed sprint. ROADMAP.md is the authoritative forward-looking record for the project.
 
 Check and update:
 - **Project Status Summary table** -- current phase, test count, sprints completed
@@ -103,10 +103,10 @@ Every item in the sprint spec's Follow-Up section must be triaged to exactly one
 | Destination | File to Update | When |
 |-------------|---------------|------|
 | Next sprint | Note for Sprint N+1 planning | High priority, directly related |
-| Unsorted Queue | `_specs_and_plans/_backlog/_UNSORTED_QUEUE.md` | Needs prioritization in next rescheduling |
-| Backlog NEXT | `_specs_and_plans/_backlog/_horizon_NEXT.md` | Important, fits in this phase, clearly NEXT |
-| Backlog LATER | `_specs_and_plans/_backlog/_horizon_LATER.md` | Good idea, not this phase |
-| Backlog SOMEDAY | `_specs_and_plans/_backlog/_horizon_SOMEDAY.md` | Aspirational |
+| Unsorted Queue | `_backlog/_UNSORTED_QUEUE.md` | Needs prioritization in next rescheduling |
+| Backlog NEXT | `_backlog/_horizon_NEXT.md` | Important, fits in this phase, clearly NEXT |
+| Backlog LATER | `_backlog/_horizon_LATER.md` | Good idea, not this phase |
+| Backlog SOMEDAY | `_backlog/_horizon_SOMEDAY.md` | Aspirational |
 | ADR | Phase's `DECISIONS.md` | Architectural decision to record |
 
 When unsure which horizon an item belongs to, put it in the UNSORTED_QUEUE. The roadmap rescheduling workflow (`workflow_roadmap_rescheduling_solo.md`) will sort it properly.

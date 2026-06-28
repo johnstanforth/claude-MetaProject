@@ -16,7 +16,7 @@ What it does:
      later manual use.)
   3. mkdir ~/Code/<Org>/<repo>, rsync the canonical template in, `git init`.
   4. Collect the project manifest (identity + active techstack), with
-     sensible defaults; write it to _specs_and_plans/_research/genesis.json.
+     sensible defaults; write it to _research/genesis.json.
   5. Substitute every {{PLACEHOLDER}} across the instantiated files and
      strip the `<!-- TEMPLATE FILE ... -->` marker lines.
   6. Print the remaining (agent-written) steps.
@@ -181,7 +181,7 @@ def substitute_placeholders(dest: Path, mapping: dict[str, str]) -> int:
 
 
 def write_genesis(dest: Path, manifest: dict[str, str], dry_run: bool) -> None:
-    out = dest / "_specs_and_plans" / "_research" / "genesis.json"
+    out = dest / "_research" / "genesis.json"
     print(f"  write   {out}")
     if dry_run:
         return
@@ -278,7 +278,7 @@ Deterministic steps are done. Remaining (a Claude/human pass):
   1. Fill the `<!-- AGENT: ... -->` prose blocks (CLAUDE.md overview,
      README intro, PROJECT_IDENTITY Project Context, ROADMAP stance,
      phase_00 goals, DECISIONS ADR context). The manifest is in
-     _specs_and_plans/_research/genesis.json.
+     _research/genesis.json.
   2. Verify nothing is left:  grep -rn '{{{{' .   and   grep -rn '<!-- AGENT:' .
   3. If a build project: run the active techstack's Skeleton Generation,
      then its Commands & Validation suite (e.g. uv sync && pytest && ruff).

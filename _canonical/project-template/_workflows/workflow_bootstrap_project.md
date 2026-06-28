@@ -8,7 +8,7 @@
 |------|-------|
 | Trigger | Starting a new git repository that should use this workflow system |
 | Input | This project's `_workflows/` directory (37 files, ~4,250 lines) |
-| Output | A customized `_workflows/` in the target project + a `_specs_and_plans/` scaffold + an updated `CLAUDE.md` |
+| Output | A customized `_workflows/` in the target project + a `_stages_and_phases/` scaffold + an updated `CLAUDE.md` |
 | Mode | Normal Claude Code (interactive), solo |
 | Time | 30-60 minutes (verbatim copy: 5 min; adaptation pass: 25-55 min depending on tech-stack substitutions) |
 
@@ -40,7 +40,7 @@ There are two supported placements for the `_workflows/` directory. This choice 
 | Layout | `_workflows/` location | When to choose |
 |--------|------------------------|----------------|
 | **Root-level** (simpler, newer default) | `{project-root}/_workflows/` | Research/analysis repos, small-scope projects, any repo where workflow docs are primary artifacts and you want them visible at the top level |
-| **Nested under specs** (legacy, matches `aixodev-web`) | `{project-root}/_specs_and_plans/_workflows/` | Projects with heavy sprint/phase artifacts where workflows co-locate naturally with specs, backlog, research, and templates |
+| **Nested under specs** (legacy, matches `aixodev-web`) | `{project-root}/_stages_and_phases/_workflows/` | Projects with heavy sprint/phase artifacts where workflows co-locate naturally with specs, backlog, research, and templates |
 
 Both layouts are first-class. The files themselves are identical; only the internal relative-path references differ.
 
@@ -79,19 +79,19 @@ Record these in a scratch doc (or inline in the chat) — you'll reference them 
 ```bash
 cd /path/to/target-project
 mkdir -p _workflows
-mkdir -p _specs_and_plans/_backlog
-mkdir -p _specs_and_plans/_research
-mkdir -p _specs_and_plans/_templates
+mkdir -p _backlog
+mkdir -p _research
+mkdir -p _stages_and_phases/_templates
 ```
 
 **Nested layout:**
 
 ```bash
 cd /path/to/target-project
-mkdir -p _specs_and_plans/_workflows
-mkdir -p _specs_and_plans/_backlog
-mkdir -p _specs_and_plans/_research
-mkdir -p _specs_and_plans/_templates
+mkdir -p _stages_and_phases/_workflows
+mkdir -p _backlog
+mkdir -p _research
+mkdir -p _stages_and_phases/_templates
 ```
 
 ---
@@ -109,7 +109,7 @@ cp -r /path/to/source/_workflows/. /path/to/target/_workflows/
 **Nested layout:**
 
 ```bash
-cp -r /path/to/source/_specs_and_plans/_workflows/. /path/to/target/_specs_and_plans/_workflows/
+cp -r /path/to/source/_stages_and_phases/_workflows/. /path/to/target/_stages_and_phases/_workflows/
 ```
 
 **Verify:**
@@ -163,27 +163,27 @@ After the verbatim copy is committed, make a **single dedicated adaptation commi
 
 These depend on your layout choice from Step 3. The workflows were originally authored assuming the **nested layout**, so the root-level case requires more adjustments.
 
-**If you chose nested layout (`_specs_and_plans/_workflows/`):** paths mostly already work. Verify they resolve correctly:
+**If you chose nested layout (`_stages_and_phases/_workflows/`):** paths mostly already work. Verify they resolve correctly:
 
 | Source path in workflows | Resolves to |
 |--------------------------|-------------|
 | `../../CLAUDE.md` | `{project-root}/CLAUDE.md` ✓ |
-| `../ROADMAP.md` | `{project-root}/_specs_and_plans/ROADMAP.md` ✓ |
-| `../_templates/` | `{project-root}/_specs_and_plans/_templates/` ✓ |
-| `../_backlog/` | `{project-root}/_specs_and_plans/_backlog/` ✓ |
-| `../README.md` | `{project-root}/_specs_and_plans/README.md` ✓ (specs index, not project README) |
+| `../ROADMAP.md` | `{project-root}/_stages_and_phases/ROADMAP.md` ✓ |
+| `../_templates/` | `{project-root}/_stages_and_phases/_templates/` ✓ |
+| `../_backlog/` | `{project-root}/_backlog/` ✓ |
+| `../README.md` | `{project-root}/_stages_and_phases/README.md` ✓ (specs index, not project README) |
 
 **If you chose root-level layout (`_workflows/`):** rewrite paths as follows:
 
 | Source path | New path | Why |
 |-------------|----------|-----|
 | `../../CLAUDE.md` | `../CLAUDE.md` | One-up now reaches project root |
-| `../ROADMAP.md` | `../_specs_and_plans/ROADMAP.md` | ROADMAP lives in specs dir |
-| `../_templates/` | `../_specs_and_plans/_templates/` | Templates live in specs dir |
-| `../_backlog/` | `../_specs_and_plans/_backlog/` | Backlog lives in specs dir |
-| `../README.md` | `../_specs_and_plans/README.md` | Specs index, not project README |
-| `../PRODUCT_AND_NAMING.md` | `../_specs_and_plans/PRODUCT_AND_NAMING.md` | If target project has one |
-| `_specs_and_plans/_workflows/` (narrative references) | `_workflows/` | Workflows are now at root |
+| `../ROADMAP.md` | `../_stages_and_phases/ROADMAP.md` | ROADMAP lives in specs dir |
+| `../_templates/` | `../_stages_and_phases/_templates/` | Templates live in specs dir |
+| `../_backlog/` | `../_backlog/` | Backlog lives in specs dir |
+| `../README.md` | `../_stages_and_phases/README.md` | Specs index, not project README |
+| `../PRODUCT_AND_NAMING.md` | `../_stages_and_phases/PRODUCT_AND_NAMING.md` | If target project has one |
+| `_stages_and_phases/_workflows/` (narrative references) | `_workflows/` | Workflows are now at root |
 
 **Suggested sed invocation for root-level layout:**
 
@@ -192,11 +192,11 @@ cd /path/to/target/_workflows
 for f in *.md */*.md; do
   sed -i \
     -e 's|\.\./\.\./CLAUDE\.md|../CLAUDE.md|g' \
-    -e 's|\.\./ROADMAP\.md|../_specs_and_plans/ROADMAP.md|g' \
-    -e 's|\.\./_templates/|../_specs_and_plans/_templates/|g' \
-    -e 's|\.\./_backlog/|../_specs_and_plans/_backlog/|g' \
-    -e 's|\.\./PRODUCT_AND_NAMING\.md|../_specs_and_plans/PRODUCT_AND_NAMING.md|g' \
-    -e 's|_specs_and_plans/_workflows/|_workflows/|g' \
+    -e 's|\.\./ROADMAP\.md|../_stages_and_phases/ROADMAP.md|g' \
+    -e 's|\.\./_templates/|../_stages_and_phases/_templates/|g' \
+    -e 's|\.\./_backlog/|../_backlog/|g' \
+    -e 's|\.\./PRODUCT_AND_NAMING\.md|../_stages_and_phases/PRODUCT_AND_NAMING.md|g' \
+    -e 's|_stages_and_phases/_workflows/|_workflows/|g' \
     "$f"
 done
 # NOTE: ../README.md substitution is ambiguous — sometimes references the project root README,
@@ -257,7 +257,7 @@ Do not adapt these — they are the conceptual backbone and should survive intac
 Copy and adapt templates from the source `_templates/`:
 
 ```bash
-cp -r /path/to/source/_specs_and_plans/_templates/. /path/to/target/_specs_and_plans/_templates/
+cp -r /path/to/source/_stages_and_phases/_templates/. /path/to/target/_stages_and_phases/_templates/
 ```
 
 **Current template inventory (7 templates):**
@@ -301,7 +301,7 @@ Skip this step if the target project has no backlog-management needs.
 
 ## 10. Create Specs Index
 
-Create `_specs_and_plans/README.md` with:
+Create `_stages_and_phases/README.md` with:
 
 - Quick navigation table (phases, backlog, workflows, templates, research)
 - The primary-loop summary (New Phase → Planning → Review → Execute → Code Review → Closeout)
@@ -309,7 +309,7 @@ Create `_specs_and_plans/README.md` with:
 - Link to the project-root `CLAUDE.md` as authoritative reference
 - Link to `_workflows/README.md` for the comprehensive workflow guide
 
-Skip if `_specs_and_plans/` won't exist (root-only layout with no specs artifacts).
+Skip if `_stages_and_phases/` won't exist (root-only layout with no specs artifacts).
 
 ---
 
@@ -343,7 +343,7 @@ git add _workflows/
 git commit -m "Adapt migrated workflows: paths, project names, tech stack"
 
 # Commit 3: templates + backlog + specs index (skip if not applicable)
-git add _specs_and_plans/
+git add _stages_and_phases/
 git commit -m "Add specs scaffold: templates, backlog horizons, index"
 
 # Commit 4: CLAUDE.md
@@ -417,6 +417,6 @@ Project details:
 - Dev server: {dev_cmd} (or "N/A")
 - Database: {db} (migrations: yes/no)
 - Primary work mode: {sprint execution | research + analysis | mixed | docs-only}
-- Target layout: {root-level | nested under _specs_and_plans}
+- Target layout: {root-level | nested under _stages_and_phases}
 - Source project: {path to source's _workflows/}
 ```

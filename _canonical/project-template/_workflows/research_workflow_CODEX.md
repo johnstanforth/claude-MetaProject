@@ -8,7 +8,7 @@ Use this when the user asks Codex for extensive deep research, decision-grade in
 
 A full deep-research run is a corpus, not a summary.
 
-The reference standard is `_REFERENCE/_EXTERNAL/kingstrat-adventuregps/_specs_and_plans/_research/entity_model_and_graph_db/`: 47 individual analysis files, a static `RESEARCH_PLAN.md`, a live `README.md` manifest, a `SYNTHESIS_BRIEF.md` handoff, and a decision-grade `synthesis.md`. The point is not to copy that subject matter. The point is to copy the rigor, corpus scale, track specificity, source discipline, capstone analysis, and hard synthesis gate.
+The reference standard is `_REFERENCE/_EXTERNAL/kingstrat-adventuregps/_research/entity_model_and_graph_db/`: 47 individual analysis files, a static `RESEARCH_PLAN.md`, a live `README.md` manifest, a `SYNTHESIS_BRIEF.md` handoff, and a decision-grade `synthesis.md`. The point is not to copy that subject matter. The point is to copy the rigor, corpus scale, track specificity, source discipline, capstone analysis, and hard synthesis gate.
 
 The FracRealHomes `next_gen_zillow_estimate` run is now the Codex validation exemplar for this workflow. It produced 73 analysis files, 27,232 lines across the 73 analyses plus research README and plan, explicit subagent manifests, supplemental spot-check tracks after user review, a gated Phase C synthesis prompt, a context-blocked one-shot synthesis attempt, seven accepted packetized synthesis reader packets, and a 960-line refreshed final `synthesis.md`. Future Codex runs should treat that result as evidence that Codex can match the Claude-style corpus standard when the workflow is followed rigorously.
 
@@ -68,7 +68,7 @@ Clean-context synthesis is useful but not a magic 1M-token guarantee. A spawned 
 Create research output under:
 
 ```text
-_specs_and_plans/_research/{topic_slug}/
+_research/{topic_slug}/
 ```
 
 Use lowercase kebab or snake style for `{topic_slug}` based on local convention. Prefer descriptive slugs over abbreviations.
@@ -76,7 +76,7 @@ Use lowercase kebab or snake style for `{topic_slug}` based on local convention.
 Recommended structure:
 
 ```text
-_specs_and_plans/_research/{topic_slug}/
+_research/{topic_slug}/
   README.md
   RESEARCH_PLAN.md
   analysis-01--problem-framing.md
@@ -120,7 +120,7 @@ Record the grounding set in `README.md` or `RESEARCH_PLAN.md`:
 - `CLAUDE.md`
 - `_workflows/workflow_research.md`
 - `_workflows/EFFICIENCY_RULES.md`
-- `_specs_and_plans/...`
+- `_stages_and_phases/...`
 ```
 
 Also record any explicitly relevant files that were not read and why. This prevents accidental overclaiming.
@@ -261,8 +261,8 @@ Before spawning a subagent, the parent must create the local-file list from the 
 Use exact-path discovery:
 
 ```bash
-find _specs_and_plans/_research/{topic_slug} -maxdepth 1 -type f -name 'analysis-[0-9][0-9]--*.md' | sort
-rg --files _specs_and_plans/_research/{topic_slug} README.md CLAUDE.md _workflows | sort
+find _research/{topic_slug} -maxdepth 1 -type f -name 'analysis-[0-9][0-9]--*.md' | sort
+rg --files _research/{topic_slug} README.md CLAUDE.md _workflows | sort
 ```
 
 For each `Read first` path in the prompt, run a preflight check:
@@ -271,9 +271,9 @@ For each `Read first` path in the prompt, run a preflight check:
 for f in \
   README.md \
   CLAUDE.md \
-  _specs_and_plans/_research/{topic_slug}/README.md \
-  _specs_and_plans/_research/{topic_slug}/RESEARCH_PLAN.md \
-  _specs_and_plans/_research/{topic_slug}/analysis-NN--exact-slug.md
+  _research/{topic_slug}/README.md \
+  _research/{topic_slug}/RESEARCH_PLAN.md \
+  _research/{topic_slug}/analysis-NN--exact-slug.md
 do
   test -f "$f" || echo "MISSING: $f"
 done
@@ -366,7 +366,7 @@ Parent acceptance commands should look like:
 wc -l /tmp/{project-slug}-{NN}.md
 rg -n "^(#|##)|https?://|TODO|TBD|FIXME|truncated|Sources|PREREQUISITE_PATH_MISMATCH|requested local filenames|closest matching|not present on disk|not present in the research directory" /tmp/{project-slug}-{NN}.md
 LC_ALL=C grep -nP '[^\x00-\x7F]' /tmp/{project-slug}-{NN}.md
-mv /tmp/{project-slug}-{NN}.md _specs_and_plans/_research/{topic_slug}/analysis-NN--slug.md
+mv /tmp/{project-slug}-{NN}.md _research/{topic_slug}/analysis-NN--slug.md
 ```
 
 If the acceptance scan finds a prerequisite mismatch note, classify it before accepting:
@@ -537,8 +537,8 @@ For direct clean-context synthesis, the launch prompt must also include:
 Measure corpus size before writing the prompt:
 
 ```bash
-wc -l -w -c _specs_and_plans/_research/{topic_slug}/analysis-[0-9][0-9]--*.md _specs_and_plans/_research/{topic_slug}/README.md _specs_and_plans/_research/{topic_slug}/RESEARCH_PLAN.md
-du -ch _specs_and_plans/_research/{topic_slug}/analysis-[0-9][0-9]--*.md _specs_and_plans/_research/{topic_slug}/README.md _specs_and_plans/_research/{topic_slug}/RESEARCH_PLAN.md | tail -1
+wc -l -w -c _research/{topic_slug}/analysis-[0-9][0-9]--*.md _research/{topic_slug}/README.md _research/{topic_slug}/RESEARCH_PLAN.md
+du -ch _research/{topic_slug}/analysis-[0-9][0-9]--*.md _research/{topic_slug}/README.md _research/{topic_slug}/RESEARCH_PLAN.md | tail -1
 ```
 
 ## Phase 10: Synthesis
@@ -621,8 +621,8 @@ Packet creation procedure:
 3. Preflight the corpus from disk, not memory:
 
 ```bash
-find _specs_and_plans/_research/{topic_slug} -maxdepth 1 -type f -name 'analysis-[0-9][0-9]--*.md' | sort
-wc -l _specs_and_plans/_research/{topic_slug}/analysis-[0-9][0-9]--*.md _specs_and_plans/_research/{topic_slug}/README.md _specs_and_plans/_research/{topic_slug}/RESEARCH_PLAN.md
+find _research/{topic_slug} -maxdepth 1 -type f -name 'analysis-[0-9][0-9]--*.md' | sort
+wc -l _research/{topic_slug}/analysis-[0-9][0-9]--*.md _research/{topic_slug}/README.md _research/{topic_slug}/RESEARCH_PLAN.md
 ```
 
 4. Split packets by semantic cluster and rough line count using the sizing guidance above.
@@ -667,7 +667,7 @@ LC_ALL=C grep -nP '[^\x00-\x7F]' /tmp/{project-slug}-phasec-packet-NN.md
 ```
 
 11. Run a consolidated coverage check after all packets return. Verify that every expected `analysis-NN--*.md` file and required context file appears in at least one accepted packet.
-12. Move accepted packets into `_specs_and_plans/_research/{topic_slug}/phase_c_packets/` with stable names such as `packet-01--product-and-baseline.md`.
+12. Move accepted packets into `_research/{topic_slug}/phase_c_packets/` with stable names such as `packet-01--product-and-baseline.md`.
 13. Write `PHASE_C_PACKET_SYNTHESIS_SUBAGENT_PROMPT.md`. It should explain why packetization was used, name every packet file, name selected high-priority original analyses for direct rereading, preserve the original desired synthesis structure and mandatory concepts, require a packet no-skim read, and specify a packet-synthesis blocked note such as `/tmp/{project-slug}_phase_c_packet_synthesis_context_blocked.md`.
 14. Commit the accepted packets, packet-synthesis prompt, and manifest update as a checkpoint before launching the final packet synthesizer. This makes the synthesis resumable if the final synthesizer fails.
 15. Launch one final synthesizer with `fork_context: false`. It should read the packet-synthesis prompt from disk, write only `synthesis.md`, not spawn subagents, and stop with the packet blocked note if it cannot complete the packet no-skim read.
@@ -700,14 +700,14 @@ Procedure:
 15. Run stale-language checks tailored to the old corpus state. Search for old track ranges, packet counts, and pending-refresh language:
 
 ```bash
-rg -n "01-68|six accepted|six Phase C|Complete for tracks 01-68|require a synthesis addendum|require.*refreshed synthesis|post-synthesis supplemental tracks .* require|PHASE_B_SUPPLEMENT_COMPLETE_POST_SYNTHESIS" _specs_and_plans/_research/{topic_slug}
+rg -n "01-68|six accepted|six Phase C|Complete for tracks 01-68|require a synthesis addendum|require.*refreshed synthesis|post-synthesis supplemental tracks .* require|PHASE_B_SUPPLEMENT_COMPLETE_POST_SYNTHESIS" _research/{topic_slug}
 ```
 
 16. Run normal verification:
 
 ```bash
-wc -l _specs_and_plans/_research/{topic_slug}/analysis-[0-9][0-9]--*.md _specs_and_plans/_research/{topic_slug}/README.md _specs_and_plans/_research/{topic_slug}/RESEARCH_PLAN.md | tail -1
-wc -l _specs_and_plans/_research/{topic_slug}/phase_c_packets/packet-*.md _specs_and_plans/_research/{topic_slug}/synthesis.md | tail -1
+wc -l _research/{topic_slug}/analysis-[0-9][0-9]--*.md _research/{topic_slug}/README.md _research/{topic_slug}/RESEARCH_PLAN.md | tail -1
+wc -l _research/{topic_slug}/phase_c_packets/packet-*.md _research/{topic_slug}/synthesis.md | tail -1
 git diff --check
 git status --short
 ```
@@ -739,10 +739,10 @@ Before final response:
 Suggested checks:
 
 ```bash
-rg --files _specs_and_plans/_research/{topic_slug}
-rg -n "TODO|TBD|Pending|In-flight|truncated|bibliography omitted|CONTEXT_LIMIT_BLOCKED" _specs_and_plans/_research/{topic_slug}
-wc -l _specs_and_plans/_research/{topic_slug}/*.md
-find _specs_and_plans/_research/{topic_slug} -maxdepth 1 -type f -name 'analysis-[0-9][0-9]--*.md' | wc -l
+rg --files _research/{topic_slug}
+rg -n "TODO|TBD|Pending|In-flight|truncated|bibliography omitted|CONTEXT_LIMIT_BLOCKED" _research/{topic_slug}
+wc -l _research/{topic_slug}/*.md
+find _research/{topic_slug} -maxdepth 1 -type f -name 'analysis-[0-9][0-9]--*.md' | wc -l
 git status --short
 ```
 

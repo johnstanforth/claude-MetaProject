@@ -13,7 +13,7 @@ Changes to workflows are logged here so that other projects adapting these workf
 | Date | Workflow | Change | Why |
 |------|----------|--------|-----|
 | 2026-06-09 | `EFFICIENCY_RULES_COLLAB.md` (CE3) | **Hardened CE3 with a 90-second absolute floor for status checks.** Never send a status check, confirmation re-prompt, or "are you done/stuck?" within 90 seconds of any handoff — for ANY task type, including peer-review requests, edit batches, and validation runs. Added peer-review-of-deliverables to the calibration guide (2-3 min/file) and a second documented failure example. | During Phase 01 Sprint 02 planning, codex-1 (LEAD) sent a status check ~36s after requesting a two-file peer review, before claude-2 had finished reading; codex-1 admitted "I checked too soon." The existing CE3 calibration didn't explicitly cover review requests and had no absolute floor, so a concrete 90-second minimum was added. |
-| 2026-04-24 | `workflow_bootstrap_project.md` | **Full refresh for current workflow inventory and root-level layout option.** (1) Replaced the stale 10-file list with the current 37-file inventory (22 active top-level + 8 subdirectory files in `aixocode-collab/` and `ensemble-collab/` + README + 8 deprecated redirects). (2) Added a "Decide target layout" step documenting two first-class placements: root-level `_workflows/` (new default for research/analysis repos) and nested `_specs_and_plans/_workflows/` (legacy, matches `aixodev-web`). (3) Added layout-aware relative-path substitution tables with ready-to-run `sed` recipes for the root-level case. (4) Added condition-driven structural changes for research-only and docs-only projects. (5) Split the bootstrap into 4 reviewable commits (verbatim copy → mechanical substitutions → specs scaffold → CLAUDE.md) instead of a single monolithic commit. (6) Updated the Gather Project Context table to include package manager / lint / type-check / primary-work-mode fields | The original bootstrap workflow (last meaningfully updated 2026-03-14) had drifted badly: it listed 10 files when there were 37, referenced deprecated file names as primary items, omitted the entire post-split sprint pipeline (`start_new_sprint` / `sprint_planning_*` / `execute_sprint_dev_plan` / `sprint_closeout`), the collab-group trio, the roadmap-rescheduling pair, `workflow_code_audit.md`, and both subdirectories. The bootstrap process caught this when the real file count came in at ~4x the documented one. Ship a refreshed version so the next downstream bootstrap starts from accurate material |
+| 2026-04-24 | `workflow_bootstrap_project.md` | **Full refresh for current workflow inventory and root-level layout option.** (1) Replaced the stale 10-file list with the current 37-file inventory (22 active top-level + 8 subdirectory files in `aixocode-collab/` and `ensemble-collab/` + README + 8 deprecated redirects). (2) Added a "Decide target layout" step documenting two first-class placements: root-level `_workflows/` (new default for research/analysis repos) and nested `_stages_and_phases/_workflows/` (legacy, matches `aixodev-web`). (3) Added layout-aware relative-path substitution tables with ready-to-run `sed` recipes for the root-level case. (4) Added condition-driven structural changes for research-only and docs-only projects. (5) Split the bootstrap into 4 reviewable commits (verbatim copy → mechanical substitutions → specs scaffold → CLAUDE.md) instead of a single monolithic commit. (6) Updated the Gather Project Context table to include package manager / lint / type-check / primary-work-mode fields | The original bootstrap workflow (last meaningfully updated 2026-03-14) had drifted badly: it listed 10 files when there were 37, referenced deprecated file names as primary items, omitted the entire post-split sprint pipeline (`start_new_sprint` / `sprint_planning_*` / `execute_sprint_dev_plan` / `sprint_closeout`), the collab-group trio, the roadmap-rescheduling pair, `workflow_code_audit.md`, and both subdirectories. The bootstrap process caught this when the real file count came in at ~4x the documented one. Ship a refreshed version so the next downstream bootstrap starts from accurate material |
 | 2026-04-18 | `workflow_research.md` | **Synthesis no-skim rule (HARD) + Entity-inventory preflight check (HARD).** Phase C synthesis agent MUST read every analysis document top-to-bottom (no "I have enough to understand the basic idea" shortcuts) AND must enumerate every first-class entity the project has — consulting any authoritative entity-reference docs plus any new entities the research has proposed — and verify the synthesis scaffold keeps each entity that should remain first-class rather than implicitly replacing the whole inventory. The preflight checklist is produced as a Q1-style question during the Phase B → C gate review, forcing explicit inclusion/exclusion decisions per entity | Prior failure modes: (1) earlier Claude sessions produced lossy synthesis by skimming — defeats depth-first research; work is now being evaluated across multiple AI platforms so max effort is required. (2) Research that correctly pivots to a new strategic frame can over-extend by inferring "therefore drop the existing entity set" — silently removing entities the product still needs. Caught in the `product_development_strategy` research where Stage-2 subagents correctly pivoted to an FDSE/Foundry scaffold but over-extended by implying Projects/Workspaces/Repos should no longer be first-class. Entity-inventory preflight forces this to be decided explicitly with user approval, not inferred |
 | 2026-04-17 | `workflow_research.md` | **Phase B → Phase C HARD GATE: main agent STOPS after every subagent track is complete/committed and waits for explicit user approval before starting synthesis.** Rationale: synthesis errors propagate — a misframed synthesis leads to misframed Phase D artifacts, which is expensive to unwind. The gate gives the user the opportunity to spot-check analysis quality, refine synthesis scope, and catch thin/off-scope tracks before they get canonized | Added by the user on 2026-04-17 mid-way through the product-development-strategy research project after observing that Phase B was running well but that committing immediately to a particular synthesis framing without review was risky given that the synthesis shapes every Phase D artifact downstream |
 | 2026-04-17 | `workflow_research.md` | **Short-path Write pattern (subagent writes to `/tmp/{project-slug}-{NN}.md`, parent `mv`s to target)** replaces the long-repo-absolute-path-as-primary pattern. Parent agent: on subagent completion, check `/tmp/{project-slug}-{NN}.md`; if present, `mv` to the full target path (~50-token metadata-only operation); if absent, fall back to the response-text extraction path (existing rule). Response-text fallback still mandated as Plan B but is no longer the expected Plan A | 13-of-13 subagents in the product-development-strategy research (Tracks 01-13) hit a Write-tool block on the full 184-char repo-absolute path and had to fall back to response-text. Each fallback forced the parent agent to pipe a ~4K-10K-word analysis through its own context window to persist it — a ~50K-200K token tax per track that dominated research cost. Short paths (15-20 chars, under `/tmp/`) were never blocked in testing; this reduces the per-track persistence cost to ~50 tokens |
@@ -161,7 +161,7 @@ Every meaningful chunk of work on this project follows this loop. A single itera
 | **Workflow file** | [`workflow_new_phase.md`](workflow_new_phase.md) |
 | **When** | Starting a new thematic body of work (not every sprint -- only when the theme changes) |
 | **What happens** | Review backlog horizons and previous phase retrospective. Create phase directory with `README.md` and `DECISIONS.md` from templates. Phase 01 Sprint 01 begins immediately. |
-| **Output** | `_specs_and_plans/phase_{NN}--{slug}/README.md`, `DECISIONS.md` |
+| **Output** | `_stages_and_phases/phase_{NN}--{slug}/README.md`, `DECISIONS.md` |
 
 ### Step 2: Sprint Planning
 
@@ -278,7 +278,7 @@ These workflows are not part of the primary loop but support it at specific mome
 | **Workflow file** | [`workflow_research.md`](workflow_research.md) |
 | **When** | Before a new phase begins, when evaluating technology choices, when a question requires deep investigation |
 | **What happens** | Opus subagents (never Sonnet -- documented factual errors) investigate specific questions in parallel. Each produces a report. A synthesis document distills findings into actionable recommendations. No source code is edited during research. |
-| **Output** | Individual reports + synthesis doc in `_specs_and_plans/_research/{topic_slug}/` |
+| **Output** | Individual reports + synthesis doc in `_research/{topic_slug}/` |
 | **Branch** | `claudecode/research/@claude/{slug}` (optional) |
 
 ### Ideation
@@ -305,8 +305,8 @@ These workflows are not part of the primary loop but support it at specific mome
 |--------|-------|
 | **Workflow file** | [`workflow_bootstrap_project.md`](workflow_bootstrap_project.md) |
 | **When** | Starting a new project that should use this workflow system |
-| **What happens** | Creates a customized copy (not a fork or symlink) of the `_specs_and_plans/` directory in the target project. Adapts workflow files to the target project's tech stack, conventions, and naming. Each project owns its workflow docs independently and can evolve them. |
-| **Output** | A complete `_specs_and_plans/` directory in the target project |
+| **What happens** | Creates a customized copy (not a fork or symlink) of the `_stages_and_phases/` directory in the target project. Adapts workflow files to the target project's tech stack, conventions, and naming. Each project owns its workflow docs independently and can evolve them. |
+| **Output** | A complete `_stages_and_phases/` directory in the target project |
 
 ---
 
@@ -477,7 +477,7 @@ sp_{NN}--{slug}.md             # Sprint spec (what and why)
 xp_{NN}--{slug}.md             # Execution plan (how -- self-contained)
 ```
 
-Sprint docs live in the phase directory: `_specs_and_plans/phase_{NN}--{slug}/`.
+Sprint docs live in the phase directory: `_stages_and_phases/phase_{NN}--{slug}/`.
 
 ---
 
@@ -495,9 +495,9 @@ This workflows README is one node in a network of project documentation. Here is
 
 ### ROADMAP.md
 
-[`../_specs_and_plans/ROADMAP.md`](../_specs_and_plans/ROADMAP.md) is the authoritative reference for project status, phase history, and forward plans. It is updated on every sprint closeout and roadmap rescheduling session. The workflows in this directory produce the changes that ROADMAP.md documents.
+[`../_stages_and_phases/ROADMAP.md`](../_stages_and_phases/ROADMAP.md) is the authoritative reference for project status, phase history, and forward plans. It is updated on every sprint closeout and roadmap rescheduling session. The workflows in this directory produce the changes that ROADMAP.md documents.
 
-### _specs_and_plans/README.md
+### _stages_and_phases/README.md
 
 [`../README.md`](../README.md) is the index page for the entire specs-and-plans directory. It provides quick navigation to phases, backlog, research, templates, and workflows. The workflows section in that README should link here for the comprehensive guide.
 
@@ -525,7 +525,7 @@ Sprint specs (`sp_`) and execution plans (`xp_`) live in their phase directory. 
 
 ### Backlog Horizons
 
-[`../_specs_and_plans/_backlog/`](../_specs_and_plans/_backlog/) contains the prioritized backlog files: `_horizon_NEXT.md`, `_horizon_LATER.md`, `_horizon_SOMEDAY.md`, and `UNSORTED_QUEUE.md`. These are read during sprint planning and updated during sprint closeout and roadmap rescheduling.
+[`../_backlog/`](../_backlog/) contains the prioritized backlog files: `_horizon_NEXT.md`, `_horizon_LATER.md`, `_horizon_SOMEDAY.md`, and `UNSORTED_QUEUE.md`. These are read during sprint planning and updated during sprint closeout and roadmap rescheduling.
 
 ---
 

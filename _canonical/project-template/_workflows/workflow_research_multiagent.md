@@ -81,7 +81,7 @@ Parity costs more (the agents duplicate effort by design) — that *is* the pric
 
 ### 1. Scope + dispatch (Claude)
 
-Per `workflow_research.md` Phase A: read the relevant source material (the research questions, any reference projects under `_REFERENCE/_EXTERNAL/`, prior research in `_specs_and_plans/_research/`, and `CLAUDE.md`) and settle the **research questions once** — in parity mode they are SHARED by both agents. Then emit the dispatch artifacts:
+Per `workflow_research.md` Phase A: read the relevant source material (the research questions, any reference projects under `_REFERENCE/_EXTERNAL/`, prior research in `_research/`, and `CLAUDE.md`) and settle the **research questions once** — in parity mode they are SHARED by both agents. Then emit the dispatch artifacts:
 
 - (a) the **Claude depth-track index** + `README.md` dispatch manifest (**state the MODE — parity or complementary**) + `RESEARCH_PLAN.md`. Commit before launching any subagent (the resumable checkpoint).
 - (b) the **Codex prompt(s)** built from the **same** research questions (parity mode), framed to play to Codex's wide-net style and carrying the project context (see `PROJECT_IDENTITY.md`) so Codex designs *for that envelope*, not for enterprise specs. Tell Codex its output **will be compared head-to-head against an independent agent's** and to work **blind** (do not read the other agent's files). Claude launches this via the codex skill in Step 2 — no manual hand-off. *(Complementary mode is the ONLY case where (a) and (b) cover different topics by strength — and the manifest must say the comparison is being skipped.)*

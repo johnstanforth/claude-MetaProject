@@ -16,6 +16,8 @@ venv/
 # Environment / secrets (OAuth client secrets, API tokens, .env)
 .env
 .env.*
+!.env.example
+!.env.staging.example
 *.local
 instance/
 secrets/
@@ -42,11 +44,23 @@ htmlcov/
 .idea/
 .vscode/
 
+# Claude Code — ignore user-local config, but commit project-level settings + hooks
+.claude/*
+!.claude/settings.json
+!.claude/hooks/
+
 # Developer resources (@jstanforth) — symlinked reference projects, never committed
 _claude
-_REFERENCE/_assets
+_REFERENCE/_assets/*
+!_REFERENCE/_assets/_screenshots/
+_REFERENCE/_assets/_screenshots/*
+!_REFERENCE/_assets/_screenshots/.gitkeep
 _REFERENCE/_EXTERNAL
-_assets
+/_assets
+
+# Dev server + file-sync snapshots
+.dev-server.pid
+.bsync-*
 
 # Logs
 logs/

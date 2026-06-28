@@ -6,7 +6,7 @@
 
 | Item | Value |
 |------|-------|
-| Research directory | `_specs_and_plans/_research/{topic_slug}/` |
+| Research directory | `_research/{topic_slug}/` |
 | Research branch | `claudecode/research/@claude/{slug}` (optional) |
 | Output format | Individual reports + synthesis document |
 | Critical Rule | DO NOT edit source code during research sprints |
@@ -60,7 +60,7 @@ Write down the specific questions you need answered. Vague research produces vag
 ### Step 2: Create Research Directory
 
 ```bash
-mkdir -p _specs_and_plans/_research/{topic_slug}/
+mkdir -p _research/{topic_slug}/
 ```
 
 The topic slug should be descriptive:
@@ -71,7 +71,7 @@ The topic slug should be descriptive:
 
 ### Step 3: Create Research README
 
-Create `_specs_and_plans/_research/{topic_slug}/README.md`. For multi-agent research, this README doubles as the **dispatch manifest** (see Step 5 below) — the live source of truth for which tracks are in flight, complete, or pending.
+Create `_research/{topic_slug}/README.md`. For multi-agent research, this README doubles as the **dispatch manifest** (see Step 5 below) — the live source of truth for which tracks are in flight, complete, or pending.
 
 ```markdown
 # Research: {Title}
@@ -416,7 +416,7 @@ The gate is: main agent posts a "Phase B complete, N/N tracks committed, ready f
 ### Step 7: Commit Research Artifacts
 
 ```bash
-git add _specs_and_plans/_research/{topic_slug}/
+git add _research/{topic_slug}/
 git commit -m "P{NN}-S{NN}-T{NN} Research: {brief description}"
 ```
 
@@ -460,7 +460,7 @@ Update the README status field when the lifecycle changes.
 
 Phase 5 Sprint 01 used 4 parallel Opus subagents to produce ~6,900 lines of analysis across 4 research tracks. The Opus main agent then synthesized findings into a comprehensive entity model specification. This is the canonical example of multi-agent research orchestration.
 
-Files: `_specs_and_plans/_research/phase05_entity_review/`
+Files: `_research/phase05_entity_review/`
 
 ---
 

@@ -34,14 +34,14 @@ This is the solo roadmap rescheduling workflow for this project. The main Claude
 Read all context files before analysis:
 
 1. `CLAUDE.md` -- current project state, tech stack, architecture
-2. `_specs_and_plans/ROADMAP.md` -- forward plan
+2. `_stages_and_phases/ROADMAP.md` -- forward plan
 3. Current phase README -- sprint history and status
 4. Most recent sprint `sp_` doc -- follow-ups and outcomes
 5. All four backlog files:
-   - `_specs_and_plans/_backlog/_UNSORTED_QUEUE.md`
-   - `_specs_and_plans/_backlog/_horizon_NEXT.md`
-   - `_specs_and_plans/_backlog/_horizon_LATER.md`
-   - `_specs_and_plans/_backlog/_horizon_SOMEDAY.md`
+   - `_backlog/_UNSORTED_QUEUE.md`
+   - `_backlog/_horizon_NEXT.md`
+   - `_backlog/_horizon_LATER.md`
+   - `_backlog/_horizon_SOMEDAY.md`
 
 Report to the user: "UNSORTED_QUEUE has N items. NEXT has N items. LATER has N items. SOMEDAY has N items. Here's what I found..."
 
@@ -131,7 +131,7 @@ After the user approves all changes:
 ### Step 9: Commit Atomically
 
 ```bash
-git add _specs_and_plans/_backlog/ _specs_and_plans/ROADMAP.md
+git add _backlog/ _stages_and_phases/ROADMAP.md
 git commit -m "Roadmap rescheduling (solo): {N} items sorted, {N} archived, ROADMAP updated"
 ```
 

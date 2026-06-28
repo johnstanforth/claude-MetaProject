@@ -373,18 +373,18 @@ grep -rn "{source_short_name}\|{source_full_name}" {target_dir}/_workflows/
 ## 8. Create Specs and Plans Scaffold
 
 ```bash
-mkdir -p {target_dir}/_specs_and_plans/_backlog
-mkdir -p {target_dir}/_specs_and_plans/_research
+mkdir -p {target_dir}/_backlog
+mkdir -p {target_dir}/_research
 ```
 
 ### 8a. Backlog Horizon Files
 
 Create four files with headers:
 
-- `_specs_and_plans/_backlog/_horizon_NEXT.md`
-- `_specs_and_plans/_backlog/_horizon_LATER.md`
-- `_specs_and_plans/_backlog/_horizon_SOMEDAY.md`
-- `_specs_and_plans/_backlog/_UNSORTED_QUEUE.md`
+- `_backlog/_horizon_NEXT.md`
+- `_backlog/_horizon_LATER.md`
+- `_backlog/_horizon_SOMEDAY.md`
+- `_backlog/_UNSORTED_QUEUE.md`
 
 Use the same header format as the current project's horizon files.
 
@@ -398,11 +398,11 @@ Adapt project-name references in templates. The structural patterns (SPRINT_TEMP
 
 ### 8c. Specs Index
 
-Create `_specs_and_plans/README.md` with navigation table, primary-loop summary, and git conventions — adapted for the new project.
+Create `_stages_and_phases/README.md` with navigation table, primary-loop summary, and git conventions — adapted for the new project.
 
 ### 8d. ROADMAP.md
 
-Create `_specs_and_plans/ROADMAP.md` with:
+Create `_stages_and_phases/ROADMAP.md` with:
 
 - Project name and one-line description
 - Current status (Phase 0 or 1)
@@ -448,7 +448,7 @@ git add _workflows/
 git commit -m "Adapt migrated workflows: paths, project names, tech stack"
 
 # Commit 5: Specs scaffold (backlog, templates, index, roadmap)
-git add _specs_and_plans/
+git add _stages_and_phases/
 git commit -m "Add specs scaffold: backlog horizons, templates, index, roadmap"
 ```
 
@@ -485,7 +485,7 @@ If either fails, fix the issue before proceeding. The skeleton must be in a gree
 - [ ] `_workflows/README.md` references the correct project name
 - [ ] `grep -rn "{source_short_name}" {target_dir}/` returns only intentional references
 - [ ] Backlog horizons exist (if applicable)
-- [ ] `_specs_and_plans/ROADMAP.md` exists with correct project name
+- [ ] `_stages_and_phases/ROADMAP.md` exists with correct project name
 - [ ] `git log --oneline` shows a clean 5-commit sequence
 - [ ] Working tree is clean
 

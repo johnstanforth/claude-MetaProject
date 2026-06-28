@@ -101,7 +101,7 @@ git commit -m "P05-FIX-01 Handle None milestone in issue list endpoint"
 
 If the fix reveals a recurring pattern or architectural issue, add it to one of:
 - The current sprint's follow-up section (if a sprint is in progress)
-- The backlog (`_specs_and_plans/_backlog/_horizon_NEXT.md`)
+- The backlog (`_backlog/_horizon_NEXT.md`)
 - CLAUDE.md's Known Issues section (if it is a gotcha others will hit)
 
 ---

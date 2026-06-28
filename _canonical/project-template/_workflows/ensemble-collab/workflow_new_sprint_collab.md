@@ -17,8 +17,8 @@ Before preparing the prompt, gather:
 - **Phase and sprint numbers:** What phase are we in? What sprint number is this?
 - **Previous sprint outcome:** Read the previous sprint's `sp_` file for post-sprint notes and follow-ups
 - **Phase goals:** Read the phase README for what this phase is trying to accomplish
-- **Backlog state:** Read `_specs_and_plans/_backlog/_horizon_NEXT.md` for items ready for implementation
-- **Roadmap state:** Read `_specs_and_plans/ROADMAP.md` for phase health and planned phases
+- **Backlog state:** Read `_backlog/_horizon_NEXT.md` for items ready for implementation
+- **Roadmap state:** Read `_stages_and_phases/ROADMAP.md` for phase health and planned phases
 
 ### 2. Gather Requirements and Context for the User
 
@@ -69,8 +69,8 @@ Write the filled prompt to `/tmp/collab-sprint-planning.txt`.
 - [ ] `_workflows/workflow_collab_group_agent_guidelines.md`
 - [ ] Phase README
 - [ ] Previous sprint sp file
-- [ ] `_specs_and_plans/_backlog/_horizon_NEXT.md`
-- [ ] `_specs_and_plans/ROADMAP.md`
+- [ ] `_backlog/_horizon_NEXT.md`
+- [ ] `_stages_and_phases/ROADMAP.md`
 - [ ] Format reference xp file
 - [ ] All source files listed in the prompt
 
@@ -187,7 +187,7 @@ After the user has reviewed the sp_ and xp_ files and confirmed they are ready:
 
 ```bash
 # Update status in the sp_ file (the main agent edits the Status field)
-git add _specs_and_plans/phase_{NN}--{slug}/sp_{NN}--{slug}.md
+git add _stages_and_phases/phase_{NN}--{slug}/sp_{NN}--{slug}.md
 git commit -m "P{NN}-S{NN}-T00 Approve Sprint {NN} for execution"
 ```
 

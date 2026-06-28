@@ -87,8 +87,8 @@ With context already gathered during `workflow_start_new_sprint`, discuss scope 
 
 Read (if not already in context):
 
-- **Backlog NEXT horizon** (`_specs_and_plans/_backlog/_horizon_NEXT.md`) -- items ready for implementation
-- **Backlog UNSORTED_QUEUE** (`_specs_and_plans/_backlog/_UNSORTED_QUEUE.md`) -- recently triaged items
+- **Backlog NEXT horizon** (`_backlog/_horizon_NEXT.md`) -- items ready for implementation
+- **Backlog UNSORTED_QUEUE** (`_backlog/_UNSORTED_QUEUE.md`) -- recently triaged items
 - **Previous sprint's `sp_` doc** -- post-sprint notes, follow-up items, lessons learned
 - **Phase README** -- phase goals, sprint history, remaining work
 - **Phase DECISIONS.md** -- any ADRs that constrain upcoming work
@@ -119,7 +119,7 @@ This check takes 2-3 minutes and ensures the project's compound rate doesn't sta
 
 ## Step 2: Write Sprint Spec (`sp_{NN}--{slug}.md`)
 
-Create the sprint spec in the phase directory: `_specs_and_plans/phase_{NN}--{phase_slug}/sp_{NN}--{sprint_slug}.md`
+Create the sprint spec in the phase directory: `_stages_and_phases/phase_{NN}--{phase_slug}/sp_{NN}--{sprint_slug}.md`
 
 ### Required Sections
 
@@ -177,7 +177,7 @@ Create the sprint spec in the phase directory: `_specs_and_plans/phase_{NN}--{ph
 
 ## Step 3: Write Execution Plan (`xp_{NN}--{slug}.md`)
 
-Create the execution plan in the same phase directory: `_specs_and_plans/phase_{NN}--{phase_slug}/xp_{NN}--{sprint_slug}.md`
+Create the execution plan in the same phase directory: `_stages_and_phases/phase_{NN}--{phase_slug}/xp_{NN}--{sprint_slug}.md`
 
 The execution plan is the document a fresh agent session reads to execute the sprint autonomously. It must be **self-contained** -- the agent should not need to read any other files to implement the sprint.
 
@@ -324,8 +324,8 @@ If any check fails, fix it before committing.
 ## Step 5: Commit Planning Documents
 
 ```bash
-git add _specs_and_plans/phase_{NN}--{phase_slug}/sp_{NN}--{sprint_slug}.md
-git add _specs_and_plans/phase_{NN}--{phase_slug}/xp_{NN}--{sprint_slug}.md
+git add _stages_and_phases/phase_{NN}--{phase_slug}/sp_{NN}--{sprint_slug}.md
+git add _stages_and_phases/phase_{NN}--{phase_slug}/xp_{NN}--{sprint_slug}.md
 git commit -m "P{NN}-S{NN}-T00 Sprint {NN} planning: {brief description}"
 ```
 
@@ -339,8 +339,8 @@ Tell the user:
 
 > Sprint {NN} planning is complete. Two documents committed:
 >
-> - Sprint spec: `_specs_and_plans/phase_{NN}--{phase_slug}/sp_{NN}--{sprint_slug}.md`
-> - Execution plan: `_specs_and_plans/phase_{NN}--{phase_slug}/xp_{NN}--{sprint_slug}.md`
+> - Sprint spec: `_stages_and_phases/phase_{NN}--{phase_slug}/sp_{NN}--{sprint_slug}.md`
+> - Execution plan: `_stages_and_phases/phase_{NN}--{phase_slug}/xp_{NN}--{sprint_slug}.md`
 >
 > **Next steps:**
 > 1. Review both documents -- are goals correct? Tasks complete? Critical Rules sufficient?
@@ -358,7 +358,7 @@ After the user explicitly approves:
 2. Commit the status change
 
 ```bash
-git add _specs_and_plans/phase_{NN}--{phase_slug}/sp_{NN}--{sprint_slug}.md
+git add _stages_and_phases/phase_{NN}--{phase_slug}/sp_{NN}--{sprint_slug}.md
 git commit -m "P{NN}-S{NN}-T00 Approve Sprint {NN} for execution"
 ```
 

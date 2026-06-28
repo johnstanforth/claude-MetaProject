@@ -166,7 +166,7 @@ Report to the user:
 > Validation: pytest PASS | ruff PASS
 >
 > Review summary saved to:
->   `_specs_and_plans/phase_{NN}--{phase_slug}/REVIEW-SUMMARY--P{NN}-S{NN}.md`
+>   `_stages_and_phases/phase_{NN}--{phase_slug}/REVIEW-SUMMARY--P{NN}-S{NN}.md`
 >
 > Next step:
 >   Run `workflow_sprint_closeout.md` to close out the sprint.

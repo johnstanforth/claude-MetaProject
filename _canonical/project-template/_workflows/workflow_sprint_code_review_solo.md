@@ -66,7 +66,7 @@ Before starting the code review, ALL of the following must be true:
 Check for external review files in the phase directory:
 
 ```bash
-ls _specs_and_plans/phase_{NN}--{slug}/REVIEW--*-P{NN}-S{NN}.md 2>/dev/null
+ls _stages_and_phases/phase_{NN}--{slug}/REVIEW--*-P{NN}-S{NN}.md 2>/dev/null
 ```
 
 Expected naming: `REVIEW--{AgentName}-P{NN}-S{NN}.md` (e.g., `REVIEW--Gemini-P05-S04.md`, `REVIEW--Cursor-P05-S04.md`).
@@ -121,7 +121,7 @@ Track which reviewers agree on the same findings -- consensus findings are highe
 Read all implementation files that were modified during the sprint:
 
 ```bash
-git diff --name-only claudecode/@claude/phase{NN}-sprint{PREV}..HEAD | grep -v "^tests/" | grep -v "^_specs_and_plans/"
+git diff --name-only claudecode/@claude/phase{NN}-sprint{PREV}..HEAD | grep -v "^tests/" | grep -v "^_stages_and_phases/"
 ```
 
 For each file, evaluate:
@@ -230,7 +230,7 @@ If the full suite was passing before the review fixes and now fails, one of the 
 Create a review summary document:
 
 ```
-_specs_and_plans/phase_{NN}--{slug}/REVIEW-SUMMARY--P{NN}-S{NN}.md
+_stages_and_phases/phase_{NN}--{slug}/REVIEW-SUMMARY--P{NN}-S{NN}.md
 ```
 
 ### Required Structure:
@@ -305,7 +305,7 @@ uv run ruff check .        -- {PASS/FAIL}
 ### Commit the Summary
 
 ```bash
-git add _specs_and_plans/phase_{NN}--{slug}/REVIEW-SUMMARY--P{NN}-S{NN}.md
+git add _stages_and_phases/phase_{NN}--{slug}/REVIEW-SUMMARY--P{NN}-S{NN}.md
 git commit -m "P{NN}-S{NN} Code review summary"
 ```
 
@@ -326,7 +326,7 @@ Findings: {N} total
 Validation: pytest {PASS/FAIL} | ruff {PASS/FAIL}
 
 Review summary saved to:
-  _specs_and_plans/phase_{NN}--{slug}/REVIEW-SUMMARY--P{NN}-S{NN}.md
+  _stages_and_phases/phase_{NN}--{slug}/REVIEW-SUMMARY--P{NN}-S{NN}.md
 
 Next step:
   Run workflow_sprint_closeout.md to close out the sprint.

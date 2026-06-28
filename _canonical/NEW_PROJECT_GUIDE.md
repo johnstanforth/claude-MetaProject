@@ -29,14 +29,19 @@ _canonical/project-template/
 ├── .python-version               # 3.12 — change/remove for non-Python stacks
 ├── _workflows/                   # canonical project-agnostic bodies + techstacks/ + _templates/
 │   └── PROJECT_IDENTITY.md        # TEMPLATE — the one file you fully own per repo
-└── _specs_and_plans/
-    ├── README.md  ROADMAP.md     # skeletons
-    ├── _backlog/                 # 4 empty horizon files
-    ├── _research/.gitkeep
-    └── phase_00--ideation_and_research/   # README.md + DECISIONS.md skeletons
+├── _stages_and_phases/           # the scheduled execution plan
+│   ├── README.md  ROADMAP.md     # skeletons
+│   └── phase_00--ideation_and_research/   # README.md + DECISIONS.md skeletons
+├── _backlog/                     # 4 empty horizon files
+├── _research/.gitkeep            # research outputs land here
+├── _status_reports/README.md     # reviews / audits scaffold
+├── _documentation/README.md      # product-docs scaffold
+└── _REFERENCE/                   # reference material (committed + git-ignored)
+    ├── README.md                 # the _REFERENCE convention
+    └── _assets/_screenshots/     # git-ignored scratch (scaffolded empty)
 ```
 
-`_REFERENCE/_EXTERNAL/` is intentionally NOT shipped (it's git-ignored and machine-specific); create it at instantiation if the new project needs reference symlinks.
+`_REFERENCE/` ships only the `README.md` convention doc and the empty git-ignored `_assets/_screenshots/` scaffold. `_REFERENCE/_EXTERNAL/` (the machine-specific reference symlinks) is intentionally NOT shipped — create it at instantiation if the new project needs reference symlinks.
 
 ---
 
@@ -85,7 +90,7 @@ cd "$DEST" && git init
 Because the template is release-clean, there is **no residue to scrub and no git surgery** — this is the whole point.
 
 ### Step 4 — Fill the per-project files
-- **Deterministic substitution** across the instantiated files: replace every `{{PLACEHOLDER}}` with its manifest value, and delete the `<!-- TEMPLATE FILE … -->` header line from each file. Files: `_workflows/PROJECT_IDENTITY.md`, `CLAUDE.md`, `README.md`, `LICENSE.md`, `_specs_and_plans/README.md`, `ROADMAP.md`, `phase_00…/README.md`, `DECISIONS.md`, the four backlog headers.
+- **Deterministic substitution** across the instantiated files: replace every `{{PLACEHOLDER}}` with its manifest value, and delete the `<!-- TEMPLATE FILE … -->` header line from each file. Files: `_workflows/PROJECT_IDENTITY.md`, `CLAUDE.md`, `README.md`, `LICENSE.md`, `_stages_and_phases/README.md`, `_stages_and_phases/ROADMAP.md`, `_stages_and_phases/phase_00…/README.md` + `DECISIONS.md`, the four `_backlog/` headers.
 - **Agent-written prose** for the genuinely bespoke parts marked `<!-- AGENT: … -->`: `CLAUDE.md` Project Overview, `README.md` intro, `PROJECT_IDENTITY.md` Project Context block, `ROADMAP.md` stance, `phase_00` goals, `DECISIONS.md` ADR context/consequences. Write these from the manifest + domain understanding (look at a sibling project's CLAUDE.md for tone). Delete the `AGENT` comments when done.
 - **Verify** no markers remain: `grep -rn '{{' .` and `grep -rn '<!-- AGENT:' .` should both be empty.
 
@@ -96,7 +101,7 @@ Open the active techstack doc (`_workflows/{{ACTIVE_TECHSTACK_DOC}}`) and run it
 Split for reviewability, e.g.:
 ```bash
 git add _workflows .gitignore .python-version && git commit -m "Initialize {{SHORT_NAME}} workflow system from canonical template"
-git add CLAUDE.md README.md LICENSE.md _specs_and_plans && git commit -m "Add {{FULL_PROJECT_NAME}} project docs and Phase {{STARTING_PHASE}} scaffold"
+git add CLAUDE.md README.md LICENSE.md _stages_and_phases _backlog _research _status_reports _documentation _REFERENCE && git commit -m "Add {{FULL_PROJECT_NAME}} project docs and Phase {{STARTING_PHASE}} scaffold"
 # + a skeleton commit if Step 5 ran
 ```
 
@@ -112,14 +117,17 @@ Path, commits, validation result, and the next step (Phase {{STARTING_PHASE}} id
 
 ---
 
-## 5. The standardized layout — v0, PENDING finalization
+## 5. The standardized layout (decided 2026-06 — the GEN2 layout)
 
-This template **defines the standard directory layout** for all future projects, which fixes the drift that exists across the current fleet (e.g. some repos have `_research/` at project root, others at `_specs_and_plans/_research/`). The layout shipped here is **v0** and is **not yet finalized** — John is reviewing it with his team before locking it. Known open questions to resolve *in this template* before any fleet cleanup:
+This template **defines the standard directory layout** for all future projects, which fixes the drift across the fleet (e.g. some repos had `_research/` at project root, others under `_specs_and_plans/`). The previously-open question is now **decided**: the overloaded `_specs_and_plans/` is split into three root-level directories —
 
-- **`_research/` location** — currently `_specs_and_plans/_research/`; John has floated moving it to **project root** (`_research/`). NOT yet decided.
-- Any other directory-placement conventions that differ across existing repos (surface them as you find them).
+- **`_backlog/`** — unscheduled ideas (the four horizon files).
+- **`_research/`** — investigations, analyses, syntheses (at project **root**).
+- **`_stages_and_phases/`** — the scheduled execution plan: `ROADMAP.md` + phases + sprint plans (renamed from `_specs_and_plans/`; the name ties to the GEN2 **Stages → Phases → Sprints** hierarchy).
 
-When a layout decision is finalized, **edit `_canonical/project-template/` to match** — it is the single definition of the standard. Do not scatter the decision across repos.
+…plus three standard scaffolds: **`_status_reports/`** (reviews/audits), **`_documentation/`** (product docs), and **`_REFERENCE/`** (a convention `README.md` + a git-ignored `_assets/_screenshots/`).
+
+This template is the single definition of the standard — when a layout decision changes, **edit `_canonical/project-template/` to match**, never scatter it across repos. To bring an *existing* (drifted) repo up to this standard, follow **`MIGRATE_ADAPT.md`** — the migration playbook that lists the known drift patterns and the merge-don't-clobber gotchas.
 
 ---
 
@@ -138,7 +146,7 @@ The template ships techstack docs for the stacks built so far (Python/Quart, Pyt
 | Generated by deterministic substitution | Written by the agent (domain-aware) |
 |---|---|
 | `PROJECT_IDENTITY.md` identity table + active-stack pointer | `PROJECT_IDENTITY.md` Project Context block |
-| `LICENSE.md`, backlog headers, `_specs_and_plans/README.md` | `CLAUDE.md` Project Overview |
+| `LICENSE.md`, backlog headers, `_stages_and_phases/README.md` | `CLAUDE.md` Project Overview |
 | `ROADMAP.md` tables, `phase_00` structure, `DECISIONS.md` identifiers | `README.md` intro; `ROADMAP` stance; `phase_00` goals; ADR context/consequences |
 
 Rationale: identity is mechanical and must be exact; the overview/intro genuinely vary by domain (a file-transfer service reads differently from a real-estate one) and benefit from the agent actually understanding the project.

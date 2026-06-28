@@ -38,7 +38,7 @@ Clone-adapt has the **inverse risk profile.** Everything — including the thing
 
 ## 3. Prerequisites
 
-- [ ] The new directory contains a complete copy of a source project (verify `CLAUDE.md`, `_workflows/`, `_specs_and_plans/` are present and currently describe the *source* project).
+- [ ] The new directory contains a complete copy of a source project (verify `CLAUDE.md`, `_workflows/`, `_stages_and_phases/` are present and currently describe the *source* project).
 - [ ] You know which source project it was cloned from (needed for the residue grep and to recognize what's stale).
 - [ ] You have the new project's identity ready, or are prepared to gather it in Step 4.
 - [ ] Decide whether the new project keeps the clone's **tech stack** (Step 7 stays a near-no-op) or a **different** one (Step 7 points at a different techstack doc).
@@ -77,7 +77,7 @@ Hits fall into three zones, handled differently below:
 | Zone | Examples | How it's handled |
 |------|----------|------------------|
 | **A. Identity file** | `_workflows/PROJECT_IDENTITY.md` | Step 4 — rewritten for the new project |
-| **B. Content docs** | `CLAUDE.md`, `README.md`, `LICENSE.md`, `_specs_and_plans/ROADMAP.md`, `_specs_and_plans/README.md`, phase dirs, backlog horizons, `DECISIONS.md` | Step 6 — *reset*: the old content is wrong for the new project, not just mis-named |
+| **B. Content docs** | `CLAUDE.md`, `README.md`, `LICENSE.md`, `_stages_and_phases/ROADMAP.md`, `_stages_and_phases/README.md`, phase dirs, backlog horizons, `DECISIONS.md` | Step 6 — *reset*: the old content is wrong for the new project, not just mis-named |
 | **C. Non-text residue** | `_REFERENCE/_EXTERNAL/` symlinks, a carried-over `.git/`, `instance/`/data dirs, `.env`, OAuth secrets, `*.sqlite3` | Steps 8-9 — re-point, re-init, or delete |
 
 **If `_workflows/` bodies still hold scattered identity** (the clone came from an *older, pre-refactor* project), run the legacy substitution pass from `workflow_bootstrap_project.md` § 7 first, then extract the values into `PROJECT_IDENTITY.md`. Going forward, clones of refactored projects skip this entirely.
@@ -93,11 +93,11 @@ These files were copied wholesale and describe the **old project's work**. Renam
 | `CLAUDE.md` | Rewrite the Project Overview, naming table, tech-stack notes, and known-gotchas for the new project. Keep structural sections and house rules (git rules, reasoning rule, doc conventions). Most important single file. |
 | `README.md` (project root) | Rewrite entirely (name, description, quick-start, status). |
 | `LICENSE.md` | Update the entity/copyright line if the owning entity differs. |
-| `_specs_and_plans/ROADMAP.md` | Reset to a fresh roadmap: new name, Phase 00/01, zero sprints, empty history, backlog summary all zeros. |
-| `_specs_and_plans/README.md` | Re-identify the specs index; keep the navigation structure. |
-| `_specs_and_plans/phase_00--*/` (and any `phase_NN`) | Reset Phase 00's `README.md`/`DECISIONS.md` from `_workflows/_templates/`; delete later phase dirs outright. |
-| `_specs_and_plans/_backlog/_horizon_*.md`, `_UNSORTED_QUEUE.md` | Empty them — the clone's items belong to the old domain. Keep the header format, drop the items. |
-| `_specs_and_plans/_research/` | Delete inherited research; keep the empty dir. |
+| `_stages_and_phases/ROADMAP.md` | Reset to a fresh roadmap: new name, Phase 00/01, zero sprints, empty history, backlog summary all zeros. |
+| `_stages_and_phases/README.md` | Re-identify the specs index; keep the navigation structure. |
+| `_stages_and_phases/phase_00--*/` (and any `phase_NN`) | Reset Phase 00's `README.md`/`DECISIONS.md` from `_workflows/_templates/`; delete later phase dirs outright. |
+| `_backlog/_horizon_*.md`, `_UNSORTED_QUEUE.md` | Empty them — the clone's items belong to the old domain. Keep the header format, drop the items. |
+| `_research/` | Delete inherited research; keep the empty dir. |
 | Any `sp_*.md` / `xp_*.md`, `PRODUCT_AND_NAMING.md`, `reference--*.md` | Delete — each project writes its own. |
 
 Rule of thumb: **if the file documents *what the project is or has done*, reset it; if it documents *how we work*, it's already generic — leave it.**

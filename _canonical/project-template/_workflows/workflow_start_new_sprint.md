@@ -73,11 +73,11 @@ If yes, follow `workflow_new_phase.md` first. That workflow creates the phase di
 Read the following, in this order:
 
 1. **`CLAUDE.md`** -- project conventions, architecture, tech stack, current state
-2. **Phase README** (`_specs_and_plans/phase_{NN}--{slug}/README.md`) -- phase goals, sprint table, what is done and what remains
+2. **Phase README** (`_stages_and_phases/phase_{NN}--{slug}/README.md`) -- phase goals, sprint table, what is done and what remains
 3. **Previous sprint's `sp_` doc** -- post-sprint notes, follow-up items, lessons learned, deviations
-4. **Backlog NEXT horizon** (`_specs_and_plans/_backlog/_horizon_NEXT.md`) -- items ready for implementation, tagged for this phase
+4. **Backlog NEXT horizon** (`_backlog/_horizon_NEXT.md`) -- items ready for implementation, tagged for this phase
 5. **Phase DECISIONS.md** -- any ADRs that constrain upcoming work
-6. **UNSORTED_QUEUE** (`_specs_and_plans/_backlog/_UNSORTED_QUEUE.md`) -- recently triaged items that may be relevant
+6. **UNSORTED_QUEUE** (`_backlog/_UNSORTED_QUEUE.md`) -- recently triaged items that may be relevant
 
 ### Key questions to answer before proceeding:
 
@@ -94,7 +94,7 @@ Read the following, in this order:
 Scan the phase directory for the highest existing sprint number:
 
 ```bash
-ls _specs_and_plans/phase_{NN}--{slug}/sp_*.md 2>/dev/null | sort | tail -1
+ls _stages_and_phases/phase_{NN}--{slug}/sp_*.md 2>/dev/null | sort | tail -1
 ```
 
 The new sprint number is the highest existing sprint number + 1, zero-padded to two digits.
