@@ -31,6 +31,7 @@ All five scripts share the same CONFIG-block + design-system-CSS + cover/TOC mac
 | `aixovault_build_research_pdf.py` | aixovault (AIXO.Dev) — Phase 00 API & extraction | **manifest** | 30 (synthesis leads) |
 | `dailyspikedriver_build_research_pdf.py` | FracRealHomes · DailySpikeDriver — Phase 00 landscape survey | **manifest** | 22 (pre-synthesis) |
 | `workgroups-devplan_build_research_pdf.py` | AIXO.Dev Workgroups — DEV_PLAN developer build guide | **H2-split** | 17 (overview + 16 chapters/appendices) |
+| `fuglysnippets_build_research_pdf.py` | MetaProject meta-research — Fugly-Snippets venture-precursor archaeology + GEN3-model question set | **H2-split** | 8 (overview + §1–§7) |
 
 ## Reusing one
 
