@@ -6,9 +6,10 @@ ONE chaptered Markdown doc (ANALYSIS-fugly-snippets.md) -> ONE styled HTML file
 --print-to-pdf. Splits a SINGLE document on its top-level '## ' headings (fence-aware,
 so '#'-comments inside ```code``` are never mistaken for headings) so each section
 (§1..§7 + the preamble Overview) becomes its own page-broken section with a real TOC
-entry. Run with the markdown venv:
+entry. Run with the repo-local markdown venv (create/repair it via ./bootstrap_pdfvenv.sh):
 
-    /tmp/pdfvenv/bin/python <this-script>.py
+    ./bootstrap_pdfvenv.sh                 # once (or after the venv is lost)
+    .venv/bin/python <this-script>.py
 
 See ../../_skills/research-pdf/SKILL.md for the Chrome command and rationale. The CSS
 block below is copied verbatim from the other builders so the PDFs share one design

@@ -34,11 +34,11 @@ That's the entire mechanism. The polish lives in the CSS inside the Stage-1 scri
 ## Prerequisites (one-time)
 
 - **Google Chrome** — expected at `/usr/bin/google-chrome` (verified Chrome 149; `google-chrome-stable` is the same binary). Nothing to install.
-- **The markdown venv** — a tiny throwaway venv at `/tmp/pdfvenv`. If missing (e.g. `/tmp` was cleared), recreate it:
+- **The markdown venv** — a tiny venv with `Markdown` + `pymdown-extensions`. When building from the **MetaProject build hub** it's persisted **repo-local** at `_utilities/research-pdf-builders/.venv` and created/repaired by that dir's idempotent **`bootstrap_pdfvenv.sh`** — run it once, or any time the venv is lost. (It used to live at `/tmp/pdfvenv`, but `/tmp` kept getting cleared between sessions, which silently turns `markdown` into an empty namespace package with no `.Markdown` attribute. The repo-local spot is a deliberate stopgap with a MIGRATION NOTE — relocate it out of the repo once the real platform owns project management.) The underlying recipe, if you ever build the venv by hand at any path:
 
 ```bash
-python3 -m venv /tmp/pdfvenv
-/tmp/pdfvenv/bin/pip install --quiet 'Markdown==3.10.2' 'pymdown-extensions==10.21.3'
+python3 -m venv <venv-dir>            # e.g. _utilities/research-pdf-builders/.venv  (or /tmp/pdfvenv ad-hoc)
+<venv-dir>/bin/pip install --quiet 'Markdown==3.10.2' 'pymdown-extensions==10.21.3'
 ```
 
 - **Mermaid** (diagram rendering) — a vendored `vendor/mermaid.min.js` (mermaid@11, ~3.3 MB) ships **inside this skill**, so ```` ```mermaid ```` diagrams render **offline** with nothing to install. The build script auto-inlines it whenever a doc contains mermaid blocks. (To refresh: `curl -sS -o vendor/mermaid.min.js https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js`.)

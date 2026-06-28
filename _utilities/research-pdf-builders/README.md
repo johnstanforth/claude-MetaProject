@@ -2,12 +2,21 @@
 
 Archived, project-specific **Stage-1 build scripts** for the `research-pdf` skill — kept for future reference and re-runs. Each script turns a set of Markdown research docs into ONE styled, self-contained HTML file (branded cover + auto table-of-contents + per-doc sections); Chrome headless then prints that HTML to the final PDF under `_generated/`. The canonical recipe, the design-system CSS, the venv/Chrome prerequisites, and the maintenance notes all live in [`../../_skills/research-pdf/SKILL.md`](../../_skills/research-pdf/SKILL.md) — these files are the concrete, already-run *instances*, not the source of truth.
 
+## The persistent venv (repo-local) + bootstrap
+
+Stage 1 runs under a tiny **markdown venv**. It now lives **here in the repo** at `_utilities/research-pdf-builders/.venv` (git-ignored via the sibling `.gitignore`), created/repaired by the idempotent **`bootstrap_pdfvenv.sh`** — run it once per machine, or any time the venv is lost:
+
+```bash
+./bootstrap_pdfvenv.sh        # creates/repairs .venv with the pinned deps (Markdown 3.10.2 + pymdown-extensions 10.21.3)
+```
+
+It was moved out of the old `/tmp/pdfvenv` because `/tmp` kept getting cleared between sessions (which silently breaks the `markdown` package). **MIGRATION NOTE:** it's repo-local *only* while MetaProject is the in-flux build hub — when the real AIXO.Dev Platform takes over, relocate it out of the repo and drop `bootstrap_pdfvenv.sh` + the sibling `.gitignore`. (The vendored `mermaid.min.js` already lives safely in the skill dir, so only the venv needs this.)
+
 ## The two-stage pipeline
 
 ```bash
-# Stage 1 — Markdown -> one styled HTML file (needs the throwaway markdown venv at /tmp/pdfvenv;
-#           recreate it per SKILL.md "Prerequisites" if /tmp was cleared):
-/tmp/pdfvenv/bin/python <script>.py            # writes the /tmp/<project>-compendium.html named in its CONFIG
+# Stage 1 — Markdown -> one styled HTML file (uses the repo-local .venv; run bootstrap first if missing):
+.venv/bin/python <script>.py                   # writes the /tmp/<project>-compendium.html named in its CONFIG
 
 # Stage 2 — HTML -> PDF (Chrome's Blink engine renders the CSS, then prints):
 google-chrome --headless --no-sandbox --disable-gpu --virtual-time-budget=15000 \

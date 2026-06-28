@@ -1,0 +1,5 @@
+# Repo-local markdown venv for the research-pdf builders (created by bootstrap_pdfvenv.sh).
+# Git-ignored: it's a machine-specific binary venv, not source. See bootstrap_pdfvenv.sh's
+# MIGRATION NOTE — this lives in-repo only while MetaProject is the build hub.
+.venv/
+__pycache__/
