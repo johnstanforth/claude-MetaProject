@@ -23,13 +23,14 @@ google-chrome --headless --no-sandbox --disable-gpu --virtual-time-budget=15000 
   --no-pdf-header-footer --print-to-pdf=/abs/out/<Name>.pdf file:///tmp/<project>-compendium.html
 ```
 
-## The three variants
+## The four variants
 
-All five scripts share the same CONFIG-block + design-system-CSS + cover/TOC machinery; they differ only in **how the section list is assembled**:
+All seven scripts share the same CONFIG-block + design-system-CSS + cover/TOC machinery; they differ only in **how the section list is assembled**:
 
 - **glob** (the canonical skill default) — sections come from a numeric `analysis-*.md` glob, preceded by a small `FRONT` list of front-matter docs (synthesis, research plan, dispatch manifest). Best for a uniform `analysis-NN.md` corpus.
 - **manifest** — sections come from an explicit `DOCS = [(filename, label), …]` block, and the script **fails loud** if any listed file is missing (so a built bundle is provably complete). Reach for it when a corpus mixes naming schemes a numeric glob can't order — e.g. `analysis-A01`, `claude-external-N`, `codex-*`, plus scorecards and triage docs.
 - **H2-split** — splits ONE chaptered Markdown "book" on its top-level `##` headings (fence-aware, so `#`-comment lines inside ` ``` ` code fences are never mistaken for headings), one section per chapter, so a single long document gets a real chapter-level TOC.
+- **book-tree** — walks a set of **book subdirectories** under one parent (`BOOKS = [(dir, num, title), …]`), each contributing its `README.md` as that book's *Contents*, then `00_preface.md`, then numbered `NN_*.md` chapters, into one nested TOC (`Book N · <title>` groups with indented `N.M · <chapter>` entries), optionally bracketed by a front-matter overview and an editorial appendix. Reach for it when the corpus is **several self-contained multi-chapter "books"** under one dir rather than a flat analysis set.
 
 ## Scripts here
 
@@ -41,6 +42,7 @@ All five scripts share the same CONFIG-block + design-system-CSS + cover/TOC mac
 | `dailyspikedriver_build_research_pdf.py` | FracRealHomes · DailySpikeDriver — Phase 00 landscape survey | **manifest** | 22 (pre-synthesis) |
 | `workgroups-devplan_build_research_pdf.py` | AIXO.Dev Workgroups — DEV_PLAN developer build guide | **H2-split** | 17 (overview + 16 chapters/appendices) |
 | `fuglysnippets_build_research_pdf.py` | MetaProject meta-research — Fugly-Snippets venture-precursor archaeology + GEN3-model question set | **H2-split** | 8 (overview + §1–§7) |
+| `gridtransmit_build_research_pdf.py` | GridTransmit legacy archaeology — 4-repo compendium (Go/Clojure/Django) for the SensoryMQ reboot | **book-tree** | 49 (overview + 4 books/43 chapters + editorial appendix) |
 
 ## Reusing one
 
