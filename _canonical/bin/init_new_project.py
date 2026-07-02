@@ -14,7 +14,9 @@ What it does:
      name becomes the directory name. (No git remote is configured --
      house rule is local-only; the URL is recorded in genesis.json for
      later manual use.)
-  3. mkdir ~/Code/<Org>/<repo>, rsync the canonical template in, `git init`.
+  3. mkdir ~/Code/<Org>/<repo> (a pre-existing target dir is allowed ONLY if
+     truly empty -- handy as a "location pin"; never scaffolds into a dir
+     with any content), rsync the canonical template in, `git init`.
   4. Collect the project manifest (identity + active techstack), with
      sensible defaults; write it to _research/genesis.json.
   5. Substitute every {{PLACEHOLDER}} across the instantiated files and
@@ -144,7 +146,13 @@ def scaffold(dest: Path, template_dir: Path, dry_run: bool) -> None:
     print(f"  git init {dest}")
     if dry_run:
         return
-    dest.mkdir(parents=True, exist_ok=False)
+    # Never clobber: proceed only into a nonexistent target or a truly-empty
+    # directory. Re-checked here at write time (not just at the pre-flight
+    # guard) -- the interactive manifest prompts can leave a long gap, and
+    # scaffold() must stay safe even if called directly.
+    if dest.exists() and (not dest.is_dir() or any(dest.iterdir())):
+        raise SystemExit(f"REFUSING to scaffold into existing non-empty or non-directory target: {dest}")
+    dest.mkdir(parents=True, exist_ok=True)
     rsync = shutil.which("rsync")
     if rsync:
         subprocess.run([rsync, "-a", f"{template_dir}/", f"{dest}/"], check=True)
@@ -217,9 +225,14 @@ def main() -> int:
     slug = ask("Repo / dir / short name", default=slug)
 
     dest = args.code_dir / org / slug
-    if dest.exists() and any(dest.iterdir()):
-        print(f"ERROR: target already exists and is non-empty: {dest}", file=sys.stderr)
-        return 1
+    if dest.exists():
+        if not dest.is_dir():
+            print(f"ERROR: target exists and is not a directory: {dest}", file=sys.stderr)
+            return 1
+        if any(dest.iterdir()):
+            print(f"ERROR: target dir already exists and is non-empty (hidden files count): {dest}", file=sys.stderr)
+            return 1
+        print(f"  note: target dir already exists and is empty -- will scaffold into it: {dest}")
 
     # 3. Manifest (identity + active techstack), with sensible defaults
     today = _dt.date.today()
