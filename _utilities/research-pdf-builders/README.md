@@ -25,7 +25,7 @@ google-chrome --headless --no-sandbox --disable-gpu --virtual-time-budget=15000 
 
 ## The four variants
 
-All eight scripts share the same CONFIG-block + design-system-CSS + cover/TOC machinery; they differ only in **how the section list is assembled**:
+All nine scripts share the same CONFIG-block + design-system-CSS + cover/TOC machinery; they differ only in **how the section list is assembled**:
 
 - **glob** (the canonical skill default) — sections come from a numeric `analysis-*.md` glob, preceded by a small `FRONT` list of front-matter docs (synthesis, research plan, dispatch manifest). Best for a uniform `analysis-NN.md` corpus.
 - **manifest** — sections come from an explicit `DOCS = [(filename, label), …]` block, and the script **fails loud** if any listed file is missing (so a built bundle is provably complete). Reach for it when a corpus mixes naming schemes a numeric glob can't order — e.g. `analysis-A01`, `claude-external-N`, `codex-*`, plus scorecards and triage docs.
@@ -44,6 +44,7 @@ All eight scripts share the same CONFIG-block + design-system-CSS + cover/TOC ma
 | `fuglysnippets_build_research_pdf.py` | MetaProject meta-research — Fugly-Snippets venture-precursor archaeology + GEN3-model question set | **H2-split** | 8 (overview + §1–§7) |
 | `gridtransmit_build_research_pdf.py` | GridTransmit legacy archaeology — 4-repo compendium (Go/Clojure/Django) for the SensoryMQ reboot | **book-tree** | 49 (overview + 4 books/43 chapters + editorial appendix) |
 | `rethinking-fable_build_research_pdf.py` | MetaProject · RETHINKING-Fable — the upgraded ULTIMATE_VISION portfolio knowledge base (KSVGPS graph-DB import source) | **manifest** (nested 2-group TOC) | 18 (overview + 6 knowledge-base docs 00–05 + 11 venture dossiers) |
+| `aixodev-collabs-a03_build_research_pdf.py` | aixodev-collabs (AIXO.Dev) — Phase 00 Research Activity 03: "Stateless Turns & the Agent-Native Group Chat" mini-book | **manifest** (nested 3-group TOC) | 12 (dispatch manifest + 10 chapters + sources appendix) |
 
 ## Reusing one
 
