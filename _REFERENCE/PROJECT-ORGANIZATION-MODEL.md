@@ -119,6 +119,14 @@ The FracRealHomes **Venture** may carry multiple **Product Lines** (consumer-dil
 
 This generalizes the **prototype → product convergence** chain (`ARCHITECTURE_CONVERGENCE.md`) — a different-stack succession between Build Lines is the proto-divia→Rust-divia pattern; a shared-stack clone-lineage is the kingstrat-cloned-from-proto-divia pattern. And it is the same reversible-vs-irreversible principle as the entity-model synthesis, at the portfolio scale.
 
+## Registered placements (per-repo registry — seeded 2026-07-02)
+
+The per-repo placement registry that `NEW_PROJECT_GUIDE.md` Step 7 defers to ("register it when John chooses"). Registration here is **opt-in and incremental** — backfilling the pre-existing repos is deliberately deferred while the standardization iterates; new projects get a row when John asks for one.
+
+| Repository | Venture / umbrella | On-disk placement | Scope / ceremony | Notes |
+|---|---|---|---|---|
+| `kingstrat-research` | Kingmaker Strategic Venture Partners LLC (`KingmakerStrategic/`) | `~/Code/KingmakerStrategic/kingstrat-research` | **playground** (`research=OFF`, daily-driver) | Python/Quart; experiments in organizing/unifying/mining the portfolio's accumulated research corpora; scaffolded 2026-07-02 from `_canonical/project-template` via `init_new_project.py`; `_projects/` symlink registered; product design pending (John+Claude discussion) |
+
 ## Status
 
 Model **v2** (2026-06-20); **ownership revised v2.1 (2026-06-23): the Venture owns Build-Lines / Product-Lines / Repositories; Build-Line ⇄ Repository and Techstack ⇄ Repository are M2M; Version-Release → [Build-Line→Stage] and Version-Release ⇄ Milestone; the standalone "Project" entity is retired; Ideas connect by non-owning edges.** Applies cross-venture. The graph-DB realization (scoped projections, feature-as-node modeling, Build-Envelope reuse) and the per-venture briefs are downstream work; the markdown **briefs in `_REFERENCE/ULTIMATE_VISION/` are the manual proto-version of that graph-DB** (see `PLAN-new-ventures-from-portfolio-knowledgebase.md`). This doc is the conceptual canon other docs reference.
