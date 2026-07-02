@@ -5,7 +5,7 @@
 ## What this is (and is not)
 
 - **A replacement, not a report card.** Every document presents the portfolio's knowledge directly, upgraded with cross-venture reasoning, 2026–2029 technology projection, and expanded ideation. The *only* backward references to the v0.1 corpus are the explicitly-labeled **Rejected / Flawed** call-outs (each with the repair that makes the idea viable).
-- **Consolidated by design.** 128 thin files became 19 dense ones: the venture/product split is merged into per-venture dossiers; the 61 IDEAS + 24 TOPICS nodes became one expanded ledger; the graph edges scattered across every file became one catalog. Fewer, denser documents are what a future reader (human or Fable) actually ingests well.
+- **Consolidated by design.** 128 thin files became 18 dense ones: the venture/product split is merged into per-venture dossiers; the 61 IDEAS + 24 TOPICS nodes became one expanded ledger; the graph edges scattered across every file became one catalog. Fewer, denser documents are what a future reader (human or Fable) actually ingests well.
 - **Canon-compatible.** Everything extends — never contradicts — [`../STRATEGIC-LANDSCAPE-MODEL.md`](../STRATEGIC-LANDSCAPE-MODEL.md) and [`../PROJECT-ORGANIZATION-MODEL.md`](../PROJECT-ORGANIZATION-MODEL.md) (two layers; the Venture owns; non-owning M2M side-ontology; bitemporal Version-Releases; `[DEALBREAKER-HOOK]`s).
 - **The v0.1 tree stays untouched** as the historical record and the provenance trail.
 
